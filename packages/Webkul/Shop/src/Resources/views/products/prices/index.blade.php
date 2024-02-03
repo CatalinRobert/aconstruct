@@ -6,11 +6,11 @@
         {{ $prices['regular']['formatted_price'] }}
     </p>
 
-    <p class="font-semibold">
+    <p class="font-semibold text-[#da0a0a]">
         {{ $prices['final']['formatted_price'] }}
     </p>
 @else
-    <p class="font-semibold">
+    <p class="font-semibold text-[#da0a0a]">
         {{ $prices['regular']['formatted_price'] }}
     </p>
 @endif
