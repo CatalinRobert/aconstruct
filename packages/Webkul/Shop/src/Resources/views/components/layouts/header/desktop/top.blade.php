@@ -31,7 +31,7 @@
     {!! view_render_event('bagisto.shop.components.layouts.header.desktop.top.currency_switcher.after') !!}
 
     <p class="text-xs font-medium">
-        Get UPTO 40% OFF on your 1st order <a href="{{ route('shop.home.index') }}" class="underline">SHOP NOW</a>
+        Consulta ofertele noastre si <b>COMANDA ACUM!</b> 
     </p>
 
     {!! view_render_event('bagisto.shop.components.layouts.header.desktop.top.locale_switcher.before') !!}
@@ -56,14 +56,14 @@
                     height="16"
                 />
                 
-                <span>
+   <!--             <span>
                     {{ core()->getCurrentChannel()->locales()->orderBy('name')->where('code', app()->getLocale())->value('name') }}
-                </span>
+                </span> -->
 
-                <span
+               <!-- <span
                     class="icon-arrow-down text-2xl"
                     role="presentation"
-                ></span>
+                ></span> -->
             </div>
         </x-slot>
     

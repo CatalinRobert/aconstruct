@@ -376,7 +376,7 @@
 
                                     <x-shop::button
                                         type="submit"
-                                        class="secondary-button w-full max-w-full"
+                                        class="secondary-button w-full max-w-full icon-cart"
                                         button-type="secondary-button"
                                         :loading="false"
                                         :title="trans('shop::app.products.view.add-to-cart')"
