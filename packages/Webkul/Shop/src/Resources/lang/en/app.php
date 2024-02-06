@@ -325,7 +325,7 @@ return [
                 'bagisto'           => 'Bagisto',
                 'cart'              => 'Cos',
                 'compare'           => 'Compara',
-                'dropdown-text'     => 'Manage Cart, Orders & Wishlist',
+                'dropdown-text'     => 'Vezi Cos, Comenzi & Favorite',
                 'logout'            => 'Logout',
                 'no-category-found' => 'No category found.',
                 'orders'            => 'Comenzi',
@@ -335,7 +335,7 @@ return [
                 'sign-in'           => 'Sign In',
                 'sign-up'           => 'Sign Up',
                 'title'             => 'Account',
-                'welcome'           => 'Welcome',
+                'welcome'           => 'Bine ai venit',
                 'welcome-guest'     => 'Welcome Guest',
                 'wishlist'          => 'Wishlist',
             ],
@@ -369,11 +369,11 @@ return [
                 ],
 
                 'filter' => [
-                    'title' => 'Filter',
+                    'title' => 'Filtreaza',
                 ],
 
                 'search' => [
-                    'title' => 'Search',
+                    'title' => 'Cauta',
                 ],
             ],
 
@@ -428,14 +428,14 @@ return [
 
         'products' => [
             'card' => [
-                'add-to-compare-success'      => 'Item added successfully to compare list.',
-                'already-in-compare'          => 'Item is already added to compare list.',
+                'add-to-compare-success'      => 'Produs adaugat cu succes pentru a-l compara.',
+                'already-in-compare'          => 'Produs deja adaugat in lista de comparare',
                 'add-to-cart'                 => 'Adauga in cos',
-                'add-to-wishlist'             => 'Add To Wishlist',
-                'add-to-compare'              => 'Add To Compare',
-                'new'                         => 'New',
+                'add-to-wishlist'             => 'Adauga la favorite',
+                'add-to-compare'              => 'Adauga la comparare',
+                'new'                         => 'Produs nou',
                 'review-description'          => 'Be the first to review this product',
-                'sale'                        => 'Sale',
+                'sale'                        => 'Pret redus',
             ],
 
             'carousel' => [
@@ -466,7 +466,7 @@ return [
     'products' => [
         'prices' => [
             'grouped' => [
-                'starting-at' => 'Starting at',
+                'starting-at' => 'Incepand de la',
             ],
 
             'configurable' => [
@@ -524,12 +524,12 @@ return [
             ],
 
             'add-to-cart'            => 'Adauga in cos',
-            'add-to-wishlist'        => 'Add To Wishlist',
-            'add-to-compare'         => 'Product added in compare.',
-            'already-in-compare'     => 'Product is already added in compare.',
+            'add-to-wishlist'        => 'Adauga la favorite',
+            'add-to-compare'         => 'Produs adaugat in lista de comparare.',
+            'already-in-compare'     => 'Produs deja adaugat in lista de comparare',
             'additional-information' => 'Additional Information',
-            'buy-now'                => 'Buy Now',
-            'compare'                => 'Compare',
+            'buy-now'                => 'Cumpara Acum',
+            'compare'                => 'Compara',
             'description'            => 'Description',
             'review'                 => 'Reviews',
             'related-product-title'  => 'Related Products',
