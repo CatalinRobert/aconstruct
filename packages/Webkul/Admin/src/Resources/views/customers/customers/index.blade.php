@@ -16,7 +16,7 @@
             <div class="flex gap-x-2.5 items-center">
                 <!-- Customer Create Vue Component -->
 
-                {!! view_render_event('admin.customers.customers.create.before') !!}
+                {!! view_render_event('bagisto.admin.customers.customers.create.before') !!}
 
                 <v-create-customer-form>
                     <button
@@ -27,7 +27,7 @@
                     </button>
                 </v-create-customer-form>
 
-                {!! view_render_event('admin.customers.customers.create.after') !!}
+                {!! view_render_event('bagisto.admin.customers.customers.create.after') !!}
 
             </div>
         </div>
@@ -400,14 +400,15 @@
                                             id="customerGroup"
                                             name="customer_group_id"
                                             :label="trans('admin::app.customers.customers.index.create.customer-group')"
+                                            ::value="groups[0]?.id"
                                         >
-                                            <option value="">
-                                                @lang('admin::app.customers.customers.index.create.select-customer-group')
+                                            <option 
+                                                v-for="group in groups" 
+                                                :value="group.id"
+                                                selected
+                                            > 
+                                                @{{ group.name }} 
                                             </option>
-                                            
-                                            @foreach ($groups as $group)
-                                                <option value="{{ $group->id }}"> {{ $group->name}} </option>
-                                            @endforeach
                                         </x-admin::form.control-group.control>
 
                                         <x-admin::form.control-group.error control-name="customer_group_id" />
@@ -440,9 +441,14 @@
             app.component('v-create-customer-form', {
                 template: '#v-create-customer-form-template',
 
+                data() {
+                    return {
+                        groups: @json($groups),
+                    };
+                },
+
                 methods: {
                     create(params, { resetForm, setErrors }) {
-
                         this.$axios.post("{{ route('admin.customers.customers.store') }}", params)
                             .then((response) => {
                                 this.$refs.customerCreateModal.close();

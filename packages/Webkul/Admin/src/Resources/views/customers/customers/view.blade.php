@@ -10,27 +10,11 @@
                 <p class="text-xl text-gray-800 dark:text-white font-bold leading-6">
                     {{ $customer->first_name . " " . $customer->last_name }}
                 </p>
-                
-                <div>
-                    <!-- Customer Status -->
-                    @if ($customer->status == 1)
-                        <span class="label-active text-sm mx-1.5">
-                            @lang('admin::app.customers.customers.view.active')
-                        </span>
-                    @else    
-                        <span class="label-canceled text-sm mx-1.5">
-                            @lang('admin::app.customers.customers.view.inactive')
-                        </span>
-                    @endif
 
-                    <!-- Customer Suspended Status -->
-                    @if ($customer->is_suspended == 1)
-                        <span class="label-canceled text-sm">
-                            @lang('admin::app.customers.customers.view.suspended')
-                        </span>
-                    @endif
+                <div>
+                    <v-customer-status />
                 </div>
-            </div>    
+            </div>
 
             <!-- Back Button -->
             <a
@@ -51,7 +35,7 @@
 
         <!-- Account Delete button -->
         @if (bouncer()->hasPermission('customers.customers.delete'))
-            <div 
+            <div
                 class="inline-flex gap-x-2 items-center justify-between w-full max-w-max px-1 py-1.5 text-gray-600 dark:text-gray-300 font-semibold text-center cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
                 @click="$emitter.emit('open-confirm-modal', {
                     message: '@lang('admin::app.customers.customers.view.account-delete-confirmation')',
@@ -66,9 +50,9 @@
                 @lang('admin::app.customers.customers.view.delete-account')
 
                 <!-- Delete Customer Account -->
-                <form 
+                <form
                     method="post"
-                    action="{{ route('admin.customers.customers.delete', $customer->id) }}" 
+                    action="{{ route('admin.customers.customers.delete', $customer->id) }}"
                     ref="delete-account"
                 >
                     @csrf
@@ -95,7 +79,7 @@
                         <!-- Total Order Count -->
                         <p class="text-base text-gray-800 leading-none dark:text-white font-semibold">
                             @lang('admin::app.customers.customers.view.orders', ['order_count' => $totalOrderCount])
-                        </p>    
+                        </p>
 
                         @php
                             $revenue = core()->formatBasePrice($orders->get()
@@ -125,7 +109,7 @@
 
                                             @switch($order->status)
                                                 @case('processing')
-                                                    <p class="label-active">
+                                                    <p class="label-processing">
                                                         @lang('admin::app.customers.customers.view.processing')
                                                     </p>
                                                     @break
@@ -164,7 +148,7 @@
                                             {{ core()->formatBasePrice($order->base_grand_total ) }}
                                         </p>
 
-                                        <!-- Payment methods -->   
+                                        <!-- Payment methods -->
                                         <p class="text-gray-600 dark:text-gray-300">
                                             @lang('admin::app.customers.customers.view.pay-by', ['payment_method' => core()->getConfigData('sales.payment_methods.' . $order->payment->method . '.title')])
                                         </p>
@@ -172,7 +156,7 @@
                                         <!-- Channel Code -->
                                         <p class="text-gray-600 dark:text-gray-300">
                                             {{ $order?->channel_name }}
-                                        </p>                                        
+                                        </p>
                                     </div>
 
                                     <!-- Order Address Details -->
@@ -196,13 +180,13 @@
                                                     ->filter(fn ($string) =>! empty($string))
                                                     ->join(', ')
                                                 }}
-                                            </p>                                        
+                                            </p>
                                         </div>
                                     @endif
                                 </div>
 
-                                <a 
-                                    href="{{ route('admin.sales.orders.view', $order->id) }}" 
+                                <a
+                                    href="{{ route('admin.sales.orders.view', $order->id) }}"
                                     class="icon-sort-right text-2xl ltr:ml-1 rtl:mr-1 p-1.5 rounded-md cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800"
                                 >
                                 </a>
@@ -222,25 +206,25 @@
                             >
                                 {{ $pagination['per_page'] }}
                             </div>
-    
+
                             <span class="text-gray-600 dark:text-gray-300 whitespace-nowrap">
                                 @lang('admin::app.customers.customers.view.per-page')
                             </span>
-    
+
                             <p
                                 class="inline-flex gap-x-1 items-center justify-between ltr:ml-2 rtl:mr-2 text-gray-600 dark:text-gray-300 py-1.5 px-2 leading-6 text-center w-full max-w-max bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-md marker:shadow appearance-none focus:ring-2 focus:outline-none focus:ring-black max-sm:hidden"
                             >
                                 {{ $pagination['current_page'] }}
                             </p>
-    
+
                             <span class="text-gray-600 dark:text-gray-300 whitespace-nowrap">
                                 @lang('admin::app.customers.customers.view.of')
                             </span>
-    
+
                             <span class="text-gray-600 dark:text-gray-300 whitespace-nowrap">
                                 {{ $pagination['last_page'] }}
                             </span>
-    
+
                             <!-- Prev & Next Page Button -->
                             <div class="flex gap-1 items-center">
                                 <a href="{{ $pagination['first_page_url'] }}">
@@ -248,7 +232,7 @@
                                         <span class="icon-sort-left text-2xl"></span>
                                     </div>
                                 </a>
-    
+
                                 <a href="{{ $pagination['next_page_url'] }}">
                                     <div class="inline-flex gap-x-1 items-center justify-between ltr:ml-2 rtl:mr-2 text-gray-600 dark:text-gray-300 p-1.5 text-center w-full max-w-max bg-white dark:bg-gray-900 border rounded-md dark:border-gray-800 cursor-pointer transition-all hover:border hover:bg-gray-100 dark:hover:bg-gray-950 marker:shadow appearance-none focus:ring-2 focus:outline-none focus:ring-black">
                                         <span class="icon-sort-right text-2xl"></span>
@@ -258,7 +242,7 @@
                         </div>
                     @endif
                 @else
-                    <!-- Empty Container --> 
+                    <!-- Empty Container -->
                     <div class="p-4 flex justify-between">
                         <p class="text-base text-gray-800 leading-none dark:text-white font-semibold">
                             @lang('admin::app.customers.customers.view.orders', ['order_count' => $totalOrderCount])
@@ -275,7 +259,7 @@
                             />
 
                             <div class="flex flex-col items-center">
-                                <p class="text-base text-gray-400 font-semibold"> 
+                                <p class="text-base text-gray-400 font-semibold">
                                     @lang('admin::app.customers.customers.view.empty-order')
                                 </p>
                             </div>
@@ -302,7 +286,7 @@
                             <thead class="text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
                                 <tr>
                                     @foreach (['invoice-id', 'invoice-date', 'invoice-amount', 'order-id'] as $item)
-                                        <th scope="col" class="px-6 py-4 font-semibold"> 
+                                        <th scope="col" class="px-6 py-4 font-semibold">
                                             @lang('admin::app.customers.customers.view.' . $item)
                                         </th>
                                     @endforeach
@@ -331,7 +315,7 @@
 
                                         <td class="text-center">
                                             <a 
-                                                href="{{ route('admin.sales.invoices.view', $invoice->id) }}" 
+                                                href="{{ route('admin.sales.invoices.view', $invoice->id) }}"
                                                 class="icon-sort-right text-2xl ltr:ml-1 rtl:mr-1 p-1.5 rounded-md cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800"
                                                 role="presentation"
                                             >
@@ -359,7 +343,7 @@
                             />
 
                             <div class="flex flex-col items-center">
-                                <p class="text-base text-gray-400 font-semibold"> 
+                                <p class="text-base text-gray-400 font-semibold">
                                     @lang('admin::app.customers.customers.view.empty-invoice')
                                 </p>
                             </div>
@@ -421,7 +405,7 @@
                                 <div class="flex flex-col gap-1.5">
                                     <!-- need to update shivendra-webkul -->
                                     <div class="flex">
-                                        <x-admin::star-rating 
+                                        <x-admin::star-rating
                                             :is-editable="false"
                                             :value="$review->rating"
                                         />
@@ -477,7 +461,7 @@
                             />
 
                             <div class="flex flex-col items-center">
-                                <p class="text-base text-gray-400 font-semibold"> 
+                                <p class="text-base text-gray-400 font-semibold">
                                    @lang('admin::app.customers.customers.view.empty-review')
                                 </p>
                             </div>
@@ -485,7 +469,7 @@
                     </div>
                 @endif
             </div>
-          
+
             {!! view_render_event('bagisto.admin.customers.customers.view.card.reviews.after') !!}
 
             {!! view_render_event('bagisto.admin.customers.customers.view.card.notes.before') !!}
@@ -496,7 +480,7 @@
                     @lang('admin::app.customers.customers.view.add-note')
                 </p>
 
-                <x-admin::form 
+                <x-admin::form
                     :action="route('admin.customer.note.store', $customer->id)"
                 >
                     <div class="p-4">
@@ -505,7 +489,7 @@
                             <x-admin::form.control-group.control
                                 type="textarea"
                                 id="note"
-                                name="note" 
+                                name="note"
                                 rules="required"
                                 :label="trans('admin::app.customers.customers.view.note')"
                                 :placeholder="trans('admin::app.customers.customers.view.note-placeholder')"
@@ -516,25 +500,25 @@
                         </x-admin::form.control-group>
 
                         <div class="flex justify-between items-center">
-                            <label 
+                            <label
                                 class="flex gap-1 w-max items-center p-1.5 cursor-pointer select-none"
                                 for="customer_notified"
                             >
-                                <input 
-                                    type="checkbox" 
+                                <input
+                                    type="checkbox"
                                     name="customer_notified"
                                     id="customer_notified"
                                     value="1"
                                     class="hidden peer"
                                 >
-                    
+
                                 <span class="icon-uncheckbox rounded-md text-2xl cursor-pointer peer-checked:icon-checked peer-checked:text-blue-600"></span>
-                    
+
                                 <p class="flex gap-x-1 items-center cursor-pointer text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 font-semibold">
                                     @lang('admin::app.customers.customers.view.notify-customer')
                                 </p>
                             </label>
-                            
+
                             <!--Note Submit Button -->
                             <button
                                 type="submit"
@@ -544,7 +528,7 @@
                             </button>
                         </div>
                     </div>
-                </x-admin::form> 
+                </x-admin::form>
 
                 <!-- Notes List -->
                 <span class="block w-full border-b dark:border-gray-800"></span>
@@ -558,7 +542,7 @@
                         <!-- Notes List Title and Time -->
                         <p class="flex gap-2 text-gray-600 dark:text-gray-300 items-center">
                             @if ($note->customer_notified)
-                                <span class="h-fit text-2xl rounded-full icon-done text-blue-600 bg-blue-100"></span>  
+                                <span class="h-fit text-2xl rounded-full icon-done text-blue-600 bg-blue-100"></span>
 
                                 @lang('admin::app.customers.customers.view.customer-notified', ['date' => core()->formatDate($note->created_at, 'Y-m-d H:i:s a')])
                             @else
@@ -583,48 +567,9 @@
             {!! view_render_event('bagisto.admin.customers.customers.view.card.accordion.customer.before') !!}
 
             <!-- Information -->
-            <x-admin::accordion>
-                <x-slot:header>
-                    <div class="flex w-full">
-                        <p class="w-full p-2.5 text-gray-800 dark:text-white text-base  font-semibold">
-                            @lang('admin::app.customers.customers.view.customer')
-                        </p>
-    
-                        <!--Customer Edit Component -->
-                       @include('admin::customers.customers.edit', ['groups' => $groups])
-                    </div>
-                </x-slot>
-
-                <x-slot:content>
-                    <div class="grid gap-y-2.5">
-                        <p class="text-gray-800 font-semibold dark:text-white">
-                            {{ $customer->first_name . " " . $customer->last_name }}
-                        </p>
-
-                        <p class="text-gray-600 dark:text-gray-300">
-                            @lang('admin::app.customers.customers.view.email', ['email' => $customer->email])
-                        </p>
-
-                        <p class="text-gray-600 dark:text-gray-300">
-                            @lang('admin::app.customers.customers.view.phone', ['phone' => $customer->phone ?? 'N/A'])
-                        </p>
-
-                        <p class="text-gray-600 dark:text-gray-300">
-                            @lang('admin::app.customers.customers.view.gender', ['gender' => $customer->gender ?? 'N/A'])
-                        </p>
-
-                        <p class="text-gray-600 dark:text-gray-300">
-                            @lang('admin::app.customers.customers.view.date-of-birth', ['dob' => $customer->date_of_birth ?? 'N/A'])
-                        </p>
-                        
-                        <p class="text-gray-600 dark:text-gray-300">
-                            @lang('admin::app.customers.customers.view.group', ['group_code' => $customer->group->name ?? 'N/A'])
-                        </p>
-                    </div>
-                </x-slot>
-            </x-admin::accordion> 
-
             {!! view_render_event('bagisto.admin.customers.customers.view.card.accordion.customer.after') !!}
+
+            <v-customer-details ref="customerDetails"></v-customer-details>
 
             {!! view_render_event('bagisto.admin.customers.customers.view.card.accordion.address.before') !!}
 
@@ -672,13 +617,18 @@
                                     @lang('admin::app.customers.customers.view.phone', ['phone' => $address->phone ?? 'N/A'])
                                 </p>
 
+                                <!-- E-mail -->
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    @lang('admin::app.customers.customers.view.email', ['email' => $address->email ?? 'N/A'])
+                                </p>
+
                                 <div class="flex gap-2.5">
                                     <!-- Edit Address -->
                                     @include('admin::customers.addresses.edit')
 
                                     <!-- Delete Address -->
                                     @if (bouncer()->hasPermission('customers.addresses.delete'))
-                                        <p 
+                                        <p
                                             class="text-blue-600 cursor-pointer transition-all hover:underline"
                                             @click="$emitter.emit('open-confirm-modal', {
                                                 message: '@lang('admin::app.customers.customers.view.address-delete-confirmation')',
@@ -691,10 +641,10 @@
                                             @lang('admin::app.customers.customers.view.delete')
                                         </p>
 
-                                        <form 
+                                        <form
                                             method="post"
                                             action="{{ route('admin.customers.customers.addresses.delete', $address->id) }}"
-                                            ref="delete-address-{{ $address->id }}" 
+                                            ref="delete-address-{{ $address->id }}"
                                         >
                                             @csrf
                                         </form>
@@ -702,7 +652,7 @@
 
                                     <!-- Set Default Address -->
                                     @if (! $address->default_address )
-                                        <p 
+                                        <p
                                             class="text-blue-600 cursor-pointer transition-all hover:underline"
                                             onclick="event.preventDefault();
                                             document.getElementById('default-address{{ $address->id }}').submit();"
@@ -714,7 +664,7 @@
                                             class="hidden"
                                             method="post"
                                             action="{{ route('admin.customers.customers.addresses.set_default', $customer->id) }}" 
-                                            id="default-address{{ $address->id }}" 
+                                            id="default-address{{ $address->id }}"
                                         >
                                             @csrf
 
@@ -727,12 +677,12 @@
                                     @endif
                                 </div>
                             </div>
-                            
+
                             @if ($index < count($customer->addresses) - 1)
                                 <span class="block w-full mb-4 mt-4 border-b dark:border-gray-800"></span>
                             @endif
                         @endforeach
-                    @else    
+                    @else
                         <!-- Empty Address Container -->
                         <div class="flex gap-5 items-center py-2.5">
                             <img
@@ -758,4 +708,129 @@
 
         </div>
     </div>
+
+    @pushOnce('scripts')
+        <script
+            type="text/x-template"
+            id="v-customer-details-template"
+        >
+           <div>
+                <x-admin::accordion ref="customerData">
+                    <x-slot:header>
+                        <div class="flex w-full">
+                            <p class="w-full p-2.5 text-gray-800 dark:text-white text-base  font-semibold">
+                                @lang('admin::app.customers.customers.view.customer')
+                            </p>
+
+                            <!--Customer Edit Component -->
+                            @include('admin::customers.customers.edit')
+                        </div>
+                    </x-slot:header>
+
+                    <x-slot:content>
+                        <div class="grid gap-y-2.5">
+                            <p class="text-gray-800 font-semibold dark:text-white">
+                                @{{ customer.first_name + ' ' + customer.last_name }}
+                            </p>
+
+                            <p class="text-gray-600 dark:text-gray-300">
+                                @{{ "@lang('admin::app.customers.customers.view.email')".replace(':email', customer.email) }}
+                            </p>
+
+                            <p class="text-gray-600 dark:text-gray-300">
+                                @{{ "@lang('admin::app.customers.customers.view.phone')".replace(':phone', customer.phone) }}
+                            </p>
+
+                            <p class="text-gray-600 dark:text-gray-300">
+                                @{{ "@lang('admin::app.customers.customers.view.gender')".replace(':gender', customer.gender ?? 'N/A') }}
+                            </p>
+
+                            <p class="text-gray-600 dark:text-gray-300">
+                                @{{ "@lang('admin::app.customers.customers.view.date-of-birth')".replace(':dob', customer.date_of_birth ?? 'N/A') }}
+                            </p>
+
+                            <p class="text-gray-600 dark:text-gray-300">
+                                @{{ "@lang('admin::app.customers.customers.view.group')".replace(':group_code', customer.group?.name ?? 'N/A') }}
+                            </p>
+                        </div>
+                    </x-slot:content>
+                </x-admin::accordion>
+           </div>
+        </script>
+
+        <script
+            type="text/x-template"
+            id="v-customer-status-template"
+        >
+            <!-- Customer Status -->
+            <template v-if="customer">
+                <span
+                    v-if="customer.status == 1"
+                    class="label-active text-sm mx-1.5"
+                >
+                    @lang('admin::app.customers.customers.view.active')
+                </span>
+
+                <span
+                    v-else
+                    class="label-canceled text-sm mx-1.5"
+                >
+                    @lang('admin::app.customers.customers.view.inactive')
+                </span>
+
+                <!-- Customer Suspended Status -->
+                <span
+                    v-if="customer.is_suspended"
+                    class="label-canceled text-sm"
+                >
+                    @lang('admin::app.customers.customers.view.suspended')
+                </span>
+            </template>
+        </script>
+
+        <script type="module">
+            app.component('v-customer-status', {
+                template: '#v-customer-status-template',
+
+                data() {
+                    return {
+                        customer: null,
+                    };
+                },
+
+                created() {
+                    this.$emitter.on('customer-update', (customer) => this.customer = customer);
+                },
+            })
+        </script>
+
+        <script type="module">
+            app.component('v-customer-details', {
+                template: '#v-customer-details-template',
+
+                data() {
+                    return {
+                        customer: {},
+                    };
+                },
+
+                mounted() {
+                    this.get();
+                },
+
+                methods: {
+                    get() {
+                        this.$axios.get('{{ route('admin.customers.customers.view', $customer->id) }}')
+                            .then((response) => {
+                                this.customer = response.data.customer;
+
+                                this.$emitter.emit('customer-update', this.customer);
+                            })
+                            .catch((error) => {
+                            });
+                    }
+                }
+            })
+        </script>
+    @endPushOnce
 </x-admin::layouts>

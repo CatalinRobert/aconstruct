@@ -1,9 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Webkul\Core\Models\SubscribersList;
 use Webkul\Customer\Models\CompareItem;
 use Webkul\Faker\Helpers\Product as ProductFaker;
+use Webkul\Shop\Mail\Customer\SubscriptionNotification;
 
 use function Pest\Laravel\deleteJson;
 use function Pest\Laravel\get;
@@ -17,37 +19,37 @@ it('returns a successful response', function () {
 
 it('displays the current currency code and channel code', function () {
     // Act
-    $resonse = get(route('shop.home.index'));
+    $response = get(route('shop.home.index'));
 
     // Assert
-    $resonse->assertOk();
+    $response->assertOk();
 
     /**
      * We avoid using the `assertSeeText` method of the response because it may sometimes
      * produce false positive results when dealing with large DOM sizes.
      */
-    expect(Str::contains($resonse->content(), core()->getCurrentChannelCode()))
+    expect(Str::contains($response->content(), core()->getCurrentChannelCode()))
         ->toBeTruthy();
 
-    expect(Str::contains($resonse->content(), core()->getCurrentCurrencyCode()))
+    expect(Str::contains($response->content(), core()->getCurrentCurrencyCode()))
         ->toBeTruthy();
 });
 
 it('displays the "Sign In" and "Sign Up" buttons when the customer is not logged in', function () {
     // Act
-    $resonse = get(route('shop.home.index'));
+    $response = get(route('shop.home.index'));
 
     // Assert
-    $resonse->assertOk();
+    $response->assertOk();
 
     /**
      * We avoid using the `assertSeeText` method of the response because it may sometimes
      * produce false positive results when dealing with large DOM sizes.
      */
-    expect(Str::contains($resonse->content(), trans('shop::app.components.layouts.header.sign-in')))
+    expect(Str::contains($response->content(), trans('shop::app.components.layouts.header.sign-in')))
         ->toBeTruthy();
 
-    expect(Str::contains($resonse->content(), trans('shop::app.components.layouts.header.sign-up')))
+    expect(Str::contains($response->content(), trans('shop::app.components.layouts.header.sign-up')))
         ->toBeTruthy();
 });
 
@@ -55,25 +57,25 @@ it('displays navigation buttons when the customer is logged in', function () {
     // Act
     $this->loginAsCustomer();
 
-    $resonse = get(route('shop.home.index'));
+    $response = get(route('shop.home.index'));
 
     // Assert
-    $resonse->assertOk();
+    $response->assertOk();
 
     /**
      * We avoid using the `assertSeeText` method of the response because it may sometimes
      * produce false positive results when dealing with large DOM sizes.
      */
-    expect(Str::contains($resonse->content(), trans('shop::app.components.layouts.header.profile')))
+    expect(Str::contains($response->content(), trans('shop::app.components.layouts.header.profile')))
         ->toBeTruthy();
 
-    expect(Str::contains($resonse->content(), trans('shop::app.components.layouts.header.orders')))
+    expect(Str::contains($response->content(), trans('shop::app.components.layouts.header.orders')))
         ->toBeTruthy();
 
-    expect(Str::contains($resonse->content(), trans('shop::app.components.layouts.header.wishlist')))
+    expect(Str::contains($response->content(), trans('shop::app.components.layouts.header.wishlist')))
         ->toBeTruthy();
 
-    expect(Str::contains($resonse->content(), trans('shop::app.components.layouts.header.logout')))
+    expect(Str::contains($response->content(), trans('shop::app.components.layouts.header.logout')))
         ->toBeTruthy();
 });
 
@@ -120,6 +122,13 @@ it('should returns the search page of the products', function () {
         ->assertSeeText(trans('shop::app.search.title', ['query' => $query]));
 });
 
+it('should fails the validation error when provided wrong email address when subscribe to the shop', function () {
+    // Act and Assert
+    postJson(route('shop.subscription.store'))
+        ->assertJsonValidationErrorFor('email')
+        ->assertUnprocessable();
+});
+
 it('should store the subscription of the shop', function () {
     // Act and Assert
     postJson(route('shop.subscription.store'), [
@@ -135,6 +144,29 @@ it('should store the subscription of the shop', function () {
             ],
         ],
     ]);
+});
+
+it('should store the subscription of the shop and send the mail to the admin', function () {
+    // Act and Assert
+    Mail::fake();
+
+    postJson(route('shop.subscription.store'), [
+        'email' => $email = fake()->email(),
+    ])
+        ->assertRedirect();
+
+    $this->assertModelWise([
+        SubscribersList::class => [
+            [
+                'email'         => $email,
+                'is_subscribed' => 1,
+            ],
+        ],
+    ]);
+
+    Mail::assertQueued(SubscriptionNotification::class);
+
+    Mail::assertQueuedCount(1);
 });
 
 it('should unsubscribe from the shop', function () {
@@ -185,6 +217,15 @@ it('should store the products to the compare list', function () {
     ])
         ->assertOk()
         ->assertSeeText(trans('shop::app.compare.item-add-success'));
+});
+
+it('should fails the validation error when not provided product id when move the compare list item', function () {
+    // Act and Assert
+    $this->loginAsCustomer();
+
+    postJson(route('shop.api.compare.store'))
+        ->assertJsonValidationErrorFor('product_id')
+        ->assertUnprocessable();
 });
 
 it('should remove product from compare list', function () {

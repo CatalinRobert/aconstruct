@@ -144,6 +144,20 @@ class ProductRepository extends Repository
      */
     public function findBySlug($slug)
     {
+        if (core()->getConfigData('catalog.products.storefront.search_mode') == 'elastic') {
+            request()->query->add(['url_key' => $slug]);
+
+            $indices = $this->elasticSearchRepository->search(null, [
+                'type'  => '',
+                'from'  => 0,
+                'limit' => 1,
+                'sort'  => 'id',
+                'order' => 'desc',
+            ]);
+
+            return $this->find(current($indices['ids']));
+        }
+
         return $this->findByAttributeCode('url_key', $slug);
     }
 
@@ -155,7 +169,7 @@ class ProductRepository extends Repository
      */
     public function findBySlugOrFail($slug)
     {
-        $product = $this->findByAttributeCode('url_key', $slug);
+        $product = $this->findBySlug($slug);
 
         if (! $product) {
             throw (new ModelNotFoundException)->setModel(
@@ -330,14 +344,7 @@ class ProductRepository extends Repository
                     }
                 });
 
-                /**
-                 * This is key! if a product has been filtered down to the same number of attributes that we filtered on,
-                 * we know that it has matched all of the requested filters.
-                 *
-                 * To Do (@devansh): Need to monitor this.
-                 */
                 $qb->groupBy('products.id');
-                $qb->havingRaw('COUNT(*) = '.count($attributes));
             }
 
             /**
@@ -373,36 +380,9 @@ class ProductRepository extends Repository
             return $qb->groupBy('products.id');
         });
 
-        /**
-         * Apply scope query so we can fetch the raw sql and perform a count.
-         */
-        $query->applyScope();
-
-        $countQuery = clone $query->model;
-
-        $count = collect(
-            DB::select("select count(id) as aggregate from ({$countQuery->select('products.id')->reorder('products.id')->toSql()}) c",
-                $countQuery->getBindings())
-        )->pluck('aggregate')->first();
-
-        $items = [];
-
         $limit = $this->getPerPageLimit($params);
 
-        $currentPage = Paginator::resolveCurrentPage('page');
-
-        if ($count > 0) {
-            $query->scopeQuery(function ($query) use ($currentPage, $limit) {
-                return $query->forPage($currentPage, $limit);
-            });
-
-            $items = $query->get();
-        }
-
-        return new LengthAwarePaginator($items, $count, $limit, $currentPage, [
-            'path'  => request()->url(),
-            'query' => request()->query(),
-        ]);
+        return $query->paginate($limit);
     }
 
     /**
@@ -455,8 +435,7 @@ class ProductRepository extends Repository
         $results = new LengthAwarePaginator($items, $indices['total'], $limit, $currentPage, [
             'path'  => request()->url(),
             'query' => request()->query(),
-        ]
-        );
+        ]);
 
         return $results;
     }

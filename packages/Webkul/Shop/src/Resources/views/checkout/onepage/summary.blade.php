@@ -1,7 +1,6 @@
 {!! view_render_event('bagisto.shop.checkout.cart.summary.before') !!}
 
 <v-cart-summary
-    ref="vCartSummary"
     :cart="cart"
     :is-cart-loading="isCartLoading"
 >
@@ -15,7 +14,7 @@
         id="v-cart-summary-template"
     >
         <template v-if="isCartLoading">
-            <!-- onepage Summary Shimmer Effect -->
+            <!-- Onepage Summary Shimmer Effect -->
             <x-shop::shimmer.checkout.onepage.cart-summary />
         </template>
 
@@ -24,13 +23,13 @@
                 <h1 class="text-2xl font-medium max-sm:text-xl">
                     @lang('shop::app.checkout.onepage.summary.cart-summary')
                 </h1>
-                
+
                 <div class="grid mt-10 border-b border-[#E9E9E9] max-sm:mt-5">
-                    <div 
+                    <div
                         class="flex gap-x-4 pb-5"
                         v-for="item in cart.items"
                     >
-                    
+
                         {!! view_render_event('bagisto.shop.checkout.onepage.summary.item_image.before') !!}
 
                         <img
@@ -46,8 +45,8 @@
                         <div>
                             {!! view_render_event('bagisto.shop.checkout.onepage.summary.item_name.before') !!}
 
-                            <p 
-                                class="text-base text-navyBlue max-sm:text-sm max-sm:font-medium" 
+                            <p
+                                class="text-base text-navyBlue max-sm:text-sm max-sm:font-medium"
                                 v-text="item.name"
                             >
                             </p>
@@ -70,7 +69,7 @@
                             @lang('shop::app.checkout.onepage.summary.sub-total')
                         </p>
 
-                        <p 
+                        <p
                             class="text-base font-medium max-sm:text-sm"
                             v-text="cart.base_sub_total"
                         >
@@ -82,7 +81,7 @@
 
                     {!! view_render_event('bagisto.shop.checkout.onepage.summary.tax.before') !!}
 
-                    <div 
+                    <div
                         class="flex text-right justify-between"
                         v-for="(amount, index) in cart.base_tax_amounts"
                         v-if="parseFloat(cart.base_tax_total)"
@@ -91,7 +90,7 @@
                             @lang('shop::app.checkout.onepage.summary.tax') (@{{ index }})%
                         </p>
 
-                        <p 
+                        <p
                             class="text-base font-medium max-sm:text-sm"
                             v-text="amount"
                         >
@@ -102,7 +101,7 @@
 
                     {!! view_render_event('bagisto.shop.checkout.onepage.summary.delivery_charges.before') !!}
 
-                    <div 
+                    <div
                         class="flex text-right justify-between"
                         v-if="cart.selected_shipping_rate"
                     >
@@ -110,7 +109,7 @@
                             @lang('shop::app.checkout.onepage.summary.delivery-charges')
                         </p>
 
-                        <p 
+                        <p
                             class="text-base font-medium"
                             v-text="cart.selected_shipping_rate"
                         >
@@ -121,7 +120,7 @@
 
                     {!! view_render_event('bagisto.shop.checkout.onepage.summary.discount_amount.before') !!}
 
-                    <div 
+                    <div
                         class="flex text-right justify-between"
                         v-if="cart.base_discount_amount && parseFloat(cart.base_discount_amount) > 0"
                     >
@@ -129,7 +128,7 @@
                             @lang('shop::app.checkout.onepage.summary.discount-amount')
                         </p>
 
-                        <p 
+                        <p
                             class="text-base font-medium"
                             v-text="cart.formatted_base_discount_amount"
                         >
@@ -151,7 +150,7 @@
                             @lang('shop::app.checkout.onepage.summary.grand-total')
                         </p>
 
-                        <p 
+                        <p
                             class="text-lg font-semibold"
                             v-text="cart.base_grand_total"
                         >
@@ -177,11 +176,21 @@
                         {!! view_render_event('bagisto.shop.checkout.onepage.summary.place_order_button.before') !!}
 
                         <x-shop::button
+                            v-if="!isLoading"
+                            type="button"
                             class="primary-button w-max py-3 px-11 bg-navyBlue rounded-2xl max-sm:text-sm max-sm:px-6 max-sm:mb-10"
                             :title="trans('shop::app.checkout.onepage.summary.place-order')"
                             :loading="false"
-                            ref="placeOrder"
                             @click="placeOrder"
+                        />
+
+                        <x-shop::button
+                            type="button"
+                            class="primary-button w-max py-3 px-11 bg-navyBlue rounded-2xl max-sm:text-sm max-sm:px-6 max-sm:mb-10"
+                            v-else
+                            :title="trans('shop::app.checkout.onepage.summary.place-order')"
+                            :loading="true"
+                            :disabled="true"
                         />
 
                         {!! view_render_event('bagisto.shop.checkout.onepage.summary.place_order_button.after') !!}
@@ -194,7 +203,7 @@
     <script type="module">
         app.component('v-cart-summary', {
             template: '#v-cart-summary-template',
-            
+
             props: ['cart', 'isCartLoading'],
 
             data() {
@@ -207,9 +216,15 @@
                 }
             },
 
+            mounted() {
+                this.$emitter.on('can-place-order', (value) => this.canPlaceOrder = value);
+
+                this.$emitter.on('after-payment-method-selected', (value) => this.selectedPaymentMethod = value);
+            },
+
             methods: {
                 placeOrder() {
-                    this.$refs.placeOrder.isLoading = true;
+                    this.isLoading = true;
 
                     this.$axios.post('{{ route('shop.checkout.onepage.orders.store') }}')
                         .then(response => {
@@ -219,12 +234,9 @@
                                 window.location.href = '{{ route('shop.checkout.onepage.success') }}';
                             }
 
-                            this.$refs.placeOrder.isLoading = false;
-
+                            this.isLoading = false;
                         })
-                        .catch(error => {
-                            this.$refs.placeOrder.isLoading = false;
-                        });
+                        .catch(error => this.isProcessing = false);
                 },
             },
         });

@@ -60,9 +60,9 @@
             id="v-checkout-template"
         >
             <div class="grid grid-cols-[1fr_auto] gap-8 max-lg:grid-cols-[1fr]">
-                <div    
+                <div
                     class="overflow-y-auto"
-                    ref="scrollBottom"
+                    id="scrollBottom"
                 >
                     {!! view_render_event('bagisto.shop.checkout.onepage.addresses.before') !!}
 
@@ -82,7 +82,7 @@
 
                     {!! view_render_event('bagisto.shop.checkout.onepage.payment_method.before') !!}
                 </div>
-                
+
                 @include('shop::checkout.onepage.summary')
             </div>
         </script>
@@ -93,15 +93,17 @@
 
                 data() {
                     return {
-                        cart: {},
+                        cart: null,
 
                         isCartLoading: true,
                     }
                 },
 
-                created() {
+                mounted() {
                     this.getOrderSummary();
-                }, 
+
+                    this.$emitter.on('update-cart-summary', this.getOrderSummary);
+                },
 
                 methods: {
                     getOrderSummary() {
@@ -111,7 +113,7 @@
 
                                 this.isCartLoading = false;
 
-                                let container = this.$refs.scrollBottom;
+                                let container = document.getElementById('scrollBottom');
 
                                 if (container) {
                                     container.scrollIntoView({
@@ -120,7 +122,7 @@
                                     });
                                 }
                             })
-                            .catch(error => console.log(error));
+                            .catch(error => {});
                     },
                 },
             });
