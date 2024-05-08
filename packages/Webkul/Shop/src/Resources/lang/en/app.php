@@ -416,8 +416,6 @@ return [
                 'length-of' => ':length of',
                 'results'   => ':total Results',
                 'selected'  => ':total Selected',
-                'filter' => [
-                    'title' => 'Filtreaza',
                 'mass-actions' => [
                     'must-select-a-mass-action'        => 'You must select a mass action.',
                     'must-select-a-mass-action-option' => 'You must select a mass action\'s option.',
