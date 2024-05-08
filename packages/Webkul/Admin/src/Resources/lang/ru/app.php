@@ -36,6 +36,8 @@ return [
         'description-text' => 'Все уведомления в списке',
         'marked-success'   => 'Уведомление успешно помечено',
         'no-record'        => 'Нет записей',
+        'of'               => 'из',
+        'per-page'         => 'На странице',
         'read-all'         => 'Пометить все как прочитанные',
         'title'            => 'Уведомления',
         'view-all'         => 'Просмотреть все',
@@ -47,15 +49,6 @@ return [
             'pending'         => 'Заказ в ожидании',
             'pending-payment' => 'Ожидается оплата',
             'processing'      => 'Заказ в обработке',
-        ],
-
-        'status' => [
-            'all'        => 'Все',
-            'canceled'   => 'Отменен',
-            'closed'     => 'Закрыт',
-            'completed'  => 'Завершен',
-            'pending'    => 'В ожидании',
-            'processing' => 'В обработке',
         ],
     ],
 
@@ -134,7 +127,16 @@ return [
     'sales' => [
         'orders' => [
             'index' => [
-                'title' => 'Заказы',
+                'create-btn' => 'Создать заказ',
+                'title'      => 'Заказы',
+
+                'search-customer' => [
+                    'create-btn'  => 'Создать клиента',
+                    'empty-info'  => 'Нет доступных клиентов для данного поискового запроса.',
+                    'empty-title' => 'Клиенты не найдены',
+                    'search-by'   => 'Поиск по электронной почте или имени',
+                    'title'       => 'Выберите клиента',
+                ],
 
                 'datagrid' => [
                     'canceled'         => 'Отменено',
@@ -152,13 +154,173 @@ return [
                     'order-id'         => 'Номер заказа',
                     'pay-by'           => 'Оплата через - :method',
                     'pay-via'          => 'Оплачено через',
-                    'pending'          => 'В ожидании',
                     'pending-payment'  => 'Ожидание оплаты',
+                    'pending'          => 'В ожидании',
                     'processing'       => 'Обработка',
                     'product-count'    => ':count + Еще продукты',
                     'status'           => 'Статус',
                     'success'          => 'Успешно',
                     'view'             => 'Просмотр',
+                ],
+            ],
+
+            'create' => [
+                'add-to-cart'             => 'Добавить в корзину',
+                'back-btn'                => 'Назад',
+                'check-billing-address'   => 'Отсутствует платежный адрес.',
+                'check-shipping-address'  => 'Отсутствует адрес доставки.',
+                'configuration'           => 'Конфигурация',
+                'coupon-already-applied'  => 'Код купона уже применен.',
+                'coupon-applied'          => 'Код купона успешно применен.',
+                'coupon-error'            => 'Невозможно применить код купона.',
+                'coupon-not-found'        => 'Код купона не найден',
+                'coupon-remove'           => 'Код купона успешно удален.',
+                'error'                   => 'Что-то пошло не так',
+                'minimum-order-error'     => 'Минимальная сумма заказа не достигнута.',
+                'order-placed-success'    => 'Заказ успешно размещен.',
+                'payment-not-supported'   => 'Этот способ оплаты не поддерживается',
+                'save-btn'                => 'Создать заказ',
+                'specify-payment-method'  => 'Отсутствует способ оплаты.',
+                'specify-shipping-method' => 'Отсутствует способ доставки.',
+                'title'                   => 'Создать заказ для :name',
+
+                'types' => [
+                    'configurable' => [
+                        'select-options' => 'Пожалуйста, выберите опцию',
+                    ],
+
+                    'bundle' => [
+                        'none'         => 'Нет',
+                        'total-amount' => 'Общая сумма',
+                    ],
+
+                    'grouped' => [
+                        'name' => 'Название',
+                    ],
+
+                    'downloadable' => [
+                        'title' => 'Ссылки',
+                    ],
+                ],
+
+                'cart' => [
+                    'success-add-to-cart' => 'Товар успешно добавлен в корзину',
+                    'success-remove'      => 'Товар успешно удален из корзины',
+                    'success-update'      => 'Товар в корзине успешно обновлен',
+
+                    'items' => [
+                        'add-product'       => 'Добавить товар',
+                        'amount-per-unit'   => ':amount за единицу x :qty Количество',
+                        'delete'            => 'Удалить',
+                        'empty-description' => 'В корзине нет товаров.',
+                        'empty-title'       => 'Пустая корзина',
+                        'move-to-wishlist'  => 'Переместить в список желаний',
+                        'see-details'       => 'Подробнее',
+                        'sku'               => 'Артикул - :sku',
+                        'sub-total'         => 'Подитог - :sub_total',
+                        'title'             => 'Товары в корзине',
+
+                        'search' => [
+                            'add-to-cart'   => 'Добавить в корзину',
+                            'available-qty' => ':qty доступно',
+                            'empty-info'    => 'Нет товаров, доступных для данного поискового запроса.',
+                            'empty-title'   => 'Товары не найдены',
+                            'product-image' => 'Изображение товара',
+                            'qty'           => 'Количество',
+                            'sku'           => 'Артикул - :sku',
+                            'title'         => 'Поиск товаров',
+                        ],
+                    ],
+
+                    'address' => [
+                        'add-btn'          => 'Добавить адрес',
+                        'add-new'          => 'Добавить новый адрес',
+                        'add-new-address'  => 'Добавить новый адрес',
+                        'addresses'        => 'Адреса',
+                        'back'             => 'Назад',
+                        'billing-address'  => 'Платежный адрес',
+                        'city'             => 'Город',
+                        'company-name'     => 'Название компании',
+                        'confirm'          => 'Подтвердить',
+                        'country'          => 'Страна',
+                        'edit-btn'         => 'Редактировать адрес',
+                        'email'            => 'Email',
+                        'first-name'       => 'Имя',
+                        'last-name'        => 'Фамилия',
+                        'postcode'         => 'Индекс',
+                        'proceed'          => 'Продолжить',
+                        'same-as-billing'  => 'Использовать тот же адрес для доставки?',
+                        'save'             => 'Сохранить',
+                        'save-address'     => 'Сохранить в адресной книге',
+                        'select-country'   => 'Выберите страну',
+                        'select-state'     => 'Выберите регион',
+                        'shipping-address' => 'Адрес доставки',
+                        'state'            => 'Регион',
+                        'street-address'   => 'Улица, дом',
+                        'telephone'        => 'Телефон',
+                        'title'            => 'Адрес',
+                        'vat-id'           => 'ИНН',
+                    ],
+
+                    'payment' => [
+                        'title' => 'Оплата',
+                    ],
+
+                    'shipping' => [
+                        'title' => 'Доставка',
+                    ],
+
+                    'summary' => [
+                        'apply-coupon'    => 'Применить купон',
+                        'discount-amount' => 'Сумма скидки',
+                        'enter-your-code' => 'Введите код',
+                        'grand-total'     => 'Общая сумма',
+                        'place-order'     => 'Оформить заказ',
+                        'processing'      => 'Обработка',
+                        'shipping-amount' => 'Стоимость доставки',
+                        'sub-total'       => 'Подитог',
+                        'tax'             => 'Налог',
+                        'title'           => 'Сводка заказа',
+                    ],
+                ],
+
+                'cart-items' => [
+                    'add-to-cart'       => 'Добавить в корзину',
+                    'delete'            => 'Удалить',
+                    'empty-description' => 'В корзине нет товаров.',
+                    'empty-title'       => 'Пустая корзина',
+                    'see-details'       => 'Подробнее',
+                    'sku'               => 'Артикул - :sku',
+                    'title'             => 'Товары в корзине',
+                ],
+
+                'recent-order-items' => [
+                    'add-to-cart'       => 'Добавить в корзину',
+                    'empty-description' => 'В ваших последних заказах нет товаров.',
+                    'empty-title'       => 'Пустые заказы',
+                    'see-details'       => 'Подробнее',
+                    'sku'               => 'Артикул - :sku',
+                    'title'             => 'Товары последнего заказа',
+                    'view'              => 'Просмотр',
+                ],
+
+                'wishlist-items' => [
+                    'add-to-cart'       => 'Добавить в корзину',
+                    'delete'            => 'Удалить',
+                    'empty-description' => 'В списке желаний нет товаров.',
+                    'empty-title'       => 'Пустой список желаний',
+                    'see-details'       => 'Подробнее',
+                    'sku'               => 'Артикул - :sku',
+                    'title'             => 'Товары в списке желаний',
+                ],
+
+                'compare-items' => [
+                    'add-to-cart'       => 'Добавить в корзину',
+                    'delete'            => 'Удалить',
+                    'empty-description' => 'В списке сравнения нет товаров.',
+                    'empty-title'       => 'Пустой список сравнения',
+                    'sku'               => 'Артикул - :sku',
+                    'title'             => 'Товары в списке сравнения',
                 ],
             ],
 
@@ -211,6 +373,7 @@ return [
                 'refund'                => 'Возврат',
                 'refund-id'             => 'Возврат #:refund',
                 'refunded'              => 'Возвращено',
+                'reorder'               => 'Переупорядочить',
                 'ship'                  => 'Отправить',
                 'shipment'              => 'Отправка #:shipment',
                 'shipments'             => 'Отправки',
@@ -424,7 +587,7 @@ return [
                 'title'                  => 'Счет #:invoice_id',
             ],
 
-            'create'   => [
+            'create' => [
                 'amount-per-unit'    => ':amount За единицу x :qty Количество',
                 'create-invoice'     => 'Создать Счет',
                 'create-success'     => 'Счет успешно создан',
@@ -541,30 +704,30 @@ return [
                 ],
 
                 'datagrid' => [
-                    'active'                        => 'Активный',
-                    'attribute-family'              => 'Семейство атрибутов',
-                    'attribute-family-value'        => 'Семейство атрибутов - :attribute_family',
-                    'category'                      => 'Категория',
-                    'copy-of'                       => 'Копия :value',
-                    'copy-of-slug'                  => 'копия-:value',
-                    'delete'                        => 'Удалить',
-                    'disable'                       => 'Отключить',
-                    'id'                            => 'ID',
-                    'id-value'                      => 'ID - :id',
-                    'image'                         => 'Изображение',
-                    'mass-delete-success'           => 'Выбранные продукты успешно удалены',
-                    'mass-update-success'           => 'Выбранные продукты успешно обновлены',
-                    'name'                          => 'Наименование',
-                    'out-of-stock'                  => 'Нет в наличии',
-                    'price'                         => 'Цена',
-                    'product-image'                 => 'Изображение продукта',
-                    'qty'                           => 'Количество',
-                    'qty-value'                     => ':qty в наличии',
-                    'sku'                           => 'Артикул (SKU)',
-                    'sku-value'                     => 'Артикул (SKU) - :sku',
-                    'status'                        => 'Статус',
-                    'type'                          => 'Тип',
-                    'update-status'                 => 'Обновить статус',
+                    'active'                 => 'Активный',
+                    'attribute-family'       => 'Семейство атрибутов',
+                    'attribute-family-value' => 'Семейство атрибутов - :attribute_family',
+                    'category'               => 'Категория',
+                    'copy-of'                => 'Копия :value',
+                    'copy-of-slug'           => 'копия-:value',
+                    'delete'                 => 'Удалить',
+                    'disable'                => 'Отключить',
+                    'id'                     => 'ID',
+                    'id-value'               => 'ID - :id',
+                    'image'                  => 'Изображение',
+                    'mass-delete-success'    => 'Выбранные продукты успешно удалены',
+                    'mass-update-success'    => 'Выбранные продукты успешно обновлены',
+                    'name'                   => 'Наименование',
+                    'out-of-stock'           => 'Нет в наличии',
+                    'price'                  => 'Цена',
+                    'product-image'          => 'Изображение продукта',
+                    'qty'                    => 'Количество',
+                    'qty-value'              => ':qty в наличии',
+                    'sku'                    => 'Артикул (SKU)',
+                    'sku-value'              => 'Артикул (SKU) - :sku',
+                    'status'                 => 'Статус',
+                    'type'                   => 'Тип',
+                    'update-status'          => 'Обновить статус',
                 ],
             ],
 
@@ -900,6 +1063,7 @@ return [
                 'position'              => 'Позиция',
                 'price'                 => 'Цена',
                 'regex'                 => 'Регулярное выражение',
+                'regex-info'            => 'Выражение должно быть в двойных кавычках.',
                 'save-btn'              => 'Сохранить атрибут',
                 'select'                => 'Выпадающий список',
                 'select-type'           => 'Тип атрибута "Выбор"',
@@ -963,6 +1127,7 @@ return [
                 'position'              => 'Позиция',
                 'price'                 => 'Цена',
                 'regex'                 => 'Регулярное выражение',
+                'regex-info'            => 'Выражение должно быть в двойных кавычках.',
                 'save-btn'              => 'Сохранить атрибут',
                 'select'                => 'Выпадающий список',
                 'select-type'           => 'Тип атрибута "Выбор"',
@@ -1174,28 +1339,28 @@ return [
     'customers' => [
         'customers' => [
             'index' => [
-                'login-message' => 'вы вошли как :customer_name',
                 'title'         => 'Клиенты',
+                'login-message' => 'Вы вошли как :customer_name',
 
                 'datagrid' => [
-                    'active'         => 'Активен',
-                    'address'        => ':address адрес(ов)',
+                    'active'         => 'Активный',
+                    'address'        => ':address  Адрес(ов)',
                     'address-count'  => 'Количество адресов',
                     'delete'         => 'Удалить',
                     'delete-success' => 'Выбранные данные успешно удалены',
-                    'email'          => 'Email',
+                    'email'          => 'Электронная почта',
                     'gender'         => 'Пол',
                     'group'          => 'Группа',
                     'id'             => 'Идентификатор клиента',
-                    'inactive'       => 'Неактивен',
+                    'inactive'       => 'Неактивный',
                     'method-error'   => 'Ошибка! Обнаружен неверный метод, пожалуйста, проверьте конфигурацию массовых действий',
                     'name'           => 'Имя клиента',
-                    'no-resource'    => 'Предоставленных ресурсов недостаточно для выполнения действия',
-                    'order'          => ':order заказ(ов)',
+                    'no-resource'    => 'Ресурс, предоставленный для действия, недостаточен',
+                    'order'          => ':order Заказ(ов)',
                     'order-count'    => 'Количество заказов',
-                    'order-pending'  => 'У клиента есть незавершенные заказы',
+                    'order-pending'  => 'У клиента есть ожидающий заказ',
                     'partial-action' => 'Некоторые действия не были выполнены из-за ограничений системы на :resource',
-                    'phone'          => 'Номер контакта',
+                    'phone'          => 'Контактный номер',
                     'revenue'        => 'Доход',
                     'status'         => 'Статус',
                     'suspended'      => 'Приостановлен',
@@ -1204,12 +1369,153 @@ return [
                 ],
 
                 'create' => [
-                    'contact-number'        => 'Номер контакта',
+                    'contact-number'        => 'Контактный номер',
                     'create-btn'            => 'Создать клиента',
                     'create-success'        => 'Клиент успешно создан',
+                    'customer-group'        => 'Группа клиентов',
+                    'date-of-birth'         => 'Дата рождения',
+                    'email'                 => 'Электронная почта',
+                    'female'                => 'Женский',
+                    'first-name'            => 'Имя',
+                    'gender'                => 'Пол',
+                    'last-name'             => 'Фамилия',
+                    'male'                  => 'Мужской',
+                    'other'                 => 'Другой',
+                    'save-btn'              => 'Сохранить клиента',
+                    'select-customer-group' => 'Выберите группу клиентов',
+                    'select-gender'         => 'Выберите пол',
+                    'title'                 => 'Создать нового клиента',
+                ],
+            ],
+
+            'view' => [
+                'account-delete-confirmation' => 'Вы уверены, что хотите удалить этот аккаунт?',
+                'active'                      => 'Активен',
+                'address-delete-confirmation' => 'Вы уверены, что хотите удалить этот адрес?',
+                'back-btn'                    => 'Назад',
+                'create-order'                => 'Создать заказ',
+                'customer'                    => 'Клиент',
+                'date-of-birth'               => 'Дата рождения - :dob',
+                'default-address'             => 'Адрес по умолчанию',
+                'delete-account'              => 'Удалить аккаунт',
+                'delete'                      => 'Удалить',
+                'email'                       => 'Эл. почта - :email',
+                'empty-description'           => 'Создайте новые адреса для клиента',
+                'empty-title'                 => 'Добавить адрес клиента',
+                'gender'                      => 'Пол - :gender',
+                'group'                       => 'Группа - :group_code',
+                'inactive'                    => 'Неактивен',
+                'login-as-customer'           => 'Войти как клиент',
+                'note-created-success'        => 'Примечание успешно создано',
+                'order-create-confirmation'   => 'Вы уверены, что хотите создать заказ для этого клиента?',
+                'phone'                       => 'Телефон - :phone',
+                'set-as-default'              => 'Установить по умолчанию',
+                'suspended'                   => 'Приостановлен',
+                'title'                       => 'Просмотр клиента',
+
+                'address' => [
+                    'count'  => 'Адреса (:count)',
+
+                    'create' => [
+                        'city'               => 'Город',
+                        'company-name'       => 'Название компании',
+                        'country'            => 'Страна',
+                        'create-btn'         => 'Создать',
+                        'create-address-btn' => 'Добавить новый адрес',
+                        'default-address'    => 'Адрес по умолчанию',
+                        'email'              => 'Эл. почта',
+                        'first-name'         => 'Имя',
+                        'last-name'          => 'Фамилия',
+                        'phone'              => 'Телефон',
+                        'post-code'          => 'Почтовый индекс',
+                        'save-btn-title'     => 'Сохранить адрес',
+                        'select-country'     => 'Выберите страну',
+                        'state'              => 'Область',
+                        'street-address'     => 'Улица и номер дома',
+                        'title'              => 'Создать адрес',
+                        'vat-id'             => 'Идентификационный номер НДС',
+                    ],
+
+                    'edit' => [
+                        'city'            => 'Город',
+                        'company-name'    => 'Название компании',
+                        'country'         => 'Страна',
+                        'default-address' => 'Адрес по умолчанию',
+                        'edit-btn'        => 'Редактировать',
+                        'email'           => 'Эл. почта',
+                        'first-name'      => 'Имя',
+                        'last-name'       => 'Фамилия',
+                        'phone'           => 'Телефон',
+                        'post-code'       => 'Почтовый индекс',
+                        'save-btn-title'  => 'Сохранить адрес',
+                        'select-country'  => 'Выберите страну',
+                        'state'           => 'Область',
+                        'street-address'  => 'Улица и номер дома',
+                        'title'           => 'Редактировать адрес',
+                        'vat-id'          => 'Идентификационный номер НДС',
+                    ],
+
+                    'address-delete-success' => 'Адрес успешно удален',
+                    'create-success'         => 'Адрес успешно создан',
+                    'set-default-success'    => 'Адрес по умолчанию успешно обновлен',
+                    'success-mass-delete'    => 'Массовое удаление адресов успешно выполнено',
+                    'update-success'         => 'Адрес успешно обновлен',
+                ],
+
+                'datagrid' => [
+                    'invoices' => [
+                        'increment-id'   => 'ID счета',
+                        'invoice-amount' => 'Сумма счета',
+                        'invoice-date'   => 'Дата счета',
+                        'order-id'       => 'ID заказа',
+                        'view'           => 'Просмотр',
+                        'empty-invoice'  => 'Нет отзывов',
+                    ],
+
+                    'orders' => [
+                        'canceled'        => 'Отменен',
+                        'channel-name'    => 'Имя канала',
+                        'closed'          => 'Закрыт',
+                        'completed'       => 'Завершен',
+                        'customer-name'   => 'Имя клиента',
+                        'empty-order'     => 'Нет доступных заказов',
+                        'date'            => 'Дата',
+                        'email'           => 'Эл. почта',
+                        'fraud'           => 'Мошенничество',
+                        'grand-total'     => 'Общая сумма',
+                        'location'        => 'Местоположение',
+                        'order-id'        => 'ID заказа',
+                        'pay-via'         => 'Оплата через',
+                        'pending'         => 'В ожидании',
+                        'pending-payment' => 'Ожидание оплаты',
+                        'processing'      => 'Обработка',
+                        'status'          => 'Статус',
+                        'view'            => 'Просмотр',
+                    ],
+
+                    'reviews' => [
+                        'approved'      => 'Утверждено',
+                        'comment'       => 'Комментарий',
+                        'created-at'    => 'Создано',
+                        'disapproved'   => 'Не утверждено',
+                        'empty-reviews' => 'Нет доступных счетов',
+                        'id'            => 'ID',
+                        'invoice-date'  => 'Дата счета',
+                        'pending'       => 'В ожидании',
+                        'product-id'    => 'ID продукта',
+                        'product-name'  => 'Название продукта',
+                        'rating'        => 'Рейтинг',
+                        'status'        => 'Статус',
+                        'title'         => 'Заголовок',
+                    ],
+                ],
+
+                'edit' => [
+                    'contact-number'        => 'Контактный номер',
                     'customer-group'        => 'Группа клиента',
                     'date-of-birth'         => 'Дата рождения',
-                    'email'                 => 'Email',
+                    'edit-btn'              => 'Редактировать',
+                    'email'                 => 'Эл. почта',
                     'female'                => 'Женский',
                     'first-name'            => 'Имя',
                     'gender'                => 'Пол',
@@ -1219,95 +1525,54 @@ return [
                     'save-btn'              => 'Сохранить клиента',
                     'select-customer-group' => 'Выберите группу клиента',
                     'select-gender'         => 'Выберите пол',
-                    'title'                 => 'Создать нового клиента',
+                    'status'                => 'Статус',
+                    'suspended'             => 'Приостановлен',
+                    'title'                 => 'Редактировать клиента',
+                ],
+
+                'invoices' => [
+                    'count'        => 'Счета (:count)',
+                    'increment-id' => '# :increment_id',
+                ],
+
+                'notes' => [
+                    'add-note'              => 'Добавить заметку',
+                    'customer-not-notified' => ':date | <b>Клиент не уведомлен</b>',
+                    'customer-notified'     => ':date | <b>Клиент уведомлен</b>',
+                    'note'                  => 'Заметка',
+                    'note-placeholder'      => 'Напишите вашу заметку здесь',
+                    'notify-customer'       => 'Уведомить клиента',
+                    'submit-btn-title'      => 'Отправить заметку',
+                ],
+
+                'orders' => [
+                    'count'         => 'Заказы (:count)',
+                    'increment-id'  => '# :increment_id',
+                    'total-revenue' => 'Общий доход - :revenue',
+                ],
+
+                'reviews' => [
+                    'id'    => 'ID - :id',
+                    'count' => 'Отзывы (:count)',
+                ],
+
+                'cart' => [
+                    'delete-success' => 'Элемент корзины успешно удален.',
+                ],
+
+                'wishlist' => [
+                    'delete-success' => 'Элемент списка желаний успешно удален.',
+                ],
+
+                'compare' => [
+                    'delete-success' => 'Элемент сравнения успешно удален.',
                 ],
             ],
 
             'delete-failed'  => 'Ошибка при удалении клиента',
             'delete-success' => 'Клиент успешно удален',
-            'order-pending'  => 'Заказы ожидают выполнения',
+            'order-pending'  => 'Заказы находятся в ожидании',
             'update-success' => 'Клиент успешно обновлен',
-
-            'edit' => [
-                'contact-number'        => 'Номер контакта',
-                'customer-group'        => 'Группа клиента',
-                'date-of-birth'         => 'Дата рождения',
-                'edit-btn'              => 'Редактировать',
-                'email'                 => 'Email',
-                'female'                => 'Женский',
-                'first-name'            => 'Имя',
-                'gender'                => 'Пол',
-                'last-name'             => 'Фамилия',
-                'male'                  => 'Мужской',
-                'other'                 => 'Другой',
-                'save-btn'              => 'Сохранить клиента',
-                'select-customer-group' => 'Выберите группу клиента',
-                'select-gender'         => 'Выберите пол',
-                'status'                => 'Статус',
-                'suspended'             => 'Приостановлен',
-                'title'                 => 'Редактировать клиента',
-            ],
-
-            'view' => [
-                'account-delete-confirmation' => 'Вы уверены, что хотите удалить этот аккаунт?',
-                'active'                      => 'Активен',
-                'add-note'                    => 'Добавить заметку',
-                'address'                     => 'Адрес',
-                'address-delete-confirmation' => 'Вы уверены, что хотите удалить этот адрес?',
-                'address-delete-success'      => 'Адрес успешно удален',
-                'approved'                    => 'Одобрено',
-                'back-btn'                    => 'Назад',
-                'canceled'                    => 'Отменено',
-                'closed'                      => 'Закрыто',
-                'completed'                   => 'Завершено',
-                'customer'                    => 'Клиент',
-                'customer-not-notified'       => ':date | Клиент <b>не уведомлен</b>',
-                'customer-notified'           => ':date | Клиент <b>уведомлен</b>',
-                'date-of-birth'               => 'Дата рождения - :dob',
-                'default-address'             => 'Адрес по умолчанию',
-                'delete'                      => 'Удалить',
-                'delete-account'              => 'Удалить аккаунт',
-                'disapproved'                 => 'Не одобрено',
-                'edit'                        => 'Редактировать',
-                'email'                       => 'Email - :email',
-                'empty-description'           => 'Создайте новые адреса для клиента',
-                'empty-invoice'               => 'Нет доступных счетов',
-                'empty-order'                 => 'Нет доступных заказов',
-                'empty-review'                => 'Нет доступных отзывов',
-                'empty-title'                 => 'Добавить адрес клиента',
-                'gender'                      => 'Пол - :gender',
-                'group'                       => 'Группа - :group_code',
-                'id'                          => 'ИД - :id',
-                'inactive'                    => 'Неактивен',
-                'increment-id'                => '# :increment_id',
-                'invoice'                     => 'Счета (:invoice_count)',
-                'invoice-amount'              => 'Сумма счета',
-                'invoice-date'                => 'Дата счета',
-                'invoice-id'                  => 'ID счета',
-                'invoice-id-prefix'           => '# :invoice_id',
-                'mobile'                      => 'Мобильный телефон',
-                'note'                        => 'Заметка',
-                'note-created-success'        => 'Заметка успешно создана',
-                'note-placeholder'            => 'Введите вашу заметку здесь',
-                'notify-customer'             => 'Уведомить клиента',
-                'of'                          => 'из',
-                'order-id'                    => 'ID заказа',
-                'order-id-prefix'             => '# :order_id',
-                'order-pending'               => 'Невозможно удалить аккаунт, так как есть незавершенные или обрабатываемые заказы.',
-                'orders'                      => 'Заказы (:order_count)',
-                'pay-by'                      => 'Оплачено',
-                'pending'                     => 'Ожидает',
-                'per-page'                    => 'на страницу',
-                'phone'                       => 'Телефон - :phone',
-                'processing'                  => 'Обработка',
-                'reviews'                     => 'Отзывы',
-                'set-as-default'              => 'Установить по умолчанию',
-                'set-default-success'         => 'Адрес по умолчанию успешно обновлен',
-                'submit-btn-title'            => 'Отправить заметку',
-                'suspended'                   => 'Приостановлен',
-                'title'                       => 'Просмотр клиента',
-                'total-revenue'               => 'Общий доход - :revenue',
-            ],
         ],
 
         'groups' => [
@@ -1392,53 +1657,6 @@ return [
                     'update-status'       => 'Обновить Статус',
                 ],
             ],
-        ],
-
-        'addresses' => [
-            'create' => [
-                'address-1'          => 'Адрес 1',
-                'address-2'          => 'Адрес 2',
-                'city'               => 'Город',
-                'company-name'       => 'Название Компании',
-                'country'            => 'Страна',
-                'create-address-btn' => 'Добавить Новый Адрес',
-                'default-address'    => 'Адрес По Умолчанию',
-                'email'              => 'Электронная почта',
-                'first-name'         => 'Имя',
-                'last-name'          => 'Фамилия',
-                'phone'              => 'Телефон',
-                'post-code'          => 'Почтовый Индекс',
-                'save-btn-title'     => 'Сохранить Адрес',
-                'select-country'     => 'Выберите Страну',
-                'state'              => 'Регион',
-                'street-address'     => 'Улица и номер дома',
-                'title'              => 'Создать Адрес Клиента',
-                'vat-id'             => 'Идентификационный номер НДС',
-            ],
-
-            'edit' => [
-                'address-1'        => 'Адрес 1',
-                'address-2'        => 'Адрес 2',
-                'city'             => 'Город',
-                'company-name'     => 'Название Компании',
-                'country'          => 'Страна',
-                'default-address'  => 'Адрес По Умолчанию',
-                'email'            => 'Электронная почта',
-                'first-name'       => 'Имя',
-                'last-name'        => 'Фамилия',
-                'phone'            => 'Телефон',
-                'post-code'        => 'Почтовый Индекс',
-                'save-btn-title'   => 'Сохранить Адрес',
-                'select-country'   => 'Выберите Страну',
-                'state'            => 'Регион',
-                'street-address'   => 'Улица и номер дома',
-                'title'            => 'Редактировать Адрес',
-                'vat-id'           => 'Идентификационный номер НДС',
-            ],
-
-            'create-success'      => 'Адрес успешно создан',
-            'update-success'      => 'Адрес успешно обновлен',
-            'success-mass-delete' => 'Массовое удаление Адресов выполнено успешно',
         ],
     ],
 
@@ -1532,7 +1750,7 @@ return [
                     'title'           => 'Создать кампанию',
                 ],
 
-                'edit'    => [
+                'edit' => [
                     'active'          => 'Активна',
                     'audience'        => 'Аудитория',
                     'back-btn'        => 'Назад',
@@ -2119,9 +2337,11 @@ return [
 
     'cms' => [
         'index' => [
-            'already-taken'     => 'Такое имя :name уже занято.',
-            'create-btn'        => 'Создать страницу',
-            'title'             => 'Страницы',
+            'already-taken' => 'Это имя :name уже занято.',
+            'create-btn'    => 'Создать страницу',
+            'channel'       => 'Канал',
+            'language'      => 'Язык',
+            'title'         => 'Страницы',
 
             'datagrid' => [
                 'delete'              => 'Удалить',
@@ -2173,12 +2393,12 @@ return [
     ],
 
     'settings' => [
-        'locales'           => [
+        'locales' => [
             'index' => [
-                'create-btn'        => 'Создать локаль',
-                'locale'            => 'Локаль',
-                'logo-size'         => 'Разрешение изображения должно быть 24px x 16px',
-                'title'             => 'Языки',
+                'create-btn' => 'Создать локаль',
+                'locale'     => 'Локаль',
+                'logo-size'  => 'Разрешение изображения должно быть 24px x 16px',
+                'title'      => 'Языки',
 
                 'datagrid' => [
                     'actions'   => 'Действия',
@@ -2215,7 +2435,7 @@ return [
             ],
         ],
 
-        'currencies'        => [
+        'currencies' => [
             'index' => [
                 'create-btn' => 'Создать валюту',
                 'currency'   => 'Валюта',
@@ -2235,15 +2455,18 @@ return [
                 ],
 
                 'create' => [
-                    'code'           => 'Код',
-                    'create-btn'     => 'Создать валюту',
-                    'decimal'        => 'Десятичная часть',
-                    'delete-warning' => 'Вы уверены, что хотите выполнить это действие?',
-                    'general'        => 'Общие',
-                    'name'           => 'Название',
-                    'save-btn'       => 'Сохранить валюту',
-                    'symbol'         => 'Символ',
-                    'title'          => 'Создать новую валюту',
+                    'code'              => 'Код',
+                    'create-btn'        => 'Создать валюту',
+                    'currency-position' => 'Положение валюты',
+                    'decimal'           => 'Десятичная часть',
+                    'decimal-separator' => 'Десятичный разделитель',
+                    'delete-warning'    => 'Вы уверены, что хотите выполнить это действие?',
+                    'general'           => 'Общие',
+                    'group-separator'   => 'Разделитель групп',
+                    'name'              => 'Название',
+                    'save-btn'          => 'Сохранить валюту',
+                    'symbol'            => 'Символ',
+                    'title'             => 'Создать новую валюту',
                 ],
 
                 'edit' => [
@@ -2260,7 +2483,7 @@ return [
 
         'data-transfer'     => [
             'imports' => [
-                'create'            => [
+                'create' => [
                     'action'              => 'Действие',
                     'allowed-errors'      => 'Разрешенные ошибки',
                     'back-btn'            => 'Назад',
@@ -2268,9 +2491,9 @@ return [
                     'delete'              => 'Удалить',
                     'download-sample'     => 'Скачать Пример',
                     'field-separator'     => 'Разделитель Полей',
-                    'file-info-example'   => 'Например, в случае product-images, файлы должны быть помещены в папку /project-root/storage/app/import/product-images.',
-                    'file-info'           => 'Используйте относительный путь к /project-root/storage/app/import, например, product-images, import-images.',
                     'file'                => 'Файл',
+                    'file-info'           => 'Используйте относительный путь к /project-root/storage/app/import, например, product-images, import-images.',
+                    'file-info-example'   => 'Например, в случае product-images, файлы должны быть помещены в папку /project-root/storage/app/import/product-images.',
                     'general'             => 'Общие',
                     'images-directory'    => 'Путь к Папке Изображений',
                     'process-in-queue'    => 'Обработка в Очереди',
@@ -2284,7 +2507,7 @@ return [
                     'validation-strategy' => 'Стратегия Валидации',
                 ],
 
-                'edit'              => [
+                'edit' => [
                     'action'              => 'Действие',
                     'allowed-errors'      => 'Разрешенные ошибки',
                     'back-btn'            => 'Назад',
@@ -2292,9 +2515,9 @@ return [
                     'delete'              => 'Удалить',
                     'download-sample'     => 'Скачать Пример',
                     'field-separator'     => 'Разделитель Полей',
-                    'file-info-example'   => 'Например, в случае product-images, файлы должны быть помещены в папку /project-root/storage/app/import/product-images.',
-                    'file-info'           => 'Используйте относительный путь к /project-root/storage/app/import, например, product-images, import-images.',
                     'file'                => 'Файл',
+                    'file-info'           => 'Используйте относительный путь к /project-root/storage/app/import, например, product-images, import-images.',
+                    'file-info-example'   => 'Например, в случае product-images, файлы должны быть помещены в папку /project-root/storage/app/import/product-images.',
                     'general'             => 'Общие',
                     'images-directory'    => 'Путь к Папке Изображений',
                     'process-in-queue'    => 'Обработка в Очереди',
@@ -2308,11 +2531,11 @@ return [
                     'validation-strategy' => 'Стратегия Валидации',
                 ],
 
-                'index'             => [
+                'index' => [
                     'button-title' => 'Создать Импорт',
                     'title'        => 'Импорты',
 
-                    'datagrid'     => [
+                    'datagrid' => [
                         'actions'       => 'Действия',
                         'completed-at'  => 'Завершено В',
                         'created'       => 'Создано',
@@ -2329,7 +2552,7 @@ return [
                     ],
                 ],
 
-                'import'            => [
+                'import' => [
                     'back-btn'                => 'Назад',
                     'completed-batches'       => 'Общее Количество Выполненных Партий:',
                     'download-error-report'   => 'Скачать Полный Отчет',
@@ -2364,7 +2587,7 @@ return [
             ],
         ],
 
-        'exchange-rates'    => [
+        'exchange-rates' => [
             'index' => [
                 'create-btn'    => 'Создать обменный курс',
                 'exchange-rate' => 'Обменный курс',
@@ -2382,7 +2605,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'   => 'Редактировать обменные курсы',
+                    'title' => 'Редактировать обменные курсы',
                 ],
 
                 'datagrid' => [
@@ -2483,7 +2706,7 @@ return [
             'update-success'    => 'Источники инвентаря успешно обновлены',
         ],
 
-        'taxes'             => [
+        'taxes' => [
             'categories' => [
                 'index' => [
                     'delete-warning' => 'Вы уверены, что хотите удалить?',
@@ -2513,7 +2736,7 @@ return [
                     ],
 
                     'edit' => [
-                        'title'   => 'Редактировать налоговые категории',
+                        'title' => 'Редактировать налоговые категории',
                     ],
 
                     'create-success' => 'Новая налоговая категория создана',
@@ -2563,12 +2786,12 @@ return [
 
                 'edit' => [
                     'back-btn'       => 'Назад',
-                    'basic-settings' => 'Основные настройки',
                     'country'        => 'Страна',
                     'identifier'     => 'Идентификатор',
                     'save-btn'       => 'Сохранить налоговую ставку',
                     'select-country' => 'Выберите страну',
                     'select-state'   => 'Выберите штат',
+                    'settings'       => 'Настройки',
                     'state'          => 'Штат',
                     'tax-rate'       => 'Ставка',
                     'title'          => 'Редактировать налоговую ставку',
@@ -2708,8 +2931,8 @@ return [
                     'status'   => 'Статус',
                 ],
 
-                'edit'  => [
-                    'title'    => 'Редактировать пользователя',
+                'edit' => [
+                    'title' => 'Редактировать пользователя',
                 ],
             ],
 
@@ -2875,7 +3098,8 @@ return [
                 'url'                           => 'URL',
                 'value'                         => 'Значение: :value',
                 'value-input'                   => 'Значение',
-                'services-content'              => [
+
+                'services-content' => [
                     'add-btn'            => 'Добавить услуги',
                     'channels'           => 'Каналы',
                     'delete'             => 'Удалить',
@@ -3034,6 +3258,8 @@ return [
             'save-btn'                     => 'Сохранить настройки',
             'save-message'                 => 'Настройки успешно сохранены',
             'search'                       => 'Поиск',
+            'select-country'               => 'Выберите страну',
+            'select-state'                 => 'Выберите штат',
             'title'                        => 'Настройки',
 
             'general' => [
@@ -3163,9 +3389,9 @@ return [
                     'title' => 'Инвентарь',
 
                     'stock-options' => [
-                        'allow-back-orders'  => 'Разрешить предварительные заказы',
-                        'title'              => 'Параметры запасов',
-                        'title-info'         => 'Параметры запасов - это инвестиционные контракты, которые предоставляют право на покупку или продажу акций компании по заранее установленной цене, влияющие на потенциальную прибыль.',
+                        'allow-back-orders' => 'Разрешить предварительные заказы',
+                        'title'             => 'Параметры запасов',
+                        'title-info'        => 'Параметры запасов - это инвестиционные контракты, которые предоставляют право на покупку или продажу акций компании по заранее установленной цене, влияющие на потенциальную прибыль.',
                     ],
                 ],
 
@@ -3313,7 +3539,7 @@ return [
                     ],
                 ],
 
-                'captcha'  => [
+                'captcha' => [
                     'info'  => 'Установите ключ сайта, секретный ключ и статус.',
                     'title' => 'Капча',
 
@@ -3364,17 +3590,21 @@ return [
                 'title' => 'Электронная почта',
 
                 'email-settings' => [
-                    'admin-email'            => 'Email админа',
-                    'admin-email-tip'        => 'Адрес электронной почты администратора этого канала для получения электронных писем',
-                    'admin-name'             => 'Имя админа',
-                    'admin-name-tip'         => 'Это имя будет отображаться во всех административных сообщениях',
-                    'admin-page-limit'       => 'Количество элементов на странице по умолчанию (администратор)',
-                    'email-sender-name'      => 'Имя отправителя электронной почты',
-                    'email-sender-name-tip'  => 'Это имя будет отображаться во входящем ящике клиентов',
-                    'info'                   => 'Установите имя отправителя электронной почты, адрес электронной почты магазина, имя админа и адрес электронной почты админа.',
-                    'shop-email-from'        => 'Email адрес магазина',
-                    'shop-email-from-tip'    => 'Email адрес этого канала для отправки писем вашим клиентам',
-                    'title'                  => 'Настройки электронной почты',
+                    'admin-email'           => 'Email админа',
+                    'admin-email-tip'       => 'Адрес электронной почты администратора этого канала для получения электронных писем',
+                    'admin-name'            => 'Имя админа',
+                    'admin-name-tip'        => 'Это имя будет отображаться во всех административных сообщениях',
+                    'admin-page-limit'      => 'Количество элементов на странице по умолчанию (администратор)',
+                    'contact-email'         => 'Контактный email',
+                    'contact-email-tip'     => 'Этот адрес электронной почты будет отображаться внизу ваших писем',
+                    'contact-name'          => 'Контактное имя',
+                    'contact-name-tip'      => 'Это имя будет отображаться внизу ваших писем',
+                    'email-sender-name'     => 'Имя отправителя электронной почты',
+                    'email-sender-name-tip' => 'Это имя будет отображаться во входящем ящике клиентов',
+                    'info'                  => 'Установите имя отправителя электронной почты, адрес электронной почты магазина, имя админа и адрес электронной почты админа.',
+                    'shop-email-from'       => 'Email адрес магазина',
+                    'shop-email-from-tip'   => 'Email адрес этого канала для отправки писем вашим клиентам',
+                    'title'                 => 'Настройки электронной почты',
                 ],
 
                 'notifications' => [
@@ -3441,40 +3671,40 @@ return [
                 ],
 
                 'payment-methods' => [
-                    'accepted-currencies'            => 'Принимаемые валюты',
-                    'accepted-currencies-info'       => 'Добавьте коды валют через запятую, например, USD, INR,...',
-                    'business-account'               => 'Бизнес-аккаунт',
-                    'cash-on-delivery'               => 'Оплата наличными при доставке',
-                    'cash-on-delivery-info'          => 'Способ оплаты, при котором клиенты оплачивают наличными при получении товаров или услуг у себя дома.',
-                    'client-id'                      => 'Идентификатор клиента',
-                    'client-id-info'                 => 'Используйте "sb" для тестирования.',
-                    'client-secret'                  => 'Секретный ключ клиента',
-                    'client-secret-info'             => 'Добавьте здесь ваш секретный ключ',
-                    'description'                    => 'Описание',
-                    'generate-invoice'               => 'Автоматически генерировать счет после размещения заказа',
-                    'generate-invoice-applicable'    => 'Применяется, если включена автоматическая генерация счета',
-                    'info'                           => 'Установить информацию о методах оплаты',
-                    'instructions'                   => 'Инструкции',
-                    'logo'                           => 'Логотип',
-                    'logo-information'               => 'Разрешение изображения должно быть примерно 55px x 45px',
-                    'mailing-address'                => 'Отправить чек по адресу',
-                    'money-transfer'                 => 'Денежный перевод',
-                    'money-transfer-info'            => 'Перевод средств от одного человека или счета к другому, часто электронным способом, для различных целей, таких как транзакции или переводы.',
-                    'page-title'                     => 'Методы оплаты',
-                    'paid'                           => 'Оплачено',
-                    'paypal-smart-button'            => 'PayPal',
-                    'paypal-smart-button-info'       => 'Умная кнопка PayPal: упрощает онлайн-платежи с настраиваемыми кнопками для безопасных многометодных транзакций на веб-сайтах и в приложениях.',
-                    'paypal-standard'                => 'Стандарт PayPal',
-                    'paypal-standard-info'           => 'Стандарт PayPal - это основной вариант оплаты PayPal для онлайн-бизнеса, который позволяет клиентам платить с использованием своих учетных записей PayPal или кредитных/дебетовых карт.',
-                    'pending'                        => 'В ожидании',
-                    'pending-payment'                => 'Ожидание оплаты',
-                    'processing'                     => 'Обработка',
-                    'sandbox'                        => 'Песочница',
-                    'set-invoice-status'             => 'Установить статус счета после создания счета',
-                    'set-order-status'               => 'Установить статус заказа после создания счета',
-                    'sort-order'                     => 'Порядок сортировки',
-                    'status'                         => 'Статус',
-                    'title'                          => 'Название',
+                    'accepted-currencies'         => 'Принимаемые валюты',
+                    'accepted-currencies-info'    => 'Добавьте коды валют через запятую, например, USD, INR,...',
+                    'business-account'            => 'Бизнес-аккаунт',
+                    'cash-on-delivery'            => 'Оплата наличными при доставке',
+                    'cash-on-delivery-info'       => 'Способ оплаты, при котором клиенты оплачивают наличными при получении товаров или услуг у себя дома.',
+                    'client-id'                   => 'Идентификатор клиента',
+                    'client-id-info'              => 'Используйте "sb" для тестирования.',
+                    'client-secret'               => 'Секретный ключ клиента',
+                    'client-secret-info'          => 'Добавьте здесь ваш секретный ключ',
+                    'description'                 => 'Описание',
+                    'generate-invoice'            => 'Автоматически генерировать счет после размещения заказа',
+                    'generate-invoice-applicable' => 'Применяется, если включена автоматическая генерация счета',
+                    'info'                        => 'Установить информацию о методах оплаты',
+                    'instructions'                => 'Инструкции',
+                    'logo'                        => 'Логотип',
+                    'logo-information'            => 'Разрешение изображения должно быть примерно 55px x 45px',
+                    'mailing-address'             => 'Отправить чек по адресу',
+                    'money-transfer'              => 'Денежный перевод',
+                    'money-transfer-info'         => 'Перевод средств от одного человека или счета к другому, часто электронным способом, для различных целей, таких как транзакции или переводы.',
+                    'page-title'                  => 'Методы оплаты',
+                    'paid'                        => 'Оплачено',
+                    'paypal-smart-button'         => 'PayPal',
+                    'paypal-smart-button-info'    => 'Умная кнопка PayPal: упрощает онлайн-платежи с настраиваемыми кнопками для безопасных многометодных транзакций на веб-сайтах и в приложениях.',
+                    'paypal-standard'             => 'Стандарт PayPal',
+                    'paypal-standard-info'        => 'Стандарт PayPal - это основной вариант оплаты PayPal для онлайн-бизнеса, который позволяет клиентам платить с использованием своих учетных записей PayPal или кредитных/дебетовых карт.',
+                    'pending'                     => 'В ожидании',
+                    'pending-payment'             => 'Ожидание оплаты',
+                    'processing'                  => 'Обработка',
+                    'sandbox'                     => 'Песочница',
+                    'set-invoice-status'          => 'Установить статус счета после создания счета',
+                    'set-order-status'            => 'Установить статус заказа после создания счета',
+                    'sort-order'                  => 'Порядок сортировки',
+                    'status'                      => 'Статус',
+                    'title'                       => 'Название',
                 ],
 
                 'order-settings' => [
@@ -3482,12 +3712,12 @@ return [
                     'title' => 'Настройки заказов',
 
                     'order-number' => [
-                        'generator'   => 'Генератор номера заказа',
-                        'length'      => 'Длина номера заказа',
-                        'prefix'      => 'Префикс номера заказа',
-                        'suffix'      => 'Суффикс номера заказа',
-                        'title'       => 'Настройки номера заказа',
-                        'title-info'  => 'Уникальный идентификатор, присвоенный конкретному клиентскому заказу, помогающий в отслеживании, связи и справке во время процесса покупки.',
+                        'generator'  => 'Генератор номера заказа',
+                        'length'     => 'Длина номера заказа',
+                        'prefix'     => 'Префикс номера заказа',
+                        'suffix'     => 'Суффикс номера заказа',
+                        'title'      => 'Настройки номера заказа',
+                        'title-info' => 'Уникальный идентификатор, присвоенный конкретному клиентскому заказу, помогающий в отслеживании, связи и справке во время процесса покупки.',
                     ],
 
                     'minimum-order' => [

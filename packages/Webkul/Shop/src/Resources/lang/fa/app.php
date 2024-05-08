@@ -3,6 +3,7 @@
 return [
     'customers' => [
         'forgot-password' => [
+            'already-sent'         => 'از قبل بازنشانی رمز عبور ایمیل ارسال شده است.',
             'back'                 => 'بازگشت به صفحه ورود؟',
             'bagisto'              => 'بگیستو',
             'email'                => 'ایمیل',
@@ -71,65 +72,99 @@ return [
         'account' => [
             'home' => 'خانه',
 
-            'profile'   => [
-                'confirm-password'        => 'تأیید رمز عبور',
-                'current-password'        => 'رمز عبور فعلی',
-                'delete'                  => 'حذف',
-                'delete-failed'           => 'خطا در هنگام حذف مشتری رخ داده است.',
-                'delete-profile'          => 'حذف پروفایل',
-                'delete-success'          => 'مشتری با موفقیت حذف شد',
-                'dob'                     => 'تاریخ تولد',
-                'edit'                    => 'ویرایش',
-                'edit-profile'            => 'ویرایش پروفایل',
-                'edit-success'            => 'پروفایل با موفقیت به‌روزرسانی شد',
-                'email'                   => 'ایمیل',
-                'enter-password'          => 'رمز عبور خود را وارد کنید',
-                'female'                  => 'زن',
-                'first-name'              => 'نام',
-                'gender'                  => 'جنسیت',
-                'last-name'               => 'نام خانوادگی',
-                'male'                    => 'مرد',
-                'new-password'            => 'رمز عبور جدید',
-                'order-pending'           => 'امکان حذف حساب مشتری وجود ندارد زیرا برخی سفارش‌ها در وضعیت تعلیق یا در حال پردازش هستند.',
-                'other'                   => 'سایر',
-                'phone'                   => 'تلفن',
-                'save'                    => 'ذخیره',
-                'select-gender'           => 'جنسیت را انتخاب کنید',
-                'subscribe-to-newsletter' => 'اشتراک در خبرنامه',
-                'title'                   => 'پروفایل',
-                'unmatch'                 => 'رمز عبور قدیمی مطابقت ندارد.',
-                'wrong-password'          => 'رمز عبور اشتباه است!',
+            'profile' => [
+                'index' => [
+                    'delete'         => 'حذف',
+                    'delete-failed'  => 'خطا در هنگام حذف مشتری.',
+                    'delete-profile' => 'حذف پروفایل',
+                    'delete-success' => 'مشتری با موفقیت حذف شد',
+                    'dob'            => 'تاریخ تولد',
+                    'edit'           => 'ویرایش',
+                    'edit-success'   => 'پروفایل با موفقیت به‌روزرسانی شد',
+                    'email'          => 'ایمیل',
+                    'enter-password' => 'رمز عبور خود را وارد کنید',
+                    'first-name'     => 'نام',
+                    'gender'         => 'جنسیت',
+                    'last-name'      => 'نام خانوادگی',
+                    'order-pending'  => 'امکان حذف حساب کاربری مشتری وجود ندارد زیرا برخی از سفارش(ها) در حالت در انتظار یا در حال پردازش هستند.',
+                    'title'          => 'پروفایل',
+                    'unmatched'      => 'رمز عبور قدیمی مطابقت ندارد.',
+                    'wrong-password' => 'رمز عبور اشتباه است!',
+                ],
+
+                'edit' => [
+                    'confirm-password'        => 'تأیید رمز عبور',
+                    'current-password'        => 'رمز عبور فعلی',
+                    'dob'                     => 'تاریخ تولد',
+                    'edit'                    => 'ویرایش',
+                    'edit-profile'            => 'ویرایش پروفایل',
+                    'email'                   => 'ایمیل',
+                    'female'                  => 'زن',
+                    'first-name'              => 'نام',
+                    'gender'                  => 'جنسیت',
+                    'last-name'               => 'نام خانوادگی',
+                    'male'                    => 'مرد',
+                    'new-password'            => 'رمز عبور جدید',
+                    'other'                   => 'سایر',
+                    'phone'                   => 'تلفن',
+                    'save'                    => 'ذخیره',
+                    'subscribe-to-newsletter' => 'اشتراک در خبرنامه',
+                ],
             ],
 
             'addresses' => [
-                'add-address'      => 'افزودن آدرس',
-                'address-1'        => 'آدرس 1',
-                'address-2'        => 'آدرس 2',
-                'city'             => 'شهر',
-                'company-name'     => 'نام شرکت',
-                'country'          => 'کشور',
-                'create-success'   => 'آدرس با موفقیت اضافه شده است.',
-                'default-address'  => 'آدرس پیش‌فرض',
-                'default-delete'   => 'آدرس پیش‌فرض قابل تغییر نیست.',
-                'delete'           => 'حذف',
-                'delete-success'   => 'آدرس با موفقیت حذف شد',
-                'edit'             => 'ویرایش',
-                'edit-address'     => 'ویرایش آدرس',
-                'edit-success'     => 'آدرس با موفقیت به‌روزرسانی شد.',
-                'email'            => 'ایمیل',
-                'empty-address'    => 'هنوز آدرسی به حساب خود اضافه نکرده‌اید.',
-                'first-name'       => 'نام',
-                'last-name'        => 'نام خانوادگی',
-                'phone'            => 'تلفن',
-                'post-code'        => 'کد پستی',
-                'save'             => 'ذخیره',
-                'security-warning' => 'فعالیت مشکوک پیدا شد !!!',
-                'select-country'   => 'انتخاب کشور',
-                'set-as-default'   => 'تعیین به عنوان پیش‌فرض',
-                'state'            => 'استان',
-                'street-address'   => 'آدرس خیابان',
-                'title'            => 'آدرس',
-                'vat-id'           => 'شناسه مالیاتی',
+                'index' => [
+                    'add-address'      => 'افزودن آدرس',
+                    'create-success'   => 'آدرس با موفقیت اضافه شد.',
+                    'default-address'  => 'آدرس پیش‌فرض',
+                    'default-delete'   => 'آدرس پیش‌فرض قابل تغییر نیست.',
+                    'delete'           => 'حذف',
+                    'delete-success'   => 'آدرس با موفقیت حذف شد',
+                    'edit'             => 'ویرایش',
+                    'edit-success'     => 'آدرس با موفقیت به‌روزرسانی شد.',
+                    'empty-address'    => 'هنوز آدرسی به حساب کاربری خود اضافه نکرده‌اید.',
+                    'security-warning' => 'فعالیت مشکوک پیدا شد!!!',
+                    'set-as-default'   => 'تنظیم به عنوان پیش‌فرض',
+                    'title'            => 'آدرس',
+                    'update-success'   => 'آدرس با موفقیت به‌روزرسانی شد.',
+                ],
+
+                'create' => [
+                    'add-address'    => 'افزودن آدرس',
+                    'city'           => 'شهر',
+                    'company-name'   => 'نام شرکت',
+                    'country'        => 'کشور',
+                    'email'          => 'ایمیل',
+                    'first-name'     => 'نام',
+                    'last-name'      => 'نام خانوادگی',
+                    'phone'          => 'تلفن',
+                    'post-code'      => 'کد پستی',
+                    'save'           => 'ذخیره',
+                    'select-country' => 'انتخاب کشور',
+                    'set-as-default' => 'تنظیم به عنوان پیش‌فرض',
+                    'state'          => 'استان',
+                    'street-address' => 'آدرس خیابان',
+                    'title'          => 'آدرس',
+                    'vat-id'         => 'شناسه مالیاتی',
+                ],
+
+                'edit' => [
+                    'city'           => 'شهر',
+                    'company-name'   => 'نام شرکت',
+                    'country'        => 'کشور',
+                    'edit'           => 'ویرایش',
+                    'email'          => 'ایمیل',
+                    'first-name'     => 'نام',
+                    'last-name'      => 'نام خانوادگی',
+                    'phone'          => 'تلفن',
+                    'post-code'      => 'کد پستی',
+                    'save'           => 'ذخیره',
+                    'select-country' => 'انتخاب کشور',
+                    'state'          => 'استان',
+                    'street-address' => 'آدرس خیابان',
+                    'title'          => 'آدرس',
+                    'vat-id'         => 'شناسه مالیاتی',
+                ],
             ],
 
             'orders' => [
@@ -162,8 +197,10 @@ return [
                     'cancel-confirm-msg' => 'آیا مطمئنید که می‌خواهید این سفارش را لغو کنید؟',
                     'cancel-error'       => 'سفارش شما قابل لغو نیست.',
                     'cancel-success'     => 'سفارش شما لغو شده است',
+                    'contact'            => 'تماس',
                     'page-title'         => 'سفارش #:order_id',
                     'payment-method'     => 'روش پرداخت',
+                    'reorder-btn-title'  => 'مرتب سازی مجدد',
                     'shipping-address'   => 'آدرس ارسال',
                     'shipping-method'    => 'روش ارسال',
                     'title'              => 'مشاهده',
@@ -339,10 +376,19 @@ return [
                 'search-text'       => 'محصولات را اینجا جستجو کنید',
                 'sign-in'           => 'ورود',
                 'sign-up'           => 'عضویت',
+                'submit'            => 'ارسال',
                 'title'             => 'حساب کاربری',
                 'welcome'           => 'خوش آمدید',
                 'welcome-guest'     => 'خوش آمدید مهمان',
                 'wishlist'          => 'لیست علاقه‌مندی',
+
+                'desktop' => [
+                    'top' => [
+                        'default-locale' => 'زبان پیش فرض',
+                        'offer'          => 'تا 40٪ تخفیف بر روی سفارش اول خود بگیرید',
+                        'shop-now'       => 'اکنون خرید کنید',
+                    ],
+                ],
             ],
 
             'footer' => [
@@ -367,55 +413,50 @@ return [
 
         'datagrid' => [
             'toolbar' => [
-                'mass-actions' => [
-                    'select-action' => 'انتخاب عملیات',
-                    'select-option' => 'انتخاب گزینه',
-                    'submit'        => 'ثبت',
-                ],
+                'length-of' => ':length از',
+                'results'   => ':total نتیجه',
+                'selected'  => ':total انتخاب شده',
 
-                'filter' => [
-                    'title' => 'فیلتر',
+                'mass-actions' => [
+                    'must-select-a-mass-action'        => 'شما باید یک عملیات گروهی را انتخاب کنید.',
+                    'must-select-a-mass-action-option' => 'شما باید یک گزینه برای عملیات گروهی را انتخاب کنید.',
+                    'no-records-selected'              => 'هیچ رکوردی انتخاب نشده است.',
+                    'select-action'                    => 'عملیات را انتخاب کنید',
                 ],
 
                 'search' => [
                     'title' => 'جستجو',
                 ],
-            ],
 
-            'filters' => [
-                'title' => 'اعمال فیلترها',
+                'filter' => [
+                    'apply-filter' => 'اعمال فیلتر',
+                    'title'        => 'فیلتر',
 
-                'dropdown' => [
-                    'searchable' => [
-                        'atleast-two-chars' => 'حداقل 2 حرف را تایپ کنید...',
-                        'no-results'        => 'هیچ نتیجه‌ای یافت نشد...',
+                    'dropdown' => [
+                        'select' => 'انتخاب',
+
+                        'searchable' => [
+                            'at-least-two-chars' => 'حداقل 2 کاراکتر وارد کنید...',
+                            'no-results'         => 'نتیجه‌ای یافت نشد...',
+                        ],
                     ],
-                ],
 
-                'custom-filters' => [
-                    'title'     => 'فیلترهای سفارشی',
-                    'clear-all' => 'پاک کردن همه',
-                ],
-
-                'date-options' => [
-                    'last-month'        => 'ماه گذشته',
-                    'last-six-months'   => 'شش ماه گذشته',
-                    'last-three-months' => 'سه ماه گذشته',
-                    'this-month'        => 'این ماه',
-                    'this-week'         => 'این هفته',
-                    'this-year'         => 'امسال',
-                    'today'             => 'امروز',
-                    'yesterday'         => 'دیروز',
+                    'custom-filters' => [
+                        'clear-all' => 'پاک کردن همه',
+                    ],
                 ],
             ],
 
             'table' => [
-                'actions'              => 'عملیات‌ها',
-                'no-records-available' => 'رکوردی در دسترس نیست.',
+                'actions'              => 'عملیات',
                 'next-page'            => 'صفحه بعدی',
+                'no-records-available' => 'رکوردی موجود نیست.',
+                'of'                   => 'از :total رکورد',
                 'page-navigation'      => 'ناوبری صفحه',
-                'previous-page'        => 'صفحه قبلی',
                 'page-number'          => 'شماره صفحه',
+                'previous-page'        => 'صفحه قبلی',
+                'showing'              => 'نمایش :firstItem',
+                'to'                   => 'تا :lastItem',
             ],
         ],
 
@@ -433,14 +474,14 @@ return [
 
         'products' => [
             'card' => [
-                'add-to-cart'                 => 'افزودن به سبد خرید',
-                'add-to-compare'              => 'افزودن به لیست مقایسه',
-                'add-to-compare-success'      => 'مورد با موفقیت به لیست مقایسه اضافه شد.',
-                'add-to-wishlist'             => 'افزودن به لیست خرید',
-                'already-in-compare'          => 'مورد از قبل به لیست مقایسه اضافه شده است.',
-                'new'                         => 'جدید',
-                'review-description'          => 'اولین نفری باشید که این محصول را مورد بررسی قرار دهید',
-                'sale'                        => 'حراج',
+                'add-to-cart'            => 'افزودن به سبد خرید',
+                'add-to-compare'         => 'افزودن به لیست مقایسه',
+                'add-to-compare-success' => 'مورد با موفقیت به لیست مقایسه اضافه شد.',
+                'add-to-wishlist'        => 'افزودن به لیست خرید',
+                'already-in-compare'     => 'مورد از قبل به لیست مقایسه اضافه شده است.',
+                'new'                    => 'جدید',
+                'review-description'     => 'اولین نفری باشید که این محصول را مورد بررسی قرار دهید',
+                'sale'                   => 'حراج',
             ],
 
             'carousel' => [
@@ -491,7 +532,8 @@ return [
                 ],
 
                 'bundle' => [
-                    'none' => 'هیچ',
+                    'none'         => 'هیچ',
+                    'total-amount' => 'مجموع مبلغ',
                 ],
 
                 'downloadable' => [
@@ -582,7 +624,7 @@ return [
             ],
 
             'results' => [
-                'analysed-keywords' => 'کلمات کلیدی تجزیه و تحلیل شده:',
+                'analyzed-keywords' => 'کلمات کلیدی تجزیه و تحلیل شده:',
             ],
         ],
     ],
@@ -610,6 +652,7 @@ return [
         'cart' => [
             'continue-to-checkout'      => 'ادامه به تسویه حساب',
             'illegal'                   => 'تعداد نمی‌تواند کمتر از یک باشد.',
+            'inactive-add'              => 'مورد غیرفعال نمی‌تواند به سبد خرید اضافه شود.',
             'inactive'                  => 'این مورد غیرفعال شده و بعداً از سبد خرید حذف می‌شود.',
             'inventory-warning'         => 'تعداد درخواستی موجود نیست، لطفاً بعداً دوباره امتحان کنید.',
             'item-add-to-cart'          => 'کالا با موفقیت اضافه شد',
@@ -652,22 +695,6 @@ return [
                 ],
             ],
 
-            'coupon' => [
-                'already-applied' => 'کد تخفیف در حال حاضر اعمال شده است.',
-                'applied'         => 'کد تخفیف اعمال شد',
-                'apply'           => 'اعمال کد تخفیف',
-                'apply-issue'     => 'نمی‌توان کد تخفیف را اعمال کرد.',
-                'button-title'    => 'اعمال',
-                'code'            => 'کد تخفیف',
-                'discount'        => 'تخفیف کد تخفیف',
-                'enter-your-code' => 'کد خود را وارد کنید',
-                'error'           => 'مشکلی پیش آمد',
-                'invalid'         => 'کد تخفیف نامعتبر است.',
-                'remove'          => 'حذف کد تخفیف',
-                'subtotal'        => 'جمع کل',
-                'success-apply'   => 'کد تخفیف با موفقیت اعمال شد.',
-            ],
-
             'mini-cart' => [
                 'continue-to-checkout' => 'ادامه به تسویه حساب',
                 'empty-cart'           => 'سبد خرید شما خالی است',
@@ -688,62 +715,44 @@ return [
                 'proceed-to-checkout' => 'ادامه به تسویه حساب',
                 'sub-total'           => 'جمع جزئیات',
                 'tax'                 => 'مالیات',
+
+                'estimate-shipping' => [
+                    'country'        => 'کشور',
+                    'info'           => 'مقصد خود را وارد کنید تا تخمینی از هزینه حمل و نقل و مالیات دریافت کنید.',
+                    'postcode'       => 'کد پستی',
+                    'select-country' => 'انتخاب کشور',
+                    'select-state'   => 'انتخاب استان',
+                    'state'          => 'استان',
+                    'title'          => 'تخمین حمل و نقل و مالیات',
+                ],
             ],
         ],
 
         'onepage' => [
-            'addresses' => [
-                'billing' => [
-                    'add-new-address'                    => 'افزودن آدرس جدید',
-                    'back'                               => 'بازگشت',
-                    'billing-address'                    => 'آدرس صورتحساب',
-                    'city'                               => 'شهر',
-                    'company-name'                       => 'نام شرکت',
-                    'confirm'                            => 'تأیید',
-                    'country'                            => 'کشور',
-                    'email'                              => 'ایمیل',
-                    'first-name'                         => 'نام',
-                    'last-name'                          => 'نام خانوادگی',
-                    'postcode'                           => 'کد پستی',
-                    'proceed'                            => ' ادامه دادن',
-                    'save'                               => 'صرفه جویی',
-                    'use-different-address-for-shipping' => 'آدرس مشابه آدرس صورتحساب من است',
-                    'save-address'                       => 'ذخیره این آدرس',
-                    'select-country'                     => 'انتخاب کشور',
-                    'select-state'                       => 'انتخاب استان',
-                    'state'                              => 'استان',
-                    'street-address'                     => 'آدرس',
-                    'telephone'                          => 'تلفن',
-                ],
-
-                'index' => [
-                    'bagisto' => 'بگیستو',
-                    'confirm' => 'تأیید',
-                ],
-
-                'shipping' => [
-                    'add-new-address'  => 'افزودن آدرس جدید',
-                    'back'             => 'بازگشت',
-                    'city'             => 'شهر',
-                    'company-name'     => 'نام شرکت',
-                    'confirm'          => 'تأیید',
-                    'country'          => 'کشور',
-                    'email'            => 'ایمیل',
-                    'first-name'       => 'نام',
-                    'last-name'        => 'نام خانوادگی',
-                    'postcode'         => 'کد پستی',
-                    'proceed'          => 'ادامه دادن',
-                    'save'             => 'صرفه جویی',
-                    'save-address'     => 'ذخیره این آدرس',
-                    'select-country'   => 'انتخاب کشور',
-                    'select-state'     => 'انتخاب استان',
-                    'shipping-address' => 'آدرس ارسال',
-                    'state'            => 'استان',
-                    'street-address'   => 'آدرس',
-                    'telephone'        => 'تلفن',
-                ],
-
-                'title' => 'آدرس',
+            'address' => [
+                'add-new-address'  => 'افزودن آدرس جدید',
+                'add-new'          => 'افزودن آدرس جدید',
+                'back'             => 'بازگشت',
+                'billing-address'  => 'آدرس صورتحساب',
+                'city'             => 'شهر',
+                'company-name'     => 'نام شرکت',
+                'confirm'          => 'تایید',
+                'country'          => 'کشور',
+                'email'            => 'ایمیل',
+                'first-name'       => 'نام',
+                'last-name'        => 'نام خانوادگی',
+                'postcode'         => 'کد پستی',
+                'proceed'          => 'ادامه',
+                'same-as-billing'  => 'استفاده از همان آدرس برای حمل و نقل؟',
+                'save-address'     => 'ذخیره در دفتر آدرس',
+                'save'             => 'ذخیره',
+                'select-country'   => 'انتخاب کشور',
+                'select-state'     => 'انتخاب استان',
+                'shipping-address' => 'آدرس حمل و نقل',
+                'state'            => 'استان',
+                'street-address'   => 'آدرس خیابان',
+                'telephone'        => 'تلفن',
+                'title'            => 'آدرس',
             ],
 
             'index' => [
@@ -771,13 +780,55 @@ return [
                 'tax'              => 'مالیات',
             ],
         ],
+
+        'coupon' => [
+            'already-applied' => 'کد تخفیف در حال حاضر اعمال شده است.',
+            'applied'         => 'کد تخفیف اعمال شد',
+            'apply'           => 'اعمال کد تخفیف',
+            'apply-issue'     => 'نمی‌توان کد تخفیف را اعمال کرد.',
+            'button-title'    => 'اعمال',
+            'code'            => 'کد تخفیف',
+            'discount'        => 'تخفیف کد تخفیف',
+            'enter-your-code' => 'کد خود را وارد کنید',
+            'error'           => 'مشکلی پیش آمد',
+            'invalid'         => 'کد تخفیف نامعتبر است.',
+            'remove'          => 'حذف کد تخفیف',
+            'subtotal'        => 'جمع کل',
+            'success-apply'   => 'کد تخفیف با موفقیت اعمال شد.',
+        ],
+
+        'login' => [
+            'email'    => 'ایمیل',
+            'password' => 'رمز عبور',
+            'title'    => 'ورود',
+        ],
     ],
 
     'home' => [
+        'contact' => [
+            'about'         => 'یک یادداشت برای ما بنویسید و ما در اسرع وقت به شما پاسخ خواهیم داد',
+            'desc'          => 'درباره چی فکر می‌کنید؟',
+            'describe-here' => 'اینجا را توصیف کنید',
+            'email'         => 'ایمیل',
+            'message'       => 'پیام',
+            'name'          => 'نام',
+            'phone-number'  => 'شماره تلفن',
+            'submit'        => 'ارسال',
+            'title'         => 'تماس با ما',
+        ],
+
         'index' => [
-            'offer'               => 'تا 40% تخفیف برای سفارش اولتان دریافت کنید. همین الان خرید کنید',
+            'offer'               => 'تا ۴۰٪ تخفیف برای سفارش اولتان دریافت کنید. همین الان خرید کنید',
             'resend-verify-email' => 'ارسال مجدد ایمیل تأیید',
             'verify-email'        => 'ایمیل خود را تأیید کنید',
+        ],
+
+        'thanks-for-contact' => 'از تماس شما با ما و ارسال نظرات و سوالات خود متشکریم. ما به زودی به شما پاسخ خواهیم داد.',
+    ],
+
+    'partials' => [
+        'pagination' => [
+            'pagination-showing' => 'نمایش :firstItem تا :lastItem از مجموع :total مورد',
         ],
     ],
 
@@ -872,6 +923,14 @@ return [
                 'subject'     => 'شما! به خبرنامه ما مشترک شدید',
                 'unsubscribe' => 'لغو اشتراک',
             ],
+        ],
+
+        'contact-us' => [
+            'contact-from'    => 'از طریق فرم تماس وبسایت',
+            'reply-to-mail'   => 'لطفاً به این ایمیل پاسخ دهید.',
+            'reach-via-phone' => 'همچنین می‌توانید با شماره تلفن زیر با ما تماس بگیرید',
+            'inquiry-from'    => 'درخواست از',
+            'to'              => 'برای تماس با',
         ],
 
         'orders' => [

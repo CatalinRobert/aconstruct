@@ -11,7 +11,7 @@ return [
         ],
 
         'forget-password' => [
-            'create'    => [
+            'create' => [
                 'email'           => 'Kayıtlı E-posta',
                 'email-not-exist' => 'E-posta Bulunamadı',
                 'page-title'      => 'Şifremi Unuttum',
@@ -36,6 +36,8 @@ return [
         'description-text' => 'Tüm Bildirimleri Listele',
         'marked-success'   => 'Bildirim Başarıyla İşaretlendi',
         'no-record'        => 'Kayıt Bulunamadı',
+        'of'               => 'of',
+        'per-page'         => 'Sayfa Başına',
         'read-all'         => 'Tümünü Okundu Olarak İşaretle',
         'title'            => 'Bildirimler',
         'view-all'         => 'Tümünü Görüntüle',
@@ -47,15 +49,6 @@ return [
             'pending'         => 'Sipariş Bekliyor',
             'pending-payment' => 'Bekleyen Ödeme',
             'processing'      => 'Sipariş İşleniyor',
-        ],
-
-        'status' => [
-            'all'        => 'Tümü',
-            'canceled'   => 'İptal Edildi',
-            'closed'     => 'Kapatıldı',
-            'completed'  => 'Tamamlandı',
-            'pending'    => 'Bekliyor',
-            'processing' => 'İşleniyor',
         ],
     ],
 
@@ -134,31 +127,200 @@ return [
     'sales' => [
         'orders' => [
             'index' => [
-                'title' => 'Siparişler',
+                'create-btn' => 'Sipariş Oluştur',
+                'title'      => 'Siparişler',
+
+                'search-customer' => [
+                    'create-btn'  => 'Müşteri Oluştur',
+                    'empty-info'  => 'Arama terimi için müşteri bulunamadı.',
+                    'empty-title' => 'Müşteri bulunamadı',
+                    'search-by'   => 'E-posta veya isme göre ara',
+                    'title'       => 'Müşteri Seç',
+                ],
 
                 'datagrid' => [
-                    'canceled'         => 'İptal Edildi',
-                    'channel-name'     => 'Kanal',
-                    'closed'           => 'Kapatıldı',
-                    'completed'        => 'Tamamlandı',
-                    'customer'         => 'Müşteri',
-                    'date'             => 'Tarih',
-                    'email'            => 'E-posta',
-                    'fraud'            => 'Dolandırıcılık',
-                    'grand-total'      => 'Genel Toplam',
-                    'id'               => '#:id',
-                    'images'           => 'Görseller',
-                    'location'         => 'Konum',
-                    'order-id'         => 'Sipariş Kimliği',
-                    'pay-by'           => 'Şunu İle Ödeme Yap - :method',
-                    'pay-via'          => 'Şunu İle Ödeme Yap - :method',
-                    'pending'          => 'Bekliyor',
-                    'pending-payment'  => 'Ödeme Bekliyor',
-                    'processing'       => 'İşleniyor',
-                    'product-count'    => ':count + Daha Fazla Ürün',
-                    'status'           => 'Durum',
-                    'success'          => 'Başarılı',
-                    'view'             => 'Görüntüle',
+                    'canceled'        => 'İptal Edildi',
+                    'channel-name'    => 'Kanal',
+                    'closed'          => 'Kapatıldı',
+                    'completed'       => 'Tamamlandı',
+                    'customer'        => 'Müşteri',
+                    'date'            => 'Tarih',
+                    'email'           => 'E-posta',
+                    'fraud'           => 'Dolandırıcılık',
+                    'grand-total'     => 'Genel Toplam',
+                    'id'              => '#:id',
+                    'images'          => 'Görseller',
+                    'location'        => 'Konum',
+                    'order-id'        => 'Sipariş Kimliği',
+                    'pay-by'          => 'Şunu İle Ödeme Yap - :method',
+                    'pay-via'         => 'Şunu İle Ödeme Yap - :method',
+                    'pending-payment' => 'Ödeme Bekliyor',
+                    'pending'         => 'Bekliyor',
+                    'processing'      => 'İşleniyor',
+                    'product-count'   => ':count + Daha Fazla Ürün',
+                    'status'          => 'Durum',
+                    'success'         => 'Başarılı',
+                    'view'            => 'Görüntüle',
+                ],
+            ],
+
+            'create' => [
+                'add-to-cart'             => 'Sepete Ekle',
+                'back-btn'                => 'Geri',
+                'check-billing-address'   => 'Fatura adresi eksik.',
+                'check-shipping-address'  => 'Teslimat adresi eksik.',
+                'configuration'           => 'Yapılandırma',
+                'coupon-already-applied'  => 'Kupon kodu zaten uygulanmış.',
+                'coupon-applied'          => 'Kupon kodu başarıyla uygulandı.',
+                'coupon-error'            => 'Kupon kodu uygulanamıyor.',
+                'coupon-not-found'        => 'Kupon Bulunamadı',
+                'coupon-remove'           => 'Kupon kodu başarıyla kaldırıldı.',
+                'error'                   => 'Bir hata oluştu',
+                'minimum-order-error'     => 'Minimum sipariş tutarı karşılanmıyor.',
+                'order-placed-success'    => 'Sipariş başarıyla oluşturuldu.',
+                'payment-not-supported'   => 'Bu ödeme yöntemi desteklenmiyor',
+                'save-btn'                => 'Sipariş Oluştur',
+                'specify-payment-method'  => 'Ödeme yöntemi eksik.',
+                'specify-shipping-method' => 'Teslimat yöntemi eksik.',
+                'title'                   => ':name için Sipariş Oluştur',
+
+                'types' => [
+                    'configurable' => [
+                        'select-options' => 'Lütfen bir seçenek seçin',
+                    ],
+
+                    'bundle' => [
+                        'none'         => 'Yok',
+                        'total-amount' => 'Toplam Tutar',
+                    ],
+
+                    'grouped' => [
+                        'name' => 'Ad',
+                    ],
+
+                    'downloadable' => [
+                        'title' => 'Bağlantılar',
+                    ],
+                ],
+
+                'cart' => [
+                    'success-add-to-cart' => 'Ürün başarıyla sepete eklendi',
+                    'success-remove'      => 'Öğe sepetten başarıyla kaldırıldı',
+                    'success-update'      => 'Sepet öğesi başarıyla güncellendi',
+
+                    'items' => [
+                        'add-product'       => 'Ürün Ekle',
+                        'amount-per-unit'   => ':amount Birim Başı x :qty Miktar',
+                        'delete'            => 'Sil',
+                        'empty-description' => 'Sepetinizde ürün bulunmamaktadır.',
+                        'empty-title'       => 'Boş Sepet Öğeleri',
+                        'move-to-wishlist'  => 'İstek Listesine Taşı',
+                        'see-details'       => 'Detayları Görüntüle',
+                        'sku'               => 'SKU - :sku',
+                        'sub-total'         => 'Ara Toplam - :sub_total',
+                        'title'             => 'Sepet Öğeleri',
+
+                        'search' => [
+                            'add-to-cart'   => 'Sepete Ekle',
+                            'available-qty' => ':qty Mevcut',
+                            'empty-info'    => 'Arama terimi için ürün bulunamadı.',
+                            'empty-title'   => 'Ürün bulunamadı',
+                            'product-image' => 'Ürün Görseli',
+                            'qty'           => 'Adet',
+                            'sku'           => 'SKU - :sku',
+                            'title'         => 'Ürünleri Ara',
+                        ],
+                    ],
+
+                    'address' => [
+                        'add-btn'          => 'Adres Ekle',
+                        'add-new'          => 'Yeni adres ekle',
+                        'add-new-address'  => 'Yeni adres ekle',
+                        'addresses'        => 'Adresler',
+                        'back'             => 'Geri',
+                        'billing-address'  => 'Fatura Adresi',
+                        'city'             => 'Şehir',
+                        'company-name'     => 'Şirket Adı',
+                        'confirm'          => 'Onayla',
+                        'country'          => 'Ülke',
+                        'edit-btn'         => 'Adresi Düzenle',
+                        'email'            => 'E-posta',
+                        'first-name'       => 'Ad',
+                        'last-name'        => 'Soyad',
+                        'postcode'         => 'Posta Kodu',
+                        'proceed'          => 'Devam Et',
+                        'same-as-billing'  => 'Teslimat için aynı adresi kullan?',
+                        'save'             => 'Kaydet',
+                        'save-address'     => 'Bu adresi adres defterine kaydet',
+                        'select-country'   => 'Ülke Seçin',
+                        'select-state'     => 'Eyalet Seçin',
+                        'shipping-address' => 'Teslimat Adresi',
+                        'state'            => 'Eyalet',
+                        'street-address'   => 'Adres',
+                        'telephone'        => 'Telefon',
+                        'title'            => 'Adres',
+                        'vat-id'           => 'Vergi Kimlik Numarası',
+                    ],
+
+                    'payment' => [
+                        'title' => 'Ödeme',
+                    ],
+
+                    'shipping' => [
+                        'title' => 'Teslimat',
+                    ],
+
+                    'summary' => [
+                        'apply-coupon'    => 'Kupon Kullan',
+                        'discount-amount' => 'İndirim Tutarı',
+                        'enter-your-code' => 'Kodunuzu girin',
+                        'grand-total'     => 'Genel Toplam',
+                        'place-order'     => 'Sipariş Ver',
+                        'processing'      => 'İşleniyor',
+                        'shipping-amount' => 'Teslimat Tutarı',
+                        'sub-total'       => 'Ara Toplam',
+                        'tax'             => 'Vergi',
+                        'title'           => 'Sipariş Özeti',
+                    ],
+                ],
+
+                'cart-items' => [
+                    'add-to-cart'       => 'Sepete Ekle',
+                    'delete'            => 'Sil',
+                    'empty-description' => 'Sepetinizde ürün bulunmamaktadır.',
+                    'empty-title'       => 'Boş Sepet',
+                    'see-details'       => 'Detayları Görüntüle',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Sepet Öğeleri',
+                ],
+
+                'recent-order-items' => [
+                    'add-to-cart'       => 'Sepete Ekle',
+                    'empty-description' => 'Son siparişlerinizde ürün bulunmamaktadır.',
+                    'empty-title'       => 'Boş Siparişler',
+                    'see-details'       => 'Detayları Görüntüle',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Son Sipariş Öğeleri',
+                    'view'              => 'Görüntüle',
+                ],
+
+                'wishlist-items' => [
+                    'add-to-cart'       => 'Sepete Ekle',
+                    'delete'            => 'Sil',
+                    'empty-description' => 'İstek listenizde ürün bulunmamaktadır.',
+                    'empty-title'       => 'Boş İstek Listesi Öğeleri',
+                    'see-details'       => 'Detayları Görüntüle',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'İstek Listesi Öğeleri',
+                ],
+
+                'compare-items' => [
+                    'add-to-cart'       => 'Sepete Ekle',
+                    'delete'            => 'Sil',
+                    'empty-description' => 'Karşılaştırma listenizde ürün bulunmamaktadır.',
+                    'empty-title'       => 'Boş Karşılaştırma Öğeleri',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Karşılaştırma Öğeleri',
                 ],
             ],
 
@@ -211,6 +373,7 @@ return [
                 'refund'                => 'İade',
                 'refund-id'             => 'İade #:refund',
                 'refunded'              => 'İade Edildi',
+                'reorder'               => 'Yeniden düzenle',
                 'ship'                  => 'Gönder',
                 'shipment'              => 'Gönderi #:shipment',
                 'shipments'             => 'Gönderiler',
@@ -424,7 +587,7 @@ return [
                 'title'                  => 'Fatura #:invoice_id',
             ],
 
-            'create'   => [
+            'create' => [
                 'amount-per-unit'    => ':amount Birim Başına x :qty Miktar',
                 'create-invoice'     => 'Fatura Oluştur',
                 'create-success'     => 'Fatura başarıyla oluşturuldu',
@@ -529,7 +692,7 @@ return [
                 'create-btn'    => 'Ürün Oluştur',
                 'title'         => 'Ürünler',
 
-                'create'     => [
+                'create' => [
                     'back-btn'                => 'Geri',
                     'configurable-attributes' => 'Yapılandırılabilir Özellikler',
                     'create-btn'              => 'Ürün Oluştur',
@@ -540,31 +703,31 @@ return [
                     'type'                    => 'Tür',
                 ],
 
-                'datagrid'   => [
-                    'active'                        => 'Aktif',
-                    'attribute-family'              => 'Özellik Ailesi',
-                    'attribute-family-value'        => 'Özellik Ailesi - :attribute_family',
-                    'category'                      => 'Kategori',
-                    'copy-of'                       => 'Kopyası :value',
-                    'copy-of-slug'                  => 'kopyası-:value',
-                    'delete'                        => 'Sil',
-                    'disable'                       => 'Devre Dışı',
-                    'id'                            => 'Kimlik',
-                    'id-value'                      => 'Kimlik - :id',
-                    'image'                         => 'Resim',
-                    'mass-delete-success'           => 'Seçilen Ürünler Başarıyla Silindi',
-                    'mass-update-success'           => 'Seçilen Ürünler Başarıyla Güncellendi',
-                    'name'                          => 'Ad',
-                    'out-of-stock'                  => 'Stokta Yok',
-                    'price'                         => 'Fiyat',
-                    'product-image'                 => 'Ürün Resmi',
-                    'qty'                           => 'Miktar',
-                    'qty-value'                     => ':qty Mevcut',
-                    'sku'                           => 'SKU',
-                    'sku-value'                     => 'SKU - :sku',
-                    'status'                        => 'Durum',
-                    'type'                          => 'Tür',
-                    'update-status'                 => 'Durumu Güncelle',
+                'datagrid' => [
+                    'active'                 => 'Aktif',
+                    'attribute-family'       => 'Özellik Ailesi',
+                    'attribute-family-value' => 'Özellik Ailesi - :attribute_family',
+                    'category'               => 'Kategori',
+                    'copy-of'                => 'Kopyası :value',
+                    'copy-of-slug'           => 'kopyası-:value',
+                    'delete'                 => 'Sil',
+                    'disable'                => 'Devre Dışı',
+                    'id'                     => 'Kimlik',
+                    'id-value'               => 'Kimlik - :id',
+                    'image'                  => 'Resim',
+                    'mass-delete-success'    => 'Seçilen Ürünler Başarıyla Silindi',
+                    'mass-update-success'    => 'Seçilen Ürünler Başarıyla Güncellendi',
+                    'name'                   => 'Ad',
+                    'out-of-stock'           => 'Stokta Yok',
+                    'price'                  => 'Fiyat',
+                    'product-image'          => 'Ürün Resmi',
+                    'qty'                    => 'Miktar',
+                    'qty-value'              => ':qty Mevcut',
+                    'sku'                    => 'SKU',
+                    'sku-value'              => 'SKU - :sku',
+                    'status'                 => 'Durum',
+                    'type'                   => 'Tür',
+                    'update-status'          => 'Durumu Güncelle',
                 ],
             ],
 
@@ -900,6 +1063,7 @@ return [
                 'position'              => 'Konum',
                 'price'                 => 'Fiyat',
                 'regex'                 => 'Regex',
+                'regex-info'            => 'İfade çift tırnak içinde olmalıdır.',
                 'save-btn'              => 'Özelliği Kaydet',
                 'select'                => 'Seçenek',
                 'select-type'           => 'Seçenek Özellik Türü',
@@ -963,6 +1127,7 @@ return [
                 'position'              => 'Konum',
                 'price'                 => 'Fiyat',
                 'regex'                 => 'Regex',
+                'regex-info'            => 'İfade çift tırnak içinde olmalıdır.',
                 'save-btn'              => 'Özelliği Kaydet',
                 'select'                => 'Seçenek',
                 'select-type'           => 'Seçenek Özellik Türü',
@@ -1000,17 +1165,17 @@ return [
                 'title'   => 'Kategoriler',
 
                 'datagrid' => [
-                    'active'            => 'Aktif',
-                    'delete'            => 'Sil',
-                    'delete-success'    => 'Seçilen :resource başarıyla silindi',
-                    'edit'              => 'Düzenle',
-                    'id'                => 'ID',
-                    'inactive'          => 'Pasif',
-                    'name'              => 'Adı',
-                    'no-of-products'    => 'Ürün Sayısı',
-                    'position'          => 'Pozisyon',
-                    'status'            => 'Menüde Görünür',
-                    'update-status'     => 'Durumu Güncelle',
+                    'active'         => 'Aktif',
+                    'delete'         => 'Sil',
+                    'delete-success' => 'Seçilen :resource başarıyla silindi',
+                    'edit'           => 'Düzenle',
+                    'id'             => 'ID',
+                    'inactive'       => 'Pasif',
+                    'name'           => 'Adı',
+                    'no-of-products' => 'Ürün Sayısı',
+                    'position'       => 'Pozisyon',
+                    'status'         => 'Menüde Görünür',
+                    'update-status'  => 'Durumu Güncelle',
                 ],
             ],
 
@@ -1174,8 +1339,8 @@ return [
     'customers' => [
         'customers' => [
             'index' => [
-                'login-message' => 'Olarak giriş yaptınız: :customer_name',
                 'title'         => 'Müşteriler',
+                'login-message' => ':customer_name olarak giriş yaptınız',
 
                 'datagrid' => [
                     'active'         => 'Aktif',
@@ -1188,17 +1353,17 @@ return [
                     'group'          => 'Grup',
                     'id'             => 'Müşteri ID',
                     'inactive'       => 'Pasif',
-                    'method-error'   => 'Hata! Yanlış yöntem algılandı, lütfen toplu işlem yapılandırmasını kontrol edin',
+                    'method-error'   => 'Hata! Yanlış yöntem algılandı, lütfen kitlesel eylem yapılandırmasını kontrol edin',
                     'name'           => 'Müşteri Adı',
-                    'no-resource'    => 'İşlem için sağlanan kaynak yetersiz',
+                    'no-resource'    => 'Eylem için sağlanan kaynak yetersiz',
                     'order'          => ':order Sipariş(ler)',
                     'order-count'    => 'Sipariş Sayısı',
                     'order-pending'  => 'Müşterinin bekleyen siparişi var',
-                    'partial-action' => ':resource üzerinde kısıtlı sistem kısıtlamaları nedeniyle bazı işlemler gerçekleştirilmedi',
+                    'partial-action' => 'Bazı eylemler, :resource üzerindeki sınırlı sistem kısıtlamaları nedeniyle gerçekleştirilmedi',
                     'phone'          => 'İletişim Numarası',
                     'revenue'        => 'Gelir',
                     'status'         => 'Durum',
-                    'suspended'      => 'Askıya Alınmış',
+                    'suspended'      => 'Askıya Alındı',
                     'update-status'  => 'Durumu Güncelle',
                     'update-success' => 'Seçilen Müşteriler başarıyla güncellendi',
                 ],
@@ -1211,103 +1376,203 @@ return [
                     'date-of-birth'         => 'Doğum Tarihi',
                     'email'                 => 'E-posta',
                     'female'                => 'Kadın',
-                    'first-name'            => 'Ad',
+                    'first-name'            => 'Adı',
                     'gender'                => 'Cinsiyet',
                     'last-name'             => 'Soyadı',
                     'male'                  => 'Erkek',
                     'other'                 => 'Diğer',
                     'save-btn'              => 'Müşteriyi Kaydet',
-                    'select-customer-group' => 'Müşteri Grubunu Seçin',
+                    'select-customer-group' => 'Müşteri Grubu Seçin',
                     'select-gender'         => 'Cinsiyet Seçin',
                     'title'                 => 'Yeni Müşteri Oluştur',
                 ],
             ],
 
-            'delete-failed'  => 'Müşteri Silme Başarısız Oldu',
-            'delete-success' => 'Müşteri Başarıyla Silindi',
-            'order-pending'  => 'Sipariş Beklemede',
-            'update-success' => 'Müşteri Başarıyla Güncellendi',
-
-            'edit' => [
-                'contact-number'        => 'İletişim Numarası',
-                'customer-group'        => 'Müşteri Grubu',
-                'date-of-birth'         => 'Doğum Tarihi',
-                'edit-btn'              => 'Düzenle',
-                'email'                 => 'E-posta',
-                'female'                => 'Kadın',
-                'first-name'            => 'Ad',
-                'gender'                => 'Cinsiyet',
-                'last-name'             => 'Soyadı',
-                'male'                  => 'Erkek',
-                'other'                 => 'Diğer',
-                'save-btn'              => 'Müşteriyi Kaydet',
-                'select-customer-group' => 'Müşteri Grubunu Seçin',
-                'select-gender'         => 'Cinsiyet Seçin',
-                'status'                => 'Durum',
-                'suspended'             => 'Askıya Alınmış',
-                'title'                 => 'Müşteriyi Düzenle',
-            ],
-
             'view' => [
                 'account-delete-confirmation' => 'Bu hesabı silmek istediğinizden emin misiniz?',
                 'active'                      => 'Aktif',
-                'add-note'                    => 'Not Ekle',
-                'address'                     => 'Adres',
                 'address-delete-confirmation' => 'Bu adresi silmek istediğinizden emin misiniz?',
-                'address-delete-success'      => 'Adres Başarıyla Silindi',
-                'approved'                    => 'Onaylandı',
                 'back-btn'                    => 'Geri',
-                'canceled'                    => 'İptal Edildi',
-                'closed'                      => 'Kapatıldı',
-                'completed'                   => 'Tamamlandı',
+                'create-order'                => 'Sipariş Oluştur',
                 'customer'                    => 'Müşteri',
-                'customer-not-notified'       => ':date | Müşteri <b>Bilgilendirilmedi</b>',
-                'customer-notified'           => ':date | Müşteri <b>Bilgilendirildi</b>',
                 'date-of-birth'               => 'Doğum Tarihi - :dob',
                 'default-address'             => 'Varsayılan Adres',
-                'delete'                      => 'Sil',
                 'delete-account'              => 'Hesabı Sil',
-                'disapproved'                 => 'Onaylanmadı',
-                'edit'                        => 'Düzenle',
+                'delete'                      => 'Sil',
                 'email'                       => 'E-posta - :email',
-                'empty-description'           => 'Müşteri için Yeni Adresler Oluşturun',
-                'empty-invoice'               => 'Mevcut Fatura Yok',
-                'empty-order'                 => 'Mevcut Sipariş Yok',
-                'empty-review'                => 'Mevcut İnceleme Yok',
+                'empty-description'           => 'Müşteri için yeni adresler oluşturun',
                 'empty-title'                 => 'Müşteri Adresi Ekle',
                 'gender'                      => 'Cinsiyet - :gender',
                 'group'                       => 'Grup - :group_code',
-                'id'                          => 'Kimlik - :id',
                 'inactive'                    => 'Pasif',
-                'increment-id'                => '# :artış_id',
-                'invoice'                     => 'Faturalar (:fatura_sayısı)',
-                'invoice-amount'              => 'Fatura Tutarı',
-                'invoice-date'                => 'Fatura Tarihi',
-                'invoice-id'                  => 'Fatura ID',
-                'invoice-id-prefix'           => '# :fatura_id',
-                'mobile'                      => 'Cep Telefonu',
-                'note'                        => 'Not',
+                'login-as-customer'           => 'Müşteri olarak giriş yap',
                 'note-created-success'        => 'Not Başarıyla Oluşturuldu',
-                'note-placeholder'            => 'Notunuzu Buraya Yazın',
-                'notify-customer'             => 'Müşteriyi Bilgilendir',
-                'of'                          => '-den',
-                'order-id'                    => 'Sipariş ID',
-                'order-id-prefix'             => '# :sipariş_id',
-                'order-pending'               => 'Birkaç Sipariş hala bekliyor veya işlem görüyor olduğu için hesabı silemezsiniz.',
-                'orders'                      => 'Siparişler (:sipariş_sayısı)',
-                'pay-by'                      => 'Ödeme Yap',
-                'pending'                     => 'Beklemede',
-                'per-page'                    => 'sayfa başına',
-                'phone'                       => 'Telefon - :telefon',
-                'processing'                  => 'İşleniyor',
-                'reviews'                     => 'İncelemeler',
+                'order-create-confirmation'   => 'Bu müşteri için sipariş oluşturmak istediğinizden emin misiniz?',
+                'phone'                       => 'Telefon - :phone',
                 'set-as-default'              => 'Varsayılan Olarak Ayarla',
-                'set-default-success'         => 'Varsayılan Adres Başarıyla Güncellendi',
-                'submit-btn-title'            => 'Notu Gönder',
                 'suspended'                   => 'Askıya Alındı',
                 'title'                       => 'Müşteri Görünümü',
-                'total-revenue'               => 'Toplam Gelir - :gelir',
+
+                'address' => [
+                    'count' => 'Adresler (:count)',
+
+                    'create' => [
+                        'city'               => 'Şehir',
+                        'company-name'       => 'Şirket Adı',
+                        'country'            => 'Ülke',
+                        'create-btn'         => 'Oluştur',
+                        'create-address-btn' => 'Yeni Adres Ekle',
+                        'default-address'    => 'Varsayılan Adres',
+                        'email'              => 'E-posta',
+                        'first-name'         => 'Adı',
+                        'last-name'          => 'Soyadı',
+                        'phone'              => 'Telefon',
+                        'post-code'          => 'Posta Kodu',
+                        'save-btn-title'     => 'Adresi Kaydet',
+                        'select-country'     => 'Ülke Seçin',
+                        'state'              => 'Eyalet',
+                        'street-address'     => 'Cadde Adresi',
+                        'title'              => 'Adres Oluştur',
+                        'vat-id'             => 'KDV Kimlik Numarası',
+                    ],
+
+                    'edit' => [
+                        'city'            => 'Şehir',
+                        'company-name'    => 'Şirket Adı',
+                        'country'         => 'Ülke',
+                        'default-address' => 'Varsayılan Adres',
+                        'edit-btn'        => 'Düzenle',
+                        'email'           => 'E-posta',
+                        'first-name'      => 'Adı',
+                        'last-name'       => 'Soyadı',
+                        'phone'           => 'Telefon',
+                        'post-code'       => 'Posta Kodu',
+                        'save-btn-title'  => 'Adresi Kaydet',
+                        'select-country'  => 'Ülke Seçin',
+                        'state'           => 'Eyalet',
+                        'street-address'  => 'Cadde Adresi',
+                        'title'           => 'Adresi Düzenle',
+                        'vat-id'          => 'KDV Kimlik Numarası',
+                    ],
+
+                    'address-delete-success' => 'Adres Başarıyla Silindi',
+                    'create-success'         => 'Adres Başarıyla Oluşturuldu',
+                    'set-default-success'    => 'Varsayılan Adres Başarıyla Güncellendi',
+                    'success-mass-delete'    => 'Adres Toplu Silme Başarıyla Gerçekleştirildi',
+                    'update-success'         => 'Adres Başarıyla Güncellendi',
+                ],
+
+                'datagrid' => [
+                    'invoices' => [
+                        'empty-invoice'  => 'İnceleme Yok',
+                        'increment-id'   => 'Fatura ID',
+                        'invoice-amount' => 'Fatura Tutarı',
+                        'invoice-date'   => 'Fatura Tarihi',
+                        'order-id'       => 'Sipariş ID',
+                        'view'           => 'Görüntüle',
+                    ],
+
+                    'orders' => [
+                        'canceled'        => 'İptal Edildi',
+                        'channel-name'    => 'Kanal Adı',
+                        'closed'          => 'Kapatıldı',
+                        'completed'       => 'Tamamlandı',
+                        'customer-name'   => 'Müşteri Adı',
+                        'date'            => 'Tarih',
+                        'empty-order'     => 'Sipariş Yok',
+                        'email'           => 'E-posta',
+                        'fraud'           => 'Sahtekarlık',
+                        'grand-total'     => 'Toplam Tutar',
+                        'location'        => 'Konum',
+                        'order-id'        => 'Sipariş ID',
+                        'pay-via'         => 'Ödeme Yoluyla',
+                        'pending'         => 'Beklemede',
+                        'pending-payment' => 'Ödeme Bekliyor',
+                        'processing'      => 'İşleniyor',
+                        'status'          => 'Durum',
+                        'view'            => 'Görüntüle',
+                    ],
+
+                    'reviews' => [
+                        'approved'      => 'Onaylandı',
+                        'comment'       => 'Yorum',
+                        'created-at'    => 'Oluşturulma Tarihi',
+                        'disapproved'   => 'Onaylanmadı',
+                        'empty-reviews' => 'Fatura Yok',
+                        'id'            => 'ID',
+                        'invoice-date'  => 'Fatura Tarihi',
+                        'pending'       => 'Beklemede',
+                        'product-id'    => 'Ürün ID',
+                        'product-name'  => 'Ürün Adı',
+                        'rating'        => 'Puan',
+                        'status'        => 'Durum',
+                        'title'         => 'Başlık',
+                    ],
+                ],
+
+                'edit' => [
+                    'contact-number'        => 'İletişim Numarası',
+                    'customer-group'        => 'Müşteri Grubu',
+                    'date-of-birth'         => 'Doğum Tarihi',
+                    'edit-btn'              => 'Düzenle',
+                    'email'                 => 'E-posta',
+                    'female'                => 'Kadın',
+                    'first-name'            => 'Adı',
+                    'gender'                => 'Cinsiyet',
+                    'last-name'             => 'Soyadı',
+                    'male'                  => 'Erkek',
+                    'other'                 => 'Diğer',
+                    'save-btn'              => 'Müşteriyi Kaydet',
+                    'select-customer-group' => 'Müşteri Grubu Seçin',
+                    'select-gender'         => 'Cinsiyet Seçin',
+                    'status'                => 'Durum',
+                    'suspended'             => 'Askıya Alındı',
+                    'title'                 => 'Müşteriyi Düzenle',
+                ],
+
+                'invoices' => [
+                    'count'        => 'Faturalar (:count)',
+                    'increment-id' => '# :increment_id',
+                ],
+
+                'notes' => [
+                    'add-note'              => 'Not Ekle',
+                    'customer-not-notified' => ':date | Müşteri <b>Bildirilmedi</b>',
+                    'customer-notified'     => ':date | Müşteri <b>Bildirildi</b>',
+                    'note'                  => 'Not',
+                    'note-placeholder'      => 'Buraya Notunuzu Yazın',
+                    'notify-customer'       => 'Müşteriyi Bilgilendir',
+                    'submit-btn-title'      => 'Notu Gönder',
+                ],
+
+                'orders' => [
+                    'count'         => 'Siparişler (:count)',
+                    'increment-id'  => '# :increment_id',
+                    'total-revenue' => 'Toplam Gelir - :revenue',
+                ],
+
+                'reviews' => [
+                    'id'    => 'ID - :id',
+                    'count' => 'Değerlendirmeler (:count)',
+                ],
+
+                'cart' => [
+                    'delete-success' => 'Ürün başarıyla silindi.',
+                ],
+
+                'wishlist' => [
+                    'delete-success' => 'İstek listesi öğesi başarıyla silindi.',
+                ],
+
+                'compare' => [
+                    'delete-success' => 'Karşılaştırma öğesi başarıyla silindi.',
+                ],
             ],
+
+            'delete-failed'  => 'Müşteri Silme Başarısız',
+            'delete-success' => 'Müşteri Başarıyla Silindi',
+            'order-pending'  => 'Sipariş Beklemede',
+            'update-success' => 'Müşteri Başarıyla Güncellendi',
         ],
 
         'groups' => [
@@ -1392,53 +1657,6 @@ return [
                     'update-status'       => 'Durumu Güncelle',
                 ],
             ],
-        ],
-
-        'addresses' => [
-            'create' => [
-                'address-1'          => 'Adres 1',
-                'address-2'          => 'Adres 2',
-                'city'               => 'Şehir',
-                'company-name'       => 'Şirket Adı',
-                'country'            => 'Ülke',
-                'create-address-btn' => 'Yeni Adres Ekle',
-                'default-address'    => 'Varsayılan Adres',
-                'email'              => 'E-posta',
-                'first-name'         => 'Adı',
-                'last-name'          => 'Soyadı',
-                'phone'              => 'Telefon',
-                'post-code'          => 'Posta Kodu',
-                'save-btn-title'     => 'Adresi Kaydet',
-                'select-country'     => 'Ülke Seçiniz',
-                'state'              => 'Eyalet',
-                'street-address'     => 'Sokak Adresi',
-                'title'              => 'Müşterinin Adresini Oluştur',
-                'vat-id'             => 'KDV Kimlik Numarası',
-            ],
-
-            'edit' => [
-                'address-1'        => 'Adres 1',
-                'address-2'        => 'Adres 2',
-                'city'             => 'Şehir',
-                'company-name'     => 'Şirket Adı',
-                'country'          => 'Ülke',
-                'default-address'  => 'Varsayılan Adres',
-                'email'            => 'E-posta',
-                'first-name'       => 'Adı',
-                'last-name'        => 'Soyadı',
-                'phone'            => 'Telefon',
-                'post-code'        => 'Posta Kodu',
-                'save-btn-title'   => 'Adresi Kaydet',
-                'select-country'   => 'Ülke Seçiniz',
-                'state'            => 'Eyalet',
-                'street-address'   => 'Sokak Adresi',
-                'title'            => 'Adresi Düzenle',
-                'vat-id'           => 'KDV Kimlik Numarası',
-            ],
-
-            'create-success'      => 'Adres başarıyla oluşturuldu',
-            'success-mass-delete' => 'Adresler Topluca Silindi',
-            'update-success'      => 'Adres başarıyla güncellendi',
         ],
     ],
 
@@ -1819,6 +2037,7 @@ return [
                     'uses-per-customer-control-info'            => 'Yalnızca giriş yapmış müşteriler için kullanılacaktır.',
                     'yes'                                       => 'Evet',
                 ],
+
                 'delete-failed'  => 'Sepet Kuralı Silme Başarısız',
                 'delete-success' => 'Sepet Kuralı Başarıyla Silindi',
             ],
@@ -2119,9 +2338,11 @@ return [
 
     'cms' => [
         'index' => [
-            'already-taken'     => ':name zaten alınmıştır.',
-            'create-btn'        => 'Sayfa Oluştur',
-            'title'             => 'Sayfalar',
+            'already-taken' => ':name zaten alınmış.',
+            'channel'       => 'Kanal',
+            'create-btn'    => 'Sayfa Oluştur',
+            'language'      => 'Dil',
+            'title'         => 'Sayfalar',
 
             'datagrid' => [
                 'delete'              => 'Sil',
@@ -2174,7 +2395,7 @@ return [
     ],
 
     'settings' => [
-        'locales'           => [
+        'locales' => [
             'index' => [
                 'create-btn' => 'Yerel Oluştur',
                 'locale'     => 'Yerel',
@@ -2216,7 +2437,7 @@ return [
             ],
         ],
 
-        'currencies'        => [
+        'currencies' => [
             'index' => [
                 'title'      => 'Para Birimleri',
                 'create-btn' => 'Para Birimi Oluştur',
@@ -2236,15 +2457,18 @@ return [
                 ],
 
                 'create' => [
-                    'code'           => 'Kodu',
-                    'create-btn'     => 'Para Birimi Oluştur',
-                    'decimal'        => 'Ondalık',
-                    'delete-warning' => 'Emin misiniz, bu işlemi gerçekleştirmek istediğinize?',
-                    'general'        => 'Genel',
-                    'name'           => 'Adı',
-                    'save-btn'       => 'Para Birimini Kaydet',
-                    'symbol'         => 'Sembol',
-                    'title'          => 'Yeni Para Birimi Oluştur',
+                    'code'              => 'Kodu',
+                    'create-btn'        => 'Para Birimi Oluştur',
+                    'currency-position' => 'Para Birimi Pozisyonu',
+                    'decimal'           => 'Ondalık',
+                    'decimal-separator' => 'Ondalık Ayırıcı',
+                    'delete-warning'    => 'Emin misiniz, bu işlemi gerçekleştirmek istediğinize?',
+                    'general'           => 'Genel',
+                    'group-separator'   => 'Grup Ayırıcı',
+                    'name'              => 'Adı',
+                    'save-btn'          => 'Para Birimini Kaydet',
+                    'symbol'            => 'Sembol',
+                    'title'             => 'Yeni Para Birimi Oluştur',
                 ],
 
                 'edit' => [
@@ -2259,9 +2483,9 @@ return [
             ],
         ],
 
-        'data-transfer'     => [
+        'data-transfer' => [
             'imports' => [
-                'create'            => [
+                'create' => [
                     'action'              => 'Aksiyon',
                     'allowed-errors'      => 'İzin Verilen Hatalar',
                     'back-btn'            => 'Geri',
@@ -2285,7 +2509,7 @@ return [
                     'validation-strategy' => 'Doğrulama Yaklaşımı',
                 ],
 
-                'edit'              => [
+                'edit' => [
                     'action'              => 'Aksiyon',
                     'allowed-errors'      => 'İzin Verilen Hatalar',
                     'back-btn'            => 'Geri',
@@ -2309,7 +2533,7 @@ return [
                     'validation-strategy' => 'Doğrulama Yaklaşımı',
                 ],
 
-                'index'             => [
+                'index' => [
                     'button-title' => 'Import Oluştur',
                     'title'        => 'Importlar',
 
@@ -2330,7 +2554,7 @@ return [
                     ],
                 ],
 
-                'import'            => [
+                'import' => [
                     'back-btn'                => 'Geri',
                     'completed-batches'       => 'Toplam Tamamlanan Batches:',
                     'download-error-report'   => 'Tam Hata Raporu İndir',
@@ -2365,7 +2589,7 @@ return [
             ],
         ],
 
-        'exchange-rates'    => [
+        'exchange-rates' => [
             'index' => [
                 'create-btn'    => 'Döviz Kuru Oluştur',
                 'exchange-rate' => 'Döviz Kuru',
@@ -2383,7 +2607,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'   => 'Döviz Kurlarını Düzenle',
+                    'title' => 'Döviz Kurlarını Düzenle',
                 ],
 
                 'datagrid' => [
@@ -2484,7 +2708,7 @@ return [
             'update-success'    => 'Envanter Kaynakları Başarıyla Güncellendi',
         ],
 
-        'taxes'             => [
+        'taxes' => [
             'categories' => [
                 'index' => [
                     'delete-warning' => 'Silmek istediğinizden emin misiniz?',
@@ -2524,7 +2748,7 @@ return [
                 ],
             ],
 
-            'rates'   => [
+            'rates' => [
                 'index' => [
                     'button-title' => 'Vergi Oranı Oluştur',
                     'tax-rate'     => 'Vergi Oranı',
@@ -2564,12 +2788,12 @@ return [
 
                 'edit' => [
                     'back-btn'       => 'Geri',
-                    'basic-settings' => 'Temel Ayarlar',
                     'country'        => 'Ülke',
                     'identifier'     => 'Tanımlayıcı',
                     'save-btn'       => 'Vergi Oranını Kaydet',
                     'select-country' => 'Ülke Seç',
                     'select-state'   => 'Eyalet Seç',
+                    'settings'       => 'Ayarlar',
                     'state'          => 'Eyalet',
                     'tax-rate'       => 'Oran',
                     'title'          => 'Vergi Oranı Düzenle',
@@ -2710,7 +2934,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'    => 'Kullanıcıyı Düzenle',
+                    'title' => 'Kullanıcıyı Düzenle',
                 ],
             ],
 
@@ -2876,7 +3100,8 @@ return [
                 'url'                           => 'URL',
                 'value'                         => 'Değer: :value',
                 'value-input'                   => 'Değer',
-                'services-content'              => [
+
+                'services-content' => [
                     'add-btn'            => 'Hizmetler Ekle',
                     'channels'           => 'Kanallar',
                     'delete'             => 'Sil',
@@ -3035,6 +3260,8 @@ return [
             'save-btn'                     => 'Yapılandırmayı Kaydet',
             'save-message'                 => 'Yapılandırma başarıyla kaydedildi',
             'search'                       => 'Aramak',
+            'select-country'               => 'Ülke seçiniz',
+            'select-state'                 => 'Eyalet seçiniz',
             'title'                        => 'Yapılandırma',
 
             'general' => [
@@ -3077,10 +3304,10 @@ return [
                     'title' => 'Tasarım',
 
                     'admin-logo' => [
-                        'favicon'         => 'Favicon',
-                        'logo-image'      => 'Logo Resmi',
-                        'title'           => 'Yönetici Logosu',
-                        'title-info'      => 'Yönetici logosu, bir sistemin veya web sitesinin yönetim arayüzünü temsil eden karakteristik bir resim veya simgedir, genellikle özelleştirilebilir.',
+                        'favicon'    => 'Favicon',
+                        'logo-image' => 'Logo Resmi',
+                        'title'      => 'Yönetici Logosu',
+                        'title-info' => 'Yönetici logosu, bir sistemin veya web sitesinin yönetim arayüzünü temsil eden karakteristik bir resim veya simgedir, genellikle özelleştirilebilir.',
                     ],
                 ],
 
@@ -3089,12 +3316,12 @@ return [
                     'title' => 'Sihirli AI',
 
                     'settings' => [
-                        'api-key'           => 'API Anahtarı',
-                        'enabled'           => 'Etkin',
-                        'llm-api-domain'    => 'LLM API Alanı',
-                        'organization'      => 'Organizasyon',
-                        'title'             => 'Genel Ayarlar',
-                        'title-info'        => 'Magic AI özelliğini etkinleştirerek deneyiminizi artırın. Özel API Anahtarınızı girin ve sorunsuz entegrasyon için ilgili Organizasyonu belirtin. OpenAI kimlik bilgileriniz üzerinde kontrol sağlayın ve ayarları özel ihtiyaçlarınıza göre özelleştirin.',
+                        'api-key'        => 'API Anahtarı',
+                        'enabled'        => 'Etkin',
+                        'llm-api-domain' => 'LLM API Alanı',
+                        'organization'   => 'Organizasyon',
+                        'title'          => 'Genel Ayarlar',
+                        'title-info'     => 'Magic AI özelliğini etkinleştirerek deneyiminizi artırın. Özel API Anahtarınızı girin ve sorunsuz entegrasyon için ilgili Organizasyonu belirtin. OpenAI kimlik bilgileriniz üzerinde kontrol sağlayın ve ayarları özel ihtiyaçlarınıza göre özelleştirin.',
                     ],
 
                     'content-generation' => [
@@ -3163,9 +3390,9 @@ return [
                     'title' => 'Envanter',
 
                     'stock-options' => [
-                        'allow-back-orders'  => 'Geri Siparişlere İzin Ver',
-                        'title'              => 'Stok Seçenekleri',
-                        'title-info'         => 'Stok seçenekleri, şirket hisselerini belirli bir fiyattan satın alma veya satma hakkını veren yatırım sözleşmeleridir ve potansiyel karları etkiler.',
+                        'allow-back-orders' => 'Geri Siparişlere İzin Ver',
+                        'title'             => 'Stok Seçenekleri',
+                        'title-info'        => 'Stok seçenekleri, şirket hisselerini belirli bir fiyattan satın alma veya satma hakkını veren yatırım sözleşmeleridir ve potansiyel karları etkiler.',
                     ],
                 ],
 
@@ -3364,17 +3591,21 @@ return [
                 'title' => 'E-posta',
 
                 'email-settings' => [
-                    'admin-email'            => 'Yönetici E-postası',
-                    'admin-email-tip'        => 'Bu kanalın yöneticisinin e-posta adresi, e-postaları almak için',
-                    'admin-name'             => 'Yönetici Adı',
-                    'admin-name-tip'         => 'Bu isim tüm yönetici e-postalarında görüntülenecektir',
-                    'admin-page-limit'       => 'Varsayılan Sayfa Başına Öğe (Yönetici)',
-                    'email-sender-name'      => 'E-posta Gönderen Adı',
-                    'email-sender-name-tip'  => 'Bu isim müşterilerin gelen kutusunda görüntülenecektir',
-                    'info'                   => 'E-posta gönderen adını, mağaza e-posta adresini, yönetici adını ve yönetici e-posta adresini ayarlayın.',
-                    'shop-email-from'        => 'Mağaza E-posta Adresi',
-                    'shop-email-from-tip'    => 'Bu kanalın müşterilerine e-posta göndermek için e-posta adresi',
-                    'title'                  => 'E-posta Ayarları',
+                    'admin-email'           => 'Yönetici E-postası',
+                    'admin-email-tip'       => 'Bu kanalın yöneticisinin e-posta adresi, e-postaları almak için',
+                    'admin-name'            => 'Yönetici Adı',
+                    'admin-name-tip'        => 'Bu isim tüm yönetici e-postalarında görüntülenecektir',
+                    'admin-page-limit'      => 'Varsayılan Sayfa Başına Öğe (Yönetici)',
+                    'contact-email'         => 'İletişim E-postası',
+                    'contact-email-tip'     => 'Bu e-posta adresi e-postalarınızın alt kısmında gösterilecek',
+                    'contact-name'          => 'İletişim Adı',
+                    'contact-name-tip'      => 'Bu isim e-postalarınızın alt kısmında gösterilecek',
+                    'email-sender-name'     => 'E-posta Gönderen Adı',
+                    'email-sender-name-tip' => 'Bu isim müşterilerin gelen kutusunda görüntülenecektir',
+                    'info'                  => 'E-posta gönderen adını, mağaza e-posta adresini, yönetici adını ve yönetici e-posta adresini ayarlayın.',
+                    'shop-email-from'       => 'Mağaza E-posta Adresi',
+                    'shop-email-from-tip'   => 'Bu kanalın müşterilerine e-posta göndermek için e-posta adresi',
+                    'title'                 => 'E-posta Ayarları',
                 ],
 
                 'notifications' => [
@@ -3482,12 +3713,12 @@ return [
                     'title' => 'Sipariş Ayarları',
 
                     'order-number' => [
-                        'generator'   => 'Sipariş Numarası Oluşturucu',
-                        'length'      => 'Sipariş Numarası Uzunluğu',
-                        'prefix'      => 'Sipariş Numarası Öneki',
-                        'suffix'      => 'Sipariş Numarası Soneki',
-                        'title'       => 'Sipariş Numarası Ayarları',
-                        'title-info'  => 'Belirli bir müşteri siparişine atanmış benzersiz bir tanımlayıcıdır ve satın alma süreci boyunca izlemeye, iletişime ve referansa yardımcı olur.',
+                        'generator'  => 'Sipariş Numarası Oluşturucu',
+                        'length'     => 'Sipariş Numarası Uzunluğu',
+                        'prefix'     => 'Sipariş Numarası Öneki',
+                        'suffix'     => 'Sipariş Numarası Soneki',
+                        'title'      => 'Sipariş Numarası Ayarları',
+                        'title-info' => 'Belirli bir müşteri siparişine atanmış benzersiz bir tanımlayıcıdır ve satın alma süreci boyunca izlemeye, iletişime ve referansa yardımcı olur.',
                     ],
 
                     'minimum-order' => [

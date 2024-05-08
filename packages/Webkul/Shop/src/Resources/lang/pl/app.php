@@ -3,6 +3,7 @@
 return [
     'customers' => [
         'forgot-password' => [
+            'already-sent'         => 'Już zresetuj hasło. Wiadomość została wysłana.',
             'back'                 => 'Powrót do logowania?',
             'bagisto'              => 'Bagisto',
             'email'                => 'Email',
@@ -72,64 +73,98 @@ return [
             'home' => 'Strona główna',
 
             'profile' => [
-                'confirm-password'        => 'Potwierdź hasło',
-                'current-password'        => 'Aktualne hasło',
-                'delete'                  => 'Usuń',
-                'delete-failed'           => 'Wystąpił błąd podczas usuwania konta klienta.',
-                'delete-profile'          => 'Usuń profil',
-                'delete-success'          => 'Klient został pomyślnie usunięty',
-                'dob'                     => 'Data urodzenia',
-                'edit'                    => 'Edytuj',
-                'edit-profile'            => 'Edytuj profil',
-                'edit-success'            => 'Profil został zaktualizowany pomyślnie',
-                'email'                   => 'E-mail',
-                'enter-password'          => 'Wprowadź swoje hasło',
-                'female'                  => 'Kobieta',
-                'first-name'              => 'Imię',
-                'gender'                  => 'Płeć',
-                'last-name'               => 'Nazwisko',
-                'male'                    => 'Mężczyzna',
-                'new-password'            => 'Nowe hasło',
-                'order-pending'           => 'Nie można usunąć konta klienta, ponieważ istnieją zamówienia oczekujące lub w trakcie realizacji.',
-                'other'                   => 'Inna',
-                'phone'                   => 'Telefon',
-                'save'                    => 'Zapisz',
-                'select-gender'           => 'Wybierz płeć',
-                'subscribe-to-newsletter' => 'Zapisz się na newsletter',
-                'title'                   => 'Profil',
-                'unmatch'                 => 'Stare hasło nie pasuje.',
-                'wrong-password'          => 'Złe hasło!',
+                'index' => [
+                    'delete'         => 'Usuń',
+                    'delete-failed'  => 'Wystąpił błąd podczas usuwania klienta.',
+                    'delete-profile' => 'Usuń profil',
+                    'delete-success' => 'Klient został pomyślnie usunięty',
+                    'dob'            => 'Data urodzenia',
+                    'edit'           => 'Edytuj',
+                    'edit-success'   => 'Profil został pomyślnie zaktualizowany',
+                    'email'          => 'E-mail',
+                    'enter-password' => 'Wprowadź swoje hasło',
+                    'first-name'     => 'Imię',
+                    'gender'         => 'Płeć',
+                    'last-name'      => 'Nazwisko',
+                    'order-pending'  => 'Nie można usunąć konta klienta, ponieważ istnieją niezrealizowane lub przetwarzane zamówienia.',
+                    'title'          => 'Profil',
+                    'unmatched'      => 'Stare hasło nie pasuje.',
+                    'wrong-password' => 'Nieprawidłowe hasło!',
+                ],
+
+                'edit' => [
+                    'confirm-password'        => 'Potwierdź hasło',
+                    'current-password'        => 'Obecne hasło',
+                    'dob'                     => 'Data urodzenia',
+                    'edit'                    => 'Edytuj',
+                    'edit-profile'            => 'Edytuj profil',
+                    'email'                   => 'E-mail',
+                    'female'                  => 'Kobieta',
+                    'first-name'              => 'Imię',
+                    'gender'                  => 'Płeć',
+                    'last-name'               => 'Nazwisko',
+                    'male'                    => 'Mężczyzna',
+                    'new-password'            => 'Nowe hasło',
+                    'other'                   => 'Inne',
+                    'phone'                   => 'Telefon',
+                    'save'                    => 'Zapisz',
+                    'subscribe-to-newsletter' => 'Zapisz się do newslettera',
+                ],
             ],
 
             'addresses' => [
-                'add-address'      => 'Dodaj adres',
-                'address-1'        => 'Adres 1',
-                'address-2'        => 'Adres 2',
-                'city'             => 'Miasto',
-                'company-name'     => 'Nazwa firmy',
-                'country'          => 'Kraj',
-                'create-success'   => 'Adres został pomyślnie dodany.',
-                'default-address'  => 'Domyślny adres',
-                'default-delete'   => 'Nie można zmienić domyślnego adresu.',
-                'delete'           => 'Usuń',
-                'delete-success'   => 'Adres został pomyślnie usunięty',
-                'edit'             => 'Edytuj',
-                'edit-address'     => 'Edytuj adres',
-                'edit-success'     => 'Adres został pomyślnie zaktualizowany.',
-                'email'            => 'Email',
-                'empty-address'    => 'Nie dodałeś jeszcze żadnego adresu do swojego konta.',
-                'first-name'       => 'Imię',
-                'last-name'        => 'Nazwisko',
-                'phone'            => 'Telefon',
-                'post-code'        => 'Kod pocztowy',
-                'save'             => 'Zapisz',
-                'security-warning' => 'Znaleziono podejrzane działania!!!',
-                'select-country'   => 'Wybierz kraj',
-                'set-as-default'   => 'Ustaw jako domyślny',
-                'state'            => 'Województwo',
-                'street-address'   => 'Adres ulicy',
-                'title'            => 'Adres',
-                'vat-id'           => 'Numer VAT',
+                'index' => [
+                    'add-address'      => 'Dodaj adres',
+                    'create-success'   => 'Adres został pomyślnie dodany.',
+                    'default-address'  => 'Domyślny adres',
+                    'default-delete'   => 'Nie można zmienić domyślnego adresu.',
+                    'delete'           => 'Usuń',
+                    'delete-success'   => 'Adres został pomyślnie usunięty',
+                    'edit'             => 'Edytuj',
+                    'edit-success'     => 'Adres został pomyślnie zaktualizowany.',
+                    'empty-address'    => 'Nie dodałeś jeszcze adresu do swojego konta.',
+                    'security-warning' => 'Wykryto podejrzane działanie!!!',
+                    'set-as-default'   => 'Ustaw jako domyślny',
+                    'title'            => 'Adres',
+                    'update-success'   => 'Adres został pomyślnie zaktualizowany.',
+                ],
+
+                'create' => [
+                    'add-address'    => 'Dodaj adres',
+                    'city'           => 'Miasto',
+                    'company-name'   => 'Nazwa firmy',
+                    'country'        => 'Kraj',
+                    'email'          => 'E-mail',
+                    'first-name'     => 'Imię',
+                    'last-name'      => 'Nazwisko',
+                    'phone'          => 'Telefon',
+                    'post-code'      => 'Kod pocztowy',
+                    'save'           => 'Zapisz',
+                    'select-country' => 'Wybierz kraj',
+                    'set-as-default' => 'Ustaw jako domyślny',
+                    'state'          => 'Województwo',
+                    'street-address' => 'Adres',
+                    'title'          => 'Adres',
+                    'vat-id'         => 'Numer VAT',
+                ],
+
+                'edit' => [
+                    'city'           => 'Miasto',
+                    'company-name'   => 'Nazwa firmy',
+                    'country'        => 'Kraj',
+                    'edit'           => 'Edytuj',
+                    'email'          => 'E-mail',
+                    'first-name'     => 'Imię',
+                    'last-name'      => 'Nazwisko',
+                    'phone'          => 'Telefon',
+                    'post-code'      => 'Kod pocztowy',
+                    'save'           => 'Zapisz',
+                    'select-country' => 'Wybierz kraj',
+                    'state'          => 'Województwo',
+                    'street-address' => 'Adres',
+                    'title'          => 'Adres',
+                    'vat-id'         => 'Numer VAT',
+                ],
             ],
 
             'orders' => [
@@ -162,8 +197,10 @@ return [
                     'cancel-confirm-msg' => 'Czy na pewno chcesz anulować to zamówienie?',
                     'cancel-error'       => 'Nie można anulować twojego zamówienia.',
                     'cancel-success'     => 'Twoje zamówienie zostało anulowane',
+                    'contact'            => 'Kontakt',
                     'page-title'         => 'Zamówienie #:order_id',
                     'payment-method'     => 'Metoda płatności',
+                    'reorder-btn-title'  => 'Przeorganizuj',
                     'shipping-address'   => 'Adres dostawy',
                     'shipping-method'    => 'Metoda dostawy',
                     'title'              => 'Zobacz',
@@ -339,10 +376,19 @@ return [
                 'search-text'       => 'Szukaj produktów tutaj',
                 'sign-in'           => 'Zaloguj się',
                 'sign-up'           => 'Zarejestruj się',
+                'submit'            => 'Wyślij',
                 'title'             => 'Konto',
                 'welcome'           => 'Witaj',
                 'welcome-guest'     => 'Witaj, Gościu',
                 'wishlist'          => 'Lista życzeń',
+
+                'desktop' => [
+                    'top' => [
+                        'default-locale' => 'Domyślny język',
+                        'offer'          => 'Otrzymaj DO 40% RABATU na swoje pierwsze zamówienie',
+                        'shop-now'       => 'KUP TERAZ',
+                    ],
+                ],
             ],
 
             'footer' => [
@@ -367,55 +413,50 @@ return [
 
         'datagrid' => [
             'toolbar' => [
-                'mass-actions' => [
-                    'select-action' => 'Wybierz działanie',
-                    'select-option' => 'Wybierz opcję',
-                    'submit'        => 'Prześlij',
-                ],
+                'length-of' => ':length z',
+                'results'   => ':total Wyniki',
+                'selected'  => ':total Wybrane',
 
-                'filter' => [
-                    'title' => 'Filtruj',
+                'mass-actions' => [
+                    'must-select-a-mass-action'        => 'Musisz wybrać akcję masową.',
+                    'must-select-a-mass-action-option' => 'Musisz wybrać opcję akcji masowej.',
+                    'no-records-selected'              => 'Nie wybrano żadnych rekordów.',
+                    'select-action'                    => 'Wybierz akcję',
                 ],
 
                 'search' => [
                     'title' => 'Szukaj',
                 ],
-            ],
 
-            'filters' => [
-                'title' => 'Zastosuj filtry',
+                'filter' => [
+                    'apply-filter' => 'Zastosuj filtry',
+                    'title'        => 'Filtruj',
 
-                'dropdown' => [
-                    'searchable' => [
-                        'atleast-two-chars' => 'Wprowadź co najmniej 2 znaki...',
-                        'no-results'        => 'Brak wyników...',
+                    'dropdown' => [
+                        'select' => 'Wybierz',
+
+                        'searchable' => [
+                            'at-least-two-chars' => 'Wpisz co najmniej 2 znaki...',
+                            'no-results'         => 'Nie znaleziono wyników...',
+                        ],
                     ],
-                ],
 
-                'custom-filters' => [
-                    'clear-all' => 'Wyczyść wszystko',
-                    'title'     => 'Filtruj niestandardowo',
-                ],
-
-                'date-options' => [
-                    'last-month'        => 'Ostatni miesiąc',
-                    'last-six-months'   => 'Ostatnie 6 miesięcy',
-                    'last-three-months' => 'Ostatnie 3 miesiące',
-                    'this-month'        => 'Ten miesiąc',
-                    'this-week'         => 'Ten tydzień',
-                    'this-year'         => 'Ten rok',
-                    'today'             => 'Dziś',
-                    'yesterday'         => 'Wczoraj',
+                    'custom-filters' => [
+                        'clear-all' => 'Wyczyść wszystko',
+                    ],
                 ],
             ],
 
             'table' => [
                 'actions'              => 'Akcje',
-                'next-page'            => 'Następna Strona',
+                'next-page'            => 'Następna strona',
                 'no-records-available' => 'Brak dostępnych rekordów.',
-                'page-navigation'      => 'Nawigacja Strony',
-                'page-number'          => 'Numer Strony',
-                'previous-page'        => 'Poprzednia Strona',
+                'of'                   => 'z :total wpisów',
+                'page-navigation'      => 'Nawigacja strony',
+                'page-number'          => 'Numer strony',
+                'previous-page'        => 'Poprzednia strona',
+                'showing'              => 'Pokazuje :firstItem',
+                'to'                   => 'do :lastItem',
             ],
         ],
 
@@ -433,14 +474,14 @@ return [
 
         'products' => [
             'card' => [
-                'add-to-cart'                 => 'Dodaj do koszyka',
-                'add-to-compare'              => 'Dodaj do listy porównań',
-                'add-to-compare-success'      => 'Przedmiot został pomyślnie dodany do listy porównań.',
-                'add-to-wishlist'             => 'Dodaj do listy życzeń',
-                'already-in-compare'          => 'Przedmiot jest już dodany do listy porównań.',
-                'new'                         => 'Nowy',
-                'review-description'          => 'Bądź pierwszym, który oceni ten produkt',
-                'sale'                        => 'Wyprzedaż',
+                'add-to-cart'            => 'Dodaj do koszyka',
+                'add-to-compare'         => 'Dodaj do listy porównań',
+                'add-to-compare-success' => 'Przedmiot został pomyślnie dodany do listy porównań.',
+                'add-to-wishlist'        => 'Dodaj do listy życzeń',
+                'already-in-compare'     => 'Przedmiot jest już dodany do listy porównań.',
+                'new'                    => 'Nowy',
+                'review-description'     => 'Bądź pierwszym, który oceni ten produkt',
+                'sale'                   => 'Wyprzedaż',
             ],
 
             'carousel' => [
@@ -491,7 +532,8 @@ return [
                 ],
 
                 'bundle' => [
-                    'none' => 'Brak',
+                    'none'         => 'Brak',
+                    'total-amount' => 'Całkowita Kwota',
                 ],
 
                 'downloadable' => [
@@ -582,7 +624,7 @@ return [
             ],
 
             'results' => [
-                'analysed-keywords' => 'Zanalizowane Słowa Kluczowe:',
+                'analyzed-keywords' => 'Zanalizowane Słowa Kluczowe:',
             ],
         ],
     ],
@@ -610,6 +652,7 @@ return [
         'cart' => [
             'continue-to-checkout'      => 'Przejdź do realizacji zamówienia',
             'illegal'                   => 'Ilość nie może być mniejsza niż jeden',
+            'inactive-add'              => 'Nieaktywny produkt nie może zostać dodany do koszyka.',
             'inactive'                  => 'Produkt został dezaktywowany i usunięty z koszyka',
             'inventory-warning'         => 'Żądana ilość nie jest dostępna, prosimy spróbować ponownie później',
             'item-add-to-cart'          => 'Produkt został pomyślnie dodany do koszyka',
@@ -652,22 +695,6 @@ return [
                 ],
             ],
 
-            'coupon'   => [
-                'already-applied' => 'Kod kuponu jest już zastosowany',
-                'applied'         => 'Kod kuponu został zastosowany',
-                'apply'           => 'Zastosuj kod kuponu',
-                'apply-issue'     => 'Kod kuponu nie może być zastosowany',
-                'button-title'    => 'Zastosuj',
-                'code'            => 'Kod kuponu',
-                'discount'        => 'Rabat z kuponu',
-                'enter-your-code' => 'Wprowadź swój kod',
-                'error'           => 'Coś poszło nie tak',
-                'invalid'         => 'Kod kuponu jest nieprawidłowy',
-                'remove'          => 'Usuń kupon',
-                'subtotal'        => 'Suma częściowa',
-                'success-apply'   => 'Kod kuponu został pomyślnie zastosowany',
-            ],
-
             'mini-cart' => [
                 'continue-to-checkout' => 'Przejdź do realizacji zamówienia',
                 'empty-cart'           => 'Twój koszyk jest pusty',
@@ -688,62 +715,44 @@ return [
                 'proceed-to-checkout' => 'Przejdź do realizacji zamówienia',
                 'sub-total'           => 'Suma częściowa',
                 'tax'                 => 'Podatek',
+
+                'estimate-shipping' => [
+                    'country'        => 'Kraj',
+                    'info'           => 'Wprowadź miejsce docelowe, aby uzyskać szacunkowy koszt wysyłki i podatku.',
+                    'postcode'       => 'Kod pocztowy',
+                    'select-country' => 'Wybierz kraj',
+                    'select-state'   => 'Wybierz województwo',
+                    'state'          => 'Województwo',
+                    'title'          => 'Szacowanie kosztów wysyłki i podatku',
+                ],
             ],
         ],
 
         'onepage' => [
-            'addresses' => [
-                'billing' => [
-                    'add-new-address'                    => 'Dodaj nowy adres',
-                    'back'                               => 'Powrót',
-                    'billing-address'                    => 'Adres rozliczeniowy',
-                    'city'                               => 'Miasto',
-                    'company-name'                       => 'Nazwa firmy',
-                    'confirm'                            => 'Potwierdź',
-                    'country'                            => 'Kraj',
-                    'email'                              => 'E-mail',
-                    'first-name'                         => 'Imię',
-                    'last-name'                          => 'Nazwisko',
-                    'postcode'                           => 'Kod pocztowy',
-                    'proceed'                            => 'Kontynuować',
-                    'save'                               => 'ratować',
-                    'use-different-address-for-shipping' => 'Adres jest taki sam jak mój adres rozliczeniowy',
-                    'save-address'                       => 'Zapisz ten adres',
-                    'select-country'                     => 'Wybierz kraj',
-                    'select-state'                       => 'Wybierz stan',
-                    'state'                              => 'Stan',
-                    'street-address'                     => 'Adres ulicy',
-                    'telephone'                          => 'Numer telefonu',
-                ],
-
-                'index' => [
-                    'bagisto' => 'Bagisto',
-                    'confirm' => 'Potwierdź',
-                ],
-
-                'shipping' => [
-                    'add-new-address'  => 'Dodaj nowy adres',
-                    'back'             => 'Powrót',
-                    'city'             => 'Miasto',
-                    'company-name'     => 'Nazwa firmy',
-                    'confirm'          => 'Potwierdź',
-                    'country'          => 'Kraj',
-                    'email'            => 'E-mail',
-                    'first-name'       => 'Imię',
-                    'last-name'        => 'Nazwisko',
-                    'postcode'         => 'Kod pocztowy',
-                    'proceed'          => 'Kontynuować',
-                    'save'             => 'ratować',
-                    'save-address'     => 'Zapisz ten adres',
-                    'select-country'   => 'Wybierz kraj',
-                    'select-state'     => 'Wybierz stan',
-                    'shipping-address' => 'Adres dostawy',
-                    'state'            => 'Stan',
-                    'street-address'   => 'Adres ulicy',
-                    'telephone'        => 'Numer telefonu',
-                ],
-
-                'title' => 'Adres',
+            'address' => [
+                'add-new-address'  => 'Dodaj nowy adres',
+                'add-new'          => 'Dodaj nowy adres',
+                'back'             => 'Wstecz',
+                'billing-address'  => 'Adres rozliczeniowy',
+                'city'             => 'Miasto',
+                'company-name'     => 'Nazwa firmy',
+                'confirm'          => 'Potwierdź',
+                'country'          => 'Kraj',
+                'email'            => 'E-mail',
+                'first-name'       => 'Imię',
+                'last-name'        => 'Nazwisko',
+                'postcode'         => 'Kod pocztowy',
+                'proceed'          => 'Kontynuuj',
+                'same-as-billing'  => 'Użyć tego samego adresu do wysyłki?',
+                'save-address'     => 'Zapisz w książce adresowej',
+                'save'             => 'Zapisz',
+                'select-country'   => 'Wybierz kraj',
+                'select-state'     => 'Wybierz województwo',
+                'shipping-address' => 'Adres dostawy',
+                'state'            => 'Województwo',
+                'street-address'   => 'Adres ulicy',
+                'telephone'        => 'Telefon',
+                'title'            => 'Adres',
             ],
 
             'index' => [
@@ -771,13 +780,55 @@ return [
                 'tax'              => 'Podatek',
             ],
         ],
+
+        'coupon' => [
+            'already-applied' => 'Kod kuponu jest już zastosowany',
+            'applied'         => 'Kod kuponu został zastosowany',
+            'apply'           => 'Zastosuj kod kuponu',
+            'apply-issue'     => 'Kod kuponu nie może być zastosowany',
+            'button-title'    => 'Zastosuj',
+            'code'            => 'Kod kuponu',
+            'discount'        => 'Rabat z kuponu',
+            'enter-your-code' => 'Wprowadź swój kod',
+            'error'           => 'Coś poszło nie tak',
+            'invalid'         => 'Kod kuponu jest nieprawidłowy',
+            'remove'          => 'Usuń kupon',
+            'subtotal'        => 'Suma częściowa',
+            'success-apply'   => 'Kod kuponu został pomyślnie zastosowany',
+        ],
+
+        'login' => [
+            'email'    => 'E-mail',
+            'password' => 'Hasło',
+            'title'    => 'Zaloguj się',
+        ],
     ],
 
     'home' => [
+        'contact' => [
+            'about'         => 'Napisz do nas, a odpowiemy tak szybko, jak to możliwe',
+            'desc'          => 'Co Cię nurtuje?',
+            'describe-here' => 'Opisz tutaj',
+            'email'         => 'E-mail',
+            'message'       => 'Wiadomość',
+            'name'          => 'Imię',
+            'phone-number'  => 'Numer telefonu',
+            'submit'        => 'Wyślij',
+            'title'         => 'Skontaktuj się z nami',
+        ],
+
         'index' => [
             'offer'               => 'Otrzymaj DO 40% RABATU na swoje pierwsze zamówienie. ZAKUP TERAZ',
             'resend-verify-email' => 'Wyślij ponownie e-mail weryfikacyjny',
             'verify-email'        => 'Zweryfikuj swoje konto e-mail',
+        ],
+
+        'thanks-for-contact' => 'Dziękujemy za skontaktowanie się z nami. Odpowiemy na Twoje uwagi i pytania wkrótce.',
+    ],
+
+    'partials' => [
+        'pagination' => [
+            'pagination-showing' => 'Wyświetlanie :firstItem do :lastItem z :total wpisów',
         ],
     ],
 
@@ -872,6 +923,14 @@ return [
                 'subject'     => 'Zapisano się na nasz newsletter',
                 'unsubscribe' => 'Wypisz się',
             ],
+        ],
+
+        'contact-us' => [
+            'contact-from'    => 'za pośrednictwem formularza kontaktowego na stronie',
+            'reply-to-mail'   => 'prosimy o odpowiedź na ten adres e-mail.',
+            'reach-via-phone' => 'Alternatywnie, możesz się z nami skontaktować telefonicznie pod numerem',
+            'inquiry-from'    => 'Zapytanie od',
+            'to'              => 'Aby skontaktować się z',
         ],
 
         'orders' => [

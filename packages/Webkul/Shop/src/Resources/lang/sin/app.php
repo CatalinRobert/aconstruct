@@ -3,6 +3,7 @@
 return [
     'customers' => [
         'forgot-password' => [
+            'already-sent'         => 'දැනටමත් මුරපදය යළි පිහිටුවීමේ තැපැල් යවා ඇත.',
             'back'                 => 'ආපසු සන්නියට ආරයැකිනන්න ?',
             'bagisto'              => 'බගිස්ටෝ',
             'email'                => 'ඊමේල්',
@@ -72,64 +73,98 @@ return [
             'home' => 'මුල් පිටවර',
 
             'profile' => [
-                'confirm-password'        => 'මුරපදය තහවුරු කරන්න',
-                'current-password'        => 'වත්මන් මුරපදය',
-                'delete'                  => 'මකන්න',
-                'delete-failed'           => 'පුද්ගලයා මකා දමන්නාට විකල්ප විශාලත්වයක් සම්බන්දතාවක්.',
-                'delete-profile'          => 'පුද්ගලයා මකන්න',
-                'delete-success'          => 'පුද්ගලයාට සාර්ථකව ඉවත් කරන ලදි',
-                'dob'                     => 'උපන් දිනය',
-                'edit'                    => 'සංස්කරණය කරන්න',
-                'edit-profile'            => 'පුද්ගලයාව සංස්කරණය කරන්න',
-                'edit-success'            => 'පුද්ගලයාවේ විස්තර සාර්ථකව යාවත්වාය',
-                'email'                   => 'ඊමේල්',
-                'enter-password'          => 'ඔබගේ මුරපදය ඇතුල් කරන්න',
-                'female'                  => 'පුරුෂ',
-                'first-name'              => 'මුල් නම',
-                'gender'                  => 'ස්ත්‍රී/පුරුෂ',
-                'last-name'               => 'අවසාන නම',
-                'male'                    => 'පුරුෂ',
-                'new-password'            => 'නව මුරපදය',
-                'order-pending'           => 'පුද්ගලයා ගෙනා දීම(අඩු) හෝ ප්‍රකාශය ප්‍රකාශ කරන්න නොහැක.',
-                'other'                   => 'වෙනත්',
-                'phone'                   => 'දුරකථන',
-                'save'                    => 'සුරක්ෂිත කරන්න',
-                'select-gender'           => 'පිරිසිදු තේරීම',
-                'subscribe-to-newsletter' => 'නිවේශකරුගේ පුවත් ලිපිනයට දායක වන්ද?',
-                'title'                   => 'පුද්ගලයාව',
-                'unmatch'                 => 'පැරණි මුරපදය නොගැලපෙනුවේ.',
-                'wrong-password'          => 'නොවේෂයෙකු මුරපදය!',
+                'index' => [
+                    'delete'         => 'මකන්න',
+                    'delete-failed'  => 'පුද්ගලයා මකා දැමීමේදී දෝෂයක් සිදු වී ඇත.',
+                    'delete-profile' => 'පැතිකඩ මකන්න',
+                    'delete-success' => 'පුද්ගලයා සාර්ථකව මකා දමන ලදි',
+                    'dob'            => 'උපන්දිනය',
+                    'edit'           => 'සංස්කරණය කරන්න',
+                    'edit-success'   => 'පැතිකඩ සාර්ථකව යාවත්කාලීන කරන ලදි',
+                    'email'          => 'ඊමේල්',
+                    'enter-password' => 'ඔබගේ මුරපදය ඇතුළත් කරන්න',
+                    'first-name'     => 'මුල් නම',
+                    'gender'         => 'ස්ත්‍රී/පුරුෂ භාවය',
+                    'last-name'      => 'අවසාන නම',
+                    'order-pending'  => 'පුරවා සහිත හෝ සැකසුම් තත්ත්වයේ ඇණවුම(සම්පූර්ණ කිරීම්) ඇතුළත් කර නොමැත.',
+                    'title'          => 'පැතිකඩ',
+                    'unmatched'      => 'පැරණි මුරපදය ගැලපෙන්නේ නැත.',
+                    'wrong-password' => 'වැරදි මුරපදයක් ඇතුළත් කර ඇතියි!',
+                ],
+
+                'edit' => [
+                    'confirm-password'        => 'මුරපදය තහවුරු කරන්න',
+                    'current-password'        => 'වත්මන් මුරපදය',
+                    'dob'                     => 'උපන්දිනය',
+                    'edit'                    => 'සංස්කරණය කරන්න',
+                    'edit-profile'            => 'පැතිකඩ සංස්කරණය කරන්න',
+                    'email'                   => 'ඊමේල්',
+                    'female'                  => 'කාන්තාවක්',
+                    'first-name'              => 'මුල් නම',
+                    'gender'                  => 'ස්ත්‍රී/පුරුෂ භාවය',
+                    'last-name'               => 'අවසාන නම',
+                    'male'                    => 'පිරිමිතියේ',
+                    'new-password'            => 'නව මුරපදය',
+                    'other'                   => 'වෙනත්',
+                    'phone'                   => 'දුරකථන',
+                    'save'                    => 'සුරකින්න',
+                    'subscribe-to-newsletter' => 'නිවේශනය කරන්න',
+                ],
             ],
 
             'addresses' => [
-                'add-address'      => 'ලිපිනයක් එකතු කරන්න',
-                'address-1'        => 'ලිපිනය 1',
-                'address-2'        => 'ලිපිනය 2',
-                'city'             => 'නගරය',
-                'company-name'     => 'සමාජ නම',
-                'country'          => 'රට',
-                'create-success'   => 'ලිපිනය සාර්ථකව එකතු කරන ලදි.',
-                'default-address'  => 'පෙරනිමි ලිපිනය',
-                'default-delete'   => 'පෙරනිමි ලිපිනය වෙනස් කළ නොහැක.',
-                'delete'           => 'මකන්න',
-                'delete-success'   => 'ලිපිනය සාර්ථකව ඉවත් කරන ලදි',
-                'edit'             => 'සංස්කරණය කරන්න',
-                'edit-address'     => 'ලිපිනය සංස්කරණය කරන්න',
-                'edit-success'     => 'ලිපිනය සාර්ථකව යාවත්වාය',
-                'email'            => 'ඊමේල්',
-                'empty-address'    => 'ඔබගේ ගිණුමට තවත් ලිපිනයක් එකතු කර නොමැත.',
-                'first-name'       => 'මුල් නම',
-                'last-name'        => 'අවසාන නම',
-                'phone'            => 'දුරකථන',
-                'post-code'        => 'තැපැල් කේතය',
-                'save'             => 'සුරක්ෂිත කරන්න',
-                'security-warning' => 'සහෝදරියාට නිවැරදි ක්රියාත්මකතා දැක්කාක්!!!',
-                'select-country'   => 'රට තෝරන්න',
-                'set-as-default'   => 'පෙරනිමින් සැකසෙන්න',
-                'state'            => 'රට',
-                'street-address'   => 'වීදි ලිපිනය',
-                'title'            => 'ලිපිනය',
-                'vat-id'           => 'වැට් අංකය',
+                'index' => [
+                    'add-address'      => 'ලිපිනය එක් කරන්න',
+                    'create-success'   => 'ලිපිනය සාර්ථකව එක් කරන ලදි.',
+                    'default-address'  => 'පෙරනිමි ලිපිනය',
+                    'default-delete'   => 'පෙරනිමි ලිපිනය වෙනස් කළ නොහැක.',
+                    'delete'           => 'මකන්න',
+                    'delete-success'   => 'ලිපිනය සාර්ථකව මකා දමන ලදි',
+                    'edit'             => 'සංස්කරණය කරන්න',
+                    'edit-success'     => 'ලිපිනය සාර්ථකව යාවත්කාලීන කරන ලදි.',
+                    'empty-address'    => 'ඔබට තවත් ලිපිනයක් එක් කර නොමැත.',
+                    'security-warning' => 'විශේෂාංගයක් හමුවුනාදැයි හමුවුන්නේ මෙයයි!!!',
+                    'set-as-default'   => 'පෙරනිමි ලිපිනයක් ලැබෙන්න',
+                    'title'            => 'ලිපිනය',
+                    'update-success'   => 'ලිපිනය සාර්ථකව යාවත්කාලීන කරන ලදි.',
+                ],
+
+                'create' => [
+                    'add-address'    => 'ලිපිනය එක් කරන්න',
+                    'city'           => 'නගරය',
+                    'company-name'   => 'කර්මාන්තයේ නම',
+                    'country'        => 'රටේ',
+                    'email'          => 'ඊමේල්',
+                    'first-name'     => 'මුල් නම',
+                    'last-name'      => 'අවසාන නම',
+                    'phone'          => 'දුරකථන',
+                    'post-code'      => 'තැපැල් කේතය',
+                    'save'           => 'සුරකින්න',
+                    'select-country' => 'රටක් තෝරන්න',
+                    'set-as-default' => 'පෙරනිමි ලිපිනයක් ලැබෙන්න',
+                    'state'          => 'පළාත',
+                    'street-address' => 'වීදි ලිපිනය',
+                    'title'          => 'ලිපිනය',
+                    'vat-id'         => 'වැට් අංකය',
+                ],
+
+                'edit' => [
+                    'city'           => 'නගරය',
+                    'company-name'   => 'කර්මාන්තයේ නම',
+                    'country'        => 'රටේ',
+                    'edit'           => 'සංස්කරණය කරන්න',
+                    'email'          => 'ඊමේල්',
+                    'first-name'     => 'මුල් නම',
+                    'last-name'      => 'අවසාන නම',
+                    'phone'          => 'දුරකථන',
+                    'post-code'      => 'තැපැල් කේතය',
+                    'save'           => 'සුරකින්න',
+                    'select-country' => 'රටක් තෝරන්න',
+                    'state'          => 'පළාත',
+                    'street-address' => 'වීදි ලිපිනය',
+                    'title'          => 'ලිපිනය',
+                    'vat-id'         => 'වැට් අංකය',
+                ],
             ],
 
             'orders' => [
@@ -162,8 +197,10 @@ return [
                     'cancel-confirm-msg' => 'ඔබට මෙය අවලංගු කිරීමට අවශ්‍යද?',
                     'cancel-error'       => 'ඔබගේ ඇණවුම අවලංගු කළ නොහැක.',
                     'cancel-success'     => 'ඔබගේ ඇණවුම අවලංගු කර ඇත',
+                    'contact'            => 'සබඳතාව',
                     'page-title'         => 'ඇණවුම #:order_id',
                     'payment-method'     => 'ගෙවීමේ ක්‍රමය',
+                    'reorder-btn-title'  => 'නැවත තේරීම',
                     'shipping-address'   => 'ගෙවීමේ ලිපිනය',
                     'shipping-method'    => 'භාණ්ඩ ප්රවාහන ක්රමය',
                     'title'              => 'දරුවනය',
@@ -339,10 +376,19 @@ return [
                 'search-text'       => 'උදා: උදාමාන්ද්‍ර',
                 'sign-in'           => 'පිවිසීම',
                 'sign-up'           => 'ලියාපදිංචිය',
+                'submit'            => 'ඉදිරිපත් කරන්න',
                 'title'             => 'ගිණුම',
                 'welcome'           => 'ස්වයං',
                 'welcome-guest'     => 'උරුම පරිසරය',
                 'wishlist'          => 'පෙරනිම',
+
+                'desktop' => [
+                    'top' => [
+                        'default-locale' => 'පෙරනිමි භාෂාව',
+                        'offer'          => 'ඔබගේ පළමු ඇණවුම හිතවත් 40% ට ඉවත්වාගෙන යන්න',
+                        'shop-now'       => 'සිටින්න',
+                    ],
+                ],
             ],
 
             'footer' => [
@@ -367,55 +413,50 @@ return [
 
         'datagrid' => [
             'toolbar' => [
-                'mass-actions' => [
-                    'select-action' => 'යෙදුම තෝරන්න',
-                    'select-option' => 'නියෝජනය තෝරන්න',
-                    'submit'        => 'ඉදිරිපත් කරන්න',
-                ],
+                'length-of' => ':length යොමුවක්',
+                'results'   => ':total ප්‍රතිඵලයන්',
+                'selected'  => ':total තෝරාගත්',
 
-                'filter' => [
-                    'title' => 'වෙනත්',
+                'mass-actions' => [
+                    'must-select-a-mass-action'        => 'ඔබ තෝරාගැනීමට තෝරා ගැනීමක් අත්‍යවශ්‍ය වේ.',
+                    'must-select-a-mass-action-option' => 'ඔබ තෝරාගැනීමට තෝරා ගැනීමක් අත්‍යවශ්‍ය වේ.',
+                    'no-records-selected'              => 'කිසිදු වාර්තාවක් තෝරාගත නොහැක.',
+                    'select-action'                    => 'ක්‍රියාව තෝරන්න',
                 ],
 
                 'search' => [
                     'title' => 'සෙවුම',
                 ],
-            ],
 
-            'filters' => [
-                'title' => 'වෙනත්කරන්න',
+                'filter' => [
+                    'apply-filter' => 'පෙරහන් කිරීම',
+                    'title'        => 'පෙරහන් කිරීම',
 
-                'dropdown' => [
-                    'searchable' => [
-                        'atleast-two-chars' => 'අනුලම් 2 අකුරු සඳහා වියදම්...',
-                        'no-results'        => 'ප්‍රතිඵලක් නැත...',
+                    'dropdown' => [
+                        'select' => 'තෝරන්න',
+
+                        'searchable' => [
+                            'at-least-two-chars' => 'කරුණාකර අවම වශයෙන් 2 අකුරු ටයිප් කරන්න...',
+                            'no-results'         => 'කිසිදු ප්‍රතිඵලක් හමු නොවීය...',
+                        ],
                     ],
-                ],
 
-                'custom-filters' => [
-                    'clear-all' => 'සියල්ල ඉවත් කරන්න',
-                    'title'     => 'අභිරුචි වෙනත්කරණ',
-                ],
-
-                'date-options' => [
-                    'last-month'        => 'අවසාන මාසය',
-                    'last-six-months'   => 'අවසාන 6 මාස',
-                    'last-three-months' => 'අවසාන 3 මාස',
-                    'this-month'        => 'මෙතද',
-                    'this-week'         => 'මෙතද',
-                    'this-year'         => 'මෙතද',
-                    'today'             => 'අද',
-                    'yesterday'         => 'ඊයේ',
+                    'custom-filters' => [
+                        'clear-all' => 'සියල්ල මකන්න',
+                    ],
                 ],
             ],
 
             'table' => [
                 'actions'              => 'ක්‍රියාවලිය',
                 'next-page'            => 'ඊළඟ පිටුව',
-                'no-records-available' => 'ලකුණු නොපවතියි.',
-                'page-navigation'      => 'පිටුව නවිකාශය',
-                'page-number'          => 'පිටුවේ අංකය',
+                'no-records-available' => 'ලබාදුන් නොමැත.',
+                'of'                   => 'මෙමෙයි :total ඇතුලත්වයන්ට',
+                'page-navigation'      => 'පිටුව පාලනය',
+                'page-number'          => 'පිටුව අංකය',
                 'previous-page'        => 'පෙර පිටුව',
+                'showing'              => 'පෙන්වන්නේ :firstItem',
+                'to'                   => 'දක්වාන්නේ :lastItem දක්වා',
             ],
         ],
 
@@ -433,14 +474,14 @@ return [
 
         'products' => [
             'card' => [
-                'add-to-cart'                 => 'කරත්තයට එක් කරන්න',
-                'add-to-compare'              => 'සාක්ෂි සඳහා එක් කරන්න',
-                'add-to-compare-success'      => 'අයිතමය සාමාජිකයකු සඳහා සාක්ෂි ලැබුයේ.',
-                'add-to-wishlist'             => 'පෙරහුරු සාක්ෂි කිරීම',
-                'already-in-compare'          => 'අයිතමය සාක්ෂි ලැබුයේ.',
-                'new'                         => 'නව',
-                'review-description'          => 'මෙම නිෂ්පාදනය සඳහා පළිගෙන යයි මේය හරියට දැක්කාය',
-                'sale'                        => 'විකිණීම',
+                'add-to-cart'            => 'කරත්තයට එක් කරන්න',
+                'add-to-compare'         => 'සාක්ෂි සඳහා එක් කරන්න',
+                'add-to-compare-success' => 'අයිතමය සාමාජිකයකු සඳහා සාක්ෂි ලැබුයේ.',
+                'add-to-wishlist'        => 'පෙරහුරු සාක්ෂි කිරීම',
+                'already-in-compare'     => 'අයිතමය සාක්ෂි ලැබුයේ.',
+                'new'                    => 'නව',
+                'review-description'     => 'මෙම නිෂ්පාදනය සඳහා පළිගෙන යයි මේය හරියට දැක්කාය',
+                'sale'                   => 'විකිණීම',
             ],
 
             'carousel' => [
@@ -491,7 +532,8 @@ return [
                 ],
 
                 'bundle' => [
-                    'none' => 'කිසිවක්ද නෑ',
+                    'none'         => 'කිසිවක්ද නෑ',
+                    'total-amount' => 'මුළු මුදල',
                 ],
 
                 'downloadable' => [
@@ -582,7 +624,7 @@ return [
             ],
 
             'results' => [
-                'analysed-keywords' => 'විශ්වාසීය නිවේදන:',
+                'analyzed-keywords' => 'විශ්වාසීය නිවේදන:',
             ],
         ],
     ],
@@ -610,6 +652,7 @@ return [
         'cart' => [
             'continue-to-checkout'      => 'පරියේෂයට කිරීමට සහාය',
             'illegal'                   => 'අයිතමයක් එක් අඩංගු වේ නැත.',
+            'inactive-add'              => 'අක්‍රීය අයිතමය කරුණු කැට්එකට එක් කළ නොහැක.',
             'inactive'                  => 'අයිතමය අක්‍රීය වී ඇත්තේ, එවිට සාර්ථකව ඉවත් කරන ලදි.',
             'inventory-warning'         => 'ඉල්ලීම් ප්රමාණය සඳහා ඉල්ලීම් නොමැත, කරුණු නැවත උත්සාහ කරන්න.',
             'item-add-to-cart'          => 'අයිතමය සාර්ථකයි',
@@ -652,22 +695,6 @@ return [
                 ],
             ],
 
-            'coupon'   => [
-                'already-applied' => 'කෝපන කේතය දැක්කාය.',
-                'applied'         => 'කෝපනය සාර්ථකව අදිනය',
-                'apply'           => 'කෝපනය කරන්න',
-                'apply-issue'     => 'කෝපන කේතය අදින නැත.',
-                'button-title'    => 'යොමුවන්',
-                'code'            => 'කෝපන කේතය',
-                'discount'        => 'කෝපන වටාන',
-                'enter-your-code' => 'කේතය ඇතුල් කරන්න',
-                'error'           => 'දෝෂයකි',
-                'invalid'         => 'කෝපන කේතය වලංගු නොවේ.',
-                'remove'          => 'කෝපනය ඉවත් කරන්න',
-                'subtotal'        => 'උපකරණය',
-                'success-apply'   => 'කෝපන කේතය සාර්ථකව අදිනය',
-            ],
-
             'mini-cart' => [
                 'continue-to-checkout' => 'පරියේෂයට කිරීමට සහාය',
                 'empty-cart'           => 'ඔබගේ කර්තෘ කැට් එක හිස්',
@@ -688,62 +715,44 @@ return [
                 'proceed-to-checkout' => 'පරියේෂයට ඉදිරියට',
                 'sub-total'           => 'උපකරණය',
                 'tax'                 => 'බද',
+
+                'estimate-shipping' => [
+                    'country'        => 'රාජ්‍යය',
+                    'info'           => 'ඔබේ ගමන් ලයිස්තුව ලබා ගැනීමට පත් කරන්න.',
+                    'postcode'       => 'තැපැල් කේතය',
+                    'select-country' => 'රාජ්‍යය තෝරන්න',
+                    'select-state'   => 'රාජ්‍යය තෝරන්න',
+                    'state'          => 'රාජ්‍යය',
+                    'title'          => 'භාණ්ඩ සහ බදු අනුමත කිරීම',
+                ],
             ],
         ],
 
         'onepage' => [
-            'addresses' => [
-                'billing' => [
-                    'add-new-address'                    => 'නව ලිපිනයක් එකතු කරන්න',
-                    'back'                               => 'ආපසු',
-                    'billing-address'                    => 'බිල්පින් ලිපිනය',
-                    'city'                               => 'නගරය',
-                    'company-name'                       => 'සමාජ නම',
-                    'confirm'                            => 'තහවුරු',
-                    'country'                            => 'රට',
-                    'email'                              => 'ඊමේල්',
-                    'first-name'                         => 'මුල් නම',
-                    'last-name'                          => 'අවසාන නම',
-                    'postcode'                           => 'අංකය/තැපැල් අංකය',
-                    'proceed'                            => 'අගයනවා',
-                    'save'                               => 'සුරකින්න',
-                    'use-different-address-for-shipping' => 'මම මමයි කෙයික්',
-                    'save-address'                       => 'මෙම ලිපිනය සුරක්ෂිත කරන්න',
-                    'select-country'                     => 'රට තෝරන්න',
-                    'select-state'                       => 'පළාත තෝරන්න',
-                    'state'                              => 'පළාත',
-                    'street-address'                     => 'මාර්ග ලිපිනය',
-                    'telephone'                          => 'දුරකථන',
-                ],
-
-                'index' => [
-                    'bagisto' => 'බගිස්ටෝ',
-                    'confirm' => 'තහවුරු',
-                ],
-
-                'shipping' => [
-                    'add-new-address'  => 'නව ලිපිනයක් එකතු කරන්න',
-                    'back'             => 'ආපසු',
-                    'city'             => 'නගරය',
-                    'company-name'     => 'සමාජ නම',
-                    'confirm'          => 'තහවුරු',
-                    'country'          => 'රට',
-                    'email'            => 'ඊමේල්',
-                    'first-name'       => 'මුල් නම',
-                    'last-name'        => 'අවසාන නම',
-                    'postcode'         => 'අංකය/තැපැල් අංකය',
-                    'proceed'          => 'අගයනවා',
-                    'save'             => 'සුරකින්න',
-                    'save-address'     => 'මෙම ලිපිනය සුරක්ෂිත කරන්න',
-                    'select-country'   => 'රට තෝරන්න',
-                    'select-state'     => 'පළාත තෝරන්න',
-                    'shipping-address' => 'බෙහෙත් ලිපිනය',
-                    'state'            => 'පළාත',
-                    'street-address'   => 'මාර්ග ලිපිනය',
-                    'telephone'        => 'දුරකථන',
-                ],
-
-                'title' => 'ලිපිනය',
+            'address' => [
+                'add-new-address'  => 'නව ලිපිනයක් එක් කරන්න',
+                'add-new'          => 'නව ලිපිනයක් එක් කරන්න',
+                'back'             => 'ආපසු',
+                'billing-address'  => 'බිල්පොය ලිපිනය',
+                'city'             => 'නගරය',
+                'company-name'     => 'ව්‍යාපාරයේ නම',
+                'confirm'          => 'තහවුරු කරන්න',
+                'country'          => 'රාජ්‍යය',
+                'email'            => 'ඊ-මේල්',
+                'first-name'       => 'මුල් නම',
+                'last-name'        => 'අවසාන නම',
+                'postcode'         => 'තැපැල් කේතය',
+                'proceed'          => 'ඉදිරිපත් වන්න',
+                'same-as-billing'  => 'සහිතව සමාලෝචනයක් භාවිතා කරන්න?',
+                'save-address'     => 'මෙමගින් ලිපිනය බලන්න',
+                'save'             => 'සුරක්ෂිත කරන්න',
+                'select-country'   => 'රාජ්‍යය තෝරන්න',
+                'select-state'     => 'රාජ්‍යය තෝරන්න',
+                'shipping-address' => 'සහිත ලිපිනය',
+                'state'            => 'රාජ්‍යය',
+                'street-address'   => 'වීදි ලිපිනය',
+                'telephone'        => 'දුරකථන අංකය',
+                'title'            => 'ලිපිනය',
             ],
 
             'index' => [
@@ -771,18 +780,60 @@ return [
                 'tax'              => 'බද',
             ],
         ],
+
+        'coupon' => [
+            'already-applied' => 'කෝපන කේතය දැක්කාය.',
+            'applied'         => 'කෝපනය සාර්ථකව අදිනය',
+            'apply'           => 'කෝපනය කරන්න',
+            'apply-issue'     => 'කෝපන කේතය අදින නැත.',
+            'button-title'    => 'යොමුවන්',
+            'code'            => 'කෝපන කේතය',
+            'discount'        => 'කෝපන වටාන',
+            'enter-your-code' => 'කේතය ඇතුල් කරන්න',
+            'error'           => 'දෝෂයකි',
+            'invalid'         => 'කෝපන කේතය වලංගු නොවේ.',
+            'remove'          => 'කෝපනය ඉවත් කරන්න',
+            'subtotal'        => 'උපකරණය',
+            'success-apply'   => 'කෝපන කේතය සාර්ථකව අදිනය',
+        ],
+
+        'login' => [
+            'email'    => 'විද්‍යුත් තැපෑල',
+            'password' => 'මුරපදය',
+            'title'    => 'පිවිසීම',
+        ],
     ],
 
     'home' => [
+        'contact' => [
+            'about'         => 'අපගේ පිළිතුරු ලියන්න, අපි ඔබට ඉවස්වීමේදී ඉක්මනින් පිළිතුරු ලබා ගැනීමට අපට පෙර වෙන්නේය',
+            'desc'          => 'ඔබට කුමක්ද මගේ අත්දැකීම් පිළිතුරුද?',
+            'describe-here' => 'මෙහි විස්තර කරන්න',
+            'email'         => 'ඊමේල්',
+            'message'       => 'පණිවිඩය',
+            'name'          => 'නම',
+            'phone-number'  => 'දුරකථන අංකය',
+            'submit'        => 'ඉදිරිපත් කරන්න',
+            'title'         => 'අප අමතන්න',
+        ],
+
         'index' => [
             'offer'               => 'ඔබගේ 1 වන ඇණවුම එකට ඉහළ වෙනි 40% ඉටු SHOP NOW',
-            'resend-verify-email' => 'ඊ-පරිපාලකයාගේ ඊමේල් එක නැවත යවන්න',
+            'resend-verify-email' => 'ඊමේල් තහවුරු කිරීමේදී ඔබගේ ඊමේල් එක නැවත යවන්න',
             'verify-email'        => 'ඔබගේ ඊමේල් ගිණුම තහවුරු කරන්න',
+        ],
+
+        'thanks-for-contact' => 'ඔබගේ අදහස් සහ ප්‍රශ්න සමඟ අපට ඇමතුම් කිරීම සඳහා ස්තූතියි. අපි ඔබට ඉවස්වේය.',
+    ],
+
+    'partials' => [
+        'pagination' => [
+            'pagination-showing' => ':total ඇතුල් :firstItem සිට :lastItem දක්වා පෙන්වයි',
         ],
     ],
 
     'errors' => [
-        'go-to-home'   => 'මුල් පිටතට පටන්න',
+        'go-to-home' => 'මුල් පිටතට පටන්න',
 
         '404' => [
             'description' => 'අයියා! ඔබ තොරාගැනීමට උපරිමයෙකු පිටවරය අලුත්මයි. ඔබ මෙතනින් මහේෂ්ඨ වෙනි කුමුදු සොයා නොමැතිද අප සේවායේත්වය සඳහා නොහැකියාවක් වනු ඇත.',
@@ -827,8 +878,8 @@ return [
     ],
 
     'emails' => [
-        'dear'      => 'පිටවත් :customer_name',
-        'thanks'    => 'ඔබට උපකාරක අවිස්සාවන්ගේ හෙල්ප් අඩු කරන්න. <a href=":link" style=":style">:email</a> මගේ අමතන්නට අප සම්බන්ධයෙන් ඉගෙනගන්න.<br/>ජයොව!',
+        'dear'   => 'පිටවත් :customer_name',
+        'thanks' => 'ඔබට උපකාරක අවිස්සාවන්ගේ හෙල්ප් අඩු කරන්න. <a href=":link" style=":style">:email</a> මගේ අමතන්නට අප සම්බන්ධයෙන් ඉගෙනගන්න.<br/>ජයොව!',
 
         'customers' => [
             'registration' => [
@@ -872,6 +923,14 @@ return [
                 'subject'     => 'ඔබට! අපේ නිළධාරාණයට දැක්කානට',
                 'unsubscribe' => 'අවිශ්‍යවන්',
             ],
+        ],
+
+        'contact-us' => [
+            'contact-from'    => 'වෙබ් අමුතුම් පිටුවෙන් ඇමතුම් කිරීමේදී',
+            'reply-to-mail'   => 'කරුණාකර මෙම ඊමේල්ට පිළිතුරු යවන්න.',
+            'reach-via-phone' => 'එක්වන්නේ නිදහස් දුරකථන අංකයෙන් අපට පිටවීමක් හෝ',
+            'inquiry-from'    => 'විද්‍යුත් සඳහා',
+            'to'              => 'සම්බන්ද කිරීමට',
         ],
 
         'orders' => [

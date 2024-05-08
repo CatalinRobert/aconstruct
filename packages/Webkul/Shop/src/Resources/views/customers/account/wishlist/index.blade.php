@@ -30,7 +30,7 @@
 
                 <!-- Wishlist Information -->
                 <template v-else>
-                    <div class="flex justify-between items-center overflow-auto journal-scroll">
+                    <div class="journal-scroll flex items-center justify-between overflow-auto">
                         <h2 class="text-2xl font-medium">
                             @lang('shop::app.customers.account.wishlist.page-title')
                         </h2>
@@ -38,9 +38,9 @@
                         {!! view_render_event('bagisto.shop.customers.account.wishlist.delete_all.before') !!}
 
                         <div
-                            class="secondary-button flex gap-x-2.5 items-center py-3 px-5 border-[#E9E9E9]"
+                            class="secondary-button flex items-center gap-x-2.5 border-[#E9E9E9] px-5 py-3"
                             @click="removeAll"
-                            v-if="wishlist.length"
+                            v-if="wishlistItems.length"
                         >
                             <span class="icon-bin text-2xl"></span>
                             @lang('shop::app.customers.account.wishlist.delete-all')
@@ -50,14 +50,14 @@
                     </div>
 
                     <div 
-                        v-if="wishlist.length" 
-                        v-for="(item,index) in wishlist"
-                        class="flex gap-20 flex-wrap mt-8 max-1060:flex-col"
+                        v-if="wishlistItems.length" 
+                        v-for="(item, index) in wishlistItems"
+                        class="mt-8 flex flex-wrap gap-20 max-1060:flex-col"
                     >
-                        <div class="grid gap-8 flex-1">
+                        <div class="grid flex-1 gap-8">
                             <div class="grid gap-y-6">
                                 <!-- Wishlist item -->
-                                <div class="flex gap-x-2.5 justify-between pb-5 border-b border-[#E9E9E9]">
+                                <div class="flex justify-between gap-x-2.5 border-b border-[#E9E9E9] pb-5">
                                     <div class="flex gap-x-5">
                                         <div class="">
                                             {!! view_render_event('bagisto.shop.customers.account.wishlist.image.before') !!}
@@ -65,8 +65,9 @@
                                             <a :href="`{{ route('shop.product_or_category.index', '') }}/${item.product.url_key}`">
                                                 <!-- Wishlist Item Image -->
                                                 <img 
-                                                    class="max-w-[110px] max-h-[110px] min-w-[110px] w-[110px] h-[110px] rounded-xl"
+                                                    class="h-[110px] max-h-[110px] w-[110px] min-w-[110px] max-w-[110px] rounded-xl"
                                                     :src="item.product.base_image.small_image_url" 
+                                                    alt="Product Image"
                                                 /> 
                                             </a>
 
@@ -74,21 +75,19 @@
                                         </div>
 
                                         <div class="grid gap-y-2.5">
-                                            <p 
-                                                class="text-base font-medium" 
-                                                v-text="item.product.name"
-                                            >
+                                            <p class="text-base font-medium">
+                                                @{{ item.product.name }}
                                             </p>
 
                                             <!--Wishlist Item attributes -->
                                             <div 
-                                                class="flex gap-x-2.5 gap-y-1.5 flex-wrap"
-                                                v-if="item.options.length"
+                                                class="flex flex-wrap gap-x-2.5 gap-y-1.5"
+                                                v-if="item.options?.attributes"
                                             >
                                                 <div class="grid gap-2">
                                                     <div class="">
                                                         <p
-                                                            class="flex gap-x-4 text-base items-center cursor-pointer"
+                                                            class="flex cursor-pointer items-center gap-x-4 text-base"
                                                             @click="item.option_show = ! item.option_show"
                                                         >
                                                             @lang('shop::app.customers.account.wishlist.see-details')
@@ -105,7 +104,7 @@
                                                         class="grid gap-2" 
                                                         v-show="item.option_show"
                                                     >
-                                                        <div v-for="option in item.options">
+                                                        <div v-for="option in item.options?.attributes">
                                                             <p class="text-sm font-medium">
                                                                 @{{ option.attribute_name + ':' }}
                                                             </p>
@@ -129,7 +128,7 @@
 
                                                 <!--Wishlist Item removed button-->
                                                 <a 
-                                                    class="flex justify-end text-base text-[#0A49A7] cursor-pointer" 
+                                                    class="flex cursor-pointer justify-end text-base text-[#0A49A7]" 
                                                     @click="remove(item.id)"
                                                 >
                                                     @lang('shop::app.customers.account.wishlist.remove')
@@ -140,19 +139,20 @@
 
                                             {!! view_render_event('bagisto.shop.customers.account.wishlist.perform_actions.before') !!}
 
-                                            <div class="flex gap-5 flex-wrap">
+                                            <div class="flex flex-wrap gap-5">
                                                 <x-shop::quantity-changer
                                                     name="quantity"
-                                                    class="flex gap-x-2.5 items-center max-h-10 py-1.5 px-3.5 border border-navyBlue  rounded-[54px]"
+                                                    ::value="item.options.quantity ?? 1"
+                                                    class="flex max-h-10 items-center gap-x-2.5 rounded-[54px] border border-navyBlue px-3.5 py-1.5"
                                                     @change="setItemQuantity($event, item)"
                                                 />
 
                                                 <!--Wishlist Item Move-to-cart-->
                                                 <x-shop::button
-                                                    class="primary-button w-max max-h-10 py-1.5 px-6 rounded-2xl text-base text-center"
+                                                    class="primary-button max-h-10 w-max rounded-2xl px-6 py-1.5 text-center text-base"
                                                     :title="trans('shop::app.customers.account.wishlist.move-to-cart')"
-                                                    :loading="false"
-                                                    ref="moveToCart"
+                                                    ::loading="isMovingToCart[item.id]"
+                                                    ::disabled="isMovingToCart[item.id]"
                                                     @click="moveToCart(item.id,index)"
                                                 />
                                             </div>
@@ -169,7 +169,7 @@
                                         </p>
 
                                         <a 
-                                            class="flex justify-end text-base text-[#0A49A7] cursor-pointer" 
+                                            class="flex cursor-pointer justify-end text-base text-[#0A49A7]" 
                                             @click="remove(item.id)"
                                         >
                                             @lang('shop::app.customers.account.wishlist.remove')
@@ -182,13 +182,12 @@
 
                     <!--Empty Wishlist-->
                     <div
-                        class="grid items-center justify-items-center w-full m-auto h-[476px] place-content-center text-center"
+                        class="m-auto grid h-[476px] w-full place-content-center items-center justify-items-center text-center"
                         v-else
                     >
                         <img
                             src="{{ bagisto_asset('images/wishlist.png') }}"
-                            class=""
-                            alt=""
+                            class="" alt="Empty wishlist"
                             title=""
                         >
 
@@ -211,7 +210,9 @@
                     return {
                         isLoading: true,
 
-                        wishlist: [],
+                        isMovingToCart: {},
+
+                        wishlistItems: [],
                     };
                 },
 
@@ -225,8 +226,7 @@
                             .then(response => {
                                 this.isLoading = false;
 
-                                this.wishlist = response.data.data
-                                    .map((wishlist) => ({ ...wishlist, quantity: 1 }));
+                                this.wishlistItems = response.data.data;
                             })
                             .catch(error => {});
                     },
@@ -234,7 +234,7 @@
                     remove(id) {
                         this.$axios.delete(`{{ route('shop.api.customers.account.wishlist.destroy', '') }}/${id}`)
                             .then(response => {
-                                this.wishlist = this.wishlist.filter(wishlist => wishlist.id != id);
+                                this.wishlistItems = this.wishlistItems.filter(item => item.id != id);
 
                                 this.$emitter.emit('add-flash', { type: 'success', message: response.data.message });
                             })
@@ -249,7 +249,7 @@
                                     '_method': 'DELETE',
                                 })
                                 .then(response => {
-                                    this.wishlist = [];
+                                    this.wishlistItems = [];
 
                                     this.$emitter.emit('add-flash', { type: 'success', message: response.data.data.message });
                                 })
@@ -259,40 +259,42 @@
                     },
 
                     moveToCart(id, index) {
-                        this.$refs.moveToCart[index].isLoading = true;
+                        this.isMovingToCart[id] = true;
 
-                        let url = `{{ route('shop.api.customers.account.wishlist.move_to_cart', ':wishlist_id:') }}`;
-                        url = url.replace(':wishlist_id:', id);
+                        let url = `{{ route('shop.api.customers.account.wishlist.move_to_cart', ':wishlist_id:') }}`.replace(':wishlist_id:', id);
 
-                        let existingItem = this.wishlist.find(item => item.id == id);
+                        let existingItem = this.wishlistItems.find(item => item.id == id);
 
-                        if (existingItem) {
-                            this.$axios.post(url, {
-                                    quantity: existingItem.quantity,
-                                    product_id: id
-                                })
-                                .then(response => {
-                                    if (response.data.redirect) {
-                                        this.$emitter.emit('add-flash', { type: 'warning', message: response.data.message });
-
-                                        window.location.href = response.data.data;
-                                    } else {
-                                        this.wishlist = this.wishlist.filter(wishlist => wishlist.id != id);
-
-                                        this.$emitter.emit('update-mini-cart', response.data.data.cart);
-
-                                        this.$emitter.emit('add-flash', { type: 'success', message: response.data.message });
-                                    }
-
-                                    this.$refs.moveToCart.map((item) => item.isLoading =  false);
-                                })
-                                .catch(error => {
-                                    this.$refs.moveToCart.map((item) => item.isLoading =  false);
-                                });
+                        if (! existingItem) {
+                            return
                         }
+
+                        this.$axios.post(url, {
+                                quantity: existingItem.quantity ?? existingItem.options.quantity,
+                                product_id: id
+                            })
+                            .then(response => {
+                                if (response.data.redirect) {
+                                    this.$emitter.emit('add-flash', { type: 'warning', message: response.data.message });
+
+                                    window.location.href = response.data.data;
+                                } else {
+                                    this.wishlistItems = this.wishlistItems.filter(item => item.id != id);
+
+                                    this.$emitter.emit('update-mini-cart', response.data.data.cart);
+
+                                    this.$emitter.emit('add-flash', { type: 'success', message: response.data.message });
+                                }
+
+                                this.isMovingToCart[id] = false;
+                            })
+                            .catch(error => {
+                                this.isMovingToCart[id] = false;
+                            });
                     },
+
                     setItemQuantity(quantity, requestedItem) {
-                        let existingItem = this.wishlist.find((item) => item.id === requestedItem.id);
+                        let existingItem = this.wishlistItems.find((item) => item.id === requestedItem.id);
 
                         if (existingItem) {
                             existingItem.quantity = quantity;

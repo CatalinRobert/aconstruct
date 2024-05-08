@@ -26,9 +26,10 @@ class CustomerAddressFactory extends Factory
         return [
             'company_name'    => $this->faker->company,
             'vat_id'          => $fakerIt->vatId(),
+            'email'           => $this->faker->email,
             'first_name'      => $this->faker->firstName,
             'last_name'       => $this->faker->lastName,
-            'address1'        => $this->faker->streetAddress,
+            'address'         => $this->faker->streetAddress,
             'country'         => $this->faker->countryCode,
             'state'           => $this->faker->state,
             'city'            => $this->faker->city,

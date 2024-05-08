@@ -3,6 +3,7 @@
 return [
     'customers' => [
         'forgot-password' => [
+            'already-sent'         => 'Already Password Reset Mail Sent.',
             'back'                 => 'Back to sign In ?',
             'bagisto'              => 'Bagisto',
             'email'                => 'Email',
@@ -71,65 +72,99 @@ return [
         'account' => [
             'home' => 'Home',
 
-            'profile'   => [
-                'confirm-password'        => 'Confirm Password',
-                'current-password'        => 'Current Password',
-                'delete'                  => 'Delete',
-                'delete-failed'           => 'Error encountered while deleting customer.',
-                'delete-profile'          => 'Delete Profile',
-                'delete-success'          => 'Customer deleted successfully',
-                'dob'                     => 'Date of Birth',
-                'edit'                    => 'Edit',
-                'edit-profile'            => 'Edit Profile',
-                'edit-success'            => 'Profile Updated Successfully',
-                'email'                   => 'Email',
-                'enter-password'          => 'Enter Your password',
-                'female'                  => 'Female',
-                'first-name'              => 'First Name',
-                'gender'                  => 'Gender',
-                'last-name'               => 'Last Name',
-                'male'                    => 'Male',
-                'new-password'            => 'New Password',
-                'order-pending'           => 'Cannot delete customer account because some Order(s) are pending or processing state.',
-                'other'                   => 'Other',
-                'phone'                   => 'Phone',
-                'save'                    => 'Save',
-                'select-gender'           => 'Select Gender',
-                'subscribe-to-newsletter' => 'Subscribe to newsletter',
-                'title'                   => 'Profile',
-                'unmatch'                 => 'The old password does not match.',
-                'wrong-password'          => 'Wrong Password !',
+            'profile' => [
+                'index' => [
+                    'delete'         => 'Delete',
+                    'delete-failed'  => 'Error encountered while deleting customer.',
+                    'delete-profile' => 'Delete Profile',
+                    'delete-success' => 'Customer deleted successfully',
+                    'dob'            => 'Date of Birth',
+                    'edit'           => 'Edit',
+                    'edit-success'   => 'Profile Updated Successfully',
+                    'email'          => 'Email',
+                    'enter-password' => 'Enter Your password',
+                    'first-name'     => 'First Name',
+                    'gender'         => 'Gender',
+                    'last-name'      => 'Last Name',
+                    'order-pending'  => 'Cannot delete customer account because some Order(s) are pending or processing state.',
+                    'title'          => 'Profile',
+                    'unmatched'      => 'The old password does not match.',
+                    'wrong-password' => 'Wrong Password !',
+                ],
+
+                'edit' => [
+                    'confirm-password'        => 'Confirm Password',
+                    'current-password'        => 'Current Password',
+                    'dob'                     => 'Date of Birth',
+                    'edit'                    => 'Edit',
+                    'edit-profile'            => 'Edit Profile',
+                    'email'                   => 'Email',
+                    'female'                  => 'Female',
+                    'first-name'              => 'First Name',
+                    'gender'                  => 'Gender',
+                    'last-name'               => 'Last Name',
+                    'male'                    => 'Male',
+                    'new-password'            => 'New Password',
+                    'other'                   => 'Other',
+                    'phone'                   => 'Phone',
+                    'save'                    => 'Save',
+                    'subscribe-to-newsletter' => 'Subscribe to newsletter',
+                ],
             ],
 
             'addresses' => [
-                'add-address'      => 'Add Address',
-                'address-1'        => 'Address 1',
-                'address-2'        => 'Address 2',
-                'city'             => 'City',
-                'company-name'     => 'Company Name',
-                'country'          => 'Country',
-                'create-success'   => 'Address have been successfully added.',
-                'default-address'  => 'Default Address',
-                'default-delete'   => 'Default address cannot be changed.',
-                'delete'           => 'Delete',
-                'delete-success'   => 'Address successfully deleted',
-                'edit'             => 'Edit',
-                'edit-address'     => 'Edit Address',
-                'edit-success'     => 'Address updated successfully.',
-                'email'            => 'Email',
-                'empty-address'    => 'You have not added an address to your account yet.',
-                'first-name'       => 'First Name',
-                'last-name'        => 'Last Name',
-                'phone'            => 'Phone',
-                'post-code'        => 'Post Code',
-                'save'             => 'Save',
-                'security-warning' => 'Suspicious activity found!!!',
-                'select-country'   => 'Select Country',
-                'set-as-default'   => 'Set as Default',
-                'state'            => 'State',
-                'street-address'   => 'Street Address',
-                'title'            => 'Address',
-                'vat-id'           => 'Vat ID',
+                'index' => [
+                    'add-address'      => 'Add Address',
+                    'create-success'   => 'Address have been successfully added.',
+                    'default-address'  => 'Default Address',
+                    'default-delete'   => 'Default address cannot be changed.',
+                    'delete'           => 'Delete',
+                    'delete-success'   => 'Address successfully deleted',
+                    'edit'             => 'Edit',
+                    'edit-success'     => 'Address updated successfully.',
+                    'empty-address'    => 'You have not added an address to your account yet.',
+                    'security-warning' => 'Suspicious activity found!!!',
+                    'set-as-default'   => 'Set as Default',
+                    'title'            => 'Address',
+                    'update-success'   => 'Address have been updated successfully.',
+                ],
+
+                'create' => [
+                    'add-address'    => 'Add Address',
+                    'city'           => 'City',
+                    'company-name'   => 'Company Name',
+                    'country'        => 'Country',
+                    'email'          => 'Email',
+                    'first-name'     => 'First Name',
+                    'last-name'      => 'Last Name',
+                    'phone'          => 'Phone',
+                    'post-code'      => 'Post Code',
+                    'save'           => 'Save',
+                    'select-country' => 'Select Country',
+                    'set-as-default' => 'Set as Default',
+                    'state'          => 'State',
+                    'street-address' => 'Street Address',
+                    'title'          => 'Address',
+                    'vat-id'         => 'Vat ID',
+                ],
+
+                'edit' => [
+                    'city'           => 'City',
+                    'company-name'   => 'Company Name',
+                    'country'        => 'Country',
+                    'edit'           => 'Edit',
+                    'email'          => 'Email',
+                    'first-name'     => 'First Name',
+                    'last-name'      => 'Last Name',
+                    'phone'          => 'Phone',
+                    'post-code'      => 'Post Code',
+                    'save'           => 'Save',
+                    'select-country' => 'Select Country',
+                    'state'          => 'State',
+                    'street-address' => 'Street Address',
+                    'title'          => 'Address',
+                    'vat-id'         => 'Vat ID',
+                ],
             ],
 
             'orders' => [
@@ -162,8 +197,10 @@ return [
                     'cancel-confirm-msg' => 'Are you sure you want to cancel this order ?',
                     'cancel-error'       => 'Your order can not be canceled.',
                     'cancel-success'     => 'Your order has been canceled',
+                    'contact'            => 'Contact',
                     'page-title'         => 'Order #:order_id',
                     'payment-method'     => 'Payment Method',
+                    'reorder-btn-title'  => 'Reorder',
                     'shipping-address'   => 'Shipping Address',
                     'shipping-method'    => 'Shipping Method',
                     'title'              => 'View',
@@ -267,7 +304,7 @@ return [
                 ],
             ],
 
-            'reviews'    => [
+            'reviews' => [
                 'empty-review' => 'You have not reviewed any product yet',
                 'title'        => 'Reviews',
             ],
@@ -332,90 +369,95 @@ return [
                 'compare'           => 'Compara',
                 'dropdown-text'     => 'Vezi Cos, Comenzi & Favorite',
                 'logout'            => 'Logout',
-                'no-category-found' => 'No category found.',
+                'no-category-found' => 'Nicio categorie gasita',
                 'orders'            => 'Comenzi',
-                'profile'           => 'Profile',
+                'profile'           => 'Profil',
                 'search'            => 'Cauta',
                 'search-text'       => 'Cauta produse aici',
                 'sign-in'           => 'Sign In',
                 'sign-up'           => 'Sign Up',
-                'title'             => 'Account',
+                'submit'            => 'Submit',
+                'title'             => 'Cont',
                 'welcome'           => 'Bine ai venit',
-                'welcome-guest'     => 'Welcome Guest',
+                'welcome-guest'     => 'Bine ai venit aici',
                 'wishlist'          => 'Wishlist',
+
+                'desktop' => [
+                    'top' => [
+                        'default-locale' => 'Default locale',
+                        'offer'          => 'Get UPTO 40% OFF on your 1st order',
+                        'shop-now'       => 'SHOP NOW',
+                    ],
+                ],
             ],
 
             'footer' => [
-                'about-us'               => 'About Us',
-                'contact-us'             => 'Contact Us',
+                'about-us'               => 'Despre noi',
+                'contact-us'             => 'Contacteaza-ne',
                 'currency'               => 'Currency',
                 'customer-service'       => 'Customer Service',
                 'email'                  => 'Email',
                 'footer-text'            => '© Copyright - :current_year, AConstruct - Toate drepturile rezervate.',
-                'locale'                 => 'Locale',
-                'newsletter-text'        => 'Get Ready for our Fun Newsletter!',
-                'order-return'           => 'Order and Returns',
-                'payment-policy'         => 'Payment Policy',
-                'privacy-cookies-policy' => 'Privacy and Cookies Policy',
+                'locale'                 => 'Limba',
+                'newsletter-text'        => 'Fii la curent cu promotiile active!',
+                'order-return'           => 'Comenzi & Retururi',
+                'payment-policy'         => 'Politici de plata',
+                'privacy-cookies-policy' => 'Politici cookies si privacy',
                 'shipping-policy'        => 'Shipping Policy',
-                'subscribe'              => 'Subscribe',
-                'subscribe-newsletter'   => 'Subscribe Newsletter',
-                'subscribe-stay-touch'   => 'Subscribe to stay in touch.',
-                'whats-new'              => 'What’s New',
+                'subscribe'              => 'Aboneaza-te',
+                'subscribe-newsletter'   => 'Aboneaza-te la Newsletter',
+                'subscribe-stay-touch'   => 'Hai sa tinem legatura',
+                'whats-new'              => 'Ce e nou',
             ],
         ],
 
         'datagrid' => [
             'toolbar' => [
-                'mass-actions' => [
-                    'select-action' => 'Select Action',
-                    'select-option' => 'Select Option',
-                    'submit'        => 'Submit',
-                ],
-
+                'length-of' => ':length of',
+                'results'   => ':total Results',
+                'selected'  => ':total Selected',
                 'filter' => [
                     'title' => 'Filtreaza',
+                'mass-actions' => [
+                    'must-select-a-mass-action'        => 'You must select a mass action.',
+                    'must-select-a-mass-action-option' => 'You must select a mass action\'s option.',
+                    'no-records-selected'              => 'No records have been selected.',
+                    'select-action'                    => 'Select Action',
                 ],
 
                 'search' => [
                     'title' => 'Cauta',
                 ],
-            ],
 
-            'filters' => [
-                'title' => 'Apply Filters',
+                'filter' => [
+                    'apply-filter' => 'Aplica filtre',
+                    'title'        => 'Filtreaza',
 
-                'dropdown' => [
-                    'searchable' => [
-                        'atleast-two-chars' => 'Type atleast 2 characters...',
-                        'no-results'        => 'No result found...',
+                    'dropdown' => [
+                        'select' => 'Select',
+
+                        'searchable' => [
+                            'at-least-two-chars' => 'Insereaza cel putin 2 caractere...',
+                            'no-results'         => 'Niciun rezultat...',
+                        ],
                     ],
-                ],
 
-                'custom-filters' => [
-                    'clear-all' => 'Clear All',
-                    'title'     => 'Custom Filters',
-                ],
-
-                'date-options' => [
-                    'last-month'        => 'Last Month',
-                    'last-six-months'   => 'Last 6 Months',
-                    'last-three-months' => 'Last 3 Months',
-                    'this-month'        => 'This Month',
-                    'this-week'         => 'This Week',
-                    'this-year'         => 'This Year',
-                    'today'             => 'Today',
-                    'yesterday'         => 'Yesterday',
+                    'custom-filters' => [
+                        'clear-all' => 'Sterge tot',
+                    ],
                 ],
             ],
 
             'table' => [
-                'actions'              => 'Actions',
-                'next-page'            => 'Next Page',
-                'no-records-available' => 'No Records Available.',
+                'actions'              => 'Actiuni',
+                'next-page'            => 'Urmatoarea pagina',
+                'no-records-available' => 'No records available.',
+                'of'                   => 'of :total entries',
                 'page-navigation'      => 'Page Navigation',
                 'page-number'          => 'Page Number',
                 'previous-page'        => 'Previous Page',
+                'showing'              => 'Showing :firstItem',
+                'to'                   => 'to :lastItem',
             ],
         ],
 
@@ -491,7 +533,8 @@ return [
                 ],
 
                 'bundle' => [
-                    'none' => 'None',
+                    'none'         => 'Nimic',
+                    'total-amount' => 'Total',
                 ],
 
                 'downloadable' => [
@@ -501,7 +544,7 @@ return [
                 ],
 
                 'grouped' => [
-                    'name' => 'Name',
+                    'name' => 'Nume',
                 ],
             ],
 
@@ -582,7 +625,7 @@ return [
             ],
 
             'results' => [
-                'analysed-keywords' => 'Analysed Keywords:',
+                'analyzed-keywords' => 'Analyzed Keywords:',
             ],
         ],
     ],
@@ -602,14 +645,15 @@ return [
     'checkout' => [
         'success' => [
             'info'          => 'We will email you, your order details and tracking information',
-            'order-id-info' => 'Your order id is #:order_id',
-            'thanks'        => 'Thank you for your order!',
-            'title'         => 'Order successfully placed',
+            'order-id-info' => 'ID-ul comenzii este #:order_id',
+            'thanks'        => 'Multumim pentru comanda!',
+            'title'         => 'Comanda plasata cu succes!',
         ],
 
         'cart' => [
             'continue-to-checkout'      => 'Continue to Checkout',
             'illegal'                   => 'Quantity cannot be lesser than one.',
+            'inactive-add'              => 'Inactive item cannot be added to cart.',
             'inactive'                  => 'The item has been deactivated and subsequently removed from the cart.',
             'inventory-warning'         => 'The requested quantity is not available, please try again later.',
             'item-add-to-cart'          => 'Item Added Successfully',
@@ -626,10 +670,10 @@ return [
 
             'index' => [
                 'bagisto'                  => 'Bagisto',
-                'cart'                     => 'Cart',
-                'continue-shopping'        => 'Continue Shopping',
+                'cart'                     => 'Cos',
+                'continue-shopping'        => 'Continua cumparaturile',
                 'empty-product'            => 'You don’t have a product in your cart.',
-                'home'                     => 'Home',
+                'home'                     => 'Acasa',
                 'items-selected'           => ':count Items Selected',
                 'move-to-wishlist'         => 'Move To Wishlist',
                 'move-to-wishlist-success' => 'Selected items successfully moved to wishlist.',
@@ -652,22 +696,6 @@ return [
                 ],
             ],
 
-            'coupon'   => [
-                'already-applied' => 'Coupon code already applied.',
-                'applied'         => 'Coupon applied',
-                'apply'           => 'Apply Coupon',
-                'apply-issue'     => 'Coupon code can\'t be applied.',
-                'button-title'    => 'Apply',
-                'code'            => 'Coupon code',
-                'discount'        => 'Coupon Discount',
-                'enter-your-code' => 'Enter your code',
-                'error'           => 'Something went wrong',
-                'invalid'         => 'Coupon code is invalid.',
-                'remove'          => 'Remove Coupon',
-                'subtotal'        => 'Subtotal',
-                'success-apply'   => 'Coupon code applied successfully.',
-            ],
-
             'mini-cart' => [
                 'continue-to-checkout' => 'Continue to Checkout',
                 'empty-cart'           => 'Your cart is empty',
@@ -688,67 +716,49 @@ return [
                 'proceed-to-checkout' => 'Proceed To Checkout',
                 'sub-total'           => 'Subtotal',
                 'tax'                 => 'Tax',
+
+                'estimate-shipping' => [
+                    'country'        => 'Country',
+                    'info'           => 'Enter your destination to get a shipping and tax estimate.',
+                    'postcode'       => 'Zip/Postcode',
+                    'select-country' => 'Select Country',
+                    'select-state'   => 'Select State',
+                    'state'          => 'State',
+                    'title'          => 'Estimate Shipping and Tax',
+                ],
             ],
         ],
 
         'onepage' => [
-            'addresses' => [
-                'billing' => [
-                    'add-new-address'                    => 'Add new address',
-                    'back'                               => 'Back',
-                    'billing-address'                    => 'Billing Address',
-                    'city'                               => 'City',
-                    'company-name'                       => 'Company Name',
-                    'confirm'                            => 'Confirm',
-                    'country'                            => 'Country',
-                    'email'                              => 'Email',
-                    'first-name'                         => 'First Name',
-                    'last-name'                          => 'Last Name',
-                    'postcode'                           => 'Zip/Postcode',
-                    'proceed'                            => 'Proceed',
-                    'save'                               => 'Save',
-                    'use-different-address-for-shipping' => 'Use different address for shipping?',
-                    'save-address'                       => 'Save this address',
-                    'select-country'                     => 'Select Country',
-                    'select-state'                       => 'Select State',
-                    'state'                              => 'State',
-                    'street-address'                     => 'Street Address',
-                    'telephone'                          => 'Telephone',
-                ],
-
-                'index' => [
-                    'bagisto' => 'Bagisto',
-                    'confirm' => 'Confirm',
-                ],
-
-                'shipping' => [
-                    'add-new-address'  => 'Add new address',
-                    'back'             => 'Back',
-                    'city'             => 'City',
-                    'company-name'     => 'Company Name',
-                    'confirm'          => 'Confirm',
-                    'country'          => 'Country',
-                    'email'            => 'Email',
-                    'first-name'       => 'First Name',
-                    'last-name'        => 'Last Name',
-                    'postcode'         => 'Zip/Postcode',
-                    'proceed'          => 'Proceed',
-                    'save'             => 'Save',
-                    'save-address'     => 'Save this address',
-                    'select-country'   => 'Select Country',
-                    'select-state'     => 'Select State',
-                    'shipping-address' => 'Shipping Address',
-                    'state'            => 'State',
-                    'street-address'   => 'Street address',
-                    'telephone'        => 'Telephone',
-                ],
-
-                'title' => 'Address',
+            'address' => [
+                'add-new-address'  => 'Add new address',
+                'add-new'          => 'Add new address',
+                'back'             => 'Back',
+                'billing-address'  => 'Billing Address',
+                'city'             => 'City',
+                'company-name'     => 'Company Name',
+                'confirm'          => 'Confirm',
+                'country'          => 'Country',
+                'email'            => 'Email',
+                'first-name'       => 'First Name',
+                'last-name'        => 'Last Name',
+                'postcode'         => 'Zip/Postcode',
+                'proceed'          => 'Proceed',
+                'same-as-billing'  => 'Use same address for shipping?',
+                'save-address'     => 'Save this to address book',
+                'save'             => 'Save',
+                'select-country'   => 'Select Country',
+                'select-state'     => 'Select State',
+                'shipping-address' => 'Shipping Address',
+                'state'            => 'State',
+                'street-address'   => 'Street Address',
+                'telephone'        => 'Telephone',
+                'title'            => 'Address',
             ],
 
             'index' => [
                 'checkout' => 'Checkout',
-                'home'     => 'Home',
+                'home'     => 'Acasa',
             ],
 
             'payment' => [
@@ -771,18 +781,60 @@ return [
                 'tax'              => 'Tax',
             ],
         ],
+
+        'coupon' => [
+            'already-applied' => 'Coupon code already applied.',
+            'applied'         => 'Coupon applied',
+            'apply'           => 'Apply Coupon',
+            'apply-issue'     => 'Coupon code can\'t be applied.',
+            'button-title'    => 'Apply',
+            'code'            => 'Coupon code',
+            'discount'        => 'Coupon Discount',
+            'enter-your-code' => 'Enter your code',
+            'error'           => 'Something went wrong',
+            'invalid'         => 'Coupon code is invalid.',
+            'remove'          => 'Remove Coupon',
+            'subtotal'        => 'Subtotal',
+            'success-apply'   => 'Coupon code applied successfully.',
+        ],
+
+        'login' => [
+            'email'    => 'Email',
+            'password' => 'Password',
+            'title'    => 'Sign In',
+        ],
     ],
 
     'home' => [
+        'contact' => [
+            'about'         => 'Jot us a note, and we’ll get back to you as quickly as possible',
+            'desc'          => ' What’s on your mind?',
+            'describe-here' => 'Describe Here',
+            'email'         => 'Email',
+            'message'       => 'Message',
+            'name'          => 'Name',
+            'phone-number'  => 'Phone Number',
+            'submit'        => 'Submit',
+            'title'         => 'Contact Us',
+        ],
+
         'index' => [
             'offer'               => 'Get UPTO 40% OFF on your 1st order SHOP NOW',
             'resend-verify-email' => 'Resend Verification Email',
             'verify-email'        => 'Verify your email account',
         ],
+
+        'thanks-for-contact' => 'Thanks for contacting us with your comments and questions. We all respond to you very soon.',
+    ],
+
+    'partials' => [
+        'pagination' => [
+            'pagination-showing' => 'Showing :firstItem to :lastItem of :total entries',
+        ],
     ],
 
     'errors' => [
-        'go-to-home'   => 'Go To Home',
+        'go-to-home' => 'Go To Home',
 
         '404' => [
             'description' => 'Oops! The page you\'re looking for is on vacation. It seems we couldn\'t find what you were searching for.',
@@ -872,6 +924,14 @@ return [
                 'subject'     => 'You! Subscribe to Our Newsletter',
                 'unsubscribe' => 'Unsubscribe',
             ],
+        ],
+
+        'contact-us' => [
+            'contact-from'    => 'via Website Contact Form',
+            'reply-to-mail'   => 'please reply to this email.',
+            'reach-via-phone' => 'Alternatively, you can reach us by phone at',
+            'inquiry-from'    => 'Inquiry from',
+            'to'              => 'To contact',
         ],
 
         'orders' => [

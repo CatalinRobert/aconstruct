@@ -713,6 +713,7 @@ return [
                 'type'          => 'text',
                 'validation'    => 'between:1,2',
                 'channel_based' => true,
+                'default_value' => 1,
             ],
         ],
     ], [
@@ -862,6 +863,22 @@ return [
                 'validation'    => 'required|email',
                 'channel_based' => true,
                 'default_value' => config('mail.admin.address'),
+            ], [
+                'name'          => 'contact_name',
+                'title'         => 'admin::app.configuration.index.email.email-settings.contact-name',
+                'type'          => 'text',
+                'info'          => 'admin::app.configuration.index.email.email-settings.contact-name-tip',
+                'validation'    => 'required|max:50',
+                'channel_based' => true,
+                'default_value' => config('mail.contact.name'),
+            ], [
+                'name'          => 'contact_email',
+                'title'         => 'admin::app.configuration.index.email.email-settings.contact-email',
+                'type'          => 'text',
+                'info'          => 'admin::app.configuration.index.email.email-settings.contact-email-tip',
+                'validation'    => 'required|email',
+                'channel_based' => true,
+                'default_value' => config('mail.contact.address'),
             ],
         ],
     ], [
@@ -966,7 +983,7 @@ return [
                 'channel_based' => true,
                 'locale_based'  => false,
             ], [
-                'name'          => 'address1',
+                'name'          => 'address',
                 'title'         => 'admin::app.configuration.index.sales.shipping.origin.street-address',
                 'type'          => 'text',
                 'validation'    => 'required',

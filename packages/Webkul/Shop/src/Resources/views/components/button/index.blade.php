@@ -6,7 +6,7 @@
         id="v-button-template"
     >
         <button
-            v-if="! isLoading"
+            v-if="! loading"
             :class="[buttonClass, '']"
         >
             @{{ title }}
@@ -18,7 +18,7 @@
         >
             <!-- Spinner -->
             <svg
-                class="absolute animate-spin h-5 w-5 text-blue"
+                class="text-blue absolute h-5 w-5 animate-spin"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none" 
                 aria-hidden="true"
@@ -42,10 +42,8 @@
                 </path>
             </svg>
 
-            <span
-                class="opacity-0 realative h-full w-full"
-                v-text="title"
-            >
+            <span class="realative h-full w-full opacity-0">
+                @{{ title }}
             </span>
         </button>
     </script>
@@ -58,13 +56,7 @@
                 loading: Boolean,
                 buttonType: String,
                 title: String,
-                buttonClass: String, // Added prop for dynamic class
-            },
-
-            data() {
-                return {
-                    isLoading: this.loading,
-                };
+                buttonClass: String,
             },
         });
     </script>

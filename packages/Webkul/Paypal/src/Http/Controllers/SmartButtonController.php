@@ -60,7 +60,7 @@ class SmartButtonController extends Controller
     {
         $cart = Cart::getCart();
 
-        $billingAddressLines = $this->getAddressLines($cart->billing_address->address1);
+        $billingAddressLines = $this->getAddressLines($cart->billing_address->address);
 
         $data = [
             'intent' => 'CAPTURE',
@@ -227,7 +227,7 @@ class SmartButtonController extends Controller
 
             Cart::deActivateCart();
 
-            session()->flash('order', $order);
+            session()->flash('order_id', $order->id);
 
             return response()->json([
                 'success' => true,

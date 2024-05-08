@@ -11,7 +11,7 @@ return [
         ],
 
         'forget-password' => [
-            'create'    => [
+            'create' => [
                 'email'           => 'Geregistreerd E-mailadres',
                 'email-not-exist' => 'E-mailadres Bestaat Niet',
                 'page-title'      => 'Wachtwoord Vergeten',
@@ -36,6 +36,8 @@ return [
         'description-text' => 'Alle meldingen weergeven',
         'marked-success'   => 'Melding Succesvol Gemarkeerd',
         'no-record'        => 'Geen Records Gevonden',
+        'of'               => 'van',
+        'per-page'         => 'Per pagina',
         'read-all'         => 'Markeer als Gelezen',
         'title'            => 'Meldingen',
         'view-all'         => 'Alles Bekijken',
@@ -47,15 +49,6 @@ return [
             'pending'         => 'Bestelling In Afwachting',
             'pending-payment' => 'In Afwachting van Betaling',
             'processing'      => 'Bestelling In Verwerking',
-        ],
-
-        'status' => [
-            'all'        => 'Alle',
-            'canceled'   => 'Geannuleerd',
-            'closed'     => 'Gesloten',
-            'completed'  => 'Voltooid',
-            'pending'    => 'In Afwachting',
-            'processing' => 'In Verwerking',
         ],
     ],
 
@@ -134,7 +127,16 @@ return [
     'sales' => [
         'orders' => [
             'index' => [
-                'title' => 'Bestellingen',
+                'create-btn' => 'Bestelling aanmaken',
+                'title'      => 'Bestellingen',
+
+                'search-customer' => [
+                    'create-btn'  => 'Klant aanmaken',
+                    'empty-info'  => 'Geen klanten beschikbaar voor zoekterm.',
+                    'empty-title' => 'Geen klanten gevonden',
+                    'search-by'   => 'Zoeken op e-mail of naam',
+                    'title'       => 'Selecteer Klant',
+                ],
 
                 'datagrid' => [
                     'canceled'        => 'Geannuleerd',
@@ -152,13 +154,173 @@ return [
                     'order-id'        => 'Bestelnummer',
                     'pay-by'          => 'Betaal Via - :method',
                     'pay-via'         => 'Betaal Via',
-                    'pending'         => 'In behandeling',
                     'pending-payment' => 'In afwachting van betaling',
+                    'pending'         => 'In behandeling',
                     'processing'      => 'Verwerking',
                     'product-count'   => ':count + Meer producten',
                     'status'          => 'Status',
                     'success'         => 'Succes',
                     'view'            => 'Bekijken',
+                ],
+            ],
+
+            'create' => [
+                'add-to-cart'             => 'Toevoegen aan winkelwagen',
+                'back-btn'                => 'Terug',
+                'check-billing-address'   => 'Factuuradres ontbreekt.',
+                'check-shipping-address'  => 'Verzendadres ontbreekt.',
+                'configuration'           => 'Configuratie',
+                'coupon-already-applied'  => 'Couponcode is al toegepast.',
+                'coupon-applied'          => 'Couponcode succesvol toegepast.',
+                'coupon-error'            => 'Couponcode kan niet worden toegepast.',
+                'coupon-not-found'        => 'Coupon niet gevonden',
+                'coupon-remove'           => 'Couponcode succesvol verwijderd.',
+                'error'                   => 'Er is iets misgegaan',
+                'minimum-order-error'     => 'Het minimum bestelbedrag is niet bereikt.',
+                'order-placed-success'    => 'Bestelling succesvol geplaatst.',
+                'payment-not-supported'   => 'Deze betaalmethode wordt niet ondersteund',
+                'save-btn'                => 'Bestelling aanmaken',
+                'specify-payment-method'  => 'Betaalmethode ontbreekt.',
+                'specify-shipping-method' => 'Verzendmethode ontbreekt.',
+                'title'                   => 'Bestelling aanmaken voor :name',
+
+                'types' => [
+                    'configurable' => [
+                        'select-options' => 'Selecteer een optie',
+                    ],
+
+                    'bundle' => [
+                        'none'         => 'Geen',
+                        'total-amount' => 'Totaalbedrag',
+                    ],
+
+                    'grouped' => [
+                        'name' => 'Naam',
+                    ],
+
+                    'downloadable' => [
+                        'title' => 'Links',
+                    ],
+                ],
+
+                'cart' => [
+                    'success-add-to-cart' => 'Product succesvol toegevoegd aan winkelwagen',
+                    'success-remove'      => 'Item succesvol verwijderd uit winkelwagen',
+                    'success-update'      => 'Winkelwagenitem succesvol bijgewerkt',
+
+                    'items' => [
+                        'add-product'       => 'Product toevoegen',
+                        'amount-per-unit'   => ':amount Per Eenheid x :qty Hoeveelheid',
+                        'delete'            => 'Verwijderen',
+                        'empty-description' => 'Geen items gevonden in uw winkelwagen.',
+                        'empty-title'       => 'Lege winkelwagen',
+                        'move-to-wishlist'  => 'Verplaatsen naar verlanglijst',
+                        'see-details'       => 'Details bekijken',
+                        'sku'               => 'SKU - :sku',
+                        'sub-total'         => 'Subtotaal - :sub_total',
+                        'title'             => 'Winkelwagenitems',
+
+                        'search' => [
+                            'add-to-cart'   => 'Toevoegen aan winkelwagen',
+                            'available-qty' => ':qty beschikbaar',
+                            'empty-info'    => 'Geen producten beschikbaar voor zoekterm.',
+                            'empty-title'   => 'Geen producten gevonden',
+                            'product-image' => 'Productafbeelding',
+                            'qty'           => 'Aantal',
+                            'sku'           => 'SKU - :sku',
+                            'title'         => 'Producten zoeken',
+                        ],
+                    ],
+
+                    'address' => [
+                        'add-btn'          => 'Adres toevoegen',
+                        'add-new'          => 'Nieuw adres toevoegen',
+                        'add-new-address'  => 'Nieuw adres toevoegen',
+                        'addresses'        => 'Adressen',
+                        'back'             => 'Terug',
+                        'billing-address'  => 'Factuuradres',
+                        'city'             => 'Stad',
+                        'company-name'     => 'Bedrijfsnaam',
+                        'confirm'          => 'Bevestigen',
+                        'country'          => 'Land',
+                        'edit-btn'         => 'Adres bewerken',
+                        'email'            => 'E-mail',
+                        'first-name'       => 'Voornaam',
+                        'last-name'        => 'Achternaam',
+                        'postcode'         => 'Postcode',
+                        'proceed'          => 'Doorgaan',
+                        'same-as-billing'  => 'Hetzelfde adres gebruiken voor verzending?',
+                        'save'             => 'Opslaan',
+                        'save-address'     => 'Opslaan in adresboek',
+                        'select-country'   => 'Selecteer land',
+                        'select-state'     => 'Selecteer provincie',
+                        'shipping-address' => 'Verzendadres',
+                        'state'            => 'Provincie',
+                        'street-address'   => 'Straatnaam en huisnummer',
+                        'telephone'        => 'Telefoonnummer',
+                        'title'            => 'Adres',
+                        'vat-id'           => 'BTW-nummer',
+                    ],
+
+                    'payment' => [
+                        'title' => 'Betaling',
+                    ],
+
+                    'shipping' => [
+                        'title' => 'Verzending',
+                    ],
+
+                    'summary' => [
+                        'apply-coupon'    => 'Coupon toepassen',
+                        'discount-amount' => 'Korting',
+                        'enter-your-code' => 'Voer uw code in',
+                        'grand-total'     => 'Totaalbedrag',
+                        'place-order'     => 'Bestelling plaatsen',
+                        'processing'      => 'Verwerken',
+                        'shipping-amount' => 'Verzendkosten',
+                        'sub-total'       => 'Subtotaal',
+                        'tax'             => 'Belasting',
+                        'title'           => 'Besteloverzicht',
+                    ],
+                ],
+
+                'cart-items' => [
+                    'add-to-cart'       => 'Toevoegen aan winkelwagen',
+                    'delete'            => 'Verwijderen',
+                    'empty-description' => 'Geen items gevonden in uw winkelwagen.',
+                    'empty-title'       => 'Lege winkelwagen',
+                    'see-details'       => 'Details bekijken',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Winkelwagenitems',
+                ],
+
+                'recent-order-items' => [
+                    'add-to-cart'       => 'Toevoegen aan winkelwagen',
+                    'empty-description' => 'Geen items gevonden in uw recente bestellingen.',
+                    'empty-title'       => 'Lege bestellingen',
+                    'see-details'       => 'Details bekijken',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Recente bestelitems',
+                    'view'              => 'Bekijken',
+                ],
+
+                'wishlist-items' => [
+                    'add-to-cart'       => 'Toevoegen aan winkelwagen',
+                    'delete'            => 'Verwijderen',
+                    'empty-description' => 'Geen items gevonden in uw verlanglijst.',
+                    'empty-title'       => 'Lege verlanglijstitems',
+                    'see-details'       => 'Details bekijken',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Verlanglijstitems',
+                ],
+
+                'compare-items' => [
+                    'add-to-cart'       => 'Toevoegen aan winkelwagen',
+                    'delete'            => 'Verwijderen',
+                    'empty-description' => 'Geen items gevonden in uw vergelijkingslijst.',
+                    'empty-title'       => 'Lege vergelijkingsitems',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Vergelijkingsitems',
                 ],
             ],
 
@@ -211,6 +373,7 @@ return [
                 'refund'                => 'Terugbetaling',
                 'refund-id'             => 'Terugbetaling #:refund',
                 'refunded'              => 'Terugbetaald',
+                'reorder'               => 'Herordenen',
                 'ship'                  => 'Verzenden',
                 'shipment'              => 'Verzending #:shipment',
                 'shipments'             => 'Verzendingen',
@@ -424,7 +587,7 @@ return [
                 'title'                  => 'Factuur #:invoice_id',
             ],
 
-            'create'   => [
+            'create' => [
                 'amount-per-unit'    => ':amount Per Eenheid x :qty Hoeveelheid',
                 'create-invoice'     => 'Factuur Maken',
                 'create-success'     => 'Factuur succesvol aangemaakt',
@@ -529,7 +692,7 @@ return [
                 'create-btn'    => 'Product aanmaken',
                 'title'         => 'Producten',
 
-                'create'     => [
+                'create' => [
                     'back-btn'                => 'Terug',
                     'configurable-attributes' => 'Configureerbare Eigenschappen',
                     'create-btn'              => 'Product aanmaken',
@@ -540,7 +703,7 @@ return [
                     'type'                    => 'Type',
                 ],
 
-                'datagrid'   => [
+                'datagrid' => [
                     'active'                        => 'Actief',
                     'attribute-family'              => 'Attribuutfamilie',
                     'attribute-family-value'        => 'Attribuutfamilie - :attribute_family',
@@ -900,6 +1063,7 @@ return [
                 'position'                => 'Positie',
                 'price'                   => 'Prijs',
                 'regex'                   => 'Regex',
+                'regex-info'              => 'Expressie moet tussen dubbele aanhalingstekens staan.',
                 'save-btn'                => 'Attribuut Opslaan',
                 'select'                  => 'Selecteren',
                 'select-type'             => 'Selecteer Attribuuttype',
@@ -963,6 +1127,7 @@ return [
                 'position'              => 'Positie',
                 'price'                 => 'Prijs',
                 'regex'                 => 'Regex',
+                'regex-info'            => 'Expressie moet tussen dubbele aanhalingstekens staan.',
                 'save-btn'              => 'Attribuut Opslaan',
                 'select'                => 'Selecteren',
                 'select-type'           => 'Selecteer Attribuuttype',
@@ -1174,13 +1339,13 @@ return [
     'customers' => [
         'customers' => [
             'index' => [
-                'login-message' => 'U bent ingelogd als :customer_name',
                 'title'         => 'Klanten',
+                'login-message' => 'Je bent ingelogd als :customer_name',
 
                 'datagrid' => [
                     'active'         => 'Actief',
                     'address'        => ':address  Adres(sen)',
-                    'address-count'  => 'Aantal Adressen',
+                    'address-count'  => 'Aantal adressen',
                     'delete'         => 'Verwijderen',
                     'delete-success' => 'Geselecteerde gegevens succesvol verwijderd',
                     'email'          => 'E-mail',
@@ -1188,126 +1353,226 @@ return [
                     'group'          => 'Groep',
                     'id'             => 'Klant ID',
                     'inactive'       => 'Inactief',
-                    'method-error'   => 'Fout! Verkeerde methode gedetecteerd, controleer de configuratie van massale acties',
+                    'method-error'   => 'Fout! Verkeerde methode gedetecteerd, controleer alstublieft de mass action-configuratie',
                     'name'           => 'Klantnaam',
                     'no-resource'    => 'De verstrekte bron is onvoldoende voor de actie',
                     'order'          => ':order Bestelling(en)',
-                    'order-count'    => 'Aantal Bestellingen',
-                    'order-pending'  => 'Klant heeft een lopende bestelling',
-                    'partial-action' => 'Sommige acties zijn niet uitgevoerd vanwege beperkingen in het systeem voor :resource',
+                    'order-count'    => 'Aantal bestellingen',
+                    'order-pending'  => 'Klant heeft een uitstaande bestelling',
+                    'partial-action' => 'Sommige acties zijn niet uitgevoerd vanwege beperkte systeembeperkingen voor :resource',
                     'phone'          => 'Contactnummer',
-                    'revenue'        => 'Inkomsten',
+                    'revenue'        => 'Omzet',
                     'status'         => 'Status',
-                    'suspended'      => 'Geschorst',
-                    'update-status'  => 'Status Bijwerken',
+                    'suspended'      => 'Opgeschort',
+                    'update-status'  => 'Status bijwerken',
                     'update-success' => 'Geselecteerde klanten succesvol bijgewerkt',
                 ],
 
                 'create' => [
                     'contact-number'        => 'Contactnummer',
-                    'create-btn'            => 'Klant Aanmaken',
+                    'create-btn'            => 'Klant aanmaken',
                     'create-success'        => 'Klant succesvol aangemaakt',
                     'customer-group'        => 'Klantengroep',
                     'date-of-birth'         => 'Geboortedatum',
                     'email'                 => 'E-mail',
-                    'female'                => 'Vrouwelijk',
+                    'female'                => 'Vrouw',
                     'first-name'            => 'Voornaam',
                     'gender'                => 'Geslacht',
                     'last-name'             => 'Achternaam',
-                    'male'                  => 'Mannelijk',
-                    'other'                 => 'Anders',
-                    'save-btn'              => 'Klant Opslaan',
-                    'select-customer-group' => 'Selecteer Klantengroep',
-                    'select-gender'         => 'Selecteer Geslacht',
-                    'title'                 => 'Nieuwe Klant Aanmaken',
+                    'male'                  => 'Man',
+                    'other'                 => 'Overig',
+                    'save-btn'              => 'Klant opslaan',
+                    'select-customer-group' => 'Selecteer klantengroep',
+                    'select-gender'         => 'Selecteer geslacht',
+                    'title'                 => 'Nieuwe klant aanmaken',
                 ],
             ],
 
-            'delete-failed'  => 'Klant Verwijderen Mislukt',
-            'delete-success' => 'Klant Succesvol Verwijderd',
-            'order-pending'  => 'Bestellingen zijn In Afwachting',
-            'update-success' => 'Klant Succesvol Bijgewerkt',
-
-            'edit' => [
-                'contact-number'        => 'Contactnummer',
-                'customer-group'        => 'Klantengroep',
-                'date-of-birth'         => 'Geboortedatum',
-                'edit-btn'              => 'Bewerken',
-                'email'                 => 'E-mail',
-                'female'                => 'Vrouwelijk',
-                'first-name'            => 'Voornaam',
-                'gender'                => 'Geslacht',
-                'last-name'             => 'Achternaam',
-                'male'                  => 'Mannelijk',
-                'other'                 => 'Anders',
-                'save-btn'              => 'Klant Opslaan',
-                'select-customer-group' => 'Selecteer Klantengroep',
-                'select-gender'         => 'Selecteer Geslacht',
-                'status'                => 'Status',
-                'suspended'             => 'Geschorst',
-                'title'                 => 'Klant Bewerken',
-            ],
-
             'view' => [
-                'account-delete-confirmation' => 'Weet u zeker dat u dit account wilt verwijderen?',
+                'account-delete-confirmation' => 'Weet je zeker dat je dit account wilt verwijderen?',
                 'active'                      => 'Actief',
-                'add-note'                    => 'Notitie Toevoegen',
-                'address'                     => 'Adres',
-                'address-delete-confirmation' => 'Weet u zeker dat u dit adres wilt verwijderen?',
-                'address-delete-success'      => 'Adres Succesvol Verwijderd',
-                'approved'                    => 'Goedgekeurd',
+                'address-delete-confirmation' => 'Weet je zeker dat je dit adres wilt verwijderen?',
                 'back-btn'                    => 'Terug',
-                'canceled'                    => 'Geannuleerd',
-                'closed'                      => 'Gesloten',
-                'completed'                   => 'Voltooid',
+                'create-order'                => 'Bestelling aanmaken',
                 'customer'                    => 'Klant',
-                'customer-not-notified'       => ':date | Klant <b>Niet Geïnformeerd</b>',
-                'customer-notified'           => ':date | Klant <b>Geïnformeerd</b>',
                 'date-of-birth'               => 'Geboortedatum - :dob',
                 'default-address'             => 'Standaard Adres',
+                'delete-account'              => 'Account verwijderen',
                 'delete'                      => 'Verwijderen',
-                'delete-account'              => 'Account Verwijderen',
-                'disapproved'                 => 'Afgekeurd',
-                'edit'                        => 'Bewerken',
                 'email'                       => 'E-mail - :email',
-                'empty-description'           => 'Nieuwe Adressen Aanmaken voor Klant',
-                'empty-invoice'               => 'Geen Facturen Beschikbaar',
-                'empty-order'                 => 'Geen Bestellingen Beschikbaar',
-                'empty-review'                => 'Geen Beoordelingen Beschikbaar',
-                'empty-title'                 => 'Klantadres Toevoegen',
+                'empty-description'           => 'Maak nieuwe adressen aan voor de klant',
+                'empty-title'                 => 'Klantadres toevoegen',
                 'gender'                      => 'Geslacht - :gender',
                 'group'                       => 'Groep - :group_code',
-                'id'                          => 'ID - :id',
                 'inactive'                    => 'Inactief',
-                'increment-id'                => '# :increment_id',
-                'invoice'                     => 'Facturen (:invoice_count)',
-                'invoice-amount'              => 'Factuurbedrag',
-                'invoice-date'                => 'Factuurdatum',
-                'invoice-id'                  => 'Factuur ID',
-                'invoice-id-prefix'           => '# :invoice_id',
-                'mobile'                      => 'Mobiel',
-                'note'                        => 'Notitie',
-                'note-created-success'        => 'Notitie Succesvol Aangemaakt',
-                'note-placeholder'            => 'Schrijf hier uw notitie',
-                'notify-customer'             => 'Klant Op de Hoogte Brengen',
-                'of'                          => 'van',
-                'order-id'                    => 'Bestel-ID',
-                'order-id-prefix'             => '# :order_id',
-                'order-pending'               => 'Kan het account niet verwijderen omdat sommige bestellingen in behandeling zijn of in afwachting zijn.',
-                'orders'                      => 'Bestellingen (:order_count)',
-                'pay-by'                      => 'Betalen Via',
-                'pending'                     => 'In Afwachting',
-                'per-page'                    => 'per pagina',
+                'login-as-customer'           => 'Inloggen als klant',
+                'note-created-success'        => 'Notitie succesvol aangemaakt',
+                'order-create-confirmation'   => 'Weet je zeker dat je een bestelling wilt aanmaken voor deze klant?',
                 'phone'                       => 'Telefoon - :phone',
-                'processing'                  => 'Verwerking',
-                'reviews'                     => 'Beoordelingen',
                 'set-as-default'              => 'Instellen als Standaard',
-                'set-default-success'         => 'Standaard Adres Succesvol Bijgewerkt',
-                'submit-btn-title'            => 'Notitie Indienen',
-                'suspended'                   => 'Geschorst',
+                'suspended'                   => 'Opgeschort',
                 'title'                       => 'Klantweergave',
-                'total-revenue'               => 'Totale Opbrengst - :revenue',
+
+                'address' => [
+                    'count'  => 'Adressen (:count)',
+
+                    'create' => [
+                        'city'               => 'Stad',
+                        'company-name'       => 'Bedrijfsnaam',
+                        'country'            => 'Land',
+                        'create-btn'         => 'Aanmaken',
+                        'create-address-btn' => 'Nieuw Adres Toevoegen',
+                        'default-address'    => 'Standaard Adres',
+                        'email'              => 'E-mail',
+                        'first-name'         => 'Voornaam',
+                        'last-name'          => 'Achternaam',
+                        'phone'              => 'Telefoon',
+                        'post-code'          => 'Postcode',
+                        'save-btn-title'     => 'Adres Opslaan',
+                        'select-country'     => 'Selecteer Land',
+                        'state'              => 'Provincie',
+                        'street-address'     => 'Straatadres',
+                        'title'              => 'Adres Aanmaken',
+                        'vat-id'             => 'BTW-nummer',
+                    ],
+
+                    'edit' => [
+                        'city'            => 'Stad',
+                        'company-name'    => 'Bedrijfsnaam',
+                        'country'         => 'Land',
+                        'default-address' => 'Standaard Adres',
+                        'edit-btn'        => 'Bewerken',
+                        'email'           => 'E-mail',
+                        'first-name'      => 'Voornaam',
+                        'last-name'       => 'Achternaam',
+                        'phone'           => 'Telefoon',
+                        'post-code'       => 'Postcode',
+                        'save-btn-title'  => 'Adres Opslaan',
+                        'select-country'  => 'Selecteer Land',
+                        'state'           => 'Provincie',
+                        'street-address'  => 'Straatadres',
+                        'title'           => 'Adres Bewerken',
+                        'vat-id'          => 'BTW-nummer',
+                    ],
+
+                    'address-delete-success' => 'Adres succesvol verwijderd',
+                    'create-success'         => 'Adres succesvol aangemaakt',
+                    'set-default-success'    => 'Standaard Adres succesvol bijgewerkt',
+                    'success-mass-delete'    => 'Massa verwijderen van adressen succesvol',
+                    'update-success'         => 'Adres succesvol bijgewerkt',
+                ],
+
+                'datagrid' => [
+                    'invoices' => [
+                        'empty-reviews'  => 'Geen facturen beschikbaar',
+                        'increment-id'   => 'Factuurnummer',
+                        'invoice-amount' => 'Bedrag',
+                        'invoice-date'   => 'Factuurdatum',
+                        'order-id'       => 'Bestelnummer',
+                        'view'           => 'Bekijken',
+                    ],
+
+                    'orders' => [
+                        'canceled'        => 'Geannuleerd',
+                        'channel-name'    => 'Kanaalnaam',
+                        'closed'          => 'Afgesloten',
+                        'completed'       => 'Voltooid',
+                        'customer-name'   => 'Klantnaam',
+                        'date'            => 'Datum',
+                        'empty-order'     => 'Geen bestellingen beschikbaar',
+                        'email'           => 'E-mail',
+                        'fraud'           => 'Fraude',
+                        'grand-total'     => 'Totaalbedrag',
+                        'location'        => 'Locatie',
+                        'order-id'        => 'Bestelnummer',
+                        'pay-via'         => 'Betaalwijze',
+                        'pending'         => 'In behandeling',
+                        'pending-payment' => 'Betaling in behandeling',
+                        'processing'      => 'Verwerking',
+                        'status'          => 'Status',
+                        'view'            => 'Bekijken',
+                    ],
+
+                    'reviews' => [
+                        'approved'      => 'Goedgekeurd',
+                        'comment'       => 'Opmerking',
+                        'created-at'    => 'Aangemaakt Op',
+                        'disapproved'   => 'Afgekeurd',
+                        'empty-invoice' => 'Geen beoordelingen beschikbaar',
+                        'id'            => 'ID',
+                        'invoice-date'  => 'Factuurdatum',
+                        'pending'       => 'In afwachting',
+                        'product-id'    => 'Product ID',
+                        'product-name'  => 'Productnaam',
+                        'rating'        => 'Beoordeling',
+                        'status'        => 'Status',
+                        'title'         => 'Titel',
+                    ],
+                ],
+
+                'edit' => [
+                    'contact-number'        => 'Contactnummer',
+                    'customer-group'        => 'Klantengroep',
+                    'date-of-birth'         => 'Geboortedatum',
+                    'edit-btn'              => 'Bewerken',
+                    'email'                 => 'E-mail',
+                    'female'                => 'Vrouw',
+                    'first-name'            => 'Voornaam',
+                    'gender'                => 'Geslacht',
+                    'last-name'             => 'Achternaam',
+                    'male'                  => 'Man',
+                    'other'                 => 'Overig',
+                    'save-btn'              => 'Klant opslaan',
+                    'select-customer-group' => 'Selecteer klantengroep',
+                    'select-gender'         => 'Selecteer geslacht',
+                    'status'                => 'Status',
+                    'suspended'             => 'Opgeschort',
+                    'title'                 => 'Klant Bewerken',
+                ],
+
+                'invoices' => [
+                    'count'        => 'Facturen (:count)',
+                    'increment-id' => '# :increment_id',
+                ],
+
+                'notes' => [
+                    'add-note'              => 'Notitie Toevoegen',
+                    'customer-not-notified' => ':date | Klant <b>Niet op de hoogte gesteld</b>',
+                    'customer-notified'     => ':date | Klant <b>Op de hoogte gesteld</b>',
+                    'note'                  => 'Notitie',
+                    'note-placeholder'      => 'Schrijf hier je notitie',
+                    'notify-customer'       => 'Klant op de hoogte stellen',
+                    'submit-btn-title'      => 'Notitie indienen',
+                ],
+
+                'orders' => [
+                    'count'         => 'Bestellingen (:count)',
+                    'increment-id'  => '# :increment_id',
+                    'total-revenue' => 'Totale omzet - :revenue',
+                ],
+
+                'reviews' => [
+                    'id'    => 'ID - :id',
+                    'count' => 'Beoordelingen (:count)',
+                ],
+
+                'cart' => [
+                    'delete-success' => 'Item succesvol verwijderd uit winkelwagen.',
+                ],
+
+                'wishlist' => [
+                    'delete-success' => 'Item succesvol verwijderd uit verlanglijst.',
+                ],
+
+                'compare' => [
+                    'delete-success' => 'Item succesvol verwijderd uit vergelijking.',
+                ],
             ],
+
+            'delete-failed'  => 'Verwijderen van klant mislukt',
+            'delete-success' => 'Klant succesvol verwijderd',
+            'order-pending'  => 'Bestellingen in behandeling',
+            'update-success' => 'Klant succesvol bijgewerkt',
         ],
 
         'groups' => [
@@ -1392,53 +1657,6 @@ return [
                     'update-status'       => 'Status Bijwerken',
                 ],
             ],
-        ],
-
-        'addresses' => [
-            'create' => [
-                'address-1'          => 'Adres 1',
-                'address-2'          => 'Adres 2',
-                'city'               => 'Stad',
-                'company-name'       => 'Bedrijfsnaam',
-                'country'            => 'Land',
-                'create-address-btn' => 'Nieuw adres toevoegen',
-                'default-address'    => 'Standaardadres',
-                'email'              => 'E-mail',
-                'first-name'         => 'Voornaam',
-                'last-name'          => 'Achternaam',
-                'phone'              => 'Telefoon',
-                'post-code'          => 'Postcode',
-                'save-btn-title'     => 'Adres Opslaan',
-                'select-country'     => 'Selecteer Land',
-                'state'              => 'Staat',
-                'street-address'     => 'Straatnaam en huisnummer',
-                'title'              => 'Klantadres aanmaken',
-                'vat-id'             => 'BTW-nummer',
-            ],
-
-            'edit' => [
-                'address-1'       => 'Adres 1',
-                'address-2'       => 'Adres 2',
-                'city'            => 'Stad',
-                'company-name'    => 'Bedrijfsnaam',
-                'country'         => 'Land',
-                'default-address' => 'Standaardadres',
-                'email'           => 'E-mail',
-                'first-name'      => 'Voornaam',
-                'last-name'       => 'Achternaam',
-                'phone'           => 'Telefoon',
-                'post-code'       => 'Postcode',
-                'save-btn-title'  => 'Adres Opslaan',
-                'select-country'  => 'Selecteer Land',
-                'state'           => 'Staat',
-                'street-address'  => 'Straatnaam en huisnummer',
-                'title'           => 'Adres bewerken',
-                'vat-id'          => 'BTW-nummer',
-            ],
-
-            'create-success'      => 'Adres succesvol aangemaakt',
-            'success-mass-delete' => 'Adressen succesvol verwijderd',
-            'update-success'      => 'Adres succesvol bijgewerkt',
         ],
     ],
 
@@ -2120,8 +2338,10 @@ return [
     'cms' => [
         'index' => [
             'already-taken' => 'De :name is al in gebruik.',
-            'create-btn'    => 'Pagina Maken',
-            'title'         => 'Pagina’s',
+            'create-btn'    => 'Pagina aanmaken',
+            'channel'       => 'Kanaal',
+            'language'      => 'Taal',
+            'title'         => 'Pagina\'s',
 
             'datagrid' => [
                 'delete'              => 'Verwijderen',
@@ -2173,7 +2393,7 @@ return [
     ],
 
     'settings' => [
-        'locales'           => [
+        'locales' => [
             'index' => [
                 'create-btn' => 'Taal Aanmaken',
                 'locale'     => 'Taal',
@@ -2215,7 +2435,7 @@ return [
             ],
         ],
 
-        'currencies'        => [
+        'currencies' => [
             'index' => [
                 'create-btn' => 'Valuta Aanmaken',
                 'currency'   => 'Valuta',
@@ -2235,15 +2455,18 @@ return [
                 ],
 
                 'create' => [
-                    'code'           => 'Code',
-                    'create-btn'     => 'Valuta Aanmaken',
-                    'decimal'        => 'Decimalen',
-                    'delete-warning' => 'Weet je zeker dat je deze actie wilt uitvoeren?',
-                    'general'        => 'Algemeen',
-                    'name'           => 'Naam',
-                    'save-btn'       => 'Valuta Opslaan',
-                    'symbol'         => 'Symbool',
-                    'title'          => 'Nieuwe Valuta Aanmaken',
+                    'code'              => 'Code',
+                    'create-btn'        => 'Valuta Aanmaken',
+                    'currency-position' => 'Valutapositie',
+                    'decimal'           => 'Decimalen',
+                    'decimal-separator' => 'Decimaalscheidingsteken',
+                    'delete-warning'    => 'Weet je zeker dat je deze actie wilt uitvoeren?',
+                    'general'           => 'Algemeen',
+                    'group-separator'   => 'Groepsscheidingsteken',
+                    'name'              => 'Naam',
+                    'save-btn'          => 'Valuta Opslaan',
+                    'symbol'            => 'Symbool',
+                    'title'             => 'Nieuwe Valuta Aanmaken',
                 ],
 
                 'edit' => [
@@ -2260,7 +2483,7 @@ return [
 
         'data-transfer'     => [
             'imports' => [
-                'create'            => [
+                'create' => [
                     'action'              => 'Actie',
                     'allowed-errors'      => 'Toegestane Fouten',
                     'back-btn'            => 'Terug',
@@ -2268,9 +2491,9 @@ return [
                     'delete'              => 'Verwijderen',
                     'download-sample'     => 'Voorbeeld Downloaden',
                     'field-separator'     => 'Veldscheider',
-                    'file-info-example'   => 'Bijvoorbeeld, in het geval van productafbeeldingen moeten bestanden worden geplaatst in de map /project-root/storage/app/import/product-images.',
-                    'file-info'           => 'Gebruik het relatieve pad naar /project-root/storage/app/import, bijv. productafbeeldingen, importafbeeldingen.',
                     'file'                => 'Bestand',
+                    'file-info'           => 'Gebruik het relatieve pad naar /project-root/storage/app/import, bijv. productafbeeldingen, importafbeeldingen.',
+                    'file-info-example'   => 'Bijvoorbeeld, in het geval van productafbeeldingen moeten bestanden worden geplaatst in de map /project-root/storage/app/import/product-images.',
                     'general'             => 'Algemeen',
                     'images-directory'    => 'Pad naar Afbeeldingenmap',
                     'process-in-queue'    => 'Verwerken In Wachtrij',
@@ -2284,7 +2507,7 @@ return [
                     'validation-strategy' => 'Validatiestrategie',
                 ],
 
-                'edit'              => [
+                'edit' => [
                     'action'              => 'Actie',
                     'allowed-errors'      => 'Toegestane Fouten',
                     'back-btn'            => 'Terug',
@@ -2292,9 +2515,9 @@ return [
                     'delete'              => 'Verwijderen',
                     'download-sample'     => 'Voorbeeld Downloaden',
                     'field-separator'     => 'Veldscheider',
-                    'file-info-example'   => 'Bijvoorbeeld, in het geval van productafbeeldingen moeten bestanden worden geplaatst in de map /project-root/storage/app/import/product-images.',
-                    'file-info'           => 'Gebruik het relatieve pad naar /project-root/storage/app/import, bijv. productafbeeldingen, importafbeeldingen.',
                     'file'                => 'Bestand',
+                    'file-info'           => 'Gebruik het relatieve pad naar /project-root/storage/app/import, bijv. productafbeeldingen, importafbeeldingen.',
+                    'file-info-example'   => 'Bijvoorbeeld, in het geval van productafbeeldingen moeten bestanden worden geplaatst in de map /project-root/storage/app/import/product-images.',
                     'general'             => 'Algemeen',
                     'images-directory'    => 'Pad naar Afbeeldingenmap',
                     'process-in-queue'    => 'Verwerken In Wachtrij',
@@ -2308,7 +2531,7 @@ return [
                     'validation-strategy' => 'Validatiestrategie',
                 ],
 
-                'index'             => [
+                'index' => [
                     'button-title' => 'Import Maken',
                     'title'        => 'Imports',
 
@@ -2329,7 +2552,7 @@ return [
                     ],
                 ],
 
-                'import'            => [
+                'import' => [
                     'back-btn'                => 'Terug',
                     'completed-batches'       => 'Totaal voltooide batches:',
                     'download-error-report'   => 'Volledig rapport downloaden',
@@ -2364,7 +2587,7 @@ return [
             ],
         ],
 
-        'exchange-rates'    => [
+        'exchange-rates' => [
             'index' => [
                 'create-btn'    => 'Wisselkoers Aanmaken',
                 'exchange-rate' => 'Wisselkoers',
@@ -2483,7 +2706,7 @@ return [
             'update-success'    => 'Voorraadbronnen succesvol bijgewerkt',
         ],
 
-        'taxes'             => [
+        'taxes' => [
             'categories' => [
                 'index' => [
                     'delete-warning' => 'Weet je zeker dat je wilt verwijderen?',
@@ -2563,12 +2786,12 @@ return [
 
                 'edit' => [
                     'back-btn'       => 'Terug',
-                    'basic-settings' => 'Basisinstellingen',
                     'country'        => 'Land',
                     'identifier'     => 'Identificatie',
                     'save-btn'       => 'Belastingtarief Opslaan',
                     'select-country' => 'Selecteer Land',
                     'select-state'   => 'Selecteer Provincie',
+                    'settings'       => 'Instellingen',
                     'state'          => 'Provincie',
                     'tax-rate'       => 'Tarief',
                     'title'          => 'Belastingtarief Bewerken',
@@ -2875,7 +3098,8 @@ return [
                 'url'                           => 'URL',
                 'value'                         => 'Waarde: :value',
                 'value-input'                   => 'Waarde',
-                'services-content'              => [
+
+                'services-content' => [
                     'add-btn'            => 'Diensten toevoegen',
                     'channels'           => 'Kanalen',
                     'delete'             => 'Verwijderen',
@@ -3034,6 +3258,8 @@ return [
             'save-btn'                     => 'Instellingen Opslaan',
             'save-message'                 => 'Instellingen succesvol opgeslagen',
             'search'                       => 'Zoekopdracht',
+            'select-country'               => 'Land selecteren',
+            'select-state'                 => 'Staat selecteren',
             'title'                        => 'Instellingen',
 
             'general' => [
@@ -3364,17 +3590,21 @@ return [
                 'title' => 'Email',
 
                 'email-settings' => [
-                    'admin-email'            => 'Admin Email',
-                    'admin-email-tip'        => 'The email address of the admin for this channel to receive emails',
-                    'admin-name'             => 'Admin Name',
-                    'admin-name-tip'         => 'This name will be displayed in all admin emails',
-                    'admin-page-limit'       => 'Default Items Per Page (Admin)',
-                    'email-sender-name'      => 'Email Sender Name',
-                    'email-sender-name-tip'  => 'This name will be displayed in the customers inbox',
-                    'info'                   => 'Set email sender name, shop email address, admin name, and admin email address.',
-                    'shop-email-from'        => 'Shop Email Address',
-                    'shop-email-from-tip'    => 'The email address of this channel to send emails to your customers',
-                    'title'                  => 'Email Settings',
+                    'admin-email'           => 'Admin E-mail',
+                    'admin-email-tip'       => 'Het e-mailadres van de beheerder voor dit kanaal om e-mails te ontvangen',
+                    'admin-name'            => 'Beheerdersnaam',
+                    'admin-name-tip'        => 'Deze naam wordt weergegeven in alle administratieve e-mails',
+                    'admin-page-limit'      => 'Standaard aantal items per pagina (Beheerder)',
+                    'contact-email'         => 'Contact E-mail',
+                    'contact-email-tip'     => 'Het e-mailadres wordt onderaan uw e-mails getoond',
+                    'contact-name'          => 'Contactnaam',
+                    'contact-name-tip'      => 'Deze naam wordt onderaan uw e-mails getoond',
+                    'email-sender-name'     => 'Naam e-mailafzender',
+                    'email-sender-name-tip' => 'Deze naam wordt weergegeven in de inbox van klanten',
+                    'info'                  => 'Stel naam e-mailafzender, e-mailadres winkel, naam beheerder en e-mailadres beheerder in.',
+                    'shop-email-from'       => 'Winkel e-mailadres',
+                    'shop-email-from-tip'   => 'Het e-mailadres van dit kanaal om e-mails naar uw klanten te sturen',
+                    'title'                 => 'E-mailinstellingen',
                 ],
 
                 'notifications' => [
@@ -3441,40 +3671,40 @@ return [
                 ],
 
                 'payment-methods' => [
-                    'accepted-currencies'            => 'Geaccepteerde valuta',
-                    'accepted-currencies-info'       => 'Voeg valutacodes toe, gescheiden door een komma, bijv. USD, INR,...',
-                    'business-account'               => 'Zakelijk account',
-                    'cash-on-delivery'               => 'Rembours',
-                    'cash-on-delivery-info'          => 'Betaalmethode waarbij klanten contant betalen bij ontvangst van goederen of diensten aan hun deur.',
-                    'client-id'                      => 'Klant-ID',
-                    'client-id-info'                 => 'Gebruik "sb" voor testen.',
-                    'client-secret'                  => 'Geheime sleutel van klant',
-                    'client-secret-info'             => 'Voeg hier je geheime sleutel toe',
-                    'description'                    => 'Beschrijving',
-                    'generate-invoice'               => 'Genereer automatisch de factuur na het plaatsen van een bestelling',
-                    'generate-invoice-applicable'    => 'Van toepassing indien automatisch factuur genereren is ingeschakeld',
-                    'info'                           => 'Stel informatie over betaalmethoden in',
-                    'instructions'                   => 'Instructies',
-                    'logo'                           => 'Logo',
-                    'logo-information'               => 'Beeldresolutie moet zijn zoals 55px x 45px',
-                    'mailing-address'                => 'Stuur cheque naar',
-                    'money-transfer'                 => 'Geldoverdracht',
-                    'money-transfer-info'            => 'Overdracht van geld van de ene persoon of rekening naar de andere, vaak elektronisch, voor verschillende doeleinden zoals transacties of overmakingen.',
-                    'page-title'                     => 'Betaalmethoden',
-                    'paid'                           => 'Betaald',
-                    'paypal-smart-button'            => 'PayPal',
-                    'paypal-smart-button-info'       => 'PayPal Smart Button: Vereenvoudigt online betalingen met aanpasbare knoppen voor veilige, multimethodetransacties op websites en apps.',
-                    'paypal-standard'                => 'PayPal Standaard',
-                    'paypal-standard-info'           => 'PayPal Standaard is een basis PayPal-betalingsoptie voor online bedrijven, waarmee klanten kunnen betalen met hun PayPal-account of credit-/debetkaarten.',
-                    'pending'                        => 'In behandeling',
-                    'pending-payment'                => 'Betaling in behandeling',
-                    'processing'                     => 'Verwerking',
-                    'sandbox'                        => 'Zandbak',
-                    'set-invoice-status'             => 'Stel de factuurstatus in na het maken van de factuur op',
-                    'set-order-status'               => 'Stel de bestelstatus in na het maken van de factuur op',
-                    'sort-order'                     => 'Sorteervolgorde',
-                    'status'                         => 'Status',
-                    'title'                          => 'Titel',
+                    'accepted-currencies'         => 'Geaccepteerde valuta',
+                    'accepted-currencies-info'    => 'Voeg valutacodes toe, gescheiden door een komma, bijv. USD, INR,...',
+                    'business-account'            => 'Zakelijk account',
+                    'cash-on-delivery'            => 'Rembours',
+                    'cash-on-delivery-info'       => 'Betaalmethode waarbij klanten contant betalen bij ontvangst van goederen of diensten aan hun deur.',
+                    'client-id'                   => 'Klant-ID',
+                    'client-id-info'              => 'Gebruik "sb" voor testen.',
+                    'client-secret'               => 'Geheime sleutel van klant',
+                    'client-secret-info'          => 'Voeg hier je geheime sleutel toe',
+                    'description'                 => 'Beschrijving',
+                    'generate-invoice'            => 'Genereer automatisch de factuur na het plaatsen van een bestelling',
+                    'generate-invoice-applicable' => 'Van toepassing indien automatisch factuur genereren is ingeschakeld',
+                    'info'                        => 'Stel informatie over betaalmethoden in',
+                    'instructions'                => 'Instructies',
+                    'logo'                        => 'Logo',
+                    'logo-information'            => 'Beeldresolutie moet zijn zoals 55px x 45px',
+                    'mailing-address'             => 'Stuur cheque naar',
+                    'money-transfer'              => 'Geldoverdracht',
+                    'money-transfer-info'         => 'Overdracht van geld van de ene persoon of rekening naar de andere, vaak elektronisch, voor verschillende doeleinden zoals transacties of overmakingen.',
+                    'page-title'                  => 'Betaalmethoden',
+                    'paid'                        => 'Betaald',
+                    'paypal-smart-button'         => 'PayPal',
+                    'paypal-smart-button-info'    => 'PayPal Smart Button: Vereenvoudigt online betalingen met aanpasbare knoppen voor veilige, multimethodetransacties op websites en apps.',
+                    'paypal-standard'             => 'PayPal Standaard',
+                    'paypal-standard-info'        => 'PayPal Standaard is een basis PayPal-betalingsoptie voor online bedrijven, waarmee klanten kunnen betalen met hun PayPal-account of credit-/debetkaarten.',
+                    'pending'                     => 'In behandeling',
+                    'pending-payment'             => 'Betaling in behandeling',
+                    'processing'                  => 'Verwerking',
+                    'sandbox'                     => 'Zandbak',
+                    'set-invoice-status'          => 'Stel de factuurstatus in na het maken van de factuur op',
+                    'set-order-status'            => 'Stel de bestelstatus in na het maken van de factuur op',
+                    'sort-order'                  => 'Sorteervolgorde',
+                    'status'                      => 'Status',
+                    'title'                       => 'Titel',
                 ],
 
                 'order-settings' => [

@@ -11,7 +11,6 @@ class StandardController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param  \Webkul\Attribute\Repositories\OrderRepository  $orderRepository
      * @return void
      */
     public function __construct(
@@ -53,7 +52,7 @@ class StandardController extends Controller
 
         Cart::deActivateCart();
 
-        session()->flash('order', $order);
+        session()->flash('order_id', $order->id);
 
         return redirect()->route('shop.checkout.onepage.success');
     }

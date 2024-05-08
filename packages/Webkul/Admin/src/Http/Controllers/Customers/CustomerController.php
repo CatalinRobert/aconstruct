@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Webkul\Admin\DataGrids\Customers\CustomerDataGrid;
+use Webkul\Admin\DataGrids\Customers\View\InvoicesDatagrid;
+use Webkul\Admin\DataGrids\Customers\View\OrdersDataGrid;
+use Webkul\Admin\DataGrids\Customers\View\ReviewDatagrid;
 use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Admin\Http\Requests\MassDestroyRequest;
 use Webkul\Admin\Http\Requests\MassUpdateRequest;
@@ -17,6 +20,21 @@ use Webkul\Customer\Repositories\CustomerRepository;
 
 class CustomerController extends Controller
 {
+    /**
+     * Ajax request for orders.
+     */
+    public const ORDERS = 'orders';
+
+    /**
+     * Ajax request for invoices.
+     */
+    public const INVOICES = 'invoices';
+
+    /**
+     * Ajax request for reviews.
+     */
+    public const REVIEWS = 'reviews';
+
     /**
      * Static pagination count.
      *
@@ -81,6 +99,10 @@ class CustomerController extends Controller
             'is_verified' => 1,
         ]);
 
+        if (empty($data['phone'])) {
+            $data['phone'] = null;
+        }
+
         $customer = $this->customerRepository->create($data);
 
         if (core()->getConfigData('emails.general.notifications.emails.general.notifications.customer')) {
@@ -92,6 +114,7 @@ class CustomerController extends Controller
         }
 
         return new JsonResponse([
+            'data'    => $customer,
             'message' => trans('admin::app.customers.customers.index.create.create-success'),
         ]);
     }
@@ -99,7 +122,7 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(int $id)
     {
@@ -112,9 +135,7 @@ class CustomerController extends Controller
             'phone'         => 'unique:customers,phone,'.$id,
         ]);
 
-        Event::dispatch('customer.update.before', $id);
-
-        $customer = $this->customerRepository->update(request()->only([
+        $data = request()->only([
             'first_name',
             'last_name',
             'gender',
@@ -124,12 +145,24 @@ class CustomerController extends Controller
             'customer_group_id',
             'status',
             'is_suspended',
-        ]), $id);
+        ]);
+
+        if (empty($data['phone'])) {
+            $data['phone'] = null;
+        }
+
+        Event::dispatch('customer.update.before', $id);
+
+        $customer = $this->customerRepository->update($data, $id);
 
         Event::dispatch('customer.update.after', $customer);
 
         return new JsonResponse([
             'message' => trans('admin::app.customers.customers.update-success'),
+            'data'    => [
+                'customer' => $customer->fresh(),
+                'group'    => $customer->group,
+            ],
         ]);
     }
 
@@ -207,23 +240,22 @@ class CustomerController extends Controller
      */
     public function show(int $id)
     {
-        $customer = $this->customerRepository->with([
-            'orders',
-            'orders.addresses',
-            'invoices',
-            'reviews',
-            'notes',
-            'addresses',
-        ])->findOrFail($id);
-
-        if (request()->ajax()) {
-            return new JsonResponse([
-                'customer' => $customer,
-                'groups'   => $customer->group,
-            ]);
-        }
+        $customer = $this->customerRepository->with(['addresses', 'group'])->findOrFail($id);
 
         $groups = $this->customerGroupRepository->findWhere([['code', '<>', 'guest']]);
+
+        if (request()->ajax()) {
+            switch (request()->query('type')) {
+                case self::ORDERS:
+                    return app(OrdersDataGrid::class)->toJson();
+
+                case self::INVOICES:
+                    return app(InvoicesDatagrid::class)->toJson();
+
+                case self::REVIEWS:
+                    return app(ReviewDatagrid::class)->toJson();
+            }
+        }
 
         return view('admin::customers.customers.view', compact('customer', 'groups'));
     }
@@ -237,7 +269,7 @@ class CustomerController extends Controller
     {
         $customers = $this->customerRepository->scopeQuery(function ($query) {
             return $query->where('email', 'like', '%'.urldecode(request()->input('query')).'%')
-                ->orWhere(DB::raw('CONCAT('.DB::getTablePrefix().'first_name, " ", '.DB::getTablePrefix().'last_name)'), 'like', '%'.urldecode(request()->input('query')).'%')
+                ->orWhere(DB::raw('CONCAT(first_name, " ", last_name)'), 'like', '%'.urldecode(request()->input('query')).'%')
                 ->orderBy('created_at', 'desc');
         })->paginate(self::COUNT);
 

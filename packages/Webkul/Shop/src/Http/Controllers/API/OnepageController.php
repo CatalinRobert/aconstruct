@@ -8,6 +8,7 @@ use Webkul\Checkout\Facades\Cart;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Payment\Facades\Payment;
 use Webkul\Sales\Repositories\OrderRepository;
+use Webkul\Sales\Transformers\OrderResource;
 use Webkul\Shipping\Facades\Shipping;
 use Webkul\Shop\Http\Requests\CartAddressRequest;
 use Webkul\Shop\Http\Resources\CartResource;
@@ -40,7 +41,7 @@ class OnepageController extends APIController
      */
     public function storeAddress(CartAddressRequest $cartAddressRequest): JsonResource
     {
-        $address = $cartAddressRequest->all();
+        $params = $cartAddressRequest->all();
 
         if (
             ! auth()->guard('customer')->check()
@@ -54,18 +55,12 @@ class OnepageController extends APIController
 
         if (Cart::hasError()) {
             return new JsonResource([
-                'redirect' => true,
-                'data'     => route('shop.checkout.cart.index'),
+                'redirect'     => true,
+                'redirect_url' => route('shop.checkout.cart.index'),
             ]);
         }
 
-        if (isset($address['billing'])) {
-            Cart::updateOrCreateBillingAddress($address['billing']);
-        }
-
-        Cart::updateOrCreateShippingAddress($address['shipping'] ?? []);
-
-        Cart::saveCustomerDetails();
+        Cart::saveAddresses($params);
 
         $cart = Cart::getCart();
 
@@ -74,8 +69,8 @@ class OnepageController extends APIController
         if ($cart->haveStockableItems()) {
             if (! $rates = Shipping::collectRates()) {
                 return new JsonResource([
-                    'redirect' => true,
-                    'data'     => route('shop.checkout.cart.index'),
+                    'redirect'     => true,
+                    'redirect_url' => route('shop.checkout.cart.index'),
                 ]);
             }
 
@@ -150,7 +145,7 @@ class OnepageController extends APIController
     /**
      * Store order
      */
-    public function storeOrder(): JsonResource
+    public function storeOrder()
     {
         if (Cart::hasError()) {
             return new JsonResource([
@@ -161,7 +156,13 @@ class OnepageController extends APIController
 
         Cart::collectTotals();
 
-        $this->validateOrder();
+        try {
+            $this->validateOrder();
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], 500);
+        }
 
         $cart = Cart::getCart();
 
@@ -172,13 +173,13 @@ class OnepageController extends APIController
             ]);
         }
 
-        $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+        $data = (new OrderResource($cart))->jsonSerialize();
+
+        $order = $this->orderRepository->create($data);
 
         Cart::deActivateCart();
 
-        Cart::activateCartIfSessionHasDeactivatedCartId();
-
-        session()->flash('order', $order);
+        session()->flash('order_id', $order->id);
 
         return new JsonResource([
             'redirect'     => true,
@@ -195,7 +196,9 @@ class OnepageController extends APIController
     {
         $minimumOrderAmount = (float) core()->getConfigData('sales.order_settings.minimum_order.minimum_order_amount') ?: 0;
 
-        $status = Cart::checkMinimumOrder();
+        $cart = Cart::getCart();
+
+        $status = $cart->checkMinimumOrder();
 
         return response()->json([
             'status'  => ! $status ? false : true,

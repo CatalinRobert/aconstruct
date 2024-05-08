@@ -11,7 +11,7 @@ return [
         ],
 
         'forget-password' => [
-            'create'    => [
+            'create' => [
                 'email'           => '注册电子邮件',
                 'email-not-exist' => '电子邮件不存在',
                 'page-title'      => '忘记密码',
@@ -36,6 +36,8 @@ return [
         'description-text' => '列出所有通知',
         'marked-success'   => '通知标记成功',
         'no-record'        => '未找到记录',
+        'of'               => '的',
+        'per-page'         => '每页',
         'read-all'         => '标记为已读',
         'title'            => '通知',
         'view-all'         => '查看全部',
@@ -47,15 +49,6 @@ return [
             'pending'         => '订单待处理',
             'pending-payment' => '待付款订单',
             'processing'      => '订单处理中',
-        ],
-
-        'status' => [
-            'all'        => '全部',
-            'canceled'   => '已取消',
-            'closed'     => '已关闭',
-            'completed'  => '已完成',
-            'pending'    => '待处理',
-            'processing' => '处理中',
         ],
     ],
 
@@ -134,31 +127,200 @@ return [
     'sales' => [
         'orders' => [
             'index' => [
-                'title' => '订单',
+                'create-btn' => '创建订单',
+                'title'      => '订单',
+
+                'search-customer' => [
+                    'create-btn'  => '创建客户',
+                    'empty-info'  => '没有可用于搜索条件的客户。',
+                    'empty-title' => '未找到客户',
+                    'search-by'   => '按电子邮件或姓名搜索',
+                    'title'       => '选择客户',
+                ],
 
                 'datagrid' => [
-                    'canceled'         => '已取消',
-                    'channel-name'     => '渠道',
-                    'closed'           => '已关闭',
-                    'completed'        => '已完成',
-                    'customer'         => '客户',
-                    'date'             => '日期',
-                    'email'            => '电子邮件',
-                    'fraud'            => '欺诈',
-                    'grand-total'      => '总计',
-                    'id'               => '订单号：#:id',
-                    'images'           => '图片',
-                    'location'         => '地点',
-                    'order-id'         => '订单编号',
-                    'pay-by'           => '支付方式 - :method',
-                    'pay-via'          => '支付方式',
-                    'pending'          => '待处理',
-                    'pending-payment'  => '待付款',
-                    'processing'       => '处理中',
-                    'product-count'    => ':count + 更多产品',
-                    'status'           => '状态',
-                    'success'          => '成功',
-                    'view'             => '查看',
+                    'canceled'        => '已取消',
+                    'channel-name'    => '渠道',
+                    'closed'          => '已关闭',
+                    'completed'       => '已完成',
+                    'customer'        => '客户',
+                    'date'            => '日期',
+                    'email'           => '电子邮件',
+                    'fraud'           => '欺诈',
+                    'grand-total'     => '总计',
+                    'id'              => '订单号：#:id',
+                    'images'          => '图片',
+                    'location'        => '地点',
+                    'order-id'        => '订单编号',
+                    'pay-by'          => '支付方式 - :method',
+                    'pay-via'         => '支付方式',
+                    'pending-payment' => '待付款',
+                    'pending'         => '待处理',
+                    'processing'      => '处理中',
+                    'product-count'   => ':count + 更多产品',
+                    'status'          => '状态',
+                    'success'         => '成功',
+                    'view'            => '查看',
+                ],
+            ],
+
+            'create' => [
+                'add-to-cart'             => '添加到购物车',
+                'back-btn'                => '返回',
+                'check-billing-address'   => '缺少账单地址。',
+                'check-shipping-address'  => '缺少送货地址。',
+                'configuration'           => '配置',
+                'coupon-already-applied'  => '优惠券已经应用。',
+                'coupon-applied'          => '优惠券已成功应用。',
+                'coupon-error'            => '无法应用优惠券。',
+                'coupon-not-found'        => '找不到优惠券',
+                'coupon-remove'           => '优惠券已成功移除。',
+                'error'                   => '出现错误',
+                'minimum-order-error'     => '未达到最低订单金额。',
+                'order-placed-success'    => '订单已成功下单。',
+                'payment-not-supported'   => '不支持此支付方式',
+                'save-btn'                => '创建订单',
+                'specify-payment-method'  => '缺少支付方式。',
+                'specify-shipping-method' => '缺少配送方式。',
+                'title'                   => '为 :name 创建订单',
+
+                'types' => [
+                    'configurable' => [
+                        'select-options' => '请选择一个选项',
+                    ],
+
+                    'bundle' => [
+                        'none'         => '无',
+                        'total-amount' => '总金额',
+                    ],
+
+                    'grouped' => [
+                        'name' => '名称',
+                    ],
+
+                    'downloadable' => [
+                        'title' => '链接',
+                    ],
+                ],
+
+                'cart' => [
+                    'success-add-to-cart' => '产品已成功添加到购物车',
+                    'success-remove'      => '项目已成功从购物车中移除',
+                    'success-update'      => '购物车项目已成功更新',
+
+                    'items' => [
+                        'add-product'       => '添加产品',
+                        'amount-per-unit'   => ':amount 每单位 x :qty 数量',
+                        'delete'            => '删除',
+                        'empty-description' => '购物车中没有找到任何商品。',
+                        'empty-title'       => '购物车为空',
+                        'move-to-wishlist'  => '移到心愿单',
+                        'see-details'       => '查看详情',
+                        'sku'               => 'SKU - :sku',
+                        'sub-total'         => '小计 - :sub_total',
+                        'title'             => '购物车商品',
+
+                        'search' => [
+                            'add-to-cart'   => '添加到购物车',
+                            'available-qty' => ':qty 可用',
+                            'empty-info'    => '没有可用于搜索词的产品。',
+                            'empty-title'   => '未找到产品',
+                            'product-image' => '产品图片',
+                            'qty'           => '数量',
+                            'sku'           => 'SKU - :sku',
+                            'title'         => '搜索产品',
+                        ],
+                    ],
+
+                    'address' => [
+                        'add-btn'          => '添加地址',
+                        'add-new'          => '添加新地址',
+                        'add-new-address'  => '添加新地址',
+                        'addresses'        => '地址',
+                        'back'             => '返回',
+                        'billing-address'  => '账单地址',
+                        'city'             => '城市',
+                        'company-name'     => '公司名称',
+                        'confirm'          => '确认',
+                        'country'          => '国家',
+                        'edit-btn'         => '编辑地址',
+                        'email'            => '电子邮件',
+                        'first-name'       => '名字',
+                        'last-name'        => '姓氏',
+                        'postcode'         => '邮政编码',
+                        'proceed'          => '继续',
+                        'same-as-billing'  => '使用相同地址作为送货地址？',
+                        'save'             => '保存',
+                        'save-address'     => '保存到地址簿',
+                        'select-country'   => '选择国家',
+                        'select-state'     => '选择省/州',
+                        'shipping-address' => '送货地址',
+                        'state'            => '省/州',
+                        'street-address'   => '街道地址',
+                        'telephone'        => '电话',
+                        'title'            => '地址',
+                        'vat-id'           => '增值税号码',
+                    ],
+
+                    'payment' => [
+                        'title' => '支付',
+                    ],
+
+                    'shipping' => [
+                        'title' => '配送',
+                    ],
+
+                    'summary' => [
+                        'apply-coupon'    => '应用优惠券',
+                        'discount-amount' => '折扣金额',
+                        'enter-your-code' => '输入您的代码',
+                        'grand-total'     => '总计',
+                        'place-order'     => '下单',
+                        'processing'      => '处理中',
+                        'shipping-amount' => '运费',
+                        'sub-total'       => '小计',
+                        'tax'             => '税费',
+                        'title'           => '订单摘要',
+                    ],
+                ],
+
+                'cart-items' => [
+                    'add-to-cart'       => '添加到购物车',
+                    'delete'            => '删除',
+                    'empty-description' => '购物车中没有找到任何商品。',
+                    'empty-title'       => '购物车为空',
+                    'see-details'       => '查看详情',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => '购物车商品',
+                ],
+
+                'recent-order-items' => [
+                    'add-to-cart'       => '添加到购物车',
+                    'empty-description' => '最近订单中没有找到任何商品。',
+                    'empty-title'       => '订单为空',
+                    'see-details'       => '查看详情',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => '最近订单商品',
+                    'view'              => '查看',
+                ],
+
+                'wishlist-items' => [
+                    'add-to-cart'       => '添加到购物车',
+                    'delete'            => '删除',
+                    'empty-description' => '心愿单中没有找到任何商品。',
+                    'empty-title'       => '心愿单为空',
+                    'see-details'       => '查看详情',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => '心愿单商品',
+                ],
+
+                'compare-items' => [
+                    'add-to-cart'       => '添加到购物车',
+                    'delete'            => '删除',
+                    'empty-description' => '比较列表中没有找到任何商品。',
+                    'empty-title'       => '比较列表为空',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => '比较商品',
                 ],
             ],
 
@@ -211,6 +373,7 @@ return [
                 'refund'                => '退款',
                 'refund-id'             => '退款 #:refund',
                 'refunded'              => '已退款',
+                'reorder'               => '重新排序',
                 'ship'                  => '发货',
                 'shipment'              => '发货 #:shipment',
                 'shipments'             => '发货',
@@ -424,7 +587,7 @@ return [
                 'title'                  => '发票 #:invoice_id',
             ],
 
-            'create'   => [
+            'create' => [
                 'amount-per-unit'    => ':amount 每单位 x :qty 数量',
                 'create-invoice'     => '创建发票',
                 'create-success'     => '发票创建成功',
@@ -529,7 +692,7 @@ return [
                 'create-btn'    => '创建产品',
                 'title'         => '产品',
 
-                'create'     => [
+                'create' => [
                     'back-btn'                => '返回',
                     'configurable-attributes' => '可配置属性',
                     'create-btn'              => '创建产品',
@@ -540,31 +703,31 @@ return [
                     'type'                    => '类型',
                 ],
 
-                'datagrid'   => [
-                    'active'                        => '激活',
-                    'attribute-family'              => '属性家族',
-                    'attribute-family-value'        => '属性家族 - :attribute_family',
-                    'category'                      => '类别',
-                    'copy-of'                       => '复制 :value',
-                    'copy-of-slug'                  => '复制-:value',
-                    'delete'                        => '删除',
-                    'disable'                       => '禁用',
-                    'id'                            => 'ID',
-                    'id-value'                      => 'ID - :id',
-                    'image'                         => '图像',
-                    'mass-delete-success'           => '已成功删除所选产品',
-                    'mass-update-success'           => '已成功更新所选产品',
-                    'name'                          => '名称',
-                    'out-of-stock'                  => '缺货',
-                    'price'                         => '价格',
-                    'product-image'                 => '产品图像',
-                    'qty'                           => '数量',
-                    'qty-value'                     => ':qty 可用',
-                    'sku'                           => 'SKU',
-                    'sku-value'                     => 'SKU - :sku',
-                    'status'                        => '状态',
-                    'type'                          => '类型',
-                    'update-status'                 => '更新状态',
+                'datagrid' => [
+                    'active'                 => '激活',
+                    'attribute-family'       => '属性家族',
+                    'attribute-family-value' => '属性家族 - :attribute_family',
+                    'category'               => '类别',
+                    'copy-of'                => '复制 :value',
+                    'copy-of-slug'           => '复制-:value',
+                    'delete'                 => '删除',
+                    'disable'                => '禁用',
+                    'id'                     => 'ID',
+                    'id-value'               => 'ID - :id',
+                    'image'                  => '图像',
+                    'mass-delete-success'    => '已成功删除所选产品',
+                    'mass-update-success'    => '已成功更新所选产品',
+                    'name'                   => '名称',
+                    'out-of-stock'           => '缺货',
+                    'price'                  => '价格',
+                    'product-image'          => '产品图像',
+                    'qty'                    => '数量',
+                    'qty-value'              => ':qty 可用',
+                    'sku'                    => 'SKU',
+                    'sku-value'              => 'SKU - :sku',
+                    'status'                 => '状态',
+                    'type'                   => '类型',
+                    'update-status'          => '更新状态',
                 ],
             ],
 
@@ -900,6 +1063,7 @@ return [
                 'position'              => '位置',
                 'price'                 => '价格',
                 'regex'                 => '正则表达式',
+                'regex-info'            => '表达式应该用双引号括起来。',
                 'save-btn'              => '保存属性',
                 'select'                => '选择',
                 'select-type'           => '选择属性类型',
@@ -963,6 +1127,7 @@ return [
                 'position'              => '位置',
                 'price'                 => '价格',
                 'regex'                 => '正则表达式',
+                'regex-info'            => '表达式应该用双引号括起来。',
                 'save-btn'              => '保存属性',
                 'select'                => '选择',
                 'select-type'           => '选择属性类型',
@@ -1173,140 +1338,240 @@ return [
     'customers' => [
         'customers' => [
             'index' => [
+                'title'         => '客户',
                 'login-message' => '您以 :customer_name 的身份登录',
-                'title'         => '顾客',
 
                 'datagrid' => [
                     'active'         => '活跃',
-                    'address'        => ':address 地址(s)',
+                    'address'        => ':address  地址',
                     'address-count'  => '地址数量',
                     'delete'         => '删除',
-                    'delete-success' => '所选数据成功删除',
-                    'email'          => '邮箱',
+                    'delete-success' => '成功删除所选数据',
+                    'email'          => '电子邮件',
                     'gender'         => '性别',
                     'group'          => '分组',
-                    'id'             => '顾客ID',
+                    'id'             => '客户 ID',
                     'inactive'       => '不活跃',
-                    'method-error'   => '错误！检测到错误的方法，请检查批量操作配置',
-                    'name'           => '顾客姓名',
+                    'method-error'   => '错误！检测到错误的方法，请检查大规模操作配置',
+                    'name'           => '客户姓名',
                     'no-resource'    => '提供的资源不足以执行操作',
-                    'order'          => ':order 订单(s)',
+                    'order'          => ':order 订单',
                     'order-count'    => '订单数量',
-                    'order-pending'  => '顾客有待处理订单',
-                    'partial-action' => '由于系统约束限制，某些操作未执行于 :resource',
-                    'phone'          => '联系电话',
+                    'order-pending'  => '客户有待处理订单',
+                    'partial-action' => '由于 :resource 上的受限制的系统约束，未执行一些操作',
+                    'phone'          => '联系号码',
                     'revenue'        => '收入',
                     'status'         => '状态',
-                    'suspended'      => '暂停',
+                    'suspended'      => '已暂停',
                     'update-status'  => '更新状态',
-                    'update-success' => '所选顾客成功更新',
+                    'update-success' => '成功更新所选客户',
                 ],
 
                 'create' => [
-                    'contact-number'        => '联系电话',
-                    'create-btn'            => '创建顾客',
-                    'create-success'        => '顾客创建成功',
-                    'customer-group'        => '顾客分组',
+                    'contact-number'        => '联系号码',
+                    'create-btn'            => '创建客户',
+                    'create-success'        => '成功创建客户',
+                    'customer-group'        => '客户组',
                     'date-of-birth'         => '出生日期',
-                    'email'                 => '邮箱',
+                    'email'                 => '电子邮件',
                     'female'                => '女性',
                     'first-name'            => '名字',
                     'gender'                => '性别',
                     'last-name'             => '姓氏',
                     'male'                  => '男性',
                     'other'                 => '其他',
-                    'save-btn'              => '保存顾客',
-                    'select-customer-group' => '选择顾客分组',
+                    'save-btn'              => '保存客户',
+                    'select-customer-group' => '选择客户组',
                     'select-gender'         => '选择性别',
-                    'title'                 => '创建新顾客',
+                    'title'                 => '创建新客户',
                 ],
             ],
 
-            'delete-failed'  => '顾客删除失败',
-            'delete-success' => '顾客删除成功',
-            'order-pending'  => '有待处理的订单',
-            'update-success' => '顾客更新成功',
-
-            'edit' => [
-                'contact-number'        => '联系电话',
-                'customer-group'        => '顾客分组',
-                'date-of-birth'         => '出生日期',
-                'edit-btn'              => '编辑',
-                'email'                 => '邮箱',
-                'female'                => '女性',
-                'first-name'            => '名字',
-                'gender'                => '性别',
-                'last-name'             => '姓氏',
-                'male'                  => '男性',
-                'other'                 => '其他',
-                'save-btn'              => '保存顾客',
-                'select-customer-group' => '选择顾客分组',
-                'select-gender'         => '选择性别',
-                'status'                => '状态',
-                'suspended'             => '暂停',
-                'title'                 => '编辑顾客',
-            ],
-
             'view' => [
-                'account-delete-confirmation' => '您确定要删除此帐户吗？',
+                'account-delete-confirmation' => '您确定要删除此账户吗？',
                 'active'                      => '活跃',
-                'add-note'                    => '添加备注',
-                'address'                     => '地址',
                 'address-delete-confirmation' => '您确定要删除此地址吗？',
-                'address-delete-success'      => '地址删除成功',
-                'approved'                    => '已批准',
                 'back-btn'                    => '返回',
-                'canceled'                    => '已取消',
-                'closed'                      => '已关闭',
-                'completed'                   => '已完成',
-                'customer'                    => '顾客',
-                'customer-not-notified'       => ':date | 客户 <b>未通知</b>',
-                'customer-notified'           => ':date | 客户 <b>已通知</b>',
-                'date-of-birth'               => '出生日期 - :dob',
+                'create-order'                => '创建订单',
+                'customer'                    => '客户',
+                'date-of-birth'               => '生日 - :dob',
                 'default-address'             => '默认地址',
-                'delete'                      => '删除',
                 'delete-account'              => '删除账户',
-                'disapproved'                 => '未批准',
-                'edit'                        => '编辑',
-                'email'                       => '邮箱 - :email',
-                'empty-description'           => '为顾客创建新地址',
-                'empty-invoice'               => '没有可用的发票',
-                'empty-order'                 => '没有可用的订单',
-                'empty-review'                => '没有可用的评论',
-                'empty-title'                 => '添加顾客地址',
+                'delete'                      => '删除',
+                'email'                       => '电子邮件 - :email',
+                'empty-description'           => '为客户创建新地址',
+                'empty-title'                 => '添加客户地址',
                 'gender'                      => '性别 - :gender',
                 'group'                       => '分组 - :group_code',
-                'id'                          => 'ID - :id',
                 'inactive'                    => '不活跃',
-                'increment-id'                => '# :increment_id',
-                'invoice'                     => '发票 (:invoice_count)',
-                'invoice-amount'              => '发票金额',
-                'invoice-date'                => '发票日期',
-                'invoice-id'                  => '发票ID',
-                'invoice-id-prefix'           => '# :invoice_id',
-                'mobile'                      => '手机',
-                'note'                        => '备注',
-                'note-created-success'        => '备注创建成功',
-                'note-placeholder'            => '在此处填写您的备注',
-                'notify-customer'             => '通知顾客',
-                'of'                          => '的',
-                'order-id'                    => '订单ID',
-                'order-id-prefix'             => '# :order_id',
-                'order-pending'               => '由于有待处理或处理中的订单，无法删除帐户。',
-                'orders'                      => '订单 (:order_count)',
-                'pay-by'                      => '支付方式',
-                'pending'                     => '待处理',
-                'per-page'                    => '每页',
+                'login-as-customer'           => '以客户身份登录',
+                'note-created-success'        => '成功创建备注',
+                'order-create-confirmation'   => '您确定要为此客户创建订单吗?',
                 'phone'                       => '电话 - :phone',
-                'processing'                  => '处理中',
-                'reviews'                     => '评论',
                 'set-as-default'              => '设为默认',
-                'set-default-success'         => '默认地址更新成功',
-                'submit-btn-title'            => '提交备注',
-                'suspended'                   => '暂停',
-                'title'                       => '顾客视图',
-                'total-revenue'               => '总收入 - :revenue',
+                'suspended'                   => '已暂停',
+                'title'                       => '客户视图',
+
+                'address' => [
+                    'count' => '地址 (:count)',
+
+                    'create' => [
+                        'city'               => '城市',
+                        'company-name'       => '公司名称',
+                        'country'            => '国家',
+                        'create-btn'         => '创建',
+                        'create-address-btn' => '添加新地址',
+                        'default-address'    => '默认地址',
+                        'email'              => '电子邮件',
+                        'first-name'         => '名字',
+                        'last-name'          => '姓氏',
+                        'phone'              => '电话',
+                        'post-code'          => '邮政编码',
+                        'save-btn-title'     => '保存地址',
+                        'select-country'     => '选择国家',
+                        'state'              => '州',
+                        'street-address'     => '街道地址',
+                        'title'              => '创建地址',
+                        'vat-id'             => 'VAT 号码',
+                    ],
+
+                    'edit' => [
+                        'city'            => '城市',
+                        'company-name'    => '公司名称',
+                        'country'         => '国家',
+                        'default-address' => '默认地址',
+                        'edit-btn'        => '编辑',
+                        'email'           => '电子邮件',
+                        'first-name'      => '名字',
+                        'last-name'       => '姓氏',
+                        'phone'           => '电话',
+                        'post-code'       => '邮政编码',
+                        'save-btn-title'  => '保存地址',
+                        'select-country'  => '选择国家',
+                        'state'           => '州',
+                        'street-address'  => '街道地址',
+                        'title'           => '编辑地址',
+                        'vat-id'          => 'VAT 号码',
+                    ],
+
+                    'address-delete-success' => '成功删除地址',
+                    'create-success'         => '成功创建地址',
+                    'set-default-success'    => '默认地址更新成功',
+                    'success-mass-delete'    => '成功进行地址批量删除',
+                    'update-success'         => '成功更新地址',
+                ],
+
+                'datagrid' => [
+                    'invoices' => [
+                        'empty-invoice'  => '没有评论',
+                        'increment-id'   => '发票 ID',
+                        'invoice-amount' => '发票金额',
+                        'invoice-date'   => '发票日期',
+                        'order-id'       => '订单 ID',
+                        'view'           => '查看',
+                    ],
+
+                    'orders' => [
+                        'canceled'        => '已取消',
+                        'channel-name'    => '渠道名称',
+                        'closed'          => '已关闭',
+                        'completed'       => '已完成',
+                        'customer-name'   => '客户姓名',
+                        'date'            => '日期',
+                        'empty-order'     => '没有订单',
+                        'email'           => '电子邮件',
+                        'fraud'           => '欺诈',
+                        'grand-total'     => '总计',
+                        'location'        => '位置',
+                        'order-id'        => '订单 ID',
+                        'pay-via'         => '支付方式',
+                        'pending'         => '待处理',
+                        'pending-payment' => '待付款',
+                        'processing'      => '处理中',
+                        'status'          => '状态',
+                        'view'            => '查看',
+                    ],
+
+                    'reviews' => [
+                        'approved'      => '已批准',
+                        'comment'       => '评论',
+                        'created-at'    => '创建于',
+                        'disapproved'   => '未批准',
+                        'empty-reviews' => '没有发票',
+                        'id'            => 'ID',
+                        'invoice-date'  => '发票日期',
+                        'pending'       => '待处理',
+                        'product-id'    => '产品 ID',
+                        'product-name'  => '产品名称',
+                        'rating'        => '评分',
+                        'status'        => '状态',
+                        'title'         => '标题',
+                    ],
+                ],
+
+                'edit' => [
+                    'contact-number'        => '联系号码',
+                    'customer-group'        => '客户组',
+                    'date-of-birth'         => '出生日期',
+                    'edit-btn'              => '编辑',
+                    'email'                 => '电子邮件',
+                    'female'                => '女性',
+                    'first-name'            => '名字',
+                    'gender'                => '性别',
+                    'last-name'             => '姓氏',
+                    'male'                  => '男性',
+                    'other'                 => '其他',
+                    'save-btn'              => '保存客户',
+                    'select-customer-group' => '选择客户组',
+                    'select-gender'         => '选择性别',
+                    'status'                => '状态',
+                    'suspended'             => '已暂停',
+                    'title'                 => '编辑客户',
+                ],
+
+                'invoices' => [
+                    'count'        => '发票 (:count)',
+                    'increment-id' => '# :increment_id',
+                ],
+
+                'notes' => [
+                    'add-note'              => '添加备注',
+                    'customer-not-notified' => ':date | 客户 <b>未通知</b>',
+                    'customer-notified'     => ':date | 客户 <b>已通知</b>',
+                    'note'                  => '备注',
+                    'note-placeholder'      => '在这里写下您的备注',
+                    'notify-customer'       => '通知客户',
+                    'submit-btn-title'      => '提交备注',
+                ],
+
+                'orders' => [
+                    'count'         => '订单 (:count)',
+                    'increment-id'  => '# :increment_id',
+                    'total-revenue' => '总收入 - :revenue',
+                ],
+
+                'reviews' => [
+                    'id'    => 'ID - :id',
+                    'count' => '评论 (:count)',
+                ],
+
+                'cart' => [
+                    'delete-success' => '成功删除购物车商品。',
+                ],
+
+                'wishlist' => [
+                    'delete-success' => '成功删除心愿单商品。',
+                ],
+
+                'compare' => [
+                    'delete-success' => '成功删除对比商品。',
+                ],
             ],
+
+            'delete-failed'  => '删除客户失败',
+            'delete-success' => '成功删除客户',
+            'order-pending'  => '订单待处理',
+            'update-success' => '成功更新客户',
         ],
 
         'groups' => [
@@ -1391,53 +1656,6 @@ return [
                     'update-status'       => '更新状态',
                 ],
             ],
-        ],
-
-        'addresses' => [
-            'create' => [
-                'address-1'          => '地址1',
-                'address-2'          => '地址2',
-                'city'               => '城市',
-                'company-name'       => '公司名称',
-                'country'            => '国家',
-                'create-address-btn' => '添加新地址',
-                'default-address'    => '默认地址',
-                'email'              => '电子邮件',
-                'first-name'         => '名字',
-                'last-name'          => '姓氏',
-                'phone'              => '电话',
-                'post-code'          => '邮编',
-                'save-btn-title'     => '保存地址',
-                'select-country'     => '选择国家',
-                'state'              => '州',
-                'street-address'     => '街道地址',
-                'title'              => '创建顾客地址',
-                'vat-id'             => 'VAT ID',
-            ],
-
-            'edit' => [
-                'address-1'        => '地址1',
-                'address-2'        => '地址2',
-                'city'             => '城市',
-                'company-name'     => '公司名称',
-                'country'          => '国家',
-                'default-address'  => '默认地址',
-                'email'            => '电子邮件',
-                'first-name'       => '名字',
-                'last-name'        => '姓氏',
-                'phone'            => '电话',
-                'post-code'        => '邮编',
-                'save-btn-title'   => '保存地址',
-                'select-country'   => '选择国家',
-                'state'            => '州',
-                'street-address'   => '街道地址',
-                'title'            => '编辑地址',
-                'vat-id'           => 'VAT ID',
-            ],
-
-            'create-success'      => '地址创建成功',
-            'success-mass-delete' => '地址批量删除成功',
-            'update-success'      => '地址成功更新',
         ],
     ],
 
@@ -1574,7 +1792,7 @@ return [
 
                     ],
 
-                    'create'   => [
+                    'create' => [
                         'date'           => '日期',
                         'delete-warning' => '您确定要执行此操作吗？',
                         'description'    => '描述',
@@ -2119,9 +2337,11 @@ return [
 
     'cms' => [
         'index' => [
-            'already-taken'     => ':name 已被使用。',
-            'create-btn'        => '创建页面',
-            'title'             => '页面',
+            'already-taken' => '该 :name 已被使用。',
+            'channel'       => '渠道',
+            'create-btn'    => '创建页面',
+            'language'      => '语言',
+            'title'         => '页面',
 
             'datagrid' => [
                 'delete'              => '删除',
@@ -2173,7 +2393,7 @@ return [
     ],
 
     'settings' => [
-        'locales'           => [
+        'locales' => [
             'index' => [
                 'create-btn' => '创建区域',
                 'locale'     => '区域',
@@ -2215,7 +2435,7 @@ return [
             ],
         ],
 
-        'currencies'        => [
+        'currencies' => [
             'index' => [
                 'create-btn' => '创建货币',
                 'currency'   => '货币',
@@ -2235,15 +2455,18 @@ return [
                 ],
 
                 'create' => [
-                    'code'           => '代码',
-                    'create-btn'     => '创建货币',
-                    'decimal'        => '小数',
-                    'delete-warning' => '确定要执行此操作吗？',
-                    'general'        => '常规',
-                    'name'           => '名称',
-                    'save-btn'       => '保存货币',
-                    'symbol'         => '符号',
-                    'title'          => '创建新货币',
+                    'code'              => '代码',
+                    'create-btn'        => '创建货币',
+                    'currency-position' => '货币位置',
+                    'decimal'           => '小数',
+                    'decimal-separator' => '小数点分隔符',
+                    'delete-warning'    => '确定要执行此操作吗？',
+                    'general'           => '常规',
+                    'group-separator'   => '分组分隔符',
+                    'name'              => '名称',
+                    'save-btn'          => '保存货币',
+                    'symbol'            => '符号',
+                    'title'             => '创建新货币',
                 ],
 
                 'edit' => [
@@ -2258,9 +2481,9 @@ return [
             ],
         ],
 
-        'data-transfer'     => [
+        'data-transfer' => [
             'imports' => [
-                'create'            => [
+                'create' => [
                     'action'              => '動作',
                     'allowed-errors'      => '允許的錯誤',
                     'back-btn'            => '返回',
@@ -2268,9 +2491,9 @@ return [
                     'delete'              => '刪除',
                     'download-sample'     => '下載範例',
                     'field-separator'     => '欄位分隔符',
-                    'file-info-example'   => '例如，在 product-images 的情況下，檔案應放置在 /project-root/storage/app/import/product-images 資料夾中。',
-                    'file-info'           => '使用相對於 /project-root/storage/app/import 的路徑，例如 product-images, import-images。',
                     'file'                => '檔案',
+                    'file-info'           => '使用相對於 /project-root/storage/app/import 的路徑，例如 product-images, import-images。',
+                    'file-info-example'   => '例如，在 product-images 的情況下，檔案應放置在 /project-root/storage/app/import/product-images 資料夾中。',
                     'general'             => '一般',
                     'images-directory'    => '圖片目錄路徑',
                     'process-in-queue'    => '佇列中處理',
@@ -2284,7 +2507,7 @@ return [
                     'validation-strategy' => '驗證策略',
                 ],
 
-                'edit'              => [
+                'edit' => [
                     'action'              => '動作',
                     'allowed-errors'      => '允許的錯誤',
                     'back-btn'            => '返回',
@@ -2292,9 +2515,9 @@ return [
                     'delete'              => '刪除',
                     'download-sample'     => '下載範例',
                     'field-separator'     => '欄位分隔符',
-                    'file-info-example'   => '例如，在 product-images 的情況下，檔案應放置在 /project-root/storage/app/import/product-images 資料夾中。',
-                    'file-info'           => '使用相對於 /project-root/storage/app/import 的路徑，例如 product-images, import-images。',
                     'file'                => '檔案',
+                    'file-info'           => '使用相對於 /project-root/storage/app/import 的路徑，例如 product-images, import-images。',
+                    'file-info-example'   => '例如，在 product-images 的情況下，檔案應放置在 /project-root/storage/app/import/product-images 資料夾中。',
                     'general'             => '一般',
                     'images-directory'    => '圖片目錄路徑',
                     'process-in-queue'    => '佇列中處理',
@@ -2308,11 +2531,11 @@ return [
                     'validation-strategy' => '驗證策略',
                 ],
 
-                'index'             => [
+                'index' => [
                     'button-title' => '建立匯入',
                     'title'        => '匯入',
 
-                    'datagrid'     => [
+                    'datagrid' => [
                         'actions'       => '動作',
                         'completed-at'  => '已完成於',
                         'created'       => '已建立',
@@ -2329,7 +2552,7 @@ return [
                     ],
                 ],
 
-                'import'            => [
+                'import' => [
                     'back-btn'                => '返回',
                     'completed-batches'       => '已完成的批次：',
                     'download-error-report'   => '下載完整報告',
@@ -2364,7 +2587,7 @@ return [
             ],
         ],
 
-        'exchange-rates'    => [
+        'exchange-rates' => [
             'index' => [
                 'create-btn'    => '创建汇率',
                 'exchange-rate' => '汇率',
@@ -2382,7 +2605,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'   => '编辑汇率',
+                    'title' => '编辑汇率',
                 ],
 
                 'datagrid' => [
@@ -2483,7 +2706,7 @@ return [
             'update-success'    => '库存来源更新成功',
         ],
 
-        'taxes'             => [
+        'taxes' => [
             'categories' => [
                 'index' => [
                     'delete-warning' => '您确定要删除吗？',
@@ -2523,7 +2746,7 @@ return [
                 ],
             ],
 
-            'rates'   => [
+            'rates' => [
                 'index' => [
                     'button-title' => '创建税率',
                     'tax-rate'     => '税率',
@@ -2563,12 +2786,12 @@ return [
 
                 'edit' => [
                     'back-btn'       => '返回',
-                    'basic-settings' => '基本设置',
                     'country'        => '国家',
                     'identifier'     => '标识符',
                     'save-btn'       => '保存税率',
                     'select-country' => '选择国家',
                     'select-state'   => '选择州',
+                    'settings'       => '设置',
                     'state'          => '州',
                     'tax-rate'       => '税率',
                     'title'          => '编辑税率',
@@ -2709,7 +2932,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'    => '编辑用户',
+                    'title' => '编辑用户',
                 ],
             ],
 
@@ -2875,7 +3098,8 @@ return [
                 'url'                           => '网址',
                 'value'                         => '值：:value',
                 'value-input'                   => '值',
-                'services-content'              => [
+
+                'services-content' => [
                     'add-btn'            => '添加服务',
                     'channels'           => '渠道',
                     'delete'             => '删除',
@@ -3034,6 +3258,8 @@ return [
             'save-btn'                     => '保存配置',
             'save-message'                 => '配置保存成功',
             'search'                       => '搜索',
+            'select-country'               => '选择国家',
+            'select-state'                 => '选择州',
             'title'                        => '配置',
 
             'general' => [
@@ -3364,17 +3590,21 @@ return [
                 'title' => '电子邮件',
 
                 'email-settings' => [
-                    'admin-email'            => '管理员电子邮件',
-                    'admin-email-tip'        => '该频道的管理员电子邮件地址，用于接收电子邮件',
-                    'admin-name'             => '管理员名称',
-                    'admin-name-tip'         => '此名称将显示在所有管理员电子邮件中',
-                    'admin-page-limit'       => '默认每页显示项目数（管理员）',
-                    'email-sender-name'      => '电子邮件发送者名称',
-                    'email-sender-name-tip'  => '此名称将显示在客户收件箱中',
-                    'info'                   => '设置电子邮件发送者名称、商店电子邮件地址、管理员名称和管理员电子邮件地址。',
-                    'shop-email-from'        => '商店电子邮件地址',
-                    'shop-email-from-tip'    => '用于向客户发送电子邮件的该频道的电子邮件地址',
-                    'title'                  => '电子邮件设置',
+                    'admin-email'           => '管理员电子邮件',
+                    'admin-email-tip'       => '该频道的管理员电子邮件地址，用于接收电子邮件',
+                    'admin-name'            => '管理员名称',
+                    'admin-name-tip'        => '此名称将显示在所有管理员电子邮件中',
+                    'admin-page-limit'      => '默认每页显示项目数（管理员）',
+                    'contact-email'         => '联系邮箱',
+                    'contact-email-tip'     => '该邮箱地址将显示在您邮件的底部',
+                    'contact-name'          => '联系人姓名',
+                    'contact-name-tip'      => '该姓名将显示在您邮件的底部',
+                    'email-sender-name'     => '电子邮件发送者名称',
+                    'email-sender-name-tip' => '此名称将显示在客户收件箱中',
+                    'info'                  => '设置电子邮件发送者名称、商店电子邮件地址、管理员名称和管理员电子邮件地址。',
+                    'shop-email-from'       => '商店电子邮件地址',
+                    'shop-email-from-tip'   => '用于向客户发送电子邮件的该频道的电子邮件地址',
+                    'title'                 => '电子邮件设置',
                 ],
 
                 'notifications' => [
@@ -3441,40 +3671,40 @@ return [
                 ],
 
                 'payment-methods' => [
-                    'accepted-currencies'            => '接受的货币',
-                    'accepted-currencies-info'       => '以逗号分隔的货币代码，例如 USD，INR，...',
-                    'business-account'               => '商业账户',
-                    'cash-on-delivery'               => '货到付款',
-                    'cash-on-delivery-info'          => '客户在收到货物或服务时现金支付的付款方式。',
-                    'client-id'                      => '客户端 ID',
-                    'client-id-info'                 => '用于测试的 "sb"。',
-                    'client-secret'                  => '客户端密钥',
-                    'client-secret-info'             => '在这里添加您的秘密密钥',
-                    'description'                    => '描述',
-                    'generate-invoice'               => '下单后自动生成发票',
-                    'generate-invoice-applicable'    => '如果启用自动生成发票，则适用',
-                    'info'                           => '设置支付方法信息',
-                    'instructions'                   => '说明',
-                    'logo'                           => '标志',
-                    'logo-information'               => '图像分辨率应为约 55px x 45px',
-                    'mailing-address'                => '寄送支票至',
-                    'money-transfer'                 => '汇款',
-                    'money-transfer-info'            => '从一个人或帐户向另一个人或帐户转移资金，通常以电子方式进行，用于各种目的，如交易或汇款。',
-                    'page-title'                     => '支付方法',
-                    'paid'                           => '已支付',
-                    'paypal-smart-button'            => 'PayPal',
-                    'paypal-smart-button-info'       => 'PayPal 智能按钮：通过网站和应用程序上的可自定义按钮简化安全的多方法交易的在线支付。',
-                    'paypal-standard'                => 'PayPal 标准',
-                    'paypal-standard-info'           => 'PayPal 标准是在线业务的基本 PayPal 付款选项，使客户能够使用其 PayPal 帐户或信用/借记卡支付。',
-                    'pending'                        => '待处理',
-                    'pending-payment'                => '待付款',
-                    'processing'                     => '处理中',
-                    'sandbox'                        => '沙盒',
-                    'set-invoice-status'             => '在创建发票后将发票状态设置为',
-                    'set-order-status'               => '在创建发票后将订单状态设置为',
-                    'sort-order'                     => '排序顺序',
-                    'status'                         => '状态',
-                    'title'                          => '标题',
+                    'accepted-currencies'         => '接受的货币',
+                    'accepted-currencies-info'    => '以逗号分隔的货币代码，例如 USD，INR，...',
+                    'business-account'            => '商业账户',
+                    'cash-on-delivery'            => '货到付款',
+                    'cash-on-delivery-info'       => '客户在收到货物或服务时现金支付的付款方式。',
+                    'client-id'                   => '客户端 ID',
+                    'client-id-info'              => '用于测试的 "sb"。',
+                    'client-secret'               => '客户端密钥',
+                    'client-secret-info'          => '在这里添加您的秘密密钥',
+                    'description'                 => '描述',
+                    'generate-invoice'            => '下单后自动生成发票',
+                    'generate-invoice-applicable' => '如果启用自动生成发票，则适用',
+                    'info'                        => '设置支付方法信息',
+                    'instructions'                => '说明',
+                    'logo'                        => '标志',
+                    'logo-information'            => '图像分辨率应为约 55px x 45px',
+                    'mailing-address'             => '寄送支票至',
+                    'money-transfer'              => '汇款',
+                    'money-transfer-info'         => '从一个人或帐户向另一个人或帐户转移资金，通常以电子方式进行，用于各种目的，如交易或汇款。',
+                    'page-title'                  => '支付方法',
+                    'paid'                        => '已支付',
+                    'paypal-smart-button'         => 'PayPal',
+                    'paypal-smart-button-info'    => 'PayPal 智能按钮：通过网站和应用程序上的可自定义按钮简化安全的多方法交易的在线支付。',
+                    'paypal-standard'             => 'PayPal 标准',
+                    'paypal-standard-info'        => 'PayPal 标准是在线业务的基本 PayPal 付款选项，使客户能够使用其 PayPal 帐户或信用/借记卡支付。',
+                    'pending'                     => '待处理',
+                    'pending-payment'             => '待付款',
+                    'processing'                  => '处理中',
+                    'sandbox'                     => '沙盒',
+                    'set-invoice-status'          => '在创建发票后将发票状态设置为',
+                    'set-order-status'            => '在创建发票后将订单状态设置为',
+                    'sort-order'                  => '排序顺序',
+                    'status'                      => '状态',
+                    'title'                       => '标题',
                 ],
 
                 'order-settings' => [
@@ -3482,12 +3712,12 @@ return [
                     'title' => '订单设置',
 
                     'order-number' => [
-                        'generator'   => '订单号生成器',
-                        'length'      => '订单号长度',
-                        'prefix'      => '订单号前缀',
-                        'suffix'      => '订单号后缀',
-                        'title'       => '订单号设置',
-                        'title-info'  => '分配给特定顾客订单的唯一标识符，有助于跟踪、沟通和参考整个购买过程。',
+                        'generator'  => '订单号生成器',
+                        'length'     => '订单号长度',
+                        'prefix'     => '订单号前缀',
+                        'suffix'     => '订单号后缀',
+                        'title'      => '订单号设置',
+                        'title-info' => '分配给特定顾客订单的唯一标识符，有助于跟踪、沟通和参考整个购买过程。',
                     ],
 
                     'minimum-order' => [
@@ -3860,7 +4090,7 @@ return [
 
     'errors' => [
         'dashboard' => '仪表盘',
-        'go-back'   => '返回', // Translated "Go Back" to "返回"
+        'go-back'   => '返回',
         'support'   => '如果问题持续存在，请通过<a href=":link" class=":class">:email</a>联系我们以寻求帮助。',
 
         '404' => [

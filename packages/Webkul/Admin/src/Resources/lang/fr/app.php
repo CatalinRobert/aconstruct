@@ -11,7 +11,7 @@ return [
         ],
 
         'forget-password' => [
-            'create'    => [
+            'create' => [
                 'email'           => 'Adresse e-mail enregistrée',
                 'email-not-exist' => 'L\'adresse e-mail n\'existe pas',
                 'page-title'      => 'Mot de passe oublié',
@@ -36,6 +36,8 @@ return [
         'description-text' => 'Lister toutes les notifications',
         'marked-success'   => 'Notification marquée avec succès',
         'no-record'        => 'Aucun enregistrement trouvé',
+        'of'               => 'de',
+        'per-page'         => 'Par page',
         'read-all'         => 'Marquer comme lu',
         'title'            => 'Notifications',
         'view-all'         => 'Voir tout',
@@ -47,15 +49,6 @@ return [
             'pending'         => 'Commande en attente',
             'pending-payment' => 'Paiement en attente',
             'processing'      => 'Commande en cours de traitement',
-        ],
-
-        'status' => [
-            'all'        => 'Tous',
-            'canceled'   => 'Annulée',
-            'closed'     => 'Fermée',
-            'completed'  => 'Terminée',
-            'pending'    => 'En attente',
-            'processing' => 'En cours de traitement',
         ],
     ],
 
@@ -134,7 +127,16 @@ return [
     'sales' => [
         'orders' => [
             'index' => [
-                'title' => 'Orders',
+                'create-btn' => 'Créer une commande',
+                'title'      => 'Commandes',
+
+                'search-customer' => [
+                    'create-btn'  => 'Créer un client',
+                    'empty-info'  => 'Aucun client disponible pour ce terme de recherche.',
+                    'empty-title' => 'Aucun client trouvé',
+                    'search-by'   => 'Rechercher par email ou nom',
+                    'title'       => 'Sélectionner un client',
+                ],
 
                 'datagrid' => [
                     'canceled'        => 'Annulée',
@@ -152,13 +154,173 @@ return [
                     'order-id'        => 'ID de commande',
                     'pay-by'          => 'Payer par - :method',
                     'pay-via'         => 'Payer via',
-                    'pending'         => 'En attente',
                     'pending-payment' => 'Paiement en attente',
+                    'pending'         => 'En attente',
                     'processing'      => 'En traitement',
                     'product-count'   => ':count + Plus de produits',
                     'status'          => 'Statut',
                     'success'         => 'Succès',
                     'view'            => 'Voir',
+                ],
+            ],
+
+            'create' => [
+                'add-to-cart'             => 'Ajouter au panier',
+                'back-btn'                => 'Retour',
+                'check-billing-address'   => 'L\'adresse de facturation est manquante.',
+                'check-shipping-address'  => 'L\'adresse de livraison est manquante.',
+                'configuration'           => 'Configuration',
+                'coupon-already-applied'  => 'Le code de coupon a déjà été appliqué.',
+                'coupon-applied'          => 'Code de coupon appliqué avec succès.',
+                'coupon-error'            => 'Impossible d\'appliquer le code de coupon.',
+                'coupon-not-found'        => 'Coupon introuvable',
+                'coupon-remove'           => 'Code de coupon supprimé avec succès.',
+                'error'                   => 'Une erreur s\'est produite',
+                'minimum-order-error'     => 'Le montant de la commande minimale n\'est pas atteint.',
+                'order-placed-success'    => 'Commande passée avec succès.',
+                'payment-not-supported'   => 'Ce mode de paiement n\'est pas pris en charge',
+                'save-btn'                => 'Créer la commande',
+                'specify-payment-method'  => 'Le mode de paiement est manquant.',
+                'specify-shipping-method' => 'Le mode de livraison est manquant.',
+                'title'                   => 'Créer une commande pour :name',
+
+                'types' => [
+                    'configurable' => [
+                        'select-options' => 'Veuillez sélectionner une option',
+                    ],
+
+                    'bundle' => [
+                        'none'         => 'Aucun',
+                        'total-amount' => 'Montant total',
+                    ],
+
+                    'grouped' => [
+                        'name' => 'Nom',
+                    ],
+
+                    'downloadable' => [
+                        'title' => 'Liens',
+                    ],
+                ],
+
+                'cart' => [
+                    'success-add-to-cart' => 'Produit ajouté au panier avec succès',
+                    'success-remove'      => 'Article supprimé du panier avec succès',
+                    'success-update'      => 'Article du panier mis à jour avec succès',
+
+                    'items' => [
+                        'add-product'       => 'Ajouter un produit',
+                        'amount-per-unit'   => ':amount par unité x :qty quantité',
+                        'delete'            => 'Supprimer',
+                        'empty-description' => 'Aucun article trouvé dans votre panier.',
+                        'empty-title'       => 'Panier vide',
+                        'move-to-wishlist'  => 'Déplacer vers la liste de souhaits',
+                        'see-details'       => 'Voir les détails',
+                        'sku'               => 'SKU - :sku',
+                        'sub-total'         => 'Sous-total - :sub_total',
+                        'title'             => 'Articles du panier',
+
+                        'search' => [
+                            'add-to-cart'   => 'Ajouter au panier',
+                            'available-qty' => ':qty disponible',
+                            'empty-info'    => 'Aucun produit disponible pour le terme de recherche.',
+                            'empty-title'   => 'Aucun produit trouvé',
+                            'product-image' => 'Image du produit',
+                            'qty'           => 'Qté',
+                            'sku'           => 'SKU - :sku',
+                            'title'         => 'Rechercher des produits',
+                        ],
+                    ],
+
+                    'address' => [
+                        'add-btn'          => 'Ajouter une adresse',
+                        'add-new'          => 'Ajouter une nouvelle adresse',
+                        'add-new-address'  => 'Ajouter une nouvelle adresse',
+                        'addresses'        => 'Adresses',
+                        'back'             => 'Retour',
+                        'billing-address'  => 'Adresse de facturation',
+                        'city'             => 'Ville',
+                        'company-name'     => 'Nom de l\'entreprise',
+                        'confirm'          => 'Confirmer',
+                        'country'          => 'Pays',
+                        'edit-btn'         => 'Modifier l\'adresse',
+                        'email'            => 'E-mail',
+                        'first-name'       => 'Prénom',
+                        'last-name'        => 'Nom de famille',
+                        'postcode'         => 'Code postal',
+                        'proceed'          => 'Continuer',
+                        'same-as-billing'  => 'Utiliser la même adresse pour la livraison?',
+                        'save'             => 'Enregistrer',
+                        'save-address'     => 'Enregistrer dans le carnet d\'adresses',
+                        'select-country'   => 'Sélectionner un pays',
+                        'select-state'     => 'Sélectionner un état',
+                        'shipping-address' => 'Adresse de livraison',
+                        'state'            => 'État',
+                        'street-address'   => 'Adresse',
+                        'telephone'        => 'Téléphone',
+                        'title'            => 'Adresse',
+                        'vat-id'           => 'TVA',
+                    ],
+
+                    'payment' => [
+                        'title' => 'Paiement',
+                    ],
+
+                    'shipping' => [
+                        'title' => 'Livraison',
+                    ],
+
+                    'summary' => [
+                        'apply-coupon'    => 'Appliquer le coupon',
+                        'discount-amount' => 'Montant de la remise',
+                        'enter-your-code' => 'Entrez votre code',
+                        'grand-total'     => 'Total général',
+                        'place-order'     => 'Passer la commande',
+                        'processing'      => 'Traitement',
+                        'shipping-amount' => 'Frais de livraison',
+                        'sub-total'       => 'Sous-total',
+                        'tax'             => 'Taxe',
+                        'title'           => 'Résumé de la commande',
+                    ],
+                ],
+
+                'cart-items' => [
+                    'add-to-cart'       => 'Ajouter au panier',
+                    'delete'            => 'Supprimer',
+                    'empty-description' => 'Aucun article trouvé dans votre panier.',
+                    'empty-title'       => 'Panier vide',
+                    'see-details'       => 'Voir les détails',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Articles du panier',
+                ],
+
+                'recent-order-items' => [
+                    'add-to-cart'       => 'Ajouter au panier',
+                    'empty-description' => 'Aucun article trouvé dans vos commandes récentes.',
+                    'empty-title'       => 'Commandes vides',
+                    'see-details'       => 'Voir les détails',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Articles de commande récents',
+                    'view'              => 'Voir',
+                ],
+
+                'wishlist-items' => [
+                    'add-to-cart'       => 'Ajouter au panier',
+                    'delete'            => 'Supprimer',
+                    'empty-description' => 'Aucun article trouvé dans votre liste de souhaits.',
+                    'empty-title'       => 'Liste de souhaits vide',
+                    'see-details'       => 'Voir les détails',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Articles de la liste de souhaits',
+                ],
+
+                'compare-items' => [
+                    'add-to-cart'       => 'Ajouter au panier',
+                    'delete'            => 'Supprimer',
+                    'empty-description' => 'Aucun article trouvé dans votre liste de comparaison.',
+                    'empty-title'       => 'Liste de comparaison vide',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'Articles de comparaison',
                 ],
             ],
 
@@ -211,6 +373,7 @@ return [
                 'refund'                => 'Remboursement',
                 'refund-id'             => 'Remboursement n°:refund',
                 'refunded'              => 'Remboursé',
+                'reorder'               => 'Réorganiser',
                 'ship'                  => 'Expédier',
                 'shipment'              => 'Expédition n°:shipment',
                 'shipments'             => 'Expéditions',
@@ -424,7 +587,7 @@ return [
                 'title'                  => 'Facture #:invoice_id',
             ],
 
-            'create'   => [
+            'create' => [
                 'amount-per-unit'    => ':amount Par Unité x :qty Quantité',
                 'create-invoice'     => 'Créer une Facture',
                 'create-success'     => 'Facture créée avec succès',
@@ -900,6 +1063,7 @@ return [
                 'position'              => 'Position',
                 'price'                 => 'Prix',
                 'regex'                 => 'Regex',
+                'regex-info'            => 'L\'expression doit être entre guillemets doubles.',
                 'save-btn'              => 'Enregistrer l\'attribut',
                 'select'                => 'Sélectionner',
                 'select-type'           => 'Sélectionner le type d\'attribut',
@@ -915,7 +1079,7 @@ return [
                 'value-per-locale'      => 'Valeur par localisation',
                 'yes'                   => 'Oui',
 
-                'option'                => [
+                'option' => [
                     'color'    => 'Nuancier de couleurs',
                     'dropdown' => 'Menu déroulant',
                     'image'    => 'Nuancier d\'images',
@@ -963,6 +1127,7 @@ return [
                 'position'              => 'Position',
                 'price'                 => 'Prix',
                 'regex'                 => 'Regex',
+                'regex-info'            => 'L\'expression doit être entre guillemets doubles.',
                 'save-btn'              => 'Enregistrer l\'attribut',
                 'select'                => 'Sélectionner',
                 'select-type'           => 'Sélectionner le type d\'attribut',
@@ -1173,25 +1338,25 @@ return [
 
     'customers' => [
         'customers' => [
-            'index'  => [
-                'login-message' => 'vous êtes connecté en tant que :customer_name',
+            'index' => [
                 'title'         => 'Clients',
+                'login-message' => 'Vous êtes connecté en tant que :customer_name',
 
-                'datagrid'  => [
+                'datagrid' => [
                     'active'         => 'Actif',
-                    'address'        => ':address  adresse(s)',
+                    'address'        => ':address  Adresse(s)',
                     'address-count'  => 'Nombre d\'adresses',
                     'delete'         => 'Supprimer',
                     'delete-success' => 'Données sélectionnées supprimées avec succès',
                     'email'          => 'E-mail',
                     'gender'         => 'Genre',
                     'group'          => 'Groupe',
-                    'id'             => 'ID client',
+                    'id'             => 'Identifiant du client',
                     'inactive'       => 'Inactif',
-                    'method-error'   => 'Erreur ! Méthode incorrecte détectée, veuillez vérifier la configuration de l\'action en masse',
+                    'method-error'   => 'Erreur ! Méthode incorrecte détectée, veuillez vérifier la configuration de l\'action de masse',
                     'name'           => 'Nom du client',
                     'no-resource'    => 'La ressource fournie est insuffisante pour l\'action',
-                    'order'          => ':order commande(s)',
+                    'order'          => ':order Commande(s)',
                     'order-count'    => 'Nombre de commandes',
                     'order-pending'  => 'Le client a une commande en attente',
                     'partial-action' => 'Certaines actions n\'ont pas été effectuées en raison de contraintes système restreintes sur :resource',
@@ -1223,91 +1388,191 @@ return [
                 ],
             ],
 
-            'delete-failed'  => 'Échec de la suppression du client',
-            'delete-success' => 'Client supprimé avec succès',
-            'order-pending'  => 'Commandes en attente',
-            'update-success' => 'Client mis à jour avec succès',
-
-            'edit' => [
-                'contact-number'        => 'Numéro de contact',
-                'customer-group'        => 'Groupe de clients',
-                'date-of-birth'         => 'Date de naissance',
-                'edit-btn'              => 'Modifier',
-                'email'                 => 'E-mail',
-                'female'                => 'Femme',
-                'first-name'            => 'Prénom',
-                'gender'                => 'Genre',
-                'last-name'             => 'Nom de famille',
-                'male'                  => 'Homme',
-                'other'                 => 'Autre',
-                'save-btn'              => 'Enregistrer le client',
-                'select-customer-group' => 'Sélectionner le groupe de clients',
-                'select-gender'         => 'Sélectionner le genre',
-                'status'                => 'Statut',
-                'suspended'             => 'Suspendu',
-                'title'                 => 'Modifier le client',
-            ],
-
             'view' => [
-                'account-delete-confirmation' => 'Êtes-vous sûr de vouloir supprimer ce compte ?',
+                'account-delete-confirmation' => 'Êtes-vous sûr de vouloir supprimer ce compte?',
                 'active'                      => 'Actif',
-                'add-note'                    => 'Ajouter une note',
-                'address'                     => 'Adresse',
-                'address-delete-confirmation' => 'Êtes-vous sûr de vouloir supprimer cette adresse ?',
-                'address-delete-success'      => 'Adresse supprimée avec succès',
-                'approved'                    => 'Approuvé',
+                'address-delete-confirmation' => 'Êtes-vous sûr de vouloir supprimer cette adresse?',
                 'back-btn'                    => 'Retour',
-                'canceled'                    => 'Annulée',
-                'closed'                      => 'Fermée',
-                'completed'                   => 'Terminée',
+                'create-order'                => 'Créer une commande',
                 'customer'                    => 'Client',
-                'customer-not-notified'       => ':date | Client <b>non notifié</b>',
-                'customer-notified'           => ':date | Client <b>notifié</b>',
                 'date-of-birth'               => 'DOB - :dob',
                 'default-address'             => 'Adresse par défaut',
-                'delete'                      => 'Supprimer',
                 'delete-account'              => 'Supprimer le compte',
-                'disapproved'                 => 'Désapprouvé',
-                'edit'                        => 'Modifier',
+                'delete'                      => 'Supprimer',
                 'email'                       => 'E-mail - :email',
-                'empty-description'           => 'Créez de nouvelles adresses pour le client',
-                'empty-invoice'               => 'Aucune facture disponible',
-                'empty-order'                 => 'Aucune commande disponible',
-                'empty-review'                => 'Aucun avis disponible',
+                'empty-description'           => 'Créer de nouvelles adresses pour le client',
                 'empty-title'                 => 'Ajouter une adresse client',
                 'gender'                      => 'Genre - :gender',
                 'group'                       => 'Groupe - :group_code',
-                'id'                          => 'ID - :id',
                 'inactive'                    => 'Inactif',
-                'increment-id'                => '# :increment_id',
-                'invoice'                     => 'Factures (:invoice_count)',
-                'invoice-amount'              => 'Montant de la facture',
-                'invoice-date'                => 'Date de la facture',
-                'invoice-id'                  => 'ID de la facture',
-                'invoice-id-prefix'           => '# :invoice_id',
-                'mobile'                      => 'Mobile',
-                'note'                        => 'Note',
+                'login-as-customer'           => 'Se connecter en tant que client',
                 'note-created-success'        => 'Note créée avec succès',
-                'note-placeholder'            => 'Écrivez votre note ici',
-                'notify-customer'             => 'Notifier le client',
-                'of'                          => 'de',
-                'order-id'                    => 'ID de la commande',
-                'order-id-prefix'             => '# :order_id',
-                'order-pending'               => 'Impossible de supprimer le compte car certaines commandes sont en attente ou en traitement.',
-                'orders'                      => 'Commandes (:order_count)',
-                'pay-by'                      => 'Payer par',
-                'pending'                     => 'En attente',
-                'per-page'                    => 'par page',
+                'order-create-confirmation'   => 'Êtes-vous sûr de vouloir créer une commande pour ce client?',
                 'phone'                       => 'Téléphone - :phone',
-                'processing'                  => 'En cours de traitement',
-                'reviews'                     => 'Avis',
                 'set-as-default'              => 'Définir comme par défaut',
-                'set-default-success'         => 'Adresse par défaut mise à jour avec succès',
-                'submit-btn-title'            => 'Soumettre la note',
                 'suspended'                   => 'Suspendu',
                 'title'                       => 'Vue du client',
-                'total-revenue'               => 'Revenu total - :revenue',
+
+                'address' => [
+                    'count' => 'Adresses (:count)',
+
+                    'create' => [
+                        'city'               => 'Ville',
+                        'company-name'       => 'Nom de l\'entreprise',
+                        'country'            => 'Pays',
+                        'create-btn'         => 'Créer',
+                        'create-address-btn' => 'Ajouter une nouvelle adresse',
+                        'default-address'    => 'Adresse par défaut',
+                        'email'              => 'E-mail',
+                        'first-name'         => 'Prénom',
+                        'last-name'          => 'Nom de famille',
+                        'phone'              => 'Téléphone',
+                        'post-code'          => 'Code postal',
+                        'save-btn-title'     => 'Enregistrer l\'adresse',
+                        'select-country'     => 'Sélectionner un pays',
+                        'state'              => 'État',
+                        'street-address'     => 'Adresse',
+                        'title'              => 'Créer une adresse',
+                        'vat-id'             => 'Numéro de TVA',
+                    ],
+
+                    'edit' => [
+                        'city'            => 'Ville',
+                        'company-name'    => 'Nom de l\'entreprise',
+                        'country'         => 'Pays',
+                        'default-address' => 'Adresse par défaut',
+                        'edit-btn'        => 'Éditer',
+                        'email'           => 'E-mail',
+                        'first-name'      => 'Prénom',
+                        'last-name'       => 'Nom de famille',
+                        'phone'           => 'Téléphone',
+                        'post-code'       => 'Code postal',
+                        'save-btn-title'  => 'Enregistrer l\'adresse',
+                        'select-country'  => 'Sélectionner un pays',
+                        'state'           => 'État',
+                        'street-address'  => 'Adresse',
+                        'title'           => 'Éditer l\'adresse',
+                        'vat-id'          => 'Numéro de TVA',
+                    ],
+
+                    'address-delete-success' => 'Adresse supprimée avec succès',
+                    'create-success'         => 'Adresse créée avec succès',
+                    'set-default-success'    => 'Adresse par défaut mise à jour avec succès',
+                    'success-mass-delete'    => 'Suppression en masse d\'adresses réussie',
+                    'update-success'         => 'Adresse mise à jour avec succès',
+                ],
+
+                'datagrid' => [
+                    'invoices' => [
+                        'empty-invoice'  => 'Aucune critique disponible',
+                        'increment-id'   => 'ID des factures',
+                        'invoice-amount' => 'Montant des factures',
+                        'invoice-date'   => 'Date des factures',
+                        'order-id'       => 'ID de la commande',
+                        'view'           => 'Voir',
+                    ],
+
+                    'orders' => [
+                        'canceled'        => 'Annulé',
+                        'channel-name'    => 'Nom de la chaîne',
+                        'closed'          => 'Fermé',
+                        'completed'       => 'Terminé',
+                        'customer-name'   => 'Nom du client',
+                        'date'            => 'Date',
+                        'empty-order'     => 'Aucune commande disponible',
+                        'email'           => 'E-mail',
+                        'fraud'           => 'Fraude',
+                        'grand-total'     => 'Total général',
+                        'location'        => 'Emplacement',
+                        'order-id'        => 'ID de la commande',
+                        'pay-via'         => 'Payer par',
+                        'pending'         => 'En attente',
+                        'pending-payment' => 'Paiement en attente',
+                        'processing'      => 'En cours de traitement',
+                        'status'          => 'Statut',
+                        'view'            => 'Voir',
+                    ],
+
+                    'reviews' => [
+                        'approved'      => 'Approuvé',
+                        'comment'       => 'Commentaire',
+                        'created-at'    => 'Créé le',
+                        'disapproved'   => 'Désapprouvé',
+                        'empty-reviews' => 'Aucune facture disponible',
+                        'id'            => 'ID',
+                        'invoice-date'  => 'Date de la facture',
+                        'pending'       => 'En attente',
+                        'product-id'    => 'ID du produit',
+                        'product-name'  => 'Nom du produit',
+                        'rating'        => 'Note',
+                        'status'        => 'Statut',
+                        'title'         => 'Titre',
+                    ],
+                ],
+
+                'edit' => [
+                    'contact-number'        => 'Numéro de contact',
+                    'customer-group'        => 'Groupe de clients',
+                    'date-of-birth'         => 'Date de naissance',
+                    'edit-btn'              => 'Éditer',
+                    'email'                 => 'E-mail',
+                    'female'                => 'Femme',
+                    'first-name'            => 'Prénom',
+                    'gender'                => 'Genre',
+                    'last-name'             => 'Nom de famille',
+                    'male'                  => 'Homme',
+                    'other'                 => 'Autre',
+                    'save-btn'              => 'Enregistrer le client',
+                    'select-customer-group' => 'Sélectionner le groupe de clients',
+                    'select-gender'         => 'Sélectionner le genre',
+                    'status'                => 'Statut',
+                    'suspended'             => 'Suspendu',
+                    'title'                 => 'Éditer le client',
+                ],
+
+                'invoices' => [
+                    'count'        => 'Factures (:count)',
+                    'increment-id' => '# :increment_id',
+                ],
+
+                'notes' => [
+                    'add-note'              => 'Ajouter une note',
+                    'customer-not-notified' => ':date | Client <b>Non notifié</b>',
+                    'customer-notified'     => ':date | Client <b>Notifié</b>',
+                    'note'                  => 'Note',
+                    'note-placeholder'      => 'Écrivez votre note ici',
+                    'notify-customer'       => 'Notifier le client',
+                    'submit-btn-title'      => 'Soumettre la note',
+                ],
+
+                'orders' => [
+                    'count'         => 'Commandes (:count)',
+                    'increment-id'  => '# :increment_id',
+                    'total-revenue' => 'Revenu total - :revenue',
+                ],
+
+                'reviews' => [
+                    'id'    => 'ID - :id',
+                    'count' => 'Avis (:count)',
+                ],
+
+                'cart' => [
+                    'delete-success' => 'Article du panier supprimé avec succès.',
+                ],
+
+                'wishlist' => [
+                    'delete-success' => 'Article de la liste de souhaits supprimé avec succès.',
+                ],
+
+                'compare' => [
+                    'delete-success' => 'Article de comparaison supprimé avec succès.',
+                ],
             ],
+
+            'delete-failed'  => 'Échec de la suppression du client',
+            'delete-success' => 'Suppression du client réussie',
+            'order-pending'  => 'Les commandes sont en attente',
+            'update-success' => 'Mise à jour du client réussie',
         ],
 
         'groups' => [
@@ -1370,7 +1635,7 @@ return [
                     'update-success' => 'Mise à jour réussie',
                 ],
 
-                'datagrid'   => [
+                'datagrid' => [
                     'approved'            => 'Approuvé',
                     'comment'             => 'Commentaire',
                     'customer-names'      => 'Nom',
@@ -1392,53 +1657,6 @@ return [
                     'update-status'       => 'Mettre à jour le statut',
                 ],
             ],
-        ],
-
-        'addresses' => [
-            'create' => [
-                'address-1'          => 'Adresse 1',
-                'address-2'          => 'Adresse 2',
-                'city'               => 'Ville',
-                'company-name'       => 'Nom de l\'entreprise',
-                'country'            => 'Pays',
-                'create-address-btn' => 'Ajouter une nouvelle adresse',
-                'default-address'    => 'Adresse par défaut',
-                'email'              => 'Email',
-                'first-name'         => 'Prénom',
-                'last-name'          => 'Nom de famille',
-                'phone'              => 'Téléphone',
-                'post-code'          => 'Code postal',
-                'save-btn-title'     => 'Enregistrer l\'adresse',
-                'select-country'     => 'Sélectionner le pays',
-                'state'              => 'État',
-                'street-address'     => 'Adresse',
-                'title'              => 'Créer une adresse client',
-                'vat-id'             => 'Identifiant TVA',
-            ],
-
-            'edit' => [
-                'address-1'        => 'Adresse 1',
-                'address-2'        => 'Adresse 2',
-                'city'             => 'Ville',
-                'company-name'     => 'Nom de l\'entreprise',
-                'country'          => 'Pays',
-                'default-address'  => 'Adresse par défaut',
-                'email'            => 'Email',
-                'first-name'       => 'Prénom',
-                'last-name'        => 'Nom de famille',
-                'phone'            => 'Téléphone',
-                'post-code'        => 'Code postal',
-                'save-btn-title'   => 'Enregistrer l\'adresse',
-                'select-country'   => 'Sélectionner le pays',
-                'state'            => 'État',
-                'street-address'   => 'Adresse',
-                'title'            => 'Modifier l\'adresse',
-                'vat-id'           => 'Identifiant TVA',
-            ],
-
-            'create-success'      => 'Adresse créée avec succès',
-            'success-mass-delete' => 'Suppression en masse des adresses avec succès',
-            'update-success'      => 'Adresse mise à jour avec succès',
         ],
     ],
 
@@ -1510,7 +1728,7 @@ return [
                     ],
                 ],
 
-                'create'    => [
+                'create' => [
                     'active'          => 'Actif',
                     'back-btn'        => 'Retour',
                     'channel'         => 'Canal',
@@ -1532,7 +1750,7 @@ return [
                     'title'           => 'Créer une campagne',
                 ],
 
-                'edit'    => [
+                'edit' => [
                     'active'          => 'Actif',
                     'audience'        => 'Audience',
                     'back-btn'        => 'Retour',
@@ -1574,7 +1792,7 @@ return [
                         'name'    => 'Nom',
                     ],
 
-                    'create'   => [
+                    'create' => [
                         'date'           => 'Date',
                         'delete-warning' => 'Êtes-vous sûr de vouloir effectuer cette action ?',
                         'description'    => 'Description',
@@ -2119,8 +2337,10 @@ return [
 
     'cms' => [
         'index' => [
-            'already-taken' => 'Le :name a déjà été pris.',
+            'already-taken' => 'Le :name est déjà pris.',
             'create-btn'    => 'Créer une page',
+            'channel'       => 'Canal',
+            'language'      => 'Langue',
             'title'         => 'Pages',
 
             'datagrid' => [
@@ -2173,7 +2393,7 @@ return [
     ],
 
     'settings' => [
-        'locales'           => [
+        'locales' => [
             'index' => [
                 'create-btn' => 'Créer une locale',
                 'locale'     => 'Locale',
@@ -2215,7 +2435,7 @@ return [
             ],
         ],
 
-        'currencies'        => [
+        'currencies' => [
             'index' => [
                 'create-btn' => 'Créer une devise',
                 'currency'   => 'Devise',
@@ -2235,15 +2455,18 @@ return [
                 ],
 
                 'create' => [
-                    'code'           => 'Code',
-                    'create-btn'     => 'Créer une devise',
-                    'decimal'        => 'Décimal',
-                    'delete-warning' => 'Êtes-vous sûr de vouloir effectuer cette action ?',
-                    'general'        => 'Général',
-                    'name'           => 'Nom',
-                    'save-btn'       => 'Enregistrer la devise',
-                    'symbol'         => 'Symbole',
-                    'title'          => 'Créer une nouvelle devise',
+                    'code'              => 'Code',
+                    'create-btn'        => 'Créer une devise',
+                    'currency-position' => 'Position de la devise',
+                    'decimal'           => 'Décimal',
+                    'decimal-separator' => 'Séparateur décimal',
+                    'delete-warning'    => 'Êtes-vous sûr de vouloir effectuer cette action ?',
+                    'general'           => 'Général',
+                    'group-separator'   => 'Séparateur de Groupe',
+                    'name'              => 'Nom',
+                    'save-btn'          => 'Enregistrer la devise',
+                    'symbol'            => 'Symbole',
+                    'title'             => 'Créer une nouvelle devise',
                 ],
 
                 'edit' => [
@@ -2260,7 +2483,7 @@ return [
 
         'data-transfer'     => [
             'imports' => [
-                'create'            => [
+                'create' => [
                     'action'              => 'Action',
                     'allowed-errors'      => 'Erreurs Autorisées',
                     'back-btn'            => 'Retour',
@@ -2268,9 +2491,9 @@ return [
                     'delete'              => 'Supprimer',
                     'download-sample'     => 'Télécharger un Exemple',
                     'field-separator'     => 'Séparateur de Champ',
-                    'file-info-example'   => 'Par exemple, en cas d\'images de produits, les fichiers doivent être placés dans /project-root/storage/app/import/product-images.',
-                    'file-info'           => 'Utiliser le chemin relatif à /project-root/storage/app/import, par exemple, product-images, import-images.',
                     'file'                => 'Fichier',
+                    'file-info'           => 'Utiliser le chemin relatif à /project-root/storage/app/import, par exemple, product-images, import-images.',
+                    'file-info-example'   => 'Par exemple, en cas d\'images de produits, les fichiers doivent être placés dans /project-root/storage/app/import/product-images.',
                     'general'             => 'Général',
                     'images-directory'    => 'Chemin du Répertoire d\'Images',
                     'process-in-queue'    => 'Traitement dans la File d\'Attente',
@@ -2284,7 +2507,7 @@ return [
                     'validation-strategy' => 'Stratégie de Validation',
                 ],
 
-                'edit'              => [
+                'edit' => [
                     'action'              => 'Action',
                     'allowed-errors'      => 'Erreurs Autorisées',
                     'back-btn'            => 'Retour',
@@ -2292,9 +2515,9 @@ return [
                     'delete'              => 'Supprimer',
                     'download-sample'     => 'Télécharger un Exemple',
                     'field-separator'     => 'Séparateur de Champ',
-                    'file-info-example'   => 'Par exemple, en cas d\'images de produits, les fichiers doivent être placés dans /project-root/storage/app/import/product-images.',
-                    'file-info'           => 'Utiliser le chemin relatif à /project-root/storage/app/import, par exemple, product-images, import-images.',
                     'file'                => 'Fichier',
+                    'file-info'           => 'Utiliser le chemin relatif à /project-root/storage/app/import, par exemple, product-images, import-images.',
+                    'file-info-example'   => 'Par exemple, en cas d\'images de produits, les fichiers doivent être placés dans /project-root/storage/app/import/product-images.',
                     'general'             => 'Général',
                     'images-directory'    => 'Chemin du Répertoire d\'Images',
                     'process-in-queue'    => 'Traitement dans la File d\'Attente',
@@ -2308,11 +2531,11 @@ return [
                     'validation-strategy' => 'Stratégie de Validation',
                 ],
 
-                'index'             => [
+                'index' => [
                     'button-title' => 'Créer une Importation',
                     'title'        => 'Importations',
 
-                    'datagrid'     => [
+                    'datagrid' => [
                         'actions'       => 'Actions',
                         'completed-at'  => 'Terminé à',
                         'created'       => 'Créé',
@@ -2329,7 +2552,7 @@ return [
                     ],
                 ],
 
-                'import'            => [
+                'import' => [
                     'back-btn'                => 'Retour',
                     'completed-batches'       => 'Total de Lots Terminés :',
                     'download-error-report'   => 'Télécharger le Rapport Complet',
@@ -2364,7 +2587,7 @@ return [
             ],
         ],
 
-        'exchange-rates'    => [
+        'exchange-rates' => [
             'index' => [
                 'create-btn'    => 'Créer un taux de change',
                 'exchange-rate' => 'Taux de change',
@@ -2382,7 +2605,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'   => 'Modifier les taux de change',
+                    'title' => 'Modifier les taux de change',
                 ],
 
                 'datagrid' => [
@@ -2483,7 +2706,7 @@ return [
             'update-success'    => 'Sources d’inventaire mises à jour avec succès',
         ],
 
-        'taxes'             => [
+        'taxes' => [
             'categories' => [
                 'index' => [
                     'delete-warning' => 'Êtes-vous sûr de vouloir supprimer ?',
@@ -2523,7 +2746,7 @@ return [
                 ],
             ],
 
-            'rates'   => [
+            'rates' => [
                 'index' => [
                     'button-title' => 'Créer un taux de taxe',
                     'tax-rate'     => 'Taux de taxe',
@@ -2563,12 +2786,12 @@ return [
 
                 'edit' => [
                     'back-btn'       => 'Retour',
-                    'basic-settings' => 'Paramètres de base',
                     'country'        => 'Pays',
                     'identifier'     => 'Identifiant',
                     'save-btn'       => 'Enregistrer le taux de taxe',
                     'select-country' => 'Sélectionner un pays',
                     'select-state'   => 'Sélectionner un État',
+                    'settings'       => 'Paramètres',
                     'state'          => 'État',
                     'tax-rate'       => 'Taux',
                     'title'          => 'Modifier le taux de taxe',
@@ -2875,7 +3098,8 @@ return [
                 'url'                           => 'URL',
                 'value'                         => 'Valeur : :value',
                 'value-input'                   => 'Valeur',
-                'services-content'              => [
+
+                'services-content' => [
                     'add-btn'               => 'Ajouter des services',
                     'channels'              => 'Canaux',
                     'delete'                => 'Supprimer',
@@ -3034,6 +3258,8 @@ return [
             'save-btn'                     => 'Enregistrer la configuration',
             'save-message'                 => 'Configuration enregistrée avec succès',
             'search'                       => 'Recherche',
+            'select-country'               => 'Sélectionnez un pays',
+            'select-state'                 => 'Sélectionnez un état',
             'title'                        => 'Configuration',
 
             'general' => [
@@ -3364,17 +3590,21 @@ return [
                 'title' => 'E-Mail',
 
                 'email-settings' => [
-                    'admin-email'           => 'Admin-E-Mail',
-                    'admin-email-tip'       => 'Diese E-Mail-Adresse wird für den Empfang von E-Mails in diesem Kanal verwendet.',
-                    'admin-name'            => 'Admin-Name',
-                    'admin-name-tip'        => 'Dieser Name wird in allen Admin-E-Mails angezeigt.',
-                    'admin-page-limit'      => 'Standardseitenlimit pro Seite (Admin)',
-                    'email-sender-name'     => 'Name des E-Mail-Senders',
-                    'email-sender-name-tip' => 'Dieser Name wird im Posteingang des Kunden angezeigt.',
-                    'info'                  => 'Legen Sie den Namen des E-Mail-Senders, die E-Mail-Adresse des Geschäfts, den Namen des Administrators und die E-Mail-Adresse des Administrators fest.',
-                    'shop-email-from'       => 'E-Mail-Adresse des Geschäfts',
-                    'shop-email-from-tip'   => 'E-Mail-Adresse, von der aus Kunden E-Mails erhalten.',
-                    'title'                 => 'E-Mail-Einstellungen',
+                    'admin-email'           => 'E-Mail de l\'administrateur',
+                    'admin-email-tip'       => 'Cette adresse e-mail est utilisée pour l\'envoi d\'e-mails dans ce canal.',
+                    'admin-name'            => 'Nom de l\'administrateur',
+                    'admin-name-tip'        => 'Ce nom est affiché dans tous les e-mails d\'administration.',
+                    'admin-page-limit'      => 'Limite de pages standard par page (Admin)',
+                    'contact-email'         => 'Contact Email',
+                    'contact-email-tip'     => 'The email address will be shown at the bottom of your emails',
+                    'contact-name'          => 'Contact Name',
+                    'contact-name-tip'      => 'This name will be shown at the bottom of your emails',
+                    'email-sender-name'     => 'Nom de l\'expéditeur de l\'e-mail',
+                    'email-sender-name-tip' => 'Ce nom est affiché dans tous les e-mails envoyés par le système.',
+                    'info'                  => 'Définissez le nom de l\'expéditeur de l\'e-mail, l\'adresse e-mail du magasin, le nom de l\'administrateur et l\'adresse e-mail de l\'administrateur.',
+                    'shop-email-from'       => 'E-Mail du magasin',
+                    'shop-email-from-tip'   => 'Cette adresse e-mail est utilisée pour l\'envoi d\'e-mails dans ce canal.',
+                    'title'                 => 'Paramètres de messagerie',
                 ],
 
                 'notifications' => [
@@ -3441,40 +3671,40 @@ return [
                 ],
 
                 'payment-methods' => [
-                    'accepted-currencies'            => 'Devises acceptées',
-                    'accepted-currencies-info'       => 'Ajoutez les codes de devise séparés par des virgules, par exemple USD, INR,...',
-                    'business-account'               => 'Compte professionnel',
-                    'cash-on-delivery'               => 'Contre-remboursement',
-                    'cash-on-delivery-info'          => 'Méthode de paiement où les clients paient en espèces à la réception des biens ou services à leur porte.',
-                    'client-id'                      => 'Identifiant client',
-                    'client-id-info'                 => 'Utilisez "sb" pour les tests.',
-                    'client-secret'                  => 'Secret client',
-                    'client-secret-info'             => 'Ajoutez votre clé secrète ici',
-                    'description'                    => 'Description',
-                    'generate-invoice'               => 'Générer automatiquement la facture après avoir passé une commande',
-                    'generate-invoice-applicable'    => 'Applicable si la génération automatique de la facture est activée',
-                    'info'                           => 'Définir les informations sur les méthodes de paiement',
-                    'instructions'                   => 'Instructions',
-                    'logo'                           => 'Logo',
-                    'logo-information'               => 'La résolution de l\'image doit être de 55px X 45px',
-                    'mailing-address'                => 'Envoyer le chèque à',
-                    'money-transfer'                 => 'Virement bancaire',
-                    'money-transfer-info'            => 'Transfert de fonds d\'une personne ou d\'un compte à un autre, souvent électroniquement, à des fins diverses telles que des transactions ou des envois d\'argent.',
-                    'page-title'                     => 'Méthodes de paiement',
-                    'paid'                           => 'Payé',
-                    'paypal-smart-button'            => 'PayPal',
-                    'paypal-smart-button-info'       => 'Bouton intelligent PayPal : simplifie les paiements en ligne avec des boutons personnalisables pour des transactions sécurisées et multi-méthodes sur les sites web et les applications.',
-                    'paypal-standard'                => 'PayPal Standard',
-                    'paypal-standard-info'           => 'PayPal Standard est une option de paiement PayPal de base pour les entreprises en ligne, permettant aux clients de payer avec leur compte PayPal ou par carte de crédit/débit.',
-                    'pending'                        => 'En attente',
-                    'pending-payment'                => 'Paiement en attente',
-                    'processing'                     => 'En cours de traitement',
-                    'sandbox'                        => 'Bac à sable',
-                    'set-invoice-status'             => 'Définir le statut de la facture après la création de la facture à',
-                    'set-order-status'               => 'Définir le statut de la commande après la création de la facture à',
-                    'sort-order'                     => 'Ordre de tri',
-                    'status'                         => 'Statut',
-                    'title'                          => 'Titre',
+                    'accepted-currencies'         => 'Devises acceptées',
+                    'accepted-currencies-info'    => 'Ajoutez les codes de devise séparés par des virgules, par exemple USD, INR,...',
+                    'business-account'            => 'Compte professionnel',
+                    'cash-on-delivery'            => 'Contre-remboursement',
+                    'cash-on-delivery-info'       => 'Méthode de paiement où les clients paient en espèces à la réception des biens ou services à leur porte.',
+                    'client-id'                   => 'Identifiant client',
+                    'client-id-info'              => 'Utilisez "sb" pour les tests.',
+                    'client-secret'               => 'Secret client',
+                    'client-secret-info'          => 'Ajoutez votre clé secrète ici',
+                    'description'                 => 'Description',
+                    'generate-invoice'            => 'Générer automatiquement la facture après avoir passé une commande',
+                    'generate-invoice-applicable' => 'Applicable si la génération automatique de la facture est activée',
+                    'info'                        => 'Définir les informations sur les méthodes de paiement',
+                    'instructions'                => 'Instructions',
+                    'logo'                        => 'Logo',
+                    'logo-information'            => 'La résolution de l\'image doit être de 55px X 45px',
+                    'mailing-address'             => 'Envoyer le chèque à',
+                    'money-transfer'              => 'Virement bancaire',
+                    'money-transfer-info'         => 'Transfert de fonds d\'une personne ou d\'un compte à un autre, souvent électroniquement, à des fins diverses telles que des transactions ou des envois d\'argent.',
+                    'page-title'                  => 'Méthodes de paiement',
+                    'paid'                        => 'Payé',
+                    'paypal-smart-button'         => 'PayPal',
+                    'paypal-smart-button-info'    => 'Bouton intelligent PayPal : simplifie les paiements en ligne avec des boutons personnalisables pour des transactions sécurisées et multi-méthodes sur les sites web et les applications.',
+                    'paypal-standard'             => 'PayPal Standard',
+                    'paypal-standard-info'        => 'PayPal Standard est une option de paiement PayPal de base pour les entreprises en ligne, permettant aux clients de payer avec leur compte PayPal ou par carte de crédit/débit.',
+                    'pending'                     => 'En attente',
+                    'pending-payment'             => 'Paiement en attente',
+                    'processing'                  => 'En cours de traitement',
+                    'sandbox'                     => 'Bac à sable',
+                    'set-invoice-status'          => 'Définir le statut de la facture après la création de la facture à',
+                    'set-order-status'            => 'Définir le statut de la commande après la création de la facture à',
+                    'sort-order'                  => 'Ordre de tri',
+                    'status'                      => 'Statut',
+                    'title'                       => 'Titre',
                 ],
 
                 'order-settings' => [

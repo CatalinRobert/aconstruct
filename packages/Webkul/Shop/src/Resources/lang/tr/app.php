@@ -3,6 +3,7 @@
 return [
     'customers' => [
         'forgot-password' => [
+            'already-sent'         => 'Zaten Şifre Sıfırlama Postası Gönderildi.',
             'back'                 => 'Girişe geri dön?',
             'bagisto'              => 'Bagisto',
             'email'                => 'E-posta',
@@ -72,64 +73,98 @@ return [
             'home' => 'Anasayfa',
 
             'profile' => [
-                'confirm-password'        => 'Şifreyi Onayla',
-                'current-password'        => 'Mevcut Şifre',
-                'delete'                  => 'Sil',
-                'delete-failed'           => 'Müşteriyi silme sırasında bir hata oluştu.',
-                'delete-profile'          => 'Profil Sil',
-                'delete-success'          => 'Müşteri başarıyla silindi',
-                'dob'                     => 'Doğum Tarihi',
-                'edit'                    => 'Düzenle',
-                'edit-profile'            => 'Profil Düzenle',
-                'edit-success'            => 'Profil Başarıyla Güncellendi',
-                'email'                   => 'E-posta',
-                'enter-password'          => 'Şifrenizi Girin',
-                'female'                  => 'Kadın',
-                'first-name'              => 'Ad',
-                'gender'                  => 'Cinsiyet',
-                'last-name'               => 'Soyadı',
-                'male'                    => 'Erkek',
-                'new-password'            => 'Yeni Şifre',
-                'order-pending'           => 'Müşteri hesabı silinemiyor, çünkü bazı Sipariş(ler) bekliyor veya işlem görüyor.',
-                'other'                   => 'Diğer',
-                'phone'                   => 'Telefon',
-                'save'                    => 'Kaydet',
-                'select-gender'           => 'Cinsiyet Seçin',
-                'subscribe-to-newsletter' => 'Bültenimize Abone Ol',
-                'title'                   => 'Profil',
-                'unmatch'                 => 'Eski şifre uyuşmuyor.',
-                'wrong-password'          => 'Yanlış Şifre!',
+                'index' => [
+                    'delete'         => 'Sil',
+                    'delete-failed'  => 'Müşteri silinirken hata oluştu.',
+                    'delete-profile' => 'Profili Sil',
+                    'delete-success' => 'Müşteri başarıyla silindi',
+                    'dob'            => 'Doğum Tarihi',
+                    'edit'           => 'Düzenle',
+                    'edit-success'   => 'Profil Başarıyla Güncellendi',
+                    'email'          => 'E-posta',
+                    'enter-password' => 'Şifrenizi Girin',
+                    'first-name'     => 'Ad',
+                    'gender'         => 'Cinsiyet',
+                    'last-name'      => 'Soyadı',
+                    'order-pending'  => 'Müşteri hesabı silinemez çünkü bazı sipariş(ler) bekliyor veya işleniyor durumunda.',
+                    'title'          => 'Profil',
+                    'unmatched'      => 'Eski şifre eşleşmiyor.',
+                    'wrong-password' => 'Yanlış Şifre!',
+                ],
+
+                'edit' => [
+                    'confirm-password'        => 'Şifreyi Onayla',
+                    'current-password'        => 'Mevcut Şifre',
+                    'dob'                     => 'Doğum Tarihi',
+                    'edit'                    => 'Düzenle',
+                    'edit-profile'            => 'Profili Düzenle',
+                    'email'                   => 'E-posta',
+                    'female'                  => 'Kadın',
+                    'first-name'              => 'Ad',
+                    'gender'                  => 'Cinsiyet',
+                    'last-name'               => 'Soyadı',
+                    'male'                    => 'Erkek',
+                    'new-password'            => 'Yeni Şifre',
+                    'other'                   => 'Diğer',
+                    'phone'                   => 'Telefon',
+                    'save'                    => 'Kaydet',
+                    'subscribe-to-newsletter' => 'Bülten aboneliği',
+                ],
             ],
 
             'addresses' => [
-                'add-address'      => 'Adres Ekle',
-                'address-1'        => 'Adres 1',
-                'address-2'        => 'Adres 2',
-                'city'             => 'Şehir',
-                'company-name'     => 'Şirket Adı',
-                'country'          => 'Ülke',
-                'create-success'   => 'Adres başarıyla eklendi.',
-                'default-address'  => 'Varsayılan Adres',
-                'default-delete'   => 'Varsayılan adres değiştirilemez.',
-                'delete'           => 'Sil',
-                'delete-success'   => 'Adres başarıyla silindi',
-                'edit'             => 'Düzenle',
-                'edit-address'     => 'Adresi Düzenle',
-                'edit-success'     => 'Adres başarıyla güncellendi.',
-                'email'            => 'E-posta',
-                'empty-address'    => 'Henüz hesabınıza bir adres eklememişsiniz.',
-                'first-name'       => 'Ad',
-                'last-name'        => 'Soyadı',
-                'phone'            => 'Telefon',
-                'post-code'        => 'Posta Kodu',
-                'save'             => 'Kaydet',
-                'security-warning' => 'Şüpheli aktivite bulundu!!!',
-                'select-country'   => 'Ülke Seç',
-                'set-as-default'   => 'Varsayılan Olarak Ayarla',
-                'state'            => 'Bölge',
-                'street-address'   => 'Sokak Adresi',
-                'title'            => 'Adres',
-                'vat-id'           => 'KDV Kimlik Numarası',
+                'index' => [
+                    'add-address'      => 'Adres Ekle',
+                    'create-success'   => 'Adres başarıyla eklendi.',
+                    'default-address'  => 'Varsayılan Adres',
+                    'default-delete'   => 'Varsayılan adres değiştirilemez.',
+                    'delete'           => 'Sil',
+                    'delete-success'   => 'Adres başarıyla silindi',
+                    'edit'             => 'Düzenle',
+                    'edit-success'     => 'Adres başarıyla güncellendi.',
+                    'empty-address'    => 'Hesabınıza henüz bir adres eklenmedi.',
+                    'security-warning' => 'Şüpheli aktivite tespit edildi!!!',
+                    'set-as-default'   => 'Varsayılan Olarak Ayarla',
+                    'title'            => 'Adres',
+                    'update-success'   => 'Adres başarıyla güncellendi.',
+                ],
+
+                'create' => [
+                    'add-address'    => 'Adres Ekle',
+                    'city'           => 'Şehir',
+                    'company-name'   => 'Şirket Adı',
+                    'country'        => 'Ülke',
+                    'email'          => 'E-posta',
+                    'first-name'     => 'Ad',
+                    'last-name'      => 'Soyadı',
+                    'phone'          => 'Telefon',
+                    'post-code'      => 'Posta Kodu',
+                    'save'           => 'Kaydet',
+                    'select-country' => 'Ülke Seçin',
+                    'set-as-default' => 'Varsayılan Olarak Ayarla',
+                    'state'          => 'Eyalet',
+                    'street-address' => 'Adres',
+                    'title'          => 'Adres',
+                    'vat-id'         => 'KDV Numarası',
+                ],
+
+                'edit' => [
+                    'city'           => 'Şehir',
+                    'company-name'   => 'Şirket Adı',
+                    'country'        => 'Ülke',
+                    'edit'           => 'Düzenle',
+                    'email'          => 'E-posta',
+                    'first-name'     => 'Ad',
+                    'last-name'      => 'Soyadı',
+                    'phone'          => 'Telefon',
+                    'post-code'      => 'Posta Kodu',
+                    'save'           => 'Kaydet',
+                    'select-country' => 'Ülke Seçin',
+                    'state'          => 'Eyalet',
+                    'street-address' => 'Adres',
+                    'title'          => 'Adres',
+                    'vat-id'         => 'KDV Numarası',
+                ],
             ],
 
             'orders' => [
@@ -162,8 +197,10 @@ return [
                     'cancel-confirm-msg' => 'Bu siparişi iptal etmek istediğinizden emin misiniz ?',
                     'cancel-error'       => 'Siparişiniz iptal edilemez.',
                     'cancel-success'     => 'Siparişiniz iptal edildi',
+                    'contact'            => 'İletişim',
                     'page-title'         => 'Sipariş #:order_id',
                     'payment-method'     => 'Ödeme Yöntemi',
+                    'reorder-btn-title'  => 'Yeniden düzenle',
                     'shipping-address'   => 'Teslimat Adresi',
                     'shipping-method'    => 'Teslimat Yöntemi',
                     'title'              => 'Görüntüle',
@@ -339,10 +376,19 @@ return [
                 'search-text'       => 'Ürünleri burada ara',
                 'sign-in'           => 'Giriş Yap',
                 'sign-up'           => 'Kaydol',
+                'submit'            => 'Gönder',
                 'title'             => 'Hesap',
                 'welcome'           => 'Hoş geldiniz',
                 'welcome-guest'     => 'Hoş geldiniz Misafir',
                 'wishlist'          => 'İstek Listesi',
+
+                'desktop' => [
+                    'top' => [
+                        'default-locale' => 'Varsayılan dil',
+                        'offer'          => 'İlk siparişinizde %40\'a varan İNDİRİM alın',
+                        'shop-now'       => 'ŞİMDİ ALIŞVERİŞ YAP',
+                    ],
+                ],
             ],
 
             'footer' => [
@@ -367,55 +413,50 @@ return [
 
         'datagrid' => [
             'toolbar' => [
-                'mass-actions' => [
-                    'select-action' => 'Eylem Seç',
-                    'select-option' => 'Seçenek Seç',
-                    'submit'        => 'Gönder',
-                ],
+                'length-of' => ':length adet',
+                'results'   => ':total Sonuç',
+                'selected'  => ':total Seçildi',
 
-                'filter' => [
-                    'title' => 'Filtre',
+                'mass-actions' => [
+                    'must-select-a-mass-action'        => 'Bir toplu işlem seçmelisiniz.',
+                    'must-select-a-mass-action-option' => 'Bir toplu işlem seçeneği seçmelisiniz.',
+                    'no-records-selected'              => 'Hiçbir kayıt seçilmedi.',
+                    'select-action'                    => 'İşlem Seç',
                 ],
 
                 'search' => [
                     'title' => 'Ara',
                 ],
-            ],
 
-            'filters' => [
-                'title' => 'Filtreleri Uygula',
+                'filter' => [
+                    'apply-filter' => 'Filtreleri Uygula',
+                    'title'        => 'Filtrele',
 
-                'dropdown' => [
-                    'searchable' => [
-                        'atleast-two-chars' => 'En az 2 karakter yazın...',
-                        'no-results'        => 'Sonuç bulunamadı...',
+                    'dropdown' => [
+                        'select' => 'Seç',
+
+                        'searchable' => [
+                            'at-least-two-chars' => 'En az 2 karakter girin...',
+                            'no-results'         => 'Sonuç bulunamadı...',
+                        ],
                     ],
-                ],
 
-                'custom-filters' => [
-                    'clear-all' => 'Tümünü Temizle',
-                    'title'     => 'Özel Filtreler',
-                ],
-
-                'date-options' => [
-                    'last-month'        => 'Geçen Ay',
-                    'last-six-months'   => 'Son 6 Ay',
-                    'last-three-months' => 'Son 3 Ay',
-                    'this-month'        => 'Bu Ay',
-                    'this-week'         => 'Bu Hafta',
-                    'this-year'         => 'Bu Yıl',
-                    'today'             => 'Bugün',
-                    'yesterday'         => 'Dün',
+                    'custom-filters' => [
+                        'clear-all' => 'Tümünü Temizle',
+                    ],
                 ],
             ],
 
             'table' => [
-                'actions'              => 'Eylemler',
+                'actions'              => 'İşlemler',
                 'next-page'            => 'Sonraki Sayfa',
-                'no-records-available' => 'Uygun kayıt bulunamadı.',
+                'no-records-available' => 'Kayıt bulunamadı.',
+                'of'                   => 'toplam :total kayıt',
                 'page-navigation'      => 'Sayfa Gezinme',
                 'page-number'          => 'Sayfa Numarası',
                 'previous-page'        => 'Önceki Sayfa',
+                'showing'              => 'Gösteriliyor :firstItem',
+                'to'                   => ':lastItem arasında',
             ],
         ],
 
@@ -433,14 +474,14 @@ return [
 
         'products' => [
             'card' => [
-                'add-to-cart'                 => 'Sepete Ekle',
-                'add-to-compare'              => 'Karşılaştırma Listesine Ekle',
-                'add-to-compare-success'      => 'Öğe karşılaştırma listesine başarıyla eklendi.',
-                'add-to-wishlist'             => 'Dilek Listesine Ekle',
-                'already-in-compare'          => 'Öğe zaten karşılaştırma listesine eklenmiş.',
-                'new'                         => 'Yeni',
-                'review-description'          => 'Bu ürünü değerlendiren ilk kişi olun',
-                'sale'                        => 'Satış',
+                'add-to-cart'            => 'Sepete Ekle',
+                'add-to-compare'         => 'Karşılaştırma Listesine Ekle',
+                'add-to-compare-success' => 'Öğe karşılaştırma listesine başarıyla eklendi.',
+                'add-to-wishlist'        => 'Dilek Listesine Ekle',
+                'already-in-compare'     => 'Öğe zaten karşılaştırma listesine eklenmiş.',
+                'new'                    => 'Yeni',
+                'review-description'     => 'Bu ürünü değerlendiren ilk kişi olun',
+                'sale'                   => 'Satış',
             ],
 
             'carousel' => [
@@ -491,7 +532,8 @@ return [
                 ],
 
                 'bundle' => [
-                    'none' => 'Hiçbiri',
+                    'none'         => 'Hiçbiri',
+                    'total-amount' => 'Toplam Tutar',
                 ],
 
                 'downloadable' => [
@@ -582,7 +624,7 @@ return [
             ],
 
             'results' => [
-                'analysed-keywords' => 'Analiz Edilen Anahtar Kelimeler:',
+                'analyzed-keywords' => 'Analiz Edilen Anahtar Kelimeler:',
             ],
         ],
     ],
@@ -611,6 +653,7 @@ return [
             'continue-to-checkout'      => 'Ödemeye Devam Et',
             'illegal'                   => 'Miktar sıfırdan küçük olamaz.',
             'inactive'                  => 'Ürün devre dışı bırakıldı ve sepetten kaldırıldı',
+            'inactive-add'              => 'Devre dışı ürün sepete eklenemez.',
             'inventory-warning'         => 'İstenen miktar şu anda stokta bulunmuyor, lütfen daha sonra tekrar deneyin',
             'item-add-to-cart'          => 'Ürün Başarıyla Eklendi',
             'minimum-order-message'     => 'Minimum sipariş miktarı: :amount',
@@ -652,22 +695,6 @@ return [
                 ],
             ],
 
-            'coupon'   => [
-                'already-applied' => 'Kupon kodu zaten uygulanmış.',
-                'applied'         => 'Kupon uygulandı',
-                'apply'           => 'Kuponu Uygula',
-                'apply-issue'     => 'Kupon kodu uygulanamıyor.',
-                'button-title'    => 'Uygula',
-                'code'            => 'Kupon Kodu',
-                'discount'        => 'Kupon İndirimi',
-                'enter-your-code' => 'Kodunuzu girin',
-                'error'           => 'Bir şeyler yanlış gitti',
-                'invalid'         => 'Kupon kodu geçersiz.',
-                'remove'          => 'Kuponu Kaldır',
-                'subtotal'        => 'Ara Toplam',
-                'success-apply'   => 'Kupon kodu başarıyla uygulandı.',
-            ],
-
             'mini-cart' => [
                 'continue-to-checkout' => 'Ödemeye Devam Et',
                 'empty-cart'           => 'Sepetiniz boş',
@@ -688,62 +715,44 @@ return [
                 'proceed-to-checkout' => 'Ödeme İşlemine Devam Et',
                 'sub-total'           => 'Ara Toplam',
                 'tax'                 => 'Vergi',
+
+                'estimate-shipping' => [
+                    'country'        => 'Ülke',
+                    'info'           => 'Kargo ve vergi tahmini almak için hedefinizi girin.',
+                    'postcode'       => 'Posta Kodu',
+                    'select-country' => 'Ülke Seçin',
+                    'select-state'   => 'Bölge Seçin',
+                    'state'          => 'Bölge',
+                    'title'          => 'Kargo ve Vergi Tahmini',
+                ],
             ],
         ],
 
         'onepage' => [
-            'addresses' => [
-                'billing' => [
-                    'add-new-address'                    => 'Yeni Adres Ekle',
-                    'back'                               => 'Geri',
-                    'billing-address'                    => 'Fatura Adresi',
-                    'city'                               => 'Şehir',
-                    'company-name'                       => 'Şirket Adı',
-                    'confirm'                            => 'Onayla',
-                    'country'                            => 'Ülke',
-                    'email'                              => 'E-posta',
-                    'first-name'                         => 'Ad',
-                    'last-name'                          => 'Soyad',
-                    'postcode'                           => 'Posta Kodu',
-                    'proceed'                            => 'Devam etmek',
-                    'save'                               => 'kaydetmek',
-                    'use-different-address-for-shipping' => 'Adresim, fatura adresimle aynı',
-                    'save-address'                       => 'Bu adresi kaydet',
-                    'select-country'                     => 'Ülke Seçin',
-                    'select-state'                       => 'Eyalet Seçin',
-                    'state'                              => 'Eyalet',
-                    'street-address'                     => 'Cadde Adresi',
-                    'telephone'                          => 'Telefon',
-                ],
-
-                'index' => [
-                    'bagisto' => 'Bagisto',
-                    'confirm' => 'Onayla',
-                ],
-
-                'shipping' => [
-                    'add-new-address'  => 'Yeni Adres Ekle',
-                    'back'             => 'Geri',
-                    'city'             => 'Şehir',
-                    'company-name'     => 'Şirket Adı',
-                    'confirm'          => 'Onayla',
-                    'country'          => 'Ülke',
-                    'email'            => 'E-posta',
-                    'first-name'       => 'Ad',
-                    'last-name'        => 'Soyad',
-                    'postcode'         => 'Posta Kodu',
-                    'proceed'          => 'Devam etmek',
-                    'save'             => 'kaydetmek',
-                    'save-address'     => 'Bu adresi kaydet',
-                    'select-country'   => 'Ülke Seçin',
-                    'select-state'     => 'Eyalet Seçin',
-                    'shipping-address' => 'Teslimat Adresi',
-                    'state'            => 'Eyalet',
-                    'street-address'   => 'Cadde adresi',
-                    'telephone'        => 'Telefon',
-                ],
-
-                'title' => 'Adres',
+            'address' => [
+                'add-new-address'  => 'Yeni adres ekleyin',
+                'add-new'          => 'Yeni adres ekleyin',
+                'back'             => 'Geri',
+                'billing-address'  => 'Fatura Adresi',
+                'city'             => 'Şehir',
+                'company-name'     => 'Şirket Adı',
+                'confirm'          => 'Onayla',
+                'country'          => 'Ülke',
+                'email'            => 'E-posta',
+                'first-name'       => 'Ad',
+                'last-name'        => 'Soyadı',
+                'postcode'         => 'Posta Kodu',
+                'proceed'          => 'Devam Et',
+                'same-as-billing'  => 'Gönderim için aynı adresi kullanmak istiyor musunuz?',
+                'save-address'     => 'Adresi Adres Defterine Kaydet',
+                'save'             => 'Kaydet',
+                'select-country'   => 'Ülke Seç',
+                'select-state'     => 'Bölge Seç',
+                'shipping-address' => 'Teslimat Adresi',
+                'state'            => 'Bölge',
+                'street-address'   => 'Sokak Adresi',
+                'telephone'        => 'Telefon',
+                'title'            => 'Adres',
             ],
 
             'index' => [
@@ -771,18 +780,60 @@ return [
                 'tax'              => 'Vergi',
             ],
         ],
+
+        'coupon' => [
+            'already-applied' => 'Kupon kodu zaten uygulanmış.',
+            'applied'         => 'Kupon uygulandı',
+            'apply'           => 'Kuponu Uygula',
+            'apply-issue'     => 'Kupon kodu uygulanamıyor.',
+            'button-title'    => 'Uygula',
+            'code'            => 'Kupon Kodu',
+            'discount'        => 'Kupon İndirimi',
+            'enter-your-code' => 'Kodunuzu girin',
+            'error'           => 'Bir şeyler yanlış gitti',
+            'invalid'         => 'Kupon kodu geçersiz.',
+            'remove'          => 'Kuponu Kaldır',
+            'subtotal'        => 'Ara Toplam',
+            'success-apply'   => 'Kupon kodu başarıyla uygulandı.',
+        ],
+
+        'login' => [
+            'email'    => 'E-posta',
+            'password' => 'Şifre',
+            'title'    => 'Giriş Yap',
+        ],
     ],
 
     'home' => [
+        'contact' => [
+            'about'         => 'Bize bir not bırakın ve en kısa sürede size geri döneceğiz',
+            'desc'          => 'Aklınızda ne var?',
+            'describe-here' => 'Burayı açıklayın',
+            'email'         => 'E-posta',
+            'message'       => 'Mesaj',
+            'name'          => 'Ad',
+            'phone-number'  => 'Telefon Numarası',
+            'submit'        => 'Gönder',
+            'title'         => 'Bize Ulaşın',
+        ],
+
         'index' => [
             'offer'               => '1. siparişinizde %40\'a varan İNDİRİM ALIŞVERİŞ YAPIN',
             'resend-verify-email' => 'Doğrulama E-postası Tekrar Gönder',
             'verify-email'        => 'E-posta hesabınızı doğrulayın',
         ],
+
+        'thanks-for-contact' => 'Yorumlarınız ve sorularınız için bize başvurduğunuz için teşekkür ederiz. Size çok yakında yanıt vereceğiz.',
+    ],
+
+    'partials' => [
+        'pagination' => [
+            'pagination-showing' => 'Toplam :total girdinin :firstItem ile :lastItem arası gösteriliyor',
+        ],
     ],
 
     'errors' => [
-        'go-to-home'   => 'Anasayfaya Git',
+        'go-to-home' => 'Anasayfaya Git',
 
         '404' => [
             'description' => 'Üzgünüz! Aradığınız sayfa tatilde. Aradığınızı bulamadık gibi görünüyor.',
@@ -872,6 +923,14 @@ return [
                 'subject'     => 'Bültenimize Abone Oldunuz',
                 'unsubscribe' => 'Aboneliği iptal et',
             ],
+        ],
+
+        'contact-us' => [
+            'contact-from'    => 'Web Sitesi İletişim Formu aracılığıyla',
+            'reply-to-mail'   => 'lütfen bu e-postaya yanıt verin.',
+            'reach-via-phone' => 'Alternatif olarak, bize telefonla şu numaradan ulaşabilirsiniz:',
+            'inquiry-from'    => 'Şuradan gelen talep',
+            'to'              => 'İletişim için',
         ],
 
         'orders' => [

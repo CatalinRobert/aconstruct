@@ -11,7 +11,7 @@ return [
         ],
 
         'forget-password' => [
-            'create'    => [
+            'create' => [
                 'email'           => 'אימייל רשום',
                 'email-not-exist' => 'אימייל לא קיים',
                 'page-title'      => 'שכחתי סיסמה',
@@ -36,6 +36,8 @@ return [
         'description-text' => 'לרשום את כל ההתראות',
         'marked-success'   => 'התראה סומנה בהצלחה',
         'no-record'        => 'לא נמצאו רשומות',
+        'of'               => 'מתוך',
+        'per-page'         => 'לעמוד',
         'read-all'         => 'סמן כנקרא',
         'title'            => 'התראות',
         'view-all'         => 'הצג הכל',
@@ -47,15 +49,6 @@ return [
             'pending'         => 'הזמנה ממתינה',
             'pending-payment' => 'הזמנה ממתינה לתשלום',
             'processing'      => 'הזמנה בעיבוד',
-        ],
-
-        'status'  => [
-            'all'        => 'הכל',
-            'canceled'   => 'בוטל',
-            'closed'     => 'נסגר',
-            'completed'  => 'הושלם',
-            'pending'    => 'ממתין',
-            'processing' => 'בעיבוד',
         ],
     ],
 
@@ -134,7 +127,16 @@ return [
     'sales' => [
         'orders' => [
             'index' => [
-                'title' => 'הזמנות',
+                'create-btn' => 'צור הזמנה',
+                'title'      => 'הזמנות',
+
+                'search-customer' => [
+                    'create-btn'  => 'צור לקוח',
+                    'empty-info'  => 'אין לקוחות זמינים עבור מונח החיפוש.',
+                    'empty-title' => 'לא נמצאו לקוחות',
+                    'search-by'   => 'חפש לפי אימייל או שם',
+                    'title'       => 'בחר לקוח',
+                ],
 
                 'datagrid' => [
                     'canceled'        => 'בוטלה',
@@ -159,6 +161,166 @@ return [
                     'status'          => 'מצב',
                     'success'         => 'הצלחה',
                     'view'            => 'צפה',
+                ],
+            ],
+
+            'create' => [
+                'add-to-cart'             => 'הוסף לעגלה',
+                'back-btn'                => 'חזור',
+                'check-billing-address'   => 'כתובת לחיוב חסרה.',
+                'check-shipping-address'  => 'כתובת למשלוח חסרה.',
+                'configuration'           => 'הגדרות',
+                'coupon-already-applied'  => 'קוד קופון כבר הוזן.',
+                'coupon-applied'          => 'קוד קופון הוזן בהצלחה.',
+                'coupon-error'            => 'לא ניתן להחיל קוד קופון.',
+                'coupon-not-found'        => 'קופון לא נמצא',
+                'coupon-remove'           => 'קוד קופון הוסר בהצלחה.',
+                'error'                   => 'משהו השתבש',
+                'minimum-order-error'     => 'לא נעמד בסכום הזמנה המינימלי.',
+                'order-placed-success'    => 'הזמנה בוצעה בהצלחה.',
+                'payment-not-supported'   => 'שיטת התשלום אינה נתמכת',
+                'save-btn'                => 'צור הזמנה',
+                'specify-payment-method'  => 'שיטת התשלום חסרה.',
+                'specify-shipping-method' => 'שיטת המשלוח חסרה.',
+                'title'                   => 'צור הזמנה עבור :name',
+
+                'types' => [
+                    'configurable' => [
+                        'select-options' => 'בחר אפשרות',
+                    ],
+
+                    'bundle' => [
+                        'none'         => 'ללא',
+                        'total-amount' => 'סכום כולל',
+                    ],
+
+                    'grouped' => [
+                        'name' => 'שם',
+                    ],
+
+                    'downloadable' => [
+                        'title' => 'קישורים',
+                    ],
+                ],
+
+                'cart' => [
+                    'success-add-to-cart' => 'המוצר נוסף לעגלה בהצלחה',
+                    'success-remove'      => 'הפריט הוסר מהעגלה בהצלחה',
+                    'success-update'      => 'פריט העגלה עודכן בהצלחה',
+
+                    'items' => [
+                        'add-product'       => 'הוסף מוצר',
+                        'amount-per-unit'   => ':amount ליחידה x :qty כמות',
+                        'delete'            => 'מחק',
+                        'empty-description' => 'לא נמצאו פריטים בעגלה שלך.',
+                        'empty-title'       => 'עגלת קניות ריקה',
+                        'move-to-wishlist'  => 'העבר לרשימת המשאלות',
+                        'see-details'       => 'צפה בפרטים',
+                        'sku'               => 'SKU - :sku',
+                        'sub-total'         => 'סה"כ ביניים - :sub_total',
+                        'title'             => 'פריטי עגלה',
+
+                        'search' => [
+                            'add-to-cart'   => 'הוסף לעגלה',
+                            'available-qty' => ':qty זמין',
+                            'empty-info'    => 'אין מוצרים זמינים עבור מונח החיפוש.',
+                            'empty-title'   => 'לא נמצאו מוצרים',
+                            'product-image' => 'תמונת מוצר',
+                            'qty'           => 'כמות',
+                            'sku'           => 'SKU - :sku',
+                            'title'         => 'חיפוש מוצרים',
+                        ],
+                    ],
+
+                    'address' => [
+                        'add-btn'          => 'הוסף כתובת',
+                        'add-new'          => 'הוסף כתובת חדשה',
+                        'add-new-address'  => 'הוסף כתובת חדשה',
+                        'addresses'        => 'כתובות',
+                        'back'             => 'חזור',
+                        'billing-address'  => 'כתובת לחיוב',
+                        'city'             => 'עיר',
+                        'company-name'     => 'שם החברה',
+                        'confirm'          => 'אשר',
+                        'country'          => 'מדינה',
+                        'edit-btn'         => 'ערוך כתובת',
+                        'email'            => 'אימייל',
+                        'first-name'       => 'שם פרטי',
+                        'last-name'        => 'שם משפחה',
+                        'postcode'         => 'מיקוד',
+                        'proceed'          => 'המשך',
+                        'same-as-billing'  => 'השתמש באותה כתובת למשלוח?',
+                        'save'             => 'שמור',
+                        'save-address'     => 'שמור בספר הכתובות',
+                        'select-country'   => 'בחר מדינה',
+                        'select-state'     => 'בחר מדינה',
+                        'shipping-address' => 'כתובת למשלוח',
+                        'state'            => 'מדינה',
+                        'street-address'   => 'כתובת',
+                        'telephone'        => 'טלפון',
+                        'title'            => 'כתובת',
+                        'vat-id'           => 'מספר ת.מ.',
+                    ],
+
+                    'payment' => [
+                        'title' => 'תשלום',
+                    ],
+
+                    'shipping' => [
+                        'title' => 'משלוח',
+                    ],
+
+                    'summary' => [
+                        'apply-coupon'    => 'החל קופון',
+                        'discount-amount' => 'סכום הנחה',
+                        'enter-your-code' => 'הזן את הקוד שלך',
+                        'grand-total'     => 'סכום כולל',
+                        'place-order'     => 'בצע הזמנה',
+                        'processing'      => 'מעבד',
+                        'shipping-amount' => 'סכום משלוח',
+                        'sub-total'       => 'סה"כ ביניים',
+                        'tax'             => 'מס',
+                        'title'           => 'סיכום הזמנה',
+                    ],
+                ],
+
+                'cart-items' => [
+                    'add-to-cart'       => 'הוסף לעגלה',
+                    'delete'            => 'מחק',
+                    'empty-description' => 'לא נמצאו פריטים בעגלה שלך.',
+                    'empty-title'       => 'עגלת קניות ריקה',
+                    'see-details'       => 'צפה בפרטים',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'פריטי עגלה',
+                ],
+
+                'recent-order-items' => [
+                    'add-to-cart'       => 'הוסף לעגלה',
+                    'empty-description' => 'לא נמצאו פריטים בהזמנות האחרונות שלך.',
+                    'empty-title'       => 'הזמנות ריקות',
+                    'see-details'       => 'צפה בפרטים',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'פריטי הזמנות אחרונות',
+                    'view'              => 'צפה',
+                ],
+
+                'wishlist-items' => [
+                    'add-to-cart'       => 'הוסף לעגלה',
+                    'delete'            => 'מחק',
+                    'empty-description' => 'לא נמצאו פריטים ברשימת המשאלות שלך.',
+                    'empty-title'       => 'רשימת משאלות ריקה',
+                    'see-details'       => 'צפה בפרטים',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'פריטי רשימת משאלות',
+                ],
+
+                'compare-items' => [
+                    'add-to-cart'       => 'הוסף לעגלה',
+                    'delete'            => 'מחק',
+                    'empty-description' => 'לא נמצאו פריטים ברשימת ההשוואה שלך.',
+                    'empty-title'       => 'רשימת השוואה ריקה',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'פריטי השוואה',
                 ],
             ],
 
@@ -211,6 +373,7 @@ return [
                 'refund'                => 'החזר',
                 'refund-id'             => 'החזר #:refund',
                 'refunded'              => 'הוחזר',
+                'reorder'               => 'להזמין מחדש',
                 'ship'                  => 'שלח',
                 'shipment'              => 'משלוח #:shipment',
                 'shipments'             => 'משלוחים',
@@ -424,7 +587,7 @@ return [
                 'title'                  => 'חשבונית #:invoice_id',
             ],
 
-            'create'   => [
+            'create' => [
                 'amount-per-unit'    => ':amount לכל יחידה x :qty כמות',
                 'create-invoice'     => 'צור חשבונית',
                 'create-success'     => 'חשבונית נוצרה בהצלחה',
@@ -541,30 +704,30 @@ return [
                 ],
 
                 'datagrid' => [
-                    'active'                        => 'פעיל',
-                    'attribute-family'              => 'משפחת מאפיינים',
-                    'attribute-family-value'        => 'משפחת מאפיינים - :attribute_family',
-                    'category'                      => 'קטגוריה',
-                    'copy-of'                       => 'העתק של :value',
-                    'copy-of-slug'                  => 'העתק-של-:value',
-                    'delete'                        => 'מחק',
-                    'disable'                       => 'השבת',
-                    'id'                            => 'מזהה',
-                    'id-value'                      => 'מזהה - :id',
-                    'image'                         => 'תמונה',
-                    'mass-delete-success'           => 'מוצרים שנבחרו נמחקו בהצלחה',
-                    'mass-update-success'           => 'מוצרים שנבחרו עודכנו בהצלחה',
-                    'name'                          => 'שם',
-                    'out-of-stock'                  => 'אזל מהמלאי',
-                    'price'                         => 'מחיר',
-                    'product-image'                 => 'תמונת המוצר',
-                    'qty'                           => 'כמות',
-                    'qty-value'                     => ':qty זמינים',
-                    'sku'                           => 'SKU',
-                    'sku-value'                     => 'SKU - :sku',
-                    'status'                        => 'מצב',
-                    'type'                          => 'סוג',
-                    'update-status'                 => 'עדכן מצב',
+                    'active'                 => 'פעיל',
+                    'attribute-family'       => 'משפחת מאפיינים',
+                    'attribute-family-value' => 'משפחת מאפיינים - :attribute_family',
+                    'category'               => 'קטגוריה',
+                    'copy-of'                => 'העתק של :value',
+                    'copy-of-slug'           => 'העתק-של-:value',
+                    'delete'                 => 'מחק',
+                    'disable'                => 'השבת',
+                    'id'                     => 'מזהה',
+                    'id-value'               => 'מזהה - :id',
+                    'image'                  => 'תמונה',
+                    'mass-delete-success'    => 'מוצרים שנבחרו נמחקו בהצלחה',
+                    'mass-update-success'    => 'מוצרים שנבחרו עודכנו בהצלחה',
+                    'name'                   => 'שם',
+                    'out-of-stock'           => 'אזל מהמלאי',
+                    'price'                  => 'מחיר',
+                    'product-image'          => 'תמונת המוצר',
+                    'qty'                    => 'כמות',
+                    'qty-value'              => ':qty זמינים',
+                    'sku'                    => 'SKU',
+                    'sku-value'              => 'SKU - :sku',
+                    'status'                 => 'מצב',
+                    'type'                   => 'סוג',
+                    'update-status'          => 'עדכן מצב',
                 ],
             ],
 
@@ -900,6 +1063,7 @@ return [
                 'position'              => 'מיקום',
                 'price'                 => 'מחיר',
                 'regex'                 => 'Regex',
+                'regex-info'            => 'הביטוי צריך להיות בציטוטיים כפולים.',
                 'save-btn'              => 'שמור תכונה',
                 'select'                => 'בחירה',
                 'select-type'           => 'סוג תכונה',
@@ -963,6 +1127,7 @@ return [
                 'position'              => 'מיקום',
                 'price'                 => 'מחיר',
                 'regex'                 => 'Regex',
+                'regex-info'            => 'הביטוי צריך להיות בציטוטיים כפולים.',
                 'save-btn'              => 'שמור מאפיין',
                 'select'                => 'בחירה',
                 'select-type'           => 'סוג מאפיין בחירה',
@@ -1174,42 +1339,42 @@ return [
     'customers' => [
         'customers' => [
             'index' => [
-                'login-message' => 'התחברת כמו :customer_name',
                 'title'         => 'לקוחות',
+                'login-message' => 'התחברת כמשתמש: :customer_name',
 
                 'datagrid' => [
                     'active'         => 'פעיל',
-                    'address'        => ':address כתובת/ות',
-                    'address-count'  => 'מספר כתובות',
-                    'delete'         => 'מחק',
-                    'delete-success' => 'הנתונים שנבחרו נמחקו בהצלחה',
-                    'email'          => 'דוא"ל',
+                    'address'        => ':address  כתובת(ות)',
+                    'address-count'  => 'סך הכתובות',
+                    'delete'         => 'מחיקה',
+                    'delete-success' => 'המידע שנבחר נמחק בהצלחה',
+                    'email'          => 'אימייל',
                     'gender'         => 'מגדר',
                     'group'          => 'קבוצה',
                     'id'             => 'מזהה לקוח',
                     'inactive'       => 'לא פעיל',
-                    'method-error'   => 'שגיאה! זוהה שיטה שגויה, אנא בדוק את התצורה של פעולת המס Mass Action',
-                    'name'           => 'שם לקוח',
-                    'no-resource'    => 'המשאב שסופק אינו מספיק לביצוע הפעולה',
-                    'order'          => ':order הזמנה/ות',
-                    'order-count'    => 'מספר הזמנות',
-                    'order-pending'  => 'יש ללקוח הזמנות ממתינות',
-                    'partial-action' => 'חלק מהפעולות לא בוצעו עקב הגבלות במערכת על :resource',
+                    'method-error'   => 'שגיאה! אותרה שיטת לא נכונה, נא לבדוק את הגדרות פעולה מראש',
+                    'name'           => 'שם הלקוח',
+                    'no-resource'    => 'המשאב אינו מספיק לביצוע הפעולה',
+                    'order'          => ':order הזמנה(ות)',
+                    'order-count'    => 'סך הזמנות',
+                    'order-pending'  => 'יש לקוח עם הזמנות ממתינות',
+                    'partial-action' => 'חלק מהפעולות לא בוצעו עקבי הגבלות במערכת על :resource',
                     'phone'          => 'מספר טלפון',
                     'revenue'        => 'הכנסה',
                     'status'         => 'סטטוס',
                     'suspended'      => 'מושהה',
                     'update-status'  => 'עדכן סטטוס',
-                    'update-success' => 'לקוחות שנבחרו עודכנו בהצלחה',
+                    'update-success' => 'הלקוחות שנבחרו עודכנו בהצלחה',
                 ],
 
                 'create' => [
                     'contact-number'        => 'מספר טלפון',
                     'create-btn'            => 'צור לקוח',
-                    'create-success'        => 'הלקוח נוצר בהצלחה',
+                    'create-success'        => 'יצירת הלקוח בוצעה בהצלחה',
                     'customer-group'        => 'קבוצת לקוח',
                     'date-of-birth'         => 'תאריך לידה',
-                    'email'                 => 'דוא"ל',
+                    'email'                 => 'אימייל',
                     'female'                => 'נקבה',
                     'first-name'            => 'שם פרטי',
                     'gender'                => 'מגדר',
@@ -1223,91 +1388,191 @@ return [
                 ],
             ],
 
-            'delete-failed'  => 'המחיקה של הלקוח נכשלה',
-            'delete-success' => 'הלקוח נמחק בהצלחה',
-            'order-pending'  => 'הזמנות בהמתנה',
-            'update-success' => 'הלקוח עודכן בהצלחה',
-
-            'edit' => [
-                'contact-number'        => 'מספר טלפון',
-                'customer-group'        => 'קבוצת לקוח',
-                'date-of-birth'         => 'תאריך לידה',
-                'edit-btn'              => 'ערוך',
-                'email'                 => 'דוא"ל',
-                'female'                => 'נקבה',
-                'first-name'            => 'שם פרטי',
-                'gender'                => 'מגדר',
-                'last-name'             => 'שם משפחה',
-                'male'                  => 'זכר',
-                'other'                 => 'אחר',
-                'save-btn'              => 'שמור לקוח',
-                'select-customer-group' => 'בחר קבוצת לקוח',
-                'select-gender'         => 'בחר מגדר',
-                'status'                => 'סטטוס',
-                'suspended'             => 'מושהה',
-                'title'                 => 'ערוך לקוח',
-            ],
-
             'view' => [
-                'account-delete-confirmation' => 'האם אתה בטוח שברצונך למחוק את החשבון הזה?',
+                'account-delete-confirmation' => 'האם את/ה בטוח/ה שברצונך למחוק חשבון זה?',
                 'active'                      => 'פעיל',
-                'add-note'                    => 'הוסף הערה',
-                'address'                     => 'כתובת',
-                'address-delete-confirmation' => 'האם אתה בטוח שברצונך למחוק כתובת זו?',
-                'address-delete-success'      => 'כתובת נמחקה בהצלחה',
-                'approved'                    => 'אושר',
+                'address-delete-confirmation' => 'האם את/ה בטוח/ה שברצונך למחוק כתובת זו?',
                 'back-btn'                    => 'חזור',
-                'canceled'                    => 'בוטל',
-                'closed'                      => 'סגור',
-                'completed'                   => 'הושלם',
+                'create-order'                => 'צור הזמנה',
                 'customer'                    => 'לקוח',
-                'customer-not-notified'       => ':date | <b>הלקוח לא התראה</b>',
-                'customer-notified'           => ':date | <b>הלקוח התראה</b>',
                 'date-of-birth'               => 'תאריך לידה - :dob',
                 'default-address'             => 'כתובת ברירת מחדל',
-                'delete'                      => 'מחק',
-                'delete-account'              => 'מחק את החשבון',
-                'disapproved'                 => 'לא אושר',
-                'edit'                        => 'ערוך',
-                'email'                       => 'דוא"ל - :email',
-                'empty-description'           => 'צור כתובות חדשות ללקוח',
-                'empty-invoice'               => 'אין חשבוניות זמינות',
-                'empty-order'                 => 'אין הזמנות זמינות',
-                'empty-review'                => 'אין ביקורות זמינות',
-                'empty-title'                 => 'הוסף כתובת ללקוח',
+                'delete-account'              => 'מחיקת חשבון',
+                'delete'                      => 'מחיקה',
+                'email'                       => 'אימייל - :email',
+                'empty-description'           => 'צור כתובת חדשה ללקוח',
+                'empty-title'                 => 'הוסף כתובת לקוח',
                 'gender'                      => 'מגדר - :gender',
                 'group'                       => 'קבוצה - :group_code',
-                'id'                          => 'מספר זיהוי - :id',
                 'inactive'                    => 'לא פעיל',
-                'increment-id'                => '# :increment_id',
-                'invoice'                     => 'חשבוניות (:invoice_count)',
-                'invoice-amount'              => 'סכום חשבונית',
-                'invoice-date'                => 'תאריך חשבונית',
-                'invoice-id'                  => 'מזהה חשבונית',
-                'invoice-id-prefix'           => '# :invoice_id',
-                'mobile'                      => 'נייד',
-                'note'                        => 'הערה',
+                'login-as-customer'           => 'התחבר כלקוח',
                 'note-created-success'        => 'ההערה נוצרה בהצלחה',
-                'note-placeholder'            => 'כתוב את ההערה שלך כאן',
-                'notify-customer'             => 'הודיע ללקוח',
-                'of'                          => 'של',
-                'order-id'                    => 'מזהה הזמנה',
-                'order-id-prefix'             => '# :order_id',
-                'order-pending'               => 'לא ניתן למחוק את החשבון מכיוון שישנן הזמנות ממתינות או מצב עיבוד.',
-                'orders'                      => 'הזמנות (:order_count)',
-                'pay-by'                      => 'שלם באמצעות',
-                'pending'                     => 'ממתין',
-                'per-page'                    => 'לעמוד',
+                'order-create-confirmation'   => 'האם אתה בטוח שברצונך ליצור הזמנה עבור לקוח זה?',
                 'phone'                       => 'טלפון - :phone',
-                'processing'                  => 'מעבד',
-                'reviews'                     => 'ביקורות',
-                'set-as-default'              => 'הגדר כברירת מחדל',
-                'set-default-success'         => 'עדכון כתובת ברירת המחדל בוצע בהצלחה',
-                'submit-btn-title'            => 'שלח הערה',
+                'set-as-default'              => 'קבע כברירת מחדל',
                 'suspended'                   => 'מושהה',
-                'title'                       => 'צפה בלקוח',
-                'total-revenue'               => 'סך כל ההכנסות - :revenue',
+                'title'                       => 'תצוגת לקוח',
+
+                'address' => [
+                    'count'  => 'כתובות (:count)',
+
+                    'create' => [
+                        'city'               => 'עיר',
+                        'company-name'       => 'שם החברה',
+                        'country'            => 'מדינה',
+                        'create-btn'         => 'צור',
+                        'create-address-btn' => 'הוסף כתובת חדשה',
+                        'default-address'    => 'כתובת ברירת מחדל',
+                        'email'              => 'אימייל',
+                        'first-name'         => 'שם פרטי',
+                        'last-name'          => 'שם משפחה',
+                        'phone'              => 'טלפון',
+                        'post-code'          => 'מיקוד',
+                        'save-btn-title'     => 'שמור כתובת',
+                        'select-country'     => 'בחר מדינה',
+                        'state'              => 'מדינה',
+                        'street-address'     => 'כתובת',
+                        'title'              => 'צור כתובת',
+                        'vat-id'             => 'מספר ת.מ',
+                    ],
+
+                    'edit' => [
+                        'city'            => 'עיר',
+                        'company-name'    => 'שם החברה',
+                        'country'         => 'מדינה',
+                        'default-address' => 'כתובת ברירת מחדל',
+                        'edit-btn'        => 'ערוך',
+                        'email'           => 'אימייל',
+                        'first-name'      => 'שם פרטי',
+                        'last-name'       => 'שם משפחה',
+                        'phone'           => 'טלפון',
+                        'post-code'       => 'מיקוד',
+                        'save-btn-title'  => 'שמור כתובת',
+                        'select-country'  => 'בחר מדינה',
+                        'state'           => 'מדינה',
+                        'street-address'  => 'כתובת',
+                        'title'           => 'ערוך כתובת',
+                        'vat-id'          => 'מספר ת.מ',
+                    ],
+
+                    'address-delete-success' => 'הכתובת נמחקה בהצלחה',
+                    'create-success'         => 'הכתובת נוצרה בהצלחה',
+                    'set-default-success'    => 'הכתובת הברירת מחדל עודכנה בהצלחה',
+                    'success-mass-delete'    => 'מחיקת הכתובות בהצלחה',
+                    'update-success'         => 'הכתובת עודכנה בהצלחה',
+                ],
+
+                'datagrid' => [
+                    'invoices' => [
+                        'empty-invoice'  => 'אין ביקורות זמינות',
+                        'increment-id'   => 'מספר חשבונית',
+                        'invoice-amount' => 'סכום החשבונית',
+                        'invoice-date'   => 'תאריך החשבונית',
+                        'order-id'       => 'מספר הזמנה',
+                        'view'           => 'תצוגה',
+                    ],
+
+                    'orders' => [
+                        'canceled'        => 'בוטלה',
+                        'channel-name'    => 'שם הערוץ',
+                        'closed'          => 'סגורה',
+                        'completed'       => 'הושלמה',
+                        'customer-name'   => 'שם הלקוח',
+                        'date'            => 'תאריך',
+                        'empty-order'     => 'אין הזמנות זמינות',
+                        'email'           => 'אימייל',
+                        'fraud'           => 'הונאה',
+                        'grand-total'     => 'סכום כולל',
+                        'location'        => 'מיקום',
+                        'order-id'        => 'מספר הזמנה',
+                        'pay-via'         => 'שלם דרך',
+                        'pending'         => 'ממתין',
+                        'pending-payment' => 'תשלום ממתין',
+                        'processing'      => 'בעיבוד',
+                        'status'          => 'סטטוס',
+                        'view'            => 'תצוגה',
+                    ],
+
+                    'reviews' => [
+                        'approved'      => 'אושרה',
+                        'comment'       => 'תגובה',
+                        'created-at'    => 'נוצרה בתאריך',
+                        'disapproved'   => 'לא אושרה',
+                        'empty-reviews' => 'אין חשבוניות זמינות',
+                        'id'            => 'מספר זיהוי',
+                        'invoice-date'  => 'תאריך החשבונית',
+                        'pending'       => 'ממתין',
+                        'product-id'    => 'מזהה מוצר',
+                        'product-name'  => 'שם המוצר',
+                        'rating'        => 'דירוג',
+                        'status'        => 'סטטוס',
+                        'title'         => 'כותרת',
+                    ],
+                ],
+
+                'edit' => [
+                    'contact-number'        => 'מספר טלפון',
+                    'customer-group'        => 'קבוצת לקוח',
+                    'date-of-birth'         => 'תאריך לידה',
+                    'edit-btn'              => 'ערוך',
+                    'email'                 => 'אימייל',
+                    'female'                => 'נקבה',
+                    'first-name'            => 'שם פרטי',
+                    'gender'                => 'מגדר',
+                    'last-name'             => 'שם משפחה',
+                    'male'                  => 'זכר',
+                    'other'                 => 'אחר',
+                    'save-btn'              => 'שמור לקוח',
+                    'select-customer-group' => 'בחר קבוצת לקוח',
+                    'select-gender'         => 'בחר מגדר',
+                    'status'                => 'סטטוס',
+                    'suspended'             => 'מושהה',
+                    'title'                 => 'ערוך לקוח',
+                ],
+
+                'invoices' => [
+                    'count'        => 'חשבוניות (:count)',
+                    'increment-id' => '# :increment_id',
+                ],
+
+                'notes' => [
+                    'add-note'              => 'הוסף הערה',
+                    'customer-not-notified' => ':date | <b>הלקוח לא קיבל הודעה</b>',
+                    'customer-notified'     => ':date | <b>הלקוח התראה</b>',
+                    'note'                  => 'הערה',
+                    'note-placeholder'      => 'הקלד את ההערה שלך כאן',
+                    'notify-customer'       => 'הודיע ללקוח',
+                    'submit-btn-title'      => 'שלח הערה',
+                ],
+
+                'orders' => [
+                    'count'         => 'הזמנות (:count)',
+                    'increment-id'  => '# :increment_id',
+                    'total-revenue' => 'הכנסה כוללת - :revenue',
+                ],
+
+                'reviews' => [
+                    'id'    => 'מספר זיהוי - :id',
+                    'count' => 'ביקורות (:count)',
+                ],
+
+                'cart' => [
+                    'delete-success' => 'הפריט בעגלה הוסר בהצלחה.',
+                ],
+
+                'wishlist' => [
+                    'delete-success' => 'הפריט ברשימת המשאלות הוסר בהצלחה.',
+                ],
+
+                'compare' => [
+                    'delete-success' => 'הפריט ברשימת ההשוואה הוסר בהצלחה.',
+                ],
             ],
+
+            'delete-failed'  => 'מחיקת הלקוח נכשלה',
+            'delete-success' => 'הלקוח נמחק בהצלחה',
+            'order-pending'  => 'ישנם הזמנות ממתינות',
+            'update-success' => 'הלקוח עודכן בהצלחה',
         ],
 
         'groups' => [
@@ -1392,53 +1657,6 @@ return [
                     'update-status'       => 'עדכן סטטוס',
                 ],
             ],
-        ],
-
-        'addresses' => [
-            'create' => [
-                'address-1'          => 'כתובת 1',
-                'address-2'          => 'כתובת 2',
-                'city'               => 'עיר',
-                'company-name'       => 'שם החברה',
-                'country'            => 'מדינה',
-                'create-address-btn' => 'הוסף כתובת חדשה',
-                'default-address'    => 'כתובת ברירת מחדל',
-                'email'              => 'אימייל',
-                'first-name'         => 'שם פרטי',
-                'last-name'          => 'שם משפחה',
-                'phone'              => 'טלפון',
-                'post-code'          => 'מיקוד',
-                'save-btn-title'     => 'שמור כתובת',
-                'select-country'     => 'בחר מדינה',
-                'state'              => 'מדינה',
-                'street-address'     => 'כתובת',
-                'title'              => 'צור כתובת לקוח',
-                'vat-id'             => 'מספר ערוץ המס',
-            ],
-
-            'edit' => [
-                'address-1'       => 'כתובת 1',
-                'address-2'       => 'כתובת 2',
-                'city'            => 'עיר',
-                'company-name'    => 'שם החברה',
-                'country'         => 'מדינה',
-                'default-address' => 'כתובת ברירת מחדל',
-                'email'           => 'אימייל',
-                'first-name'      => 'שם פרטי',
-                'last-name'       => 'שם משפחה',
-                'phone'           => 'טלפון',
-                'post-code'       => 'מיקוד',
-                'save-btn-title'  => 'שמור כתובת',
-                'select-country'  => 'בחר מדינה',
-                'state'           => 'מדינה',
-                'street-address'  => 'כתובת',
-                'title'           => 'ערוך כתובת',
-                'vat-id'          => 'מספר ערוץ המס',
-            ],
-
-            'create-success'      => 'पता सफलतापूर्वक बनाया गया',
-            'success-mass-delete' => 'מחיקת הכתובות בצורה המרובה נכשלה',
-            'update-success'      => 'पता सफलतापूर्वक अपडेट किया गया',
         ],
     ],
 
@@ -2119,9 +2337,11 @@ return [
 
     'cms' => [
         'index' => [
-            'already-taken'     => ':name כבר תפוס.',
-            'create-btn'        => 'צור עמוד',
-            'title'             => 'עמודים',
+            'already-taken' => 'ה-:name כבר תפוס.',
+            'channel'       => 'ערוץ',
+            'create-btn'    => 'צור עמוד',
+            'language'      => 'שפה',
+            'title'         => 'עמודים',
 
             'datagrid' => [
                 'delete'              => 'מחק',
@@ -2173,7 +2393,7 @@ return [
     ],
 
     'settings' => [
-        'locales'           => [
+        'locales' => [
             'index' => [
                 'create-btn' => 'צור אזור',
                 'locale'     => 'אזור',
@@ -2202,7 +2422,7 @@ return [
                     'title'            => 'צור אזור',
                 ],
 
-                'edit'  => [
+                'edit' => [
                     'title' => 'ערוך אזורים',
                 ],
 
@@ -2215,7 +2435,7 @@ return [
             ],
         ],
 
-        'currencies'        => [
+        'currencies' => [
             'index' => [
                 'create-btn' => 'צור מטבע',
                 'currency'   => 'מטבע',
@@ -2235,15 +2455,18 @@ return [
                 ],
 
                 'create' => [
-                    'code'           => 'קוד',
-                    'create-btn'     => 'צור מטבע',
-                    'decimal'        => 'עשרוני',
-                    'delete-warning' => 'האם אתה בטוח שברצונך לבצע פעולה זו?',
-                    'general'        => 'כללי',
-                    'name'           => 'שם',
-                    'save-btn'       => 'שמור מטבע',
-                    'symbol'         => 'סמל',
-                    'title'          => 'צור מטבע חדש',
+                    'code'              => 'קוד',
+                    'create-btn'        => 'צור מטבע',
+                    'currency-position' => 'מיקום המטבע',
+                    'decimal'           => 'עשרוני',
+                    'decimal-separator' => 'מפריד עשרוני',
+                    'delete-warning'    => 'האם אתה בטוח שברצונך לבצע פעולה זו?',
+                    'general'           => 'כללי',
+                    'group-separator'   => 'מפריד קבוצה',
+                    'name'              => 'שם',
+                    'save-btn'          => 'שמור מטבע',
+                    'symbol'            => 'סמל',
+                    'title'             => 'צור מטבע חדש',
                 ],
 
                 'edit' => [
@@ -2258,7 +2481,7 @@ return [
             ],
         ],
 
-        'data-transfer'     => [
+        'data-transfer' => [
             'imports' => [
                 'create' => [
                     'action'              => 'פעולה',
@@ -2364,7 +2587,7 @@ return [
             ],
         ],
 
-        'exchange-rates'    => [
+        'exchange-rates' => [
             'index' => [
                 'create-btn'    => 'צור שער חליפין',
                 'exchange-rate' => 'שער חליפין',
@@ -2382,7 +2605,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'   => 'ערוך שערי חליפין',
+                    'title' => 'ערוך שערי חליפין',
                 ],
 
                 'datagrid' => [
@@ -2394,15 +2617,15 @@ return [
                     'id'            => 'מזהה',
                 ],
 
-                'create-success'  => 'שער חליפין נוצר בהצלחה',
-                'delete-error'    => 'שגיאה במחיקת שער חליפין',
-                'delete-success'  => 'שער חליפין נמחק בהצלחה',
-                'update-success'  => 'שער חליפין עודכן בהצלחה',
+                'create-success' => 'שער חליפין נוצר בהצלחה',
+                'delete-error'   => 'שגיאה במחיקת שער חליפין',
+                'delete-success' => 'שער חליפין נמחק בהצלחה',
+                'update-success' => 'שער חליפין עודכן בהצלחה',
             ],
         ],
 
         'inventory-sources' => [
-            'index'  => [
+            'index' => [
                 'create-btn' => 'צור מקור אחסון',
                 'title'      => 'מקורות מלאי',
 
@@ -2483,7 +2706,7 @@ return [
             'update-success'    => 'מקורות מלאי עודכנו בהצלחה',
         ],
 
-        'taxes'             => [
+        'taxes' => [
             'categories' => [
                 'index' => [
                     'delete-warning' => 'האם אתה בטוח שברצונך למחוק?',
@@ -2513,7 +2736,7 @@ return [
                     ],
 
                     'edit' => [
-                        'title'   => 'ערוך קטגוריות מס',
+                        'title' => 'ערוך קטגוריות מס',
                     ],
 
                     'create-success' => 'קטגוריית מס חדשה נוצרה בהצלחה',
@@ -2523,7 +2746,7 @@ return [
                 ],
             ],
 
-            'rates'   => [
+            'rates' => [
                 'index' => [
                     'button-title' => 'צור שיעור מס',
                     'tax-rate'     => 'שער מס',
@@ -2563,12 +2786,12 @@ return [
 
                 'edit' => [
                     'back-btn'       => 'חזור',
-                    'basic-settings' => 'הגדרות בסיסיות',
                     'country'        => 'מדינה',
                     'identifier'     => 'מזהה',
                     'save-btn'       => 'שמור שער מס',
                     'select-country' => 'בחר מדינה',
                     'select-state'   => 'בחר מדינה',
+                    'settings'       => 'הגדרות',
                     'state'          => 'מדינה',
                     'tax-rate'       => 'שער',
                     'title'          => 'ערוך שער מס',
@@ -2709,7 +2932,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'    => 'ערוך משתמש',
+                    'title' => 'ערוך משתמש',
                 ],
             ],
 
@@ -2875,7 +3098,8 @@ return [
                 'url'                           => 'קישור',
                 'value'                         => 'ערך: :value',
                 'value-input'                   => 'ערך',
-                'services-content'              => [
+
+                'services-content' => [
                     'add-btn'            => 'הוסף שירותים',
                     'channels'           => 'ערוצים',
                     'delete'             => 'מחק',
@@ -3034,6 +3258,8 @@ return [
             'save-btn'                     => 'שמור הגדרות',
             'save-message'                 => 'ההגדרות נשמרו בהצלחה',
             'search'                       => 'לחפש',
+            'select-country'               => 'בחר מדינה',
+            'select-state'                 => 'בחר מדינה',
             'title'                        => 'הגדרות',
 
             'general' => [
@@ -3045,10 +3271,10 @@ return [
                     'title' => 'כללי',
 
                     'unit-options' => [
-                        'info'              => 'הגדרות אפשרויות היחידה.',
-                        'title'             => 'אפשרויות היחידה',
-                        'title-info'        => 'גודל, צבע, חומר, התאמה, עליית מרת קונום של מרוצה והתאמת רכישות.',
-                        'weight-unit'       => 'יחידת משקל',
+                        'info'        => 'הגדרות אפשרויות היחידה.',
+                        'title'       => 'אפשרויות היחידה',
+                        'title-info'  => 'גודל, צבע, חומר, התאמה, עליית מרת קונום של מרוצה והתאמת רכישות.',
+                        'weight-unit' => 'יחידת משקל',
                     ],
                 ],
 
@@ -3077,10 +3303,10 @@ return [
                     'title' => 'עיצוב',
 
                     'admin-logo' => [
-                        'favicon'         => 'סמל Favicon',
-                        'logo-image'      => 'תמונת לוגו',
-                        'title'           => 'לוגו המנהל',
-                        'title-info'      => 'לוגו המנהל הוא הדימוי או התמונה המיוחסת שמייצגת את ממשק הניהול של מערכת או אתר, וניתנת להתאמה אישית ממועדפת.',
+                        'favicon'    => 'סמל Favicon',
+                        'logo-image' => 'תמונת לוגו',
+                        'title'      => 'לוגו המנהל',
+                        'title-info' => 'לוגו המנהל הוא הדימוי או התמונה המיוחסת שמייצגת את ממשק הניהול של מערכת או אתר, וניתנת להתאמה אישית ממועדפת.',
                     ],
                 ],
 
@@ -3089,12 +3315,12 @@ return [
                     'title' => 'בינה מלאכותית קסומה',
 
                     'settings' => [
-                        'api-key'           => 'מפתח API',
-                        'enabled'           => 'מופעל',
-                        'llm-api-domain'    => 'דומיין API של LLM',
-                        'organization'      => 'ארגון',
-                        'title'             => 'הגדרות כלליות',
-                        'title-info'        => 'שפר את חווייתך עם תכלית ה- Magic AI על ידי הזנת מפתח API הבלעדי שלך וציון הארגון הרלוונטי לאינטגרציה ללא מאמץ. תפוס שליטה מעל פרטי הכניסה שלך ל-OpenAI והתאם אישית את ההגדרות לפי צרכיך הספציפיים.',
+                        'api-key'        => 'מפתח API',
+                        'enabled'        => 'מופעל',
+                        'llm-api-domain' => 'דומיין API של LLM',
+                        'organization'   => 'ארגון',
+                        'title'          => 'הגדרות כלליות',
+                        'title-info'     => 'שפר את חווייתך עם תכלית ה- Magic AI על ידי הזנת מפתח API הבלעדי שלך וציון הארגון הרלוונטי לאינטגרציה ללא מאמץ. תפוס שליטה מעל פרטי הכניסה שלך ל-OpenAI והתאם אישית את ההגדרות לפי צרכיך הספציפיים.',
                     ],
 
                     'content-generation' => [
@@ -3163,9 +3389,9 @@ return [
                     'title' => 'מלאי',
 
                     'stock-options' => [
-                        'allow-back-orders'  => 'התר משמעת מלאי מאוחרות',
-                        'title'              => 'אפשרויות מלאי',
-                        'title-info'         => 'אפשרויות המלאי הן הסכמות לרכישת תעודות סל שנותנות את הזכות לקנות או למכור מניות חברות לפי מחיר מוקצה, ומשפיעות על רווחים אפשריים.',
+                        'allow-back-orders' => 'התר משמעת מלאי מאוחרות',
+                        'title'             => 'אפשרויות מלאי',
+                        'title-info'        => 'אפשרויות המלאי הן הסכמות לרכישת תעודות סל שנותנות את הזכות לקנות או למכור מניות חברות לפי מחיר מוקצה, ומשפיעות על רווחים אפשריים.',
                     ],
                 ],
 
@@ -3369,6 +3595,10 @@ return [
                     'admin-name'            => 'שם מנהל',
                     'admin-name-tip'        => 'שם זה יוצג בכל האימיילים שנשלחים למנהל.',
                     'admin-page-limit'      => 'מגבלת עמוד ברירת המחדל לעמוד (מנהל)',
+                    'contact-email'         => 'דוא"ל ליצירת קשר',
+                    'contact-email-tip'     => 'כתובת הדוא"ל תוצג בתחתית הודעות הדוא"ל שלך',
+                    'contact-name'          => 'שם איש קשר',
+                    'contact-name-tip'      => 'שם זה יוצג בתחתית הודעות הדוא"ל שלך',
                     'email-sender-name'     => 'שם השולח של האימייל',
                     'email-sender-name-tip' => 'שם זה יוצג בתיבת הדואר הנכנס של הלקוח.',
                     'info'                  => 'הגדרת שם השולח של האימייל, כתובת האימייל של החנות, שם המנהל, וכתובת האימייל של המנהל.',

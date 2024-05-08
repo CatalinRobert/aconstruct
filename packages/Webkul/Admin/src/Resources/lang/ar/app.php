@@ -11,7 +11,7 @@ return [
         ],
 
         'forget-password' => [
-            'create'    => [
+            'create' => [
                 'email'           => 'البريد الإلكتروني المسجل',
                 'email-not-exist' => 'البريد الإلكتروني غير موجود',
                 'page-title'      => 'نسيت كلمة المرور',
@@ -36,6 +36,8 @@ return [
         'description-text' => 'قائمة جميع الإشعارات',
         'marked-success'   => 'تم وضع علامة على الإشعار بنجاح',
         'no-record'        => 'لم يتم العثور على سجلات',
+        'of'               => 'من',
+        'per-page'         => 'في الصفحة',
         'read-all'         => 'وضع علامة كمقروء',
         'title'            => 'الإشعارات',
         'view-all'         => 'عرض الكل',
@@ -47,15 +49,6 @@ return [
             'pending'         => 'الطلب معلق',
             'pending-payment' => 'انتظار الدفع',
             'processing'      => 'جاري معالجة الطلب',
-        ],
-
-        'status' => [
-            'all'        => 'الكل',
-            'canceled'   => 'ملغى',
-            'closed'     => 'مغلق',
-            'completed'  => 'مكتمل',
-            'pending'    => 'معلق',
-            'processing' => 'قيد المعالجة',
         ],
     ],
 
@@ -134,7 +127,16 @@ return [
     'sales' => [
         'orders' => [
             'index' => [
-                'title' => 'الطلبات',
+                'create-btn' => 'إنشاء طلب',
+                'title'      => 'الطلبات',
+
+                'search-customer' => [
+                    'create-btn'  => 'إنشاء عميل',
+                    'empty-info'  => 'لا توجد عملاء متاحين لمصطلح البحث.',
+                    'empty-title' => 'لم يتم العثور على عملاء',
+                    'search-by'   => 'البحث بواسطة البريد الإلكتروني أو الاسم',
+                    'title'       => 'اختيار العميل',
+                ],
 
                 'datagrid' => [
                     'canceled'        => 'تم الإلغاء',
@@ -152,13 +154,173 @@ return [
                     'order-id'        => 'رقم الطلب',
                     'pay-by'          => 'الدفع بواسطة - :method',
                     'pay-via'         => 'الدفع عبر',
-                    'pending'         => 'قيد الانتظار',
                     'pending-payment' => 'قيد الدفع',
+                    'pending'         => 'قيد الانتظار',
                     'processing'      => 'جاري المعالجة',
                     'product-count'   => ':count + المزيد من المنتجات',
                     'status'          => 'الحالة',
                     'success'         => 'ناجح',
                     'view'            => 'عرض',
+                ],
+            ],
+
+            'create' => [
+                'add-to-cart'             => 'أضف إلى السلة',
+                'back-btn'                => 'رجوع',
+                'check-billing-address'   => 'عنوان الفوترة مفقود.',
+                'check-shipping-address'  => 'عنوان الشحن مفقود.',
+                'configuration'           => 'التكوين',
+                'coupon-already-applied'  => 'تم تطبيق رمز الكوبون بالفعل.',
+                'coupon-applied'          => 'تم تطبيق رمز الكوبون بنجاح.',
+                'coupon-error'            => 'لا يمكن تطبيق رمز الكوبون.',
+                'coupon-not-found'        => 'الكوبون غير موجود',
+                'coupon-remove'           => 'تمت إزالة رمز الكوبون بنجاح.',
+                'error'                   => 'حدث خطأ ما',
+                'minimum-order-error'     => 'لم يتم تحقيق الحد الأدنى لمبلغ الطلب.',
+                'order-placed-success'    => 'تم تقديم الطلب بنجاح.',
+                'payment-not-supported'   => 'هذا الطريقة غير مدعومة للدفع',
+                'save-btn'                => 'إنشاء الطلب',
+                'specify-payment-method'  => 'طريقة الدفع مفقودة.',
+                'specify-shipping-method' => 'طريقة الشحن مفقودة.',
+                'title'                   => 'إنشاء طلب لـ :name',
+
+                'types' => [
+                    'configurable' => [
+                        'select-options' => 'يرجى تحديد خيار',
+                    ],
+
+                    'bundle' => [
+                        'none'         => 'لا شيء',
+                        'total-amount' => 'المبلغ الإجمالي',
+                    ],
+
+                    'grouped' => [
+                        'name' => 'الاسم',
+                    ],
+
+                    'downloadable' => [
+                        'title' => 'الروابط',
+                    ],
+                ],
+
+                'cart' => [
+                    'success-add-to-cart' => 'تمت إضافة المنتج إلى السلة بنجاح',
+                    'success-remove'      => 'تمت إزالة العنصر من السلة بنجاح',
+                    'success-update'      => 'تم تحديث عنصر السلة بنجاح',
+
+                    'items' => [
+                        'add-product'       => 'إضافة منتج',
+                        'amount-per-unit'   => ':amount للوحدة × :qty الكمية',
+                        'delete'            => 'حذف',
+                        'empty-description' => 'لا توجد عناصر في سلة التسوق الخاصة بك.',
+                        'empty-title'       => 'عناصر السلة فارغة',
+                        'move-to-wishlist'  => 'نقل إلى قائمة الرغبات',
+                        'see-details'       => 'عرض التفاصيل',
+                        'sku'               => 'SKU - :sku',
+                        'sub-total'         => 'المجموع الفرعي - :sub_total',
+                        'title'             => 'عناصر السلة',
+
+                        'search' => [
+                            'add-to-cart'   => 'أضف إلى السلة',
+                            'available-qty' => ':qty متاح',
+                            'empty-info'    => 'لا توجد منتجات متاحة لمصطلح البحث.',
+                            'empty-title'   => 'لم يتم العثور على منتجات',
+                            'product-image' => 'صورة المنتج',
+                            'qty'           => 'الكمية',
+                            'sku'           => 'SKU - :sku',
+                            'title'         => 'البحث عن المنتجات',
+                        ],
+                    ],
+
+                    'address' => [
+                        'add-btn'          => 'إضافة عنوان',
+                        'add-new'          => 'إضافة عنوان جديد',
+                        'add-new-address'  => 'إضافة عنوان جديد',
+                        'addresses'        => 'العناوين',
+                        'back'             => 'رجوع',
+                        'billing-address'  => 'عنوان الفوترة',
+                        'city'             => 'المدينة',
+                        'company-name'     => 'اسم الشركة',
+                        'confirm'          => 'تأكيد',
+                        'country'          => 'البلد',
+                        'edit-btn'         => 'تحرير العنوان',
+                        'email'            => 'البريد الإلكتروني',
+                        'first-name'       => 'الاسم الأول',
+                        'last-name'        => 'الاسم الأخير',
+                        'postcode'         => 'الرمز البريدي',
+                        'proceed'          => 'المتابعة',
+                        'same-as-billing'  => 'استخدم نفس العنوان للشحن؟',
+                        'save'             => 'حفظ',
+                        'save-address'     => 'حفظ هذا في دفتر العناوين',
+                        'select-country'   => 'اختر البلد',
+                        'select-state'     => 'اختر المنطقة',
+                        'shipping-address' => 'عنوان الشحن',
+                        'state'            => 'المنطقة',
+                        'street-address'   => 'عنوان الشارع',
+                        'telephone'        => 'رقم الهاتف',
+                        'title'            => 'العنوان',
+                        'vat-id'           => 'الرقم الضريبي',
+                    ],
+
+                    'payment' => [
+                        'title' => 'الدفع',
+                    ],
+
+                    'shipping' => [
+                        'title' => 'الشحن',
+                    ],
+
+                    'summary' => [
+                        'apply-coupon'    => 'تطبيق الكوبون',
+                        'discount-amount' => 'مبلغ الخصم',
+                        'enter-your-code' => 'أدخل رمزك',
+                        'grand-total'     => 'المجموع الكبير',
+                        'place-order'     => 'تقديم الطلب',
+                        'processing'      => 'جاري المعالجة',
+                        'shipping-amount' => 'مبلغ الشحن',
+                        'sub-total'       => 'المجموع الفرعي',
+                        'tax'             => 'الضريبة',
+                        'title'           => 'ملخص الطلب',
+                    ],
+                ],
+
+                'cart-items' => [
+                    'add-to-cart'       => 'أضف إلى السلة',
+                    'delete'            => 'حذف',
+                    'empty-description' => 'لا توجد عناصر في سلة التسوق الخاصة بك.',
+                    'empty-title'       => 'السلة فارغة',
+                    'see-details'       => 'عرض التفاصيل',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'عناصر السلة',
+                ],
+
+                'recent-order-items' => [
+                    'add-to-cart'       => 'أضف إلى السلة',
+                    'empty-description' => 'لا توجد عناصر في طلباتك الأخيرة.',
+                    'empty-title'       => 'الطلبات فارغة',
+                    'see-details'       => 'عرض التفاصيل',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'عناصر الطلبات الأخيرة',
+                    'view'              => 'عرض',
+                ],
+
+                'wishlist-items' => [
+                    'add-to-cart'       => 'أضف إلى السلة',
+                    'delete'            => 'حذف',
+                    'empty-description' => 'لا توجد عناصر في قائمة الرغبات الخاصة بك.',
+                    'empty-title'       => 'عناصر قائمة الرغبات فارغة',
+                    'see-details'       => 'عرض التفاصيل',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'عناصر قائمة الرغبات',
+                ],
+
+                'compare-items' => [
+                    'add-to-cart'       => 'أضف إلى السلة',
+                    'delete'            => 'حذف',
+                    'empty-description' => 'لا توجد عناصر في قائمة المقارنة الخاصة بك.',
+                    'empty-title'       => 'عناصر قائمة المقارنة فارغة',
+                    'sku'               => 'SKU - :sku',
+                    'title'             => 'عناصر قائمة المقارنة',
                 ],
             ],
 
@@ -211,6 +373,7 @@ return [
                 'refund'                => 'استرداد',
                 'refund-id'             => 'الاسترداد #:refund',
                 'refunded'              => 'تم الاسترداد',
+                'reorder'               => 'إعادة ترتيب',
                 'ship'                  => 'شحن',
                 'shipment'              => 'الشحنة #:shipment',
                 'shipments'             => 'الشحنات',
@@ -424,7 +587,7 @@ return [
                 'title'                  => 'الفاتورة #:invoice_id',
             ],
 
-            'create'   => [
+            'create' => [
                 'amount-per-unit'    => ':amount لكل وحدة × :qty الكمية',
                 'create-invoice'     => 'إنشاء فاتورة',
                 'create-success'     => 'تم إنشاء الفاتورة بنجاح',
@@ -529,7 +692,7 @@ return [
                 'create-btn'    => 'إنشاء منتج',
                 'title'         => 'المنتجات',
 
-                'create'     => [
+                'create' => [
                     'back-btn'                => 'عودة',
                     'configurable-attributes' => 'خصائص قابلة للتكوين',
                     'create-btn'              => 'إنشاء منتج',
@@ -540,7 +703,7 @@ return [
                     'type'                    => 'النوع',
                 ],
 
-                'datagrid'   => [
+                'datagrid' => [
                     'active'                        => 'نشط',
                     'attribute-family'              => 'عائلة السمة',
                     'attribute-family-value'        => 'عائلة السمة - :attribute_family',
@@ -900,6 +1063,7 @@ return [
                 'position'              => 'الموقع',
                 'price'                 => 'السعر',
                 'regex'                 => 'تعبير عادي',
+                'regex-info'            => 'يجب أن تكون التعبيرات بين علامات اقتباس مزدوجة.',
                 'save-btn'              => 'حفظ السمة',
                 'select'                => 'اختيار',
                 'select-type'           => 'نوع السمة المختارة',
@@ -915,7 +1079,7 @@ return [
                 'value-per-locale'      => 'القيمة لكل لغة',
                 'yes'                   => 'نعم',
 
-                'option'                => [
+                'option' => [
                     'color'    => 'عينة لون',
                     'dropdown' => 'قائمة منسدلة',
                     'image'    => 'عينة صورة',
@@ -963,6 +1127,7 @@ return [
                 'position'              => 'الموقع',
                 'price'                 => 'السعر',
                 'regex'                 => 'تعبير عادي',
+                'regex-info'            => 'يجب أن تكون التعبيرات بين علامات اقتباس مزدوجة.',
                 'save-btn'              => 'حفظ السمة',
                 'select'                => 'اختيار',
                 'select-type'           => 'نوع السمة المختارة',
@@ -978,7 +1143,7 @@ return [
                 'value-per-locale'      => 'القيمة لكل لغة',
                 'yes'                   => 'نعم',
 
-                'option'                 => [
+                'option' => [
                     'color'    => 'عينة لون',
                     'dropdown' => 'قائمة منسدلة',
                     'image'    => 'عينة صورة',
@@ -1174,12 +1339,12 @@ return [
     'customers' => [
         'customers' => [
             'index' => [
-                'login-message' => 'قمت بتسجيل الدخول كـ :customer_name',
                 'title'         => 'العملاء',
+                'login-message' => 'قمت بتسجيل الدخول باسم: :customer_name',
 
                 'datagrid' => [
                     'active'         => 'نشط',
-                    'address'        => ':address  عنوان(ات)',
+                    'address'        => ':address عنوان(عناوين)',
                     'address-count'  => 'عدد العناوين',
                     'delete'         => 'حذف',
                     'delete-success' => 'تم حذف البيانات المحددة بنجاح',
@@ -1188,13 +1353,13 @@ return [
                     'group'          => 'المجموعة',
                     'id'             => 'رقم العميل',
                     'inactive'       => 'غير نشط',
-                    'method-error'   => 'خطأ! تم اكتشاف طريقة خاطئة، يرجى التحقق من تكوين الإجراء الجماعي',
+                    'method-error'   => 'خطأ! تم اكتشاف طريقة خاطئة، يرجى التحقق من إعدادات العمليات الجماعية',
                     'name'           => 'اسم العميل',
-                    'no-resource'    => 'المورد المقدم غير كافٍ للإجراء',
-                    'order'          => ':order طلب(ات)',
+                    'no-resource'    => 'المورد الذي قدم غير كافٍ للإجراء',
+                    'order'          => ':order طلب(طلبات)',
                     'order-count'    => 'عدد الطلبات',
-                    'order-pending'  => 'العميل لديه طلبات معلقة',
-                    'partial-action' => 'تمت بعض الإجراءات بنجاح نظرًا لقيود النظام على :resource',
+                    'order-pending'  => 'العميل لديه طلبات قيد الانتظار',
+                    'partial-action' => 'لم يتم تنفيذ بعض الإجراءات بسبب قيود النظام على :resource',
                     'phone'          => 'رقم الاتصال',
                     'revenue'        => 'الإيرادات',
                     'status'         => 'الحالة',
@@ -1223,91 +1388,191 @@ return [
                 ],
             ],
 
-            'delete-failed'  => 'فشل حذف العميل',
-            'delete-success' => 'تم حذف العميل بنجاح',
-            'order-pending'  => 'هناك طلبات معلقة',
-            'update-success' => 'تم تحديث العميل بنجاح',
-
-            'edit' => [
-                'contact-number'        => 'رقم الاتصال',
-                'customer-group'        => 'مجموعة العملاء',
-                'date-of-birth'         => 'تاريخ الميلاد',
-                'edit-btn'              => 'تحرير',
-                'email'                 => 'البريد الإلكتروني',
-                'female'                => 'أنثى',
-                'first-name'            => 'الاسم الأول',
-                'gender'                => 'الجنس',
-                'last-name'             => 'اسم العائلة',
-                'male'                  => 'ذكر',
-                'other'                 => 'أخرى',
-                'save-btn'              => 'حفظ العميل',
-                'select-customer-group' => 'اختر مجموعة العملاء',
-                'select-gender'         => 'اختر الجنس',
-                'status'                => 'الحالة',
-                'suspended'             => 'معلق',
-                'title'                 => 'تحرير العميل',
-            ],
-
             'view' => [
                 'account-delete-confirmation' => 'هل أنت متأكد أنك تريد حذف هذا الحساب؟',
                 'active'                      => 'نشط',
-                'add-note'                    => 'إضافة ملاحظة',
-                'address'                     => 'العنوان',
                 'address-delete-confirmation' => 'هل أنت متأكد أنك تريد حذف هذا العنوان؟',
-                'address-delete-success'      => 'تم حذف العنوان بنجاح',
-                'approved'                    => 'تم الموافقة عليه',
-                'back-btn'                    => 'رجوع',
-                'canceled'                    => 'ملغى',
-                'closed'                      => 'مغلق',
-                'completed'                   => 'مكتمل',
+                'back-btn'                    => 'العودة',
+                'create-order'                => 'إنشاء طلب',
                 'customer'                    => 'العميل',
-                'customer-not-notified'       => ':date | العميل <b>لم يتم إعلامه</b>',
-                'customer-notified'           => ':date | العميل <b>تم إعلامه</b>',
                 'date-of-birth'               => 'تاريخ الميلاد - :dob',
                 'default-address'             => 'العنوان الافتراضي',
-                'delete'                      => 'حذف',
                 'delete-account'              => 'حذف الحساب',
-                'disapproved'                 => 'لم يتم الموافقة عليه',
-                'edit'                        => 'تحرير',
+                'delete'                      => 'حذف',
                 'email'                       => 'البريد الإلكتروني - :email',
                 'empty-description'           => 'إنشاء عناوين جديدة للعميل',
-                'empty-invoice'               => 'لا تتوفر فواتير',
-                'empty-order'                 => 'لا تتوفر طلبات',
-                'empty-review'                => 'لا تتوفر تقييمات',
-                'empty-title'                 => 'إضافة عنوان عميل جديد',
+                'empty-title'                 => 'إضافة عنوان العميل',
                 'gender'                      => 'الجنس - :gender',
                 'group'                       => 'المجموعة - :group_code',
-                'id'                          => 'الرقم التعريفي - :id',
                 'inactive'                    => 'غير نشط',
-                'increment-id'                => '# :increment_id',
-                'invoice'                     => 'الفواتير (:invoice_count)',
-                'invoice-amount'              => 'مبلغ الفاتورة',
-                'invoice-date'                => 'تاريخ الفاتورة',
-                'invoice-id'                  => 'رقم الفاتورة',
-                'invoice-id-prefix'           => '# :invoice_id',
-                'mobile'                      => 'الهاتف',
-                'note'                        => 'ملاحظة',
-                'note-created-success'        => 'تم إنشاء الملاحظة بنجاح',
-                'note-placeholder'            => 'اكتب ملاحظتك هنا',
-                'notify-customer'             => 'إعلام العميل',
-                'of'                          => 'من',
-                'order-id'                    => 'رقم الطلب',
-                'order-id-prefix'             => '# :order_id',
-                'order-pending'               => 'لا يمكن حذف الحساب لأن بعض الطلبات معلقة أو في حالة معالجة.',
-                'orders'                      => 'الطلبات (:order_count)',
-                'pay-by'                      => 'الدفع عن طريق',
-                'pending'                     => 'معلق',
-                'per-page'                    => 'لكل صفحة',
+                'login-as-customer'           => 'تسجيل الدخول كعميل',
+                'note-created-success'        => 'تم إنشاء المذكرة بنجاح',
+                'order-create-confirmation'   => 'هل أنت متأكد أنك تريد إنشاء طلب لهذا العميل؟',
                 'phone'                       => 'الهاتف - :phone',
-                'processing'                  => 'قيد التنفيذ',
-                'reviews'                     => 'التقييمات',
                 'set-as-default'              => 'تعيين كافتراضي',
-                'set-default-success'         => 'تم تحديث العنوان الافتراضي بنجاح',
-                'submit-btn-title'            => 'إرسال الملاحظة',
                 'suspended'                   => 'معلق',
                 'title'                       => 'عرض العميل',
-                'total-revenue'               => 'إجمالي الإيرادات - :revenue',
+
+                'address' => [
+                    'count'  => 'العناوين (:count)',
+
+                    'create' => [
+                        'city'               => 'المدينة',
+                        'company-name'       => 'اسم الشركة',
+                        'country'            => 'البلد',
+                        'create-address-btn' => 'إضافة عنوان جديد',
+                        'create-btn'         => 'إنشاء',
+                        'default-address'    => 'العنوان الافتراضي',
+                        'email'              => 'البريد الإلكتروني',
+                        'first-name'         => 'الاسم الأول',
+                        'last-name'          => 'اسم العائلة',
+                        'phone'              => 'الهاتف',
+                        'post-code'          => 'الرمز البريدي',
+                        'save-btn-title'     => 'حفظ العنوان',
+                        'select-country'     => 'اختر البلد',
+                        'state'              => 'الولاية',
+                        'street-address'     => 'عنوان الشارع',
+                        'title'              => 'إنشاء عنوان',
+                        'vat-id'             => 'رقم الضريبة القيمة المضافة',
+                    ],
+
+                    'edit' => [
+                        'city'            => 'المدينة',
+                        'company-name'    => 'اسم الشركة',
+                        'country'         => 'البلد',
+                        'default-address' => 'العنوان الافتراضي',
+                        'edit-btn'        => 'تحرير',
+                        'email'           => 'البريد الإلكتروني',
+                        'first-name'      => 'الاسم الأول',
+                        'last-name'       => 'اسم العائلة',
+                        'phone'           => 'الهاتف',
+                        'post-code'       => 'الرمز البريدي',
+                        'save-btn-title'  => 'حفظ العنوان',
+                        'select-country'  => 'اختر البلد',
+                        'state'           => 'الولاية',
+                        'street-address'  => 'عنوان الشارع',
+                        'title'           => 'تحرير العنوان',
+                        'vat-id'          => 'رقم الضريبة القيمة المضافة',
+                    ],
+
+                    'address-delete-success' => 'تم حذف العنوان بنجاح',
+                    'create-success'         => 'تم إنشاء العنوان بنجاح',
+                    'set-default-success'    => 'تم تحديث العنوان الافتراضي بنجاح',
+                    'success-mass-delete'    => 'تم حذف عناوين الشحن بنجاح',
+                    'update-success'         => 'تم تحديث العنوان بنجاح',
+                ],
+
+                'datagrid' => [
+                    'invoices' => [
+                        'empty-invoice'  => 'لا توجد تقييمات',
+                        'increment-id'   => 'رقم الفاتورة',
+                        'invoice-amount' => 'مبلغ الفاتورة',
+                        'invoice-date'   => 'تاريخ الفاتورة',
+                        'order-id'       => 'رقم الطلب',
+                        'view'           => 'عرض',
+                    ],
+
+                    'orders' => [
+                        'canceled'        => 'تم الإلغاء',
+                        'channel-name'    => 'اسم القناة',
+                        'closed'          => 'مغلق',
+                        'completed'       => 'مكتمل',
+                        'customer-name'   => 'اسم العميل',
+                        'date'            => 'التاريخ',
+                        'empty-order'     => 'لا توجد طلبات',
+                        'email'           => 'البريد الإلكتروني',
+                        'fraud'           => 'احتيال',
+                        'grand-total'     => 'الإجمالي الكلي',
+                        'location'        => 'الموقع',
+                        'order-id'        => 'رقم الطلب',
+                        'pay-via'         => 'الدفع عبر',
+                        'pending'         => 'قيد الانتظار',
+                        'pending-payment' => 'قيد الدفع',
+                        'processing'      => 'قيد المعالجة',
+                        'status'          => 'الحالة',
+                        'view'            => 'عرض',
+                    ],
+
+                    'reviews' => [
+                        'approved'      => 'تم الموافقة عليه',
+                        'comment'       => 'التعليق',
+                        'created-at'    => 'تاريخ الإنشاء',
+                        'disapproved'   => 'تم رفضه',
+                        'empty-reviews' => 'لا توجد فواتير متاحة',
+                        'id'            => 'المعرف',
+                        'invoice-date'  => 'تاريخ الفاتورة',
+                        'pending'       => 'قيد الانتظار',
+                        'product-id'    => 'معرف المنتج',
+                        'product-name'  => 'اسم المنتج',
+                        'rating'        => 'التقييم',
+                        'status'        => 'الحالة',
+                        'title'         => 'العنوان',
+                    ],
+                ],
+
+                'edit' => [
+                    'contact-number'        => 'رقم الاتصال',
+                    'customer-group'        => 'مجموعة العملاء',
+                    'date-of-birth'         => 'تاريخ الميلاد',
+                    'edit-btn'              => 'تحرير',
+                    'email'                 => 'البريد الإلكتروني',
+                    'female'                => 'أنثى',
+                    'first-name'            => 'الاسم الأول',
+                    'gender'                => 'الجنس',
+                    'last-name'             => 'اسم العائلة',
+                    'male'                  => 'ذكر',
+                    'other'                 => 'آخر',
+                    'save-btn'              => 'حفظ العميل',
+                    'select-customer-group' => 'اختر مجموعة العملاء',
+                    'select-gender'         => 'اختر الجنس',
+                    'status'                => 'الحالة',
+                    'suspended'             => 'معلق',
+                    'title'                 => 'تحرير العميل',
+                ],
+
+                'invoices' => [
+                    'count'        => 'الفواتير (:count)',
+                    'increment-id' => '# :increment_id',
+                ],
+
+                'notes' => [
+                    'add-note'              => 'إضافة مذكرة',
+                    'customer-not-notified' => ':date | <b>لم يتم إشعار العميل</b>',
+                    'customer-notified'     => ':date | <b>تم إشعار العميل</b>',
+                    'note'                  => 'المذكرة',
+                    'note-placeholder'      => 'اكتب مذكرتك هنا',
+                    'notify-customer'       => 'إشعار العميل',
+                    'submit-btn-title'      => 'تقديم المذكرة',
+                ],
+
+                'orders' => [
+                    'count'         => 'الطلبات (:count)',
+                    'increment-id'  => '# :increment_id',
+                    'total-revenue' => 'إجمالي الإيرادات - :revenue',
+                ],
+
+                'reviews' => [
+                    'id'    => 'المعرف - :id',
+                    'count' => 'التقييمات (:count)',
+                ],
+
+                'cart' => [
+                    'delete-success' => 'تمت إزالة عنصر السلة بنجاح.',
+                ],
+
+                'wishlist' => [
+                    'delete-success' => 'تمت إزالة عنصر قائمة الرغبات بنجاح.',
+                ],
+
+                'compare' => [
+                    'delete-success' => 'تمت إزالة عنصر المقارنة بنجاح.',
+                ],
             ],
+
+            'delete-failed'  => 'فشل حذف العميل',
+            'delete-success' => 'تم حذف العميل بنجاح',
+            'order-pending'  => 'الطلبات قيد الانتظار',
+            'update-success' => 'تم تحديث العميل بنجاح',
         ],
 
         'groups' => [
@@ -1393,53 +1658,6 @@ return [
                 ],
             ],
         ],
-
-        'addresses' => [
-            'create' => [
-                'address-1'          => 'العنوان 1',
-                'address-2'          => 'العنوان 2',
-                'city'               => 'المدينة',
-                'company-name'       => 'اسم الشركة',
-                'country'            => 'الدولة',
-                'create-address-btn' => 'إضافة عنوان جديد',
-                'default-address'    => 'العنوان الافتراضي',
-                'email'              => 'البريد الإلكتروني',
-                'first-name'         => 'الاسم الأول',
-                'last-name'          => 'اسم العائلة',
-                'phone'              => 'الهاتف',
-                'post-code'          => 'الرمز البريدي',
-                'save-btn-title'     => 'حفظ العنوان',
-                'select-country'     => 'اختر الدولة',
-                'state'              => 'الولاية',
-                'street-address'     => 'عنوان الشارع',
-                'title'              => 'إنشاء عنوان العميل',
-                'vat-id'             => 'الرقم الضريبي (VAT ID)',
-            ],
-
-            'edit' => [
-                'address-1'       => 'العنوان 1',
-                'address-2'       => 'العنوان 2',
-                'city'            => 'المدينة',
-                'company-name'    => 'اسم الشركة',
-                'country'         => 'الدولة',
-                'default-address' => 'العنوان الافتراضي',
-                'email'           => 'البريد الإلكتروني',
-                'first-name'      => 'الاسم الأول',
-                'last-name'       => 'اسم العائلة',
-                'phone'           => 'الهاتف',
-                'post-code'       => 'الرمز البريدي',
-                'save-btn-title'  => 'حفظ العنوان',
-                'select-country'  => 'اختر الدولة',
-                'state'           => 'الولاية',
-                'street-address'  => 'عنوان الشارع',
-                'title'           => 'تعديل العنوان',
-                'vat-id'          => 'الرقم الضريبي (VAT ID)',
-            ],
-
-            'create-success'      => 'تم إنشاء العنوان بنجاح',
-            'success-mass-delete' => 'حذف العناوين بنجاح',
-            'update-success'      => 'تم تحديث العنوان بنجاح',
-        ],
     ],
 
     'marketing' => [
@@ -1510,7 +1728,7 @@ return [
                     ],
                 ],
 
-                'create'    => [
+                'create' => [
                     'active'          => 'نشط',
                     'back-btn'        => 'رجوع',
                     'channel'         => 'القناة',
@@ -1532,7 +1750,7 @@ return [
                     'title'           => 'إنشاء حملة',
                 ],
 
-                'edit'    => [
+                'edit' => [
                     'active'          => 'نشط',
                     'audience'        => 'الجمهور',
                     'back-btn'        => 'رجوع',
@@ -1560,7 +1778,7 @@ return [
             ],
 
             'events' => [
-                'index'  => [
+                'index' => [
                     'create-btn' => 'إنشاء حدث',
                     'event'      => 'الحدث',
                     'title'      => 'الأحداث',
@@ -1574,7 +1792,7 @@ return [
                         'name'    => 'الاسم',
                     ],
 
-                    'create'   => [
+                    'create' => [
                         'date'           => 'التاريخ',
                         'delete-warning' => 'هل أنت متأكد أنك تريد أن تقوم بهذا الإجراء؟',
                         'description'    => 'الوصف',
@@ -2119,8 +2337,10 @@ return [
 
     'cms' => [
         'index' => [
-            'already-taken' => ':name تم أخذه بالفعل.',
+            'already-taken' => 'تم استخدام :name بالفعل.',
             'create-btn'    => 'إنشاء صفحة',
+            'channel'       => 'القناة',
+            'language'      => 'اللغة',
             'title'         => 'الصفحات',
 
             'datagrid' => [
@@ -2173,7 +2393,7 @@ return [
     ],
 
     'settings' => [
-        'locales'           => [
+        'locales' => [
             'index' => [
                 'create-btn'    => 'إنشاء لغة',
                 'locale'        => 'اللغة',
@@ -2215,7 +2435,7 @@ return [
             ],
         ],
 
-        'currencies'        => [
+        'currencies' => [
             'index' => [
                 'create-btn' => 'إنشاء عملة',
                 'currency'   => 'العملة',
@@ -2235,15 +2455,18 @@ return [
                 ],
 
                 'create' => [
-                    'code'           => 'الكود',
-                    'create-btn'     => 'إنشاء عملة',
-                    'decimal'        => 'الكسور',
-                    'delete-warning' => 'هل أنت متأكد أنك تريد أداء هذا الإجراء؟',
-                    'general'        => 'عام',
-                    'name'           => 'الاسم',
-                    'save-btn'       => 'حفظ العملة',
-                    'symbol'         => 'الرمز',
-                    'title'          => 'إنشاء عملة جديدة',
+                    'code'              => 'الكود',
+                    'create-btn'        => 'إنشاء عملة',
+                    'currency-position' => 'موقع العملة',
+                    'decimal'           => 'الكسور',
+                    'decimal-separator' => 'فاصل الكسور',
+                    'delete-warning'    => 'هل أنت متأكد أنك تريد أداء هذا الإجراء؟',
+                    'general'           => 'عام',
+                    'group-separator'   => 'فاصل المجموعة',
+                    'name'              => 'الاسم',
+                    'save-btn'          => 'حفظ العملة',
+                    'symbol'            => 'الرمز',
+                    'title'             => 'إنشاء عملة جديدة',
                 ],
 
                 'edit' => [
@@ -2258,9 +2481,9 @@ return [
             ],
         ],
 
-        'data-transfer'     => [
+        'data-transfer' => [
             'imports' => [
-                'create'            => [
+                'create' => [
                     'action'              => 'الإجراء',
                     'allowed-errors'      => 'الأخطاء المسموح بها',
                     'back-btn'            => 'رجوع',
@@ -2268,9 +2491,9 @@ return [
                     'delete'              => 'حذف',
                     'download-sample'     => 'تحميل النموذج',
                     'field-separator'     => 'فاصل الحقل',
-                    'file-info-example'   => 'على سبيل المثال، في حالة صور المنتجات، يجب وضع الملفات في مجلد /project-root/storage/app/import/product-images',
-                    'file-info'           => 'استخدم المسار النسبي إلى /project-root/storage/app/import، على سبيل المثال، product-images، import-images.',
                     'file'                => 'الملف',
+                    'file-info'           => 'استخدم المسار النسبي إلى /project-root/storage/app/import، على سبيل المثال، product-images، import-images.',
+                    'file-info-example'   => 'على سبيل المثال، في حالة صور المنتجات، يجب وضع الملفات في مجلد /project-root/storage/app/import/product-images',
                     'general'             => 'عام',
                     'images-directory'    => 'مسار مجلد الصور',
                     'process-in-queue'    => 'معالجة في الطابور',
@@ -2284,7 +2507,7 @@ return [
                     'validation-strategy' => 'استراتيجية التحقق',
                 ],
 
-                'edit'              => [
+                'edit' => [
                     'action'              => 'الإجراء',
                     'allowed-errors'      => 'الأخطاء المسموح بها',
                     'back-btn'            => 'رجوع',
@@ -2292,9 +2515,9 @@ return [
                     'delete'              => 'حذف',
                     'download-sample'     => 'تحميل النموذج',
                     'field-separator'     => 'فاصل الحقل',
-                    'file-info-example'   => 'على سبيل المثال، في حالة صور المنتجات، يجب وضع الملفات في مجلد /project-root/storage/app/import/product-images',
-                    'file-info'           => 'استخدم المسار النسبي إلى /project-root/storage/app/import، على سبيل المثال، product-images، import-images.',
                     'file'                => 'الملف',
+                    'file-info'           => 'استخدم المسار النسبي إلى /project-root/storage/app/import، على سبيل المثال، product-images، import-images.',
+                    'file-info-example'   => 'على سبيل المثال، في حالة صور المنتجات، يجب وضع الملفات في مجلد /project-root/storage/app/import/product-images',
                     'general'             => 'عام',
                     'images-directory'    => 'مسار مجلد الصور',
                     'process-in-queue'    => 'معالجة في الطابور',
@@ -2308,11 +2531,11 @@ return [
                     'validation-strategy' => 'استراتيجية التحقق',
                 ],
 
-                'index'             => [
+                'index' => [
                     'button-title' => 'إنشاء استيراد',
                     'title'        => 'الاستيرادات',
 
-                    'datagrid'     => [
+                    'datagrid' => [
                         'actions'       => 'الإجراءات',
                         'completed-at'  => 'انتهى في',
                         'created'       => 'تم الإنشاء',
@@ -2329,7 +2552,7 @@ return [
                     ],
                 ],
 
-                'import'            => [
+                'import' => [
                     'back-btn'                => 'العودة',
                     'completed-batches'       => 'إجمالي الدُفعات المكتملة:',
                     'download-error-report'   => 'تحميل التقرير الكامل',
@@ -2347,8 +2570,8 @@ return [
                     'total-invalid-rows'      => 'إجمالي الصفوف غير الصالحة:',
                     'total-rows-processed'    => 'إجمالي الصفوف المعالجة:',
                     'total-updated'           => 'إجمالي السجلات التي تم تحديثها:',
-                    'validate-info'           => 'انقر على التحقق من البيانات لفحص عملية الاستيراد الخاصة بك.',
                     'validate'                => 'التحقق',
+                    'validate-info'           => 'انقر على التحقق من البيانات لفحص عملية الاستيراد الخاصة بك.',
                     'validating-info'         => 'بدأت البيانات في القراءة والتحقق',
                     'validation-failed-info'  => 'الاستيراد الخاص بك غير صالح. يرجى إصلاح الأخطاء التالية والمحاولة مرة أخرى.',
                     'validation-success-info' => 'الاستيراد الخاص بك صالح. انقر على الاستيراد لبدء عملية الاستيراد.',
@@ -2364,7 +2587,7 @@ return [
             ],
         ],
 
-        'exchange-rates'    => [
+        'exchange-rates' => [
             'index' => [
                 'create-btn'    => 'إنشاء سعر صرف',
                 'exchange-rate' => 'سعر الصرف',
@@ -2523,7 +2746,7 @@ return [
                 ],
             ],
 
-            'rates'   => [
+            'rates' => [
                 'index' => [
                     'button-title' => 'إنشاء معدل الضريبة',
                     'tax-rate'     => 'سعر الضريبة',
@@ -2563,12 +2786,12 @@ return [
 
                 'edit' => [
                     'back-btn'       => 'عودة',
-                    'basic-settings' => 'الإعدادات الأساسية',
                     'country'        => 'البلد',
                     'identifier'     => 'المعرف',
                     'save-btn'       => 'حفظ سعر الضريبة',
                     'select-country' => 'اختر البلد',
                     'select-state'   => 'اختر الولاية',
+                    'settings'       => 'الإعدادات',
                     'state'          => 'الولاية',
                     'tax-rate'       => 'السعر',
                     'title'          => 'تعديل سعر الضريبة',
@@ -2875,7 +3098,8 @@ return [
                 'url'                           => 'رابط الإنترنت',
                 'value'                         => 'القيمة: :value',
                 'value-input'                   => 'القيمة',
-                'services-content'              => [
+
+                'services-content' => [
                     'add-btn'            => 'أضف الخدمات',
                     'channels'           => 'القنوات',
                     'delete'             => 'يمسح',
@@ -3034,6 +3258,8 @@ return [
             'save-btn'                     => 'حفظ الإعدادات',
             'save-message'                 => 'تم حفظ الإعدادات بنجاح',
             'search'                       => 'يبحث',
+            'select-country'               => 'اختر البلد',
+            'select-state'                 => 'اختر الولاية',
             'title'                        => 'الإعدادات',
 
             'general' => [
@@ -3369,6 +3595,10 @@ return [
                     'admin-name'            => 'اسم المشرف',
                     'admin-name-tip'        => 'سيتم عرض هذا الاسم في جميع رسائل البريد الإلكتروني الإدارية',
                     'admin-page-limit'      => 'عدد العناصر الافتراضية في كل صفحة (الإدارة)',
+                    'contact-email'         => 'عنوان البريد الإلكتروني للاتصال',
+                    'contact-email-tip'     => 'سيتم عرض هذا العنوان في أسفل رسائل البريد الإلكتروني الخاصة بك',
+                    'contact-name'          => 'اسم الاتصال',
+                    'contact-name-tip'      => 'سيتم عرض هذا الاسم في أسفل رسائل البريد الإلكتروني الخاصة بك',
                     'email-sender-name'     => 'اسم مُرسل البريد الإلكتروني',
                     'email-sender-name-tip' => 'سيتم عرض هذا الاسم في صندوق الوارد للعملاء',
                     'info'                  => 'تعيين اسم مُرسل البريد الإلكتروني، عنوان البريد الإلكتروني للمتجر، اسم المشرف، وعنوان البريد الإلكتروني للمشرف.',

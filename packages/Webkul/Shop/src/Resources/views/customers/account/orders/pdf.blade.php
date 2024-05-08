@@ -204,7 +204,7 @@
                                     <span class="merchant-details-title">{{ core()->getConfigData('sales.shipping.origin.store_name') ? core()->getConfigData('sales.shipping.origin.store_name') : '' }}</span>
                                 </div>
 
-                                <div>{{ core()->getConfigData('sales.shipping.origin.address1') ?? '' }}</div>
+                                <div>{{ core()->getConfigData('sales.shipping.origin.address') ?? '' }}</div>
 
                                 <div>
                                     <span>{{ core()->getConfigData('sales.shipping.origin.zipcode') ?? '' }}</span>
@@ -282,7 +282,7 @@
             </div>
 
             <div class="invoice-summary">
-                <div class="table address">
+                <div class="address table">
                     <table>
                         <thead>
                             <tr>
@@ -299,7 +299,7 @@
                                     <td>
                                         <p>{{ $invoice->order->billing_address->company_name ?? '' }}</p>
                                         <p>{{ $invoice->order->billing_address->name }}</p>
-                                        <p>{{ $invoice->order->billing_address->address1 }}</p>
+                                        <p>{{ $invoice->order->billing_address->address }}</p>
                                         <p>{{ $invoice->order->billing_address->city }}</p>
                                         <p>{{ $invoice->order->billing_address->state }}</p>
                                         <p>
@@ -314,7 +314,7 @@
                                     <td>
                                         <p>{{ $invoice->order->shipping_address->company_name ?? '' }}</p>
                                         <p>{{ $invoice->order->shipping_address->name }}</p>
-                                        <p>{{ $invoice->order->shipping_address->address1 }}</p>
+                                        <p>{{ $invoice->order->shipping_address->address }}</p>
                                         <p>{{ $invoice->order->shipping_address->city }}</p>
                                         <p>{{ $invoice->order->shipping_address->state }}</p>
                                         <p>{{ core()->country_name($invoice->order->shipping_address->country) }} {{ $invoice->order->shipping_address->postcode }}</p>
@@ -326,7 +326,7 @@
                     </table>
                 </div>
 
-                <div class="table payment-shipment">
+                <div class="payment-shipment table">
                     <table>
                         <thead>
                             <tr>
@@ -367,12 +367,12 @@
                     </table>
                 </div>
 
-                <div class="table items">
+                <div class="items table">
                     <table>
                         <thead>
                             <tr>
                                 @foreach (['sku', 'product-name', 'price', 'qty', 'subtotal', 'tax-amount', 'grand-total'] as $item)
-                                    <th class="text-center table-header">
+                                    <th class="table-header text-center">
                                         @lang('shop::app.customers.account.orders.invoice-pdf.' . $item)
                                     </th>
                                 @endforeach

@@ -11,7 +11,7 @@ return [
         ],
 
         'forget-password' => [
-            'create'    => [
+            'create' => [
                 'email'           => 'Зареєстрована електронна пошта',
                 'email-not-exist' => 'Електронна пошта не існує',
                 'page-title'      => 'Забули пароль',
@@ -36,6 +36,8 @@ return [
         'description-text' => 'Список всіх повідомлень',
         'marked-success'   => 'Повідомлення успішно позначено',
         'no-record'        => 'Записів не знайдено',
+        'of'               => 'з',
+        'per-page'         => 'на сторінці',
         'read-all'         => 'Позначити як прочитане',
         'title'            => 'Повідомлення',
         'view-all'         => 'Переглянути всі',
@@ -47,15 +49,6 @@ return [
             'pending'         => 'Замовлення очікує на оплату',
             'pending-payment' => 'Очікується оплата',
             'processing'      => 'Замовлення обробляється',
-        ],
-
-        'status'  => [
-            'all'        => 'Всі',
-            'canceled'   => 'Скасовано',
-            'closed'     => 'Закрито',
-            'completed'  => 'Завершено',
-            'pending'    => 'Очікує на оплату',
-            'processing' => 'Обробляється',
         ],
     ],
 
@@ -134,7 +127,16 @@ return [
     'sales' => [
         'orders' => [
             'index' => [
-                'title' => 'Замовлення',
+                'create-btn' => 'Створити замовлення',
+                'title'      => 'Замовлення',
+
+                'search-customer' => [
+                    'create-btn'  => 'Створити клієнта',
+                    'empty-info'  => 'Немає доступних клієнтів за вказаним пошуковим запитом.',
+                    'empty-title' => 'Клієнти не знайдені',
+                    'search-by'   => 'Пошук за електронною поштою або ім\'ям',
+                    'title'       => 'Вибрати клієнта',
+                ],
 
                 'datagrid' => [
                     'canceled'         => 'Скасовано',
@@ -152,13 +154,173 @@ return [
                     'order-id'         => 'Номер замовлення',
                     'pay-by'           => 'Сплачено через - :method',
                     'pay-via'          => 'Сплатити через',
-                    'pending'          => 'В очікуванні',
                     'pending-payment'  => 'Очікується оплата',
+                    'pending'          => 'В очікуванні',
                     'processing'       => 'Обробка',
                     'product-count'    => ':count + Ще більше продуктів',
                     'status'           => 'Статус',
                     'success'          => 'Успішно',
                     'view'             => 'Перегляд',
+                ],
+            ],
+
+            'create' => [
+                'add-to-cart'             => 'Додати в кошик',
+                'back-btn'                => 'Назад',
+                'check-billing-address'   => 'Відсутня адреса для виставлення рахунку.',
+                'check-shipping-address'  => 'Відсутня адреса доставки.',
+                'configuration'           => 'Конфігурація',
+                'coupon-already-applied'  => 'Код купона вже застосований.',
+                'coupon-applied'          => 'Код купона успішно застосований.',
+                'coupon-error'            => 'Не вдалося застосувати код купона.',
+                'coupon-not-found'        => 'Код купона не знайдено',
+                'coupon-remove'           => 'Код купона успішно видалено.',
+                'error'                   => 'Щось пішло не так',
+                'minimum-order-error'     => 'Мінімальна сума замовлення не досягнута.',
+                'order-placed-success'    => 'Замовлення успішно оформлено.',
+                'payment-not-supported'   => 'Цей спосіб оплати не підтримується',
+                'save-btn'                => 'Створити замовлення',
+                'specify-payment-method'  => 'Відсутній спосіб оплати.',
+                'specify-shipping-method' => 'Відсутній спосіб доставки.',
+                'title'                   => 'Створити замовлення для :name',
+
+                'types' => [
+                    'configurable' => [
+                        'select-options' => 'Будь ласка, виберіть опцію',
+                    ],
+
+                    'bundle' => [
+                        'none'         => 'Немає',
+                        'total-amount' => 'Загальна сума',
+                    ],
+
+                    'grouped' => [
+                        'name' => 'Назва',
+                    ],
+
+                    'downloadable' => [
+                        'title' => 'Посилання',
+                    ],
+                ],
+
+                'cart' => [
+                    'success-add-to-cart' => 'Товар успішно додано в кошик',
+                    'success-remove'      => 'Елемент успішно видалено з кошика',
+                    'success-update'      => 'Елемент кошика успішно оновлено',
+
+                    'items' => [
+                        'add-product'       => 'Додати товар',
+                        'amount-per-unit'   => ':amount за одиницю x :qty Кількість',
+                        'delete'            => 'Видалити',
+                        'empty-description' => 'В кошику немає товарів.',
+                        'empty-title'       => 'Порожній кошик',
+                        'move-to-wishlist'  => 'Перемістити в список бажань',
+                        'see-details'       => 'Детальніше',
+                        'sku'               => 'Артикул - :sku',
+                        'sub-total'         => 'Підсумок - :sub_total',
+                        'title'             => 'Товари в кошику',
+
+                        'search' => [
+                            'add-to-cart'   => 'Додати в кошик',
+                            'available-qty' => ':qty доступно',
+                            'empty-info'    => 'Немає товарів за вказаним пошуковим запитом.',
+                            'empty-title'   => 'Товари не знайдені',
+                            'product-image' => 'Зображення товару',
+                            'qty'           => 'Кількість',
+                            'sku'           => 'Артикул - :sku',
+                            'title'         => 'Пошук товарів',
+                        ],
+                    ],
+
+                    'address' => [
+                        'add-btn'          => 'Додати адресу',
+                        'add-new'          => 'Додати нову адресу',
+                        'add-new-address'  => 'Додати нову адресу',
+                        'addresses'        => 'Адреси',
+                        'back'             => 'Назад',
+                        'billing-address'  => 'Адреса для виставлення рахунку',
+                        'city'             => 'Місто',
+                        'company-name'     => 'Назва компанії',
+                        'confirm'          => 'Підтвердити',
+                        'country'          => 'Країна',
+                        'edit-btn'         => 'Редагувати адресу',
+                        'email'            => 'Електронна пошта',
+                        'first-name'       => 'Ім\'я',
+                        'last-name'        => 'Прізвище',
+                        'postcode'         => 'Поштовий індекс',
+                        'proceed'          => 'Продовжити',
+                        'same-as-billing'  => 'Використовувати ту саму адресу для доставки?',
+                        'save'             => 'Зберегти',
+                        'save-address'     => 'Зберегти в адресну книгу',
+                        'select-country'   => 'Виберіть країну',
+                        'select-state'     => 'Виберіть область',
+                        'shipping-address' => 'Адреса доставки',
+                        'state'            => 'Область',
+                        'street-address'   => 'Вулиця, будинок',
+                        'telephone'        => 'Телефон',
+                        'title'            => 'Адреса',
+                        'vat-id'           => 'ІПН',
+                    ],
+
+                    'payment' => [
+                        'title' => 'Оплата',
+                    ],
+
+                    'shipping' => [
+                        'title' => 'Доставка',
+                    ],
+
+                    'summary' => [
+                        'apply-coupon'    => 'Застосувати купон',
+                        'discount-amount' => 'Сума знижки',
+                        'enter-your-code' => 'Введіть код',
+                        'grand-total'     => 'Загальна сума',
+                        'place-order'     => 'Оформити замовлення',
+                        'processing'      => 'Обробка',
+                        'shipping-amount' => 'Вартість доставки',
+                        'sub-total'       => 'Підсумок',
+                        'tax'             => 'Податок',
+                        'title'           => 'Підсумок замовлення',
+                    ],
+                ],
+
+                'cart-items' => [
+                    'add-to-cart'       => 'Додати в кошик',
+                    'delete'            => 'Видалити',
+                    'empty-description' => 'В кошику немає товарів.',
+                    'empty-title'       => 'Порожній кошик',
+                    'see-details'       => 'Детальніше',
+                    'sku'               => 'Артикул - :sku',
+                    'title'             => 'Товари в кошику',
+                ],
+
+                'recent-order-items' => [
+                    'add-to-cart'       => 'Додати в кошик',
+                    'empty-description' => 'В вашому списку останніх замовлень немає товарів.',
+                    'empty-title'       => 'Порожні замовлення',
+                    'see-details'       => 'Детальніше',
+                    'sku'               => 'Артикул - :sku',
+                    'title'             => 'Товари з останніх замовлень',
+                    'view'              => 'Перегляд',
+                ],
+
+                'wishlist-items' => [
+                    'add-to-cart'       => 'Додати в кошик',
+                    'delete'            => 'Видалити',
+                    'empty-description' => 'В вашому списку бажань немає товарів.',
+                    'empty-title'       => 'Порожній список бажань',
+                    'see-details'       => 'Детальніше',
+                    'sku'               => 'Артикул - :sku',
+                    'title'             => 'Товари в списку бажань',
+                ],
+
+                'compare-items' => [
+                    'add-to-cart'       => 'Додати в кошик',
+                    'delete'            => 'Видалити',
+                    'empty-description' => 'В вашому списку порівняння немає товарів.',
+                    'empty-title'       => 'Порожній список порівняння',
+                    'sku'               => 'Артикул - :sku',
+                    'title'             => 'Товари в списку порівняння',
                 ],
             ],
 
@@ -211,6 +373,7 @@ return [
                 'refund'                => 'Повернення',
                 'refund-id'             => 'Повернення #:refund',
                 'refunded'              => 'Повернуто',
+                'reorder'               => 'Перепорядкувати',
                 'ship'                  => 'Відправити',
                 'shipment'              => 'Відвантаження #:shipment',
                 'shipments'             => 'Відвантаження',
@@ -424,7 +587,7 @@ return [
                 'title'                  => 'Рахунок #:invoice_id',
             ],
 
-            'create'   => [
+            'create' => [
                 'amount-per-unit'    => ':amount За Одиницю x :qty Кількість',
                 'create-invoice'     => 'Створити Рахунок-фактуру',
                 'create-success'     => 'Рахунок-фактура успішно створена',
@@ -476,8 +639,8 @@ return [
 
         'transactions' => [
             'index' => [
-                'create-btn'  => 'Створити транзакції',
-                'title'       => 'Транзакції',
+                'create-btn' => 'Створити транзакції',
+                'title'      => 'Транзакції',
 
                 'datagrid' => [
                     'completed'          => 'Завершено',
@@ -541,30 +704,30 @@ return [
                 ],
 
                 'datagrid' => [
-                    'active'                        => 'Активний',
-                    'attribute-family'              => 'Сімейство атрибутів',
-                    'attribute-family-value'        => 'Сімейство атрибутів - :attribute_family',
-                    'category'                      => 'Категорія',
-                    'copy-of'                       => 'Копія :value',
-                    'copy-of-slug'                  => 'копія-:value',
-                    'delete'                        => 'Видалити',
-                    'disable'                       => 'Відключити',
-                    'id'                            => 'ID',
-                    'id-value'                      => 'ID - :id',
-                    'image'                         => 'Зображення',
-                    'mass-delete-success'           => 'Вибрані товари успішно видалені',
-                    'mass-update-success'           => 'Вибрані товари успішно оновлені',
-                    'name'                          => 'Назва',
-                    'out-of-stock'                  => 'Немає в наявності',
-                    'price'                         => 'Ціна',
-                    'product-image'                 => 'Зображення товару',
-                    'qty'                           => 'Кількість',
-                    'qty-value'                     => ':qty в наявності',
-                    'sku'                           => 'Артикул',
-                    'sku-value'                     => 'Артикул - :sku',
-                    'status'                        => 'Статус',
-                    'type'                          => 'Тип',
-                    'update-status'                 => 'Оновити статус',
+                    'active'                 => 'Активний',
+                    'attribute-family'       => 'Сімейство атрибутів',
+                    'attribute-family-value' => 'Сімейство атрибутів - :attribute_family',
+                    'category'               => 'Категорія',
+                    'copy-of'                => 'Копія :value',
+                    'copy-of-slug'           => 'копія-:value',
+                    'delete'                 => 'Видалити',
+                    'disable'                => 'Відключити',
+                    'id'                     => 'ID',
+                    'id-value'               => 'ID - :id',
+                    'image'                  => 'Зображення',
+                    'mass-delete-success'    => 'Вибрані товари успішно видалені',
+                    'mass-update-success'    => 'Вибрані товари успішно оновлені',
+                    'name'                   => 'Назва',
+                    'out-of-stock'           => 'Немає в наявності',
+                    'price'                  => 'Ціна',
+                    'product-image'          => 'Зображення товару',
+                    'qty'                    => 'Кількість',
+                    'qty-value'              => ':qty в наявності',
+                    'sku'                    => 'Артикул',
+                    'sku-value'              => 'Артикул - :sku',
+                    'status'                 => 'Статус',
+                    'type'                   => 'Тип',
+                    'update-status'          => 'Оновити статус',
                 ],
             ],
 
@@ -900,6 +1063,7 @@ return [
                 'position'              => 'Позиція',
                 'price'                 => 'Ціна',
                 'regex'                 => 'Регулярний вираз',
+                'regex-info'            => 'Вираз повинен бути в подвійних лапках.',
                 'save-btn'              => 'Зберегти атрибут',
                 'select'                => 'Вибір',
                 'select-type'           => 'Вибрати тип атрибуту',
@@ -963,6 +1127,7 @@ return [
                 'position'              => 'Позиція',
                 'price'                 => 'Ціна',
                 'regex'                 => 'Регулярний Вираз',
+                'regex-info'            => 'Вираз повинен бути в подвійних лапках.',
                 'save-btn'              => 'Зберегти Атрибут',
                 'select'                => 'Вибір',
                 'select-type'           => 'Тип Вибору Атрибуту',
@@ -996,8 +1161,8 @@ return [
 
         'categories' => [
             'index' => [
-                'add-btn'         => 'Створити Категорію',
-                'title'           => 'Категорії',
+                'add-btn' => 'Створити Категорію',
+                'title'   => 'Категорії',
 
                 'datagrid' => [
                     'active'         => 'Активна',
@@ -1174,140 +1339,240 @@ return [
     'customers' => [
         'customers' => [
             'index' => [
-                'login-message' => 'Ви увійшли як :customer_name',
                 'title'         => 'Клієнти',
+                'login-message' => 'Ви увійшли як :customer_name',
 
                 'datagrid' => [
                     'active'         => 'Активний',
-                    'address'        => ':address Адрес(и)',
-                    'address-count'  => 'Кількість Адрес',
+                    'address'        => ':address Адреса(и)',
+                    'address-count'  => 'Кількість адрес',
                     'delete'         => 'Видалити',
                     'delete-success' => 'Вибрані дані успішно видалено',
-                    'email'          => 'Email',
+                    'email'          => 'Електронна пошта',
                     'gender'         => 'Стать',
                     'group'          => 'Група',
-                    'id'             => 'ID Клієнта',
+                    'id'             => 'Ідентифікатор клієнта',
                     'inactive'       => 'Неактивний',
-                    'method-error'   => 'Помилка! Виявлено неправильний метод, будь ласка, перевірте конфігурацію масової дії',
-                    'name'           => 'Ім я Клієнта',
-                    'no-resource'    => 'Ресурс, наданий для виконання дії, недостатній',
+                    'method-error'   => 'Помилка! Виявлено невірний метод, будь ласка, перевірте конфігурацію масових дій',
+                    'name'           => 'Ім\'я клієнта',
+                    'no-resource'    => 'Недостатньо ресурсів для виконання дії',
                     'order'          => ':order Замовлення(я)',
-                    'order-count'    => 'Кількість Замовлень',
-                    'order-pending'  => 'У клієнта є незавершені замовлення',
-                    'partial-action' => 'Деякі дії не виконано через обмеження системи для :resource',
-                    'phone'          => 'Контактний Номер',
+                    'order-count'    => 'Кількість замовлень',
+                    'order-pending'  => 'Клієнт має невиконані замовлення',
+                    'partial-action' => 'Деякі дії не були виконані через обмеження системи щодо :resource',
+                    'phone'          => 'Контактний номер',
                     'revenue'        => 'Дохід',
                     'status'         => 'Статус',
-                    'suspended'      => 'Призупинений',
-                    'update-status'  => 'Оновити Статус',
-                    'update-success' => 'Вибрані Клієнти успішно оновлено',
+                    'suspended'      => 'Призупинено',
+                    'update-status'  => 'Оновити статус',
+                    'update-success' => 'Вибрані клієнти успішно оновлено',
                 ],
 
                 'create' => [
-                    'contact-number'        => 'Контактний Номер',
-                    'create-btn'            => 'Створити Клієнта',
-                    'create-success'        => 'Клієнта створено успішно',
-                    'customer-group'        => 'Група Клієнта',
-                    'date-of-birth'         => 'Дата Народження',
-                    'email'                 => 'Email',
+                    'contact-number'        => 'Контактний номер',
+                    'create-btn'            => 'Створити клієнта',
+                    'create-success'        => 'Клієнта успішно створено',
+                    'customer-group'        => 'Група клієнтів',
+                    'date-of-birth'         => 'Дата народження',
+                    'email'                 => 'Електронна пошта',
                     'female'                => 'Жінка',
-                    'first-name'            => 'Ім я',
+                    'first-name'            => "Ім'я",
                     'gender'                => 'Стать',
                     'last-name'             => 'Прізвище',
                     'male'                  => 'Чоловік',
                     'other'                 => 'Інша',
                     'save-btn'              => 'Зберегти клієнта',
-                    'select-customer-group' => 'Виберіть Групу Клієнта',
-                    'select-gender'         => 'Виберіть Стать',
-                    'title'                 => 'Створити Нового Клієнта',
+                    'select-customer-group' => 'Вибрати групу клієнтів',
+                    'select-gender'         => 'Вибрати стать',
+                    'title'                 => 'Створити нового клієнта',
                 ],
-            ],
-
-            'delete-failed'  => 'Видалення Клієнта не вдалося',
-            'delete-success' => 'Клієнта успішно видалено',
-            'order-pending'  => 'Замовлення очікується',
-            'update-success' => 'Клієнта успішно оновлено',
-
-            'edit' => [
-                'contact-number'        => 'Контактний Номер',
-                'customer-group'        => 'Група Клієнта',
-                'date-of-birth'         => 'Дата Народження',
-                'edit-btn'              => 'Редагувати',
-                'email'                 => 'Email',
-                'female'                => 'Жінка',
-                'first-name'            => 'Ім я',
-                'gender'                => 'Стать',
-                'last-name'             => 'Прізвище',
-                'male'                  => 'Чоловік',
-                'other'                 => 'Інша',
-                'save-btn'              => 'Зберегти клієнта',
-                'select-customer-group' => 'Виберіть Групу Клієнта',
-                'select-gender'         => 'Виберіть Стать',
-                'status'                => 'Статус',
-                'suspended'             => 'Призупинений',
-                'title'                 => 'Редагувати Клієнта',
             ],
 
             'view' => [
                 'account-delete-confirmation' => 'Ви впевнені, що хочете видалити цей обліковий запис?',
                 'active'                      => 'Активний',
-                'add-note'                    => 'Додати примітку',
-                'address'                     => 'Адреса',
                 'address-delete-confirmation' => 'Ви впевнені, що хочете видалити цю адресу?',
-                'address-delete-success'      => 'Адресу успішно видалено',
-                'approved'                    => 'Схвалено',
                 'back-btn'                    => 'Назад',
-                'canceled'                    => 'Скасовано',
-                'closed'                      => 'Закрито',
-                'completed'                   => 'Завершено',
+                'create-order'                => 'Створити замовлення',
                 'customer'                    => 'Клієнт',
-                'customer-not-notified'       => ':date | Клієнт <b>не повідомлений</b>',
-                'customer-notified'           => ':date | Клієнт <b>повідомлений</b>',
                 'date-of-birth'               => 'Дата народження - :dob',
                 'default-address'             => 'Адреса за замовчуванням',
-                'delete'                      => 'Видалити',
                 'delete-account'              => 'Видалити обліковий запис',
-                'disapproved'                 => 'Не схвалено',
-                'edit'                        => 'Редагувати',
+                'delete'                      => 'Видалити',
                 'email'                       => 'Електронна пошта - :email',
                 'empty-description'           => 'Створіть нові адреси для клієнта',
-                'empty-invoice'               => 'Немає доступних рахунків',
-                'empty-order'                 => 'Немає доступних замовлень',
-                'empty-review'                => 'Немає доступних відгуків',
                 'empty-title'                 => 'Додати адресу клієнта',
                 'gender'                      => 'Стать - :gender',
                 'group'                       => 'Група - :group_code',
-                'id'                          => 'ІД - :id',
                 'inactive'                    => 'Неактивний',
-                'increment-id'                => ':increment_id',
-                'invoice'                     => 'Рахунки (:invoice_count)',
-                'invoice-amount'              => 'Сума рахунка',
-                'invoice-date'                => 'Дата рахунка',
-                'invoice-id'                  => 'ID рахунка',
-                'invoice-id-prefix'           => ' :invoice_id',
-                'mobile'                      => 'Мобільний',
-                'note'                        => 'Примітка',
-                'note-created-success'        => 'Примітку успішно створено',
-                'note-placeholder'            => 'Напишіть свою примітку тут',
-                'notify-customer'             => 'Сповістити клієнта',
-                'of'                          => 'з',
-                'order-id'                    => 'ID замовлення',
-                'order-id-prefix'             => ' :order_id',
-                'order-pending'               => 'Неможливо видалити обліковий запис, оскільки деякі замовлення знаходяться в стані очікування або обробки.',
-                'orders'                      => 'Замовлення (:order_count)',
-                'pay-by'                      => 'Сплачено',
-                'pending'                     => 'На очікуванні',
-                'per-page'                    => 'на сторінку',
+                'login-as-customer'           => 'Увійти як клієнт',
+                'note-created-success'        => 'Примітка успішно створена',
+                'order-create-confirmation'   => 'Ви впевнені, що хочете створити замовлення для цього клієнта?',
                 'phone'                       => 'Телефон - :phone',
-                'processing'                  => 'В обробці',
-                'reviews'                     => 'Відгуки',
                 'set-as-default'              => 'Встановити за замовчуванням',
-                'set-default-success'         => 'Адресу за замовчуванням успішно оновлено',
-                'submit-btn-title'            => 'Надіслати примітку',
-                'suspended'                   => 'Призупинений',
+                'suspended'                   => 'Призупинено',
                 'title'                       => 'Перегляд клієнта',
-                'total-revenue'               => 'Загальний дохід - :revenue',
+
+                'address' => [
+                    'count'  => 'Адреси (:count)',
+
+                    'create' => [
+                        'city'               => 'Місто',
+                        'company-name'       => 'Назва компанії',
+                        'country'            => 'Країна',
+                        'create-btn'         => 'Створити',
+                        'create-address-btn' => 'Додати нову адресу',
+                        'default-address'    => 'Адреса за замовчуванням',
+                        'email'              => 'Електронна пошта',
+                        'first-name'         => "Ім'я",
+                        'last-name'          => 'Прізвище',
+                        'phone'              => 'Телефон',
+                        'post-code'          => 'Поштовий індекс',
+                        'save-btn-title'     => 'Зберегти адресу',
+                        'select-country'     => 'Вибрати країну',
+                        'state'              => 'Область',
+                        'street-address'     => 'Вулиця',
+                        'title'              => 'Створити адресу',
+                        'vat-id'             => 'Ідентифікаційний номер ПДВ',
+                    ],
+
+                    'edit' => [
+                        'city'            => 'Місто',
+                        'company-name'    => 'Назва компанії',
+                        'country'         => 'Країна',
+                        'default-address' => 'Адреса за замовчуванням',
+                        'edit-btn'        => 'Редагувати',
+                        'email'           => 'Електронна пошта',
+                        'first-name'      => "Ім'я",
+                        'last-name'       => 'Прізвище',
+                        'phone'           => 'Телефон',
+                        'post-code'       => 'Поштовий індекс',
+                        'save-btn-title'  => 'Зберегти адресу',
+                        'select-country'  => 'Вибрати країну',
+                        'state'           => 'Область',
+                        'street-address'  => 'Вулиця',
+                        'title'           => 'Редагувати адресу',
+                        'vat-id'          => 'Ідентифікаційний номер ПДВ',
+                    ],
+
+                    'address-delete-success' => 'Адресу успішно видалено',
+                    'create-success'         => 'Адресу успішно створено',
+                    'set-default-success'    => 'Адресу за замовчуванням успішно оновлено',
+                    'success-mass-delete'    => 'Масове видалення адрес успішно виконано',
+                    'update-success'         => 'Адресу успішно оновлено',
+                ],
+
+                'datagrid' => [
+                    'invoices' => [
+                        'empty-invoice'  => 'Немає відгуків',
+                        'increment-id'   => 'Ідентифікатор рахунка-фактури',
+                        'invoice-amount' => 'Сума рахунка-фактури',
+                        'invoice-date'   => 'Дата рахунка-фактури',
+                        'order-id'       => 'Ідентифікатор замовлення',
+                        'view'           => 'Перегляд',
+                    ],
+
+                    'orders' => [
+                        'canceled'        => 'Скасовано',
+                        'channel-name'    => 'Назва каналу',
+                        'closed'          => 'Закрито',
+                        'completed'       => 'Завершено',
+                        'customer-name'   => 'Ім\'я клієнта',
+                        'date'            => 'Дата',
+                        'empty-order'     => 'Немає доступних замовлень',
+                        'email'           => 'Електронна пошта',
+                        'fraud'           => 'Шахрайство',
+                        'grand-total'     => 'Загальна сума',
+                        'location'        => 'Місце розташування',
+                        'order-id'        => 'Ідентифікатор замовлення',
+                        'pay-via'         => 'Оплата через',
+                        'pending'         => 'В очікуванні',
+                        'pending-payment' => 'Очікує оплати',
+                        'processing'      => 'Обробка',
+                        'status'          => 'Статус',
+                        'view'            => 'Перегляд',
+                    ],
+
+                    'reviews' => [
+                        'approved'      => 'Схвалено',
+                        'comment'       => 'Коментар',
+                        'created-at'    => 'Створено',
+                        'disapproved'   => 'Не схвалено',
+                        'empty-reviews' => 'Немає доступних рахунків',
+                        'id'            => 'Ідентифікатор',
+                        'invoice-date'  => 'Дата рахунка-фактури',
+                        'pending'       => 'В очікуванні',
+                        'product-id'    => 'Ідентифікатор продукту',
+                        'product-name'  => 'Назва продукту',
+                        'rating'        => 'Рейтинг',
+                        'status'        => 'Статус',
+                        'title'         => 'Заголовок',
+                    ],
+                ],
+
+                'edit' => [
+                    'contact-number'        => 'Номер телефону',
+                    'customer-group'        => 'Група клієнтів',
+                    'date-of-birth'         => 'Дата народження',
+                    'edit-btn'              => 'Редагувати',
+                    'email'                 => 'Електронна пошта',
+                    'female'                => 'Жінка',
+                    'first-name'            => "Ім'я",
+                    'gender'                => 'Стать',
+                    'last-name'             => 'Прізвище',
+                    'male'                  => 'Чоловік',
+                    'other'                 => 'Інша',
+                    'save-btn'              => 'Зберегти клієнта',
+                    'select-customer-group' => 'Вибрати групу клієнтів',
+                    'select-gender'         => 'Вибрати стать',
+                    'status'                => 'Статус',
+                    'suspended'             => 'Призупинено',
+                    'title'                 => 'Редагувати клієнта',
+                ],
+
+                'invoices' => [
+                    'count'        => 'Рахунки-фактури (:count)',
+                    'increment-id' => '# :increment_id',
+                ],
+
+                'notes' => [
+                    'add-note'              => 'Додати примітку',
+                    'customer-not-notified' => ':date | Клієнта <b>не сповіщено</b>',
+                    'customer-notified'     => ':date | Клієнта <b>сповіщено</b>',
+                    'note'                  => 'Примітка',
+                    'note-placeholder'      => 'Напишіть вашу примітку тут',
+                    'notify-customer'       => 'Сповістити клієнта',
+                    'submit-btn-title'      => 'Надіслати примітку',
+                ],
+
+                'orders' => [
+                    'count'         => 'Замовлення (:count)',
+                    'increment-id'  => '# :increment_id',
+                    'total-revenue' => 'Загальний дохід - :revenue',
+                ],
+
+                'reviews' => [
+                    'id'    => 'Ідентифікатор - :id',
+                    'count' => 'Відгуки (:count)',
+                ],
+
+                'cart' => [
+                    'delete-success' => 'Елемент кошика успішно видалено.',
+                ],
+
+                'wishlist' => [
+                    'delete-success' => 'Елемент списку бажань успішно видалено.',
+                ],
+
+                'compare' => [
+                    'delete-success' => 'Елемент порівняння успішно видалено.',
+                ],
             ],
+
+            'delete-failed'  => 'Видалення клієнта не вдалося',
+            'delete-success' => 'Клієнта успішно видалено',
+            'order-pending'  => 'Замовлення в очікуванні',
+            'update-success' => 'Клієнта успішно оновлено',
         ],
 
         'groups' => [
@@ -1392,53 +1657,6 @@ return [
                     'update-status'       => 'Оновити Статус',
                 ],
             ],
-        ],
-
-        'addresses' => [
-            'create' => [
-                'address-1'          => 'Адреса 1',
-                'address-2'          => 'Адреса 2',
-                'city'               => 'Місто',
-                'company-name'       => 'Назва Компанії',
-                'country'            => 'Країна',
-                'create-address-btn' => 'Додати Нову Адресу',
-                'default-address'    => 'Адреса за замовчуванням',
-                'email'              => 'Електронна пошта',
-                'first-name'         => "Ім'я",
-                'last-name'          => 'Прізвище',
-                'phone'              => 'Телефон',
-                'post-code'          => 'Поштовий індекс',
-                'save-btn-title'     => 'Зберегти Адресу',
-                'select-country'     => 'Виберіть Країну',
-                'state'              => 'Область',
-                'street-address'     => 'Вулиця та номер будинку',
-                'title'              => 'Створити Адресу Клієнта',
-                'vat-id'             => 'ПДВ (VAT) ID',
-            ],
-
-            'edit' => [
-                'address-1'        => 'Адреса 1',
-                'address-2'        => 'Адреса 2',
-                'city'             => 'Місто',
-                'company-name'     => 'Назва Компанії',
-                'country'          => 'Країна',
-                'default-address'  => 'Адреса за замовчуванням',
-                'email'            => 'Електронна пошта',
-                'first-name'       => "Ім'я",
-                'last-name'        => 'Прізвище',
-                'phone'            => 'Телефон',
-                'post-code'        => 'Поштовий індекс',
-                'save-btn-title'   => 'Зберегти Адресу',
-                'select-country'   => 'Виберіть Країну',
-                'state'            => 'Область',
-                'street-address'   => 'Вулиця та номер будинку',
-                'title'            => 'Редагувати Адресу',
-                'vat-id'           => 'ПДВ (VAT) ID',
-            ],
-
-            'create-success'      => 'Адреса успішно створено',
-            'success-mass-delete' => 'Адреси успішно видалено масово',
-            'update-success'      => 'Адреса успішно оновлено',
         ],
     ],
 
@@ -1574,7 +1792,7 @@ return [
                         'name'    => 'Назва',
                     ],
 
-                    'create'   => [
+                    'create' => [
                         'date'           => 'Дата',
                         'delete-warning' => 'Ви впевнені, що хочете виконати цю дію?',
                         'description'    => 'Опис',
@@ -2119,8 +2337,10 @@ return [
 
     'cms' => [
         'index' => [
-            'already-taken' => 'Назва :name вже використовується.',
+            'already-taken' => 'Це ім\'я :name вже використовується.',
             'create-btn'    => 'Створити сторінку',
+            'channel'       => 'Канал',
+            'language'      => 'Мова',
             'title'         => 'Сторінки',
 
             'datagrid' => [
@@ -2173,7 +2393,7 @@ return [
     ],
 
     'settings' => [
-        'locales'           => [
+        'locales' => [
             'index' => [
                 'create-btn' => 'Створити Локаль',
                 'locale'     => 'Локаль',
@@ -2215,7 +2435,7 @@ return [
             ],
         ],
 
-        'currencies'        => [
+        'currencies' => [
             'index' => [
                 'create-btn' => 'Створити Валюту',
                 'currency'   => 'Валюта',
@@ -2235,15 +2455,18 @@ return [
                 ],
 
                 'create' => [
-                    'code'           => 'Код',
-                    'create-btn'     => 'Створити Валюту',
-                    'decimal'        => 'Десятковий роздільник',
-                    'delete-warning' => 'Ви впевнені, що хочете виконати цю дію?',
-                    'general'        => 'Загальне',
-                    'name'           => 'Назва',
-                    'save-btn'       => 'Зберегти Валюту',
-                    'symbol'         => 'Символ',
-                    'title'          => 'Створити Нову Валюту',
+                    'code'              => 'Код',
+                    'create-btn'        => 'Створити Валюту',
+                    'currency-position' => 'Позиція Валюти',
+                    'decimal'           => 'Десятковий роздільник',
+                    'decimal-separator' => 'Десятковий роздільник',
+                    'delete-warning'    => 'Ви впевнені, що хочете виконати цю дію?',
+                    'general'           => 'Загальне',
+                    'group-separator'   => 'Роздільник груп',
+                    'name'              => 'Назва',
+                    'save-btn'          => 'Зберегти Валюту',
+                    'symbol'            => 'Символ',
+                    'title'             => 'Створити Нову Валюту',
                 ],
 
                 'edit' => [
@@ -2258,7 +2481,7 @@ return [
             ],
         ],
 
-        'data-transfer'     => [
+        'data-transfer' => [
             'imports' => [
                 'create' => [
                     'action'              => 'Дія',
@@ -2284,7 +2507,7 @@ return [
                     'validation-strategy' => 'Стратегія перевірки',
                 ],
 
-                'edit'              => [
+                'edit' => [
                     'action'              => 'Дія',
                     'allowed-errors'      => 'Дозволені помилки',
                     'back-btn'            => 'Назад',
@@ -2308,7 +2531,7 @@ return [
                     'validation-strategy' => 'Стратегія перевірки',
                 ],
 
-                'index'             => [
+                'index' => [
                     'button-title' => 'Створити імпорт',
                     'title'        => 'Імпорти',
 
@@ -2329,7 +2552,7 @@ return [
                     ],
                 ],
 
-                'import'            => [
+                'import' => [
                     'back-btn'                => 'Назад',
                     'completed-batches'       => 'Всього обробоановано партій:',
                     'download-error-report'   => 'Завантажити повний звіт',
@@ -2364,7 +2587,7 @@ return [
             ],
         ],
 
-        'exchange-rates'    => [
+        'exchange-rates' => [
             'index' => [
                 'create-btn'    => 'Створити Курс Валют',
                 'exchange-rate' => 'Курс Валют',
@@ -2483,7 +2706,7 @@ return [
             'update-success'    => 'Джерела інвентаризації успішно оновлено',
         ],
 
-        'taxes'             => [
+        'taxes' => [
             'categories' => [
                 'index' => [
                     'delete-warning' => 'Ви впевнені, що хочете видалити?',
@@ -2523,7 +2746,7 @@ return [
                 ],
             ],
 
-            'rates'   => [
+            'rates' => [
                 'index' => [
                     'button-title' => 'Створити податкову ставку',
                     'tax-rate'     => 'Податкова ставка',
@@ -2563,12 +2786,12 @@ return [
 
                 'edit' => [
                     'back-btn'       => 'Назад',
-                    'basic-settings' => 'Основні налаштування',
                     'country'        => 'Країна',
                     'identifier'     => 'Ідентифікатор',
                     'save-btn'       => 'Зберегти податкову ставку',
                     'select-country' => 'Виберіть країну',
                     'select-state'   => 'Виберіть область',
+                    'settings'       => 'Налаштування',
                     'state'          => 'Область',
                     'tax-rate'       => 'Ставка',
                     'title'          => 'Редагувати податкову ставку',
@@ -2709,7 +2932,7 @@ return [
                 ],
 
                 'edit' => [
-                    'title'    => 'Редагувати користувача',
+                    'title' => 'Редагувати користувача',
                 ],
             ],
 
@@ -2875,7 +3098,8 @@ return [
                 'url'                           => 'URL',
                 'value'                         => 'Значення: :value',
                 'value-input'                   => 'Значення',
-                'services-content'              => [
+
+                'services-content' => [
                     'add-btn'            => 'Додати послуги',
                     'channels'           => 'Канали',
                     'delete'             => 'Видалити',
@@ -3034,6 +3258,8 @@ return [
             'save-btn'                     => 'Зберегти налаштування',
             'save-message'                 => 'Налаштування успішно збережено',
             'search'                       => 'Пошук',
+            'select-country'               => 'Виберіть країну',
+            'select-state'                 => 'Виберіть штат',
             'title'                        => 'Налаштування',
 
             'general' => [
@@ -3045,10 +3271,10 @@ return [
                     'title' => 'Загальні',
 
                     'unit-options' => [
-                        'info'          => 'Встановіть параметри одиниць.',
-                        'title'         => 'Параметри одиниць',
-                        'title-info'    => 'Розмір, колір, матеріал, настроювання, покращення задоволення клієнтів і налаштування покупок.',
-                        'weight-unit'   => 'Одиниця ваги',
+                        'info'        => 'Встановіть параметри одиниць.',
+                        'title'       => 'Параметри одиниць',
+                        'title-info'  => 'Розмір, колір, матеріал, настроювання, покращення задоволення клієнтів і налаштування покупок.',
+                        'weight-unit' => 'Одиниця ваги',
                     ],
                 ],
 
@@ -3089,12 +3315,12 @@ return [
                     'title' => 'Магія ШІ',
 
                     'settings' => [
-                        'api-key'           => 'Ключ API',
-                        'enabled'           => 'Увімкнено',
-                        'llm-api-domain'    => 'Домен API LLM',
-                        'organization'      => 'Організація',
-                        'title'             => 'Загальні налаштування',
-                        'title-info'        => 'Покращте свій досвід з функцією Magic AI, введенням вашого ексклюзивного ключа API та вказанням відповідної організації для беззусередньої інтеграції. Візьміть під контроль свої облікові дані OpenAI та налаштуйте параметри згідно з вашими конкретними потребами.',
+                        'api-key'        => 'Ключ API',
+                        'enabled'        => 'Увімкнено',
+                        'llm-api-domain' => 'Домен API LLM',
+                        'organization'   => 'Організація',
+                        'title'          => 'Загальні налаштування',
+                        'title-info'     => 'Покращте свій досвід з функцією Magic AI, введенням вашого ексклюзивного ключа API та вказанням відповідної організації для беззусередньої інтеграції. Візьміть під контроль свої облікові дані OpenAI та налаштуйте параметри згідно з вашими конкретними потребами.',
                     ],
 
                     'content-generation' => [
@@ -3163,9 +3389,9 @@ return [
                     'title' => 'Склад',
 
                     'stock-options' => [
-                        'allow-back-orders'  => 'Дозволити відкладені замовлення',
-                        'title'              => 'Параметри запасів',
-                        'title-info'         => 'Параметри запасів - це інвестиційні контракти, які надають право купувати або продавати акції компанії за попередньо визначеною ціною, що впливає на можливі прибутки.',
+                        'allow-back-orders' => 'Дозволити відкладені замовлення',
+                        'title'             => 'Параметри запасів',
+                        'title-info'        => 'Параметри запасів - це інвестиційні контракти, які надають право купувати або продавати акції компанії за попередньо визначеною ціною, що впливає на можливі прибутки.',
                     ],
                 ],
 
@@ -3364,17 +3590,21 @@ return [
                 'title' => 'Електронна пошта',
 
                 'email-settings' => [
-                    'admin-email'            => 'Email адміністратора',
-                    'admin-email-tip'        => 'Email-адреса адміністратора для отримання електронних листів',
-                    'admin-name'             => 'Ім\'я адміністратора',
-                    'admin-name-tip'         => 'Це ім\'я буде відображатися в усіх електронних листах адміністратора',
-                    'admin-page-limit'       => 'Кількість товарів на сторінці за замовчуванням (адміністратор)',
-                    'email-sender-name'      => 'Ім\'я відправника електронної пошти',
-                    'email-sender-name-tip'  => 'Це ім\'я буде відображатися в інбоксі клієнтів',
-                    'info'                   => 'Встановіть ім\'я відправника електронної пошти, email магазину, ім\'я адміністратора та email адміністратора.',
-                    'shop-email-from'        => 'Email магазину для відправки',
-                    'shop-email-from-tip'    => 'Email-адреса цього каналу для відправлення листів вашим клієнтам',
-                    'title'                  => 'Налаштування електронної пошти',
+                    'admin-email'           => 'Email адміністратора',
+                    'admin-email-tip'       => 'Email-адреса адміністратора для отримання електронних листів',
+                    'admin-name'            => 'Ім\'я адміністратора',
+                    'admin-name-tip'        => 'Це ім\'я буде відображатися в усіх електронних листах адміністратора',
+                    'admin-page-limit'      => 'Кількість товарів на сторінці за замовчуванням (адміністратор)',
+                    'contact-email'         => 'Контактний email',
+                    'contact-email-tip'     => 'Ця адреса електронної пошти буде показана внизу ваших листів',
+                    'contact-name'          => 'Контактне ім’я',
+                    'contact-name-tip'      => 'Це ім’я буде показано внизу ваших листів',
+                    'email-sender-name'     => 'Ім\'я відправника електронної пошти',
+                    'email-sender-name-tip' => 'Це ім\'я буде відображатися в інбоксі клієнтів',
+                    'info'                  => 'Встановіть ім\'я відправника електронної пошти, email магазину, ім\'я адміністратора та email адміністратора.',
+                    'shop-email-from'       => 'Email магазину для відправки',
+                    'shop-email-from-tip'   => 'Email-адреса цього каналу для відправлення листів вашим клієнтам',
+                    'title'                 => 'Налаштування електронної пошти',
                 ],
 
                 'notifications' => [
@@ -3441,40 +3671,40 @@ return [
                 ],
 
                 'payment-methods' => [
-                    'accepted-currencies'            => 'Прийняті валюти',
-                    'accepted-currencies-info'       => 'Додайте коди валют через кому, наприклад, USD, INR,...',
-                    'business-account'               => 'Бізнес-акаунт',
-                    'cash-on-delivery'               => 'Готівкою при отриманні',
-                    'cash-on-delivery-info'          => 'Метод оплати, при якому клієнти оплачують готівкою при отриманні товарів чи послуг на своєму порозі.',
-                    'client-id'                      => 'Ідентифікатор клієнта',
-                    'client-id-info'                 => 'Використовуйте "sb" для тестування.',
-                    'client-secret'                  => 'Секретний ключ клієнта',
-                    'client-secret-info'             => 'Додайте сюди ваш секретний ключ',
-                    'description'                    => 'Опис',
-                    'generate-invoice'               => 'Автоматично створювати рахунок після замовлення',
-                    'generate-invoice-applicable'    => 'Застосовується, якщо включено автоматичне створення рахунку',
-                    'info'                           => 'Встановити інформацію про методи оплати',
-                    'instructions'                   => 'Інструкції',
-                    'logo'                           => 'Логотип',
-                    'logo-information'               => 'Роздільна здатність зображення повинна бути приблизно 55px x 45px',
-                    'mailing-address'                => 'Відправити чек на',
-                    'money-transfer'                 => 'Грошовий переказ',
-                    'money-transfer-info'            => 'Переказ коштів від однієї особи або рахунку до іншої, часто електронно, для різних цілей, таких як транзакції чи перекази.',
-                    'page-title'                     => 'Методи оплати',
-                    'paid'                           => 'Оплачено',
-                    'paypal-smart-button'            => 'PayPal',
-                    'paypal-smart-button-info'       => 'Розумна кнопка PayPal: спрощує онлайн-платежі з настроюваними кнопками для безпечних, багатофункціональних транзакцій на веб-сайтах та додатках.',
-                    'paypal-standard'                => 'Стандарт PayPal',
-                    'paypal-standard-info'           => 'Стандарт PayPal - це основний варіант оплати PayPal для онлайн-бізнесу, що дозволяє клієнтам оплачувати за допомогою своїх облікових записів PayPal або кредитних/дебетових карток.',
-                    'pending'                        => 'В очікуванні',
-                    'pending-payment'                => 'Очікується оплата',
-                    'processing'                     => 'Обробка',
-                    'sandbox'                        => 'Пісочниця',
-                    'set-invoice-status'             => 'Встановити статус рахунку після його створення на',
-                    'set-order-status'               => 'Встановити статус замовлення після створення рахунку на',
-                    'sort-order'                     => 'Порядок сортування',
-                    'status'                         => 'Статус',
-                    'title'                          => 'Назва',
+                    'accepted-currencies'         => 'Прийняті валюти',
+                    'accepted-currencies-info'    => 'Додайте коди валют через кому, наприклад, USD, INR,...',
+                    'business-account'            => 'Бізнес-акаунт',
+                    'cash-on-delivery'            => 'Готівкою при отриманні',
+                    'cash-on-delivery-info'       => 'Метод оплати, при якому клієнти оплачують готівкою при отриманні товарів чи послуг на своєму порозі.',
+                    'client-id'                   => 'Ідентифікатор клієнта',
+                    'client-id-info'              => 'Використовуйте "sb" для тестування.',
+                    'client-secret'               => 'Секретний ключ клієнта',
+                    'client-secret-info'          => 'Додайте сюди ваш секретний ключ',
+                    'description'                 => 'Опис',
+                    'generate-invoice'            => 'Автоматично створювати рахунок після замовлення',
+                    'generate-invoice-applicable' => 'Застосовується, якщо включено автоматичне створення рахунку',
+                    'info'                        => 'Встановити інформацію про методи оплати',
+                    'instructions'                => 'Інструкції',
+                    'logo'                        => 'Логотип',
+                    'logo-information'            => 'Роздільна здатність зображення повинна бути приблизно 55px x 45px',
+                    'mailing-address'             => 'Відправити чек на',
+                    'money-transfer'              => 'Грошовий переказ',
+                    'money-transfer-info'         => 'Переказ коштів від однієї особи або рахунку до іншої, часто електронно, для різних цілей, таких як транзакції чи перекази.',
+                    'page-title'                  => 'Методи оплати',
+                    'paid'                        => 'Оплачено',
+                    'paypal-smart-button'         => 'PayPal',
+                    'paypal-smart-button-info'    => 'Розумна кнопка PayPal: спрощує онлайн-платежі з настроюваними кнопками для безпечних, багатофункціональних транзакцій на веб-сайтах та додатках.',
+                    'paypal-standard'             => 'Стандарт PayPal',
+                    'paypal-standard-info'        => 'Стандарт PayPal - це основний варіант оплати PayPal для онлайн-бізнесу, що дозволяє клієнтам оплачувати за допомогою своїх облікових записів PayPal або кредитних/дебетових карток.',
+                    'pending'                     => 'В очікуванні',
+                    'pending-payment'             => 'Очікується оплата',
+                    'processing'                  => 'Обробка',
+                    'sandbox'                     => 'Пісочниця',
+                    'set-invoice-status'          => 'Встановити статус рахунку після його створення на',
+                    'set-order-status'            => 'Встановити статус замовлення після створення рахунку на',
+                    'sort-order'                  => 'Порядок сортування',
+                    'status'                      => 'Статус',
+                    'title'                       => 'Назва',
                 ],
 
                 'order-settings' => [
@@ -3482,12 +3712,12 @@ return [
                     'title' => 'Налаштування замовлень',
 
                     'order-number' => [
-                        'generator'   => 'Генератор номерів замовлень',
-                        'length'      => 'Довжина номеру замовлення',
-                        'prefix'      => 'Префікс номеру замовлення',
-                        'suffix'      => 'Суфікс номеру замовлення',
-                        'title'       => 'Налаштування номерів замовлень',
-                        'title-info'  => 'Унікальний ідентифікатор, призначений конкретному замовленню клієнта, який полегшує відстеження, спілкування та посилання на протязі процесу покупки.',
+                        'generator'  => 'Генератор номерів замовлень',
+                        'length'     => 'Довжина номеру замовлення',
+                        'prefix'     => 'Префікс номеру замовлення',
+                        'suffix'     => 'Суфікс номеру замовлення',
+                        'title'      => 'Налаштування номерів замовлень',
+                        'title-info' => 'Унікальний ідентифікатор, призначений конкретному замовленню клієнта, який полегшує відстеження, спілкування та посилання на протязі процесу покупки.',
                     ],
 
                     'minimum-order' => [

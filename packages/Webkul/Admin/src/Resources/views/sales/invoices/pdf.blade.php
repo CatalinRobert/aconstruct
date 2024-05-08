@@ -193,7 +193,7 @@
                                 <span class="merchant-details-title">{{ core()->getConfigData('sales.shipping.origin.store_name') ? core()->getConfigData('sales.shipping.origin.store_name') : '' }}</span>
                             </div>
 
-                            <div>{{ core()->getConfigData('sales.shipping.origin.address1') ?? '' }}</div>
+                            <div>{{ core()->getConfigData('sales.shipping.origin.address') ?? '' }}</div>
 
                             <div>
                                 <span>{{ core()->getConfigData('sales.shipping.origin.zipcode') ?? '' }}</span>
@@ -247,7 +247,7 @@
 
             <div class="invoice-summary">
                 <!-- Billing & Shipping Address Details --> 
-                <div class="table address">
+                <div class="address table">
                     <table>
                         <thead>
                             <tr>
@@ -272,7 +272,7 @@
 
                                             <p>{{ $invoice->order->$addressType->name }}</p>
 
-                                            <p>{{ $invoice->order->$addressType->address1 }}</p>
+                                            <p>{{ $invoice->order->$addressType->address }}</p>
 
                                             <p>{{ $invoice->order->$addressType->postcode . ' ' . $invoice->order->$addressType->city }}</p>
 
@@ -290,7 +290,7 @@
                 </div>
 
                 <!-- Payment & Shipping Methods -->
-                <div class="table payment-shipment">
+                <div class="payment-shipment table">
                     <table>
                         <thead>
                             <tr>
@@ -327,12 +327,12 @@
                     </table>
                 </div>
 
-                <div class="table items">
+                <div class="items table">
                     <table>
                         <thead>
                             <tr>
                                 @foreach (['sku', 'product-name', 'price', 'qty', 'subtotal', 'tax-amount', 'grand-total'] as $item)
-                                    <th class="text-center table-header">@lang('admin::app.sales.invoices.invoice-pdf.' . $item)</th>
+                                    <th class="table-header text-center">@lang('admin::app.sales.invoices.invoice-pdf.' . $item)</th>
                                 @endforeach
                             </tr>
                         </thead>

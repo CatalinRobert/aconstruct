@@ -3,6 +3,7 @@
 return [
     'customers' => [
         'forgot-password' => [
+            'already-sent'         => 'पासवर्ड रीसेट मेल पहले ही भेजा जा चुका है।',
             'back'                 => 'साइन इन पर वापस जाएं?',
             'bagisto'              => 'बागिस्तो',
             'email'                => 'ईमेल',
@@ -71,65 +72,99 @@ return [
         'account' => [
             'home' => 'होम',
 
-            'profile'   => [
-                'confirm-password'        => 'पासवर्ड की पुष्टि करें',
-                'current-password'        => 'वर्तमान पासवर्ड',
-                'delete'                  => 'हटाएं',
-                'delete-failed'           => 'ग्राहक को हटाते समय त्रुटि आई है।',
-                'delete-profile'          => 'प्रोफ़ाइल हटाएं',
-                'delete-success'          => 'ग्राहक सफलतापूर्वक हटा दिया गया',
-                'dob'                     => 'जन्म तिथि',
-                'edit'                    => 'संपादित करें',
-                'edit-profile'            => 'प्रोफ़ाइल संपादित करें',
-                'edit-success'            => 'प्रोफ़ाइल सफलतापूर्वक अपडेट हो गया',
-                'email'                   => 'ईमेल',
-                'enter-password'          => 'अपना पासवर्ड दर्ज करें',
-                'female'                  => 'महिला',
-                'first-name'              => 'पहला नाम',
-                'gender'                  => 'लिंग',
-                'last-name'               => 'अंतिम नाम',
-                'male'                    => 'पुरुष',
-                'new-password'            => 'नया पासवर्ड',
-                'order-pending'           => 'ग्राहक खाता हटा नहीं सकता क्योंकि कुछ आदेश लंबित हैं या प्रोसेसिंग स्थिति में हैं।',
-                'other'                   => 'अन्य',
-                'phone'                   => 'फ़ोन',
-                'save'                    => 'सहेजें',
-                'select-gender'           => 'लिंग चुनें',
-                'subscribe-to-newsletter' => 'न्यूजलेटर सदस्यता लें',
-                'title'                   => 'प्रोफ़ाइल',
-                'unmatch'                 => 'पुराना पासवर्ड मेल नहीं खाता।',
-                'wrong-password'          => 'गलत पासवर्ड !',
+            'profile' => [
+                'index' => [
+                    'delete'         => 'हटाएं',
+                    'delete-failed'  => 'ग्राहक को हटाते समय त्रुटि आई।',
+                    'delete-profile' => 'प्रोफ़ाइल हटाएं',
+                    'delete-success' => 'ग्राहक सफलतापूर्वक हटा दिया गया है',
+                    'dob'            => 'जन्मतिथि',
+                    'edit'           => 'संपादित करें',
+                    'edit-success'   => 'प्रोफ़ाइल सफलतापूर्वक अपडेट हुई है',
+                    'email'          => 'ईमेल',
+                    'enter-password' => 'अपना पासवर्ड दर्ज करें',
+                    'first-name'     => 'पहला नाम',
+                    'gender'         => 'लिंग',
+                    'last-name'      => 'अंतिम नाम',
+                    'order-pending'  => 'कुछ आदेश लंबित या प्रोसेसिंग स्थिति में होने के कारण ग्राहक खाता हटाया नहीं जा सकता है।',
+                    'title'          => 'प्रोफ़ाइल',
+                    'unmatched'      => 'पुराना पासवर्ड मेल नहीं खाता।',
+                    'wrong-password' => 'गलत पासवर्ड!',
+                ],
+
+                'edit' => [
+                    'confirm-password'        => 'पासवर्ड की पुष्टि करें',
+                    'current-password'        => 'वर्तमान पासवर्ड',
+                    'dob'                     => 'जन्मतिथि',
+                    'edit'                    => 'संपादित करें',
+                    'edit-profile'            => 'प्रोफ़ाइल संपादित करें',
+                    'email'                   => 'ईमेल',
+                    'female'                  => 'महिला',
+                    'first-name'              => 'पहला नाम',
+                    'gender'                  => 'लिंग',
+                    'last-name'               => 'अंतिम नाम',
+                    'male'                    => 'पुरुष',
+                    'new-password'            => 'नया पासवर्ड',
+                    'other'                   => 'अन्य',
+                    'phone'                   => 'फ़ोन',
+                    'save'                    => 'सहेजें',
+                    'subscribe-to-newsletter' => 'न्यूज़लेटर की सदस्यता लें',
+                ],
             ],
 
             'addresses' => [
-                'add-address'      => 'पता जोड़ें',
-                'address-1'        => 'पता 1',
-                'address-2'        => 'पता 2',
-                'city'             => 'शहर',
-                'company-name'     => 'कंपनी का नाम',
-                'country'          => 'देश',
-                'create-success'   => 'पता सफलतापूर्वक जोड़ा गया है।',
-                'default-address'  => 'डिफ़ॉल्ट पता',
-                'default-delete'   => 'डिफ़ॉल्ट पता बदला नहीं जा सकता है।',
-                'delete'           => 'हटाएं',
-                'delete-success'   => 'पता सफलतापूर्वक हटा दिया गया है',
-                'edit'             => 'संपादित करें',
-                'edit-address'     => 'पता संपादित करें',
-                'edit-success'     => 'पता सफलतापूर्वक अपडेट हो गया है।',
-                'email'            => 'ईमेल',
-                'empty-address'    => 'आपने अपने खाते में अभी तक कोई पता नहीं जोड़ा है।',
-                'first-name'       => 'पहला नाम',
-                'last-name'        => 'अंतिम नाम',
-                'phone'            => 'फ़ोन',
-                'post-code'        => 'पिन कोड',
-                'save'             => 'सहेजें',
-                'security-warning' => 'संदिग्ध गतिविधि पाई गई !!!',
-                'select-country'   => 'देश चुनें',
-                'set-as-default'   => 'डिफ़ॉल्ट के रूप में सेट करें',
-                'state'            => 'राज्य',
-                'street-address'   => 'सड़क का पता',
-                'title'            => 'पता',
-                'vat-id'           => 'वैट आईडी',
+                'index' => [
+                    'add-address'      => 'पता जोड़ें',
+                    'create-success'   => 'पता सफलतापूर्वक जोड़ा गया है।',
+                    'default-address'  => 'डिफ़ॉल्ट पता',
+                    'default-delete'   => 'डिफ़ॉल्ट पता बदला नहीं जा सकता।',
+                    'delete'           => 'हटाएं',
+                    'delete-success'   => 'पता सफलतापूर्वक हटा दिया गया है',
+                    'edit'             => 'संपादित करें',
+                    'edit-success'     => 'पता सफलतापूर्वक अपडेट हो गया है।',
+                    'empty-address'    => 'आपने अभी तक अपने खाते में कोई पता नहीं जोड़ा है।',
+                    'security-warning' => 'संदिग्ध गतिविधि मिली !!!',
+                    'set-as-default'   => 'डिफ़ॉल्ट के रूप में सेट करें',
+                    'title'            => 'पता',
+                    'update-success'   => 'पता सफलतापूर्वक अपडेट हो गया है।',
+                ],
+
+                'create' => [
+                    'add-address'    => 'पता जोड़ें',
+                    'city'           => 'शहर',
+                    'company-name'   => 'कंपनी का नाम',
+                    'country'        => 'देश',
+                    'email'          => 'ईमेल',
+                    'first-name'     => 'पहला नाम',
+                    'last-name'      => 'अंतिम नाम',
+                    'phone'          => 'फ़ोन',
+                    'post-code'      => 'पोस्ट कोड',
+                    'save'           => 'सहेजें',
+                    'select-country' => 'देश चुनें',
+                    'set-as-default' => 'डिफ़ॉल्ट के रूप में सेट करें',
+                    'state'          => 'राज्य',
+                    'street-address' => 'सड़क का पता',
+                    'title'          => 'पता',
+                    'vat-id'         => 'वैट आईडी',
+                ],
+
+                'edit' => [
+                    'city'           => 'शहर',
+                    'company-name'   => 'कंपनी का नाम',
+                    'country'        => 'देश',
+                    'edit'           => 'संपादित करें',
+                    'email'          => 'ईमेल',
+                    'first-name'     => 'पहला नाम',
+                    'last-name'      => 'अंतिम नाम',
+                    'phone'          => 'फ़ोन',
+                    'post-code'      => 'पोस्ट कोड',
+                    'save'           => 'सहेजें',
+                    'select-country' => 'देश चुनें',
+                    'state'          => 'राज्य',
+                    'street-address' => 'सड़क का पता',
+                    'title'          => 'पता',
+                    'vat-id'         => 'वैट आईडी',
+                ],
             ],
 
             'orders' => [
@@ -142,7 +177,7 @@ return [
                 'title'       => 'आदेश',
                 'total'       => 'कुल',
 
-                'status'        => [
+                'status' => [
                     'title' => 'स्थिति',
 
                     'options' => [
@@ -162,8 +197,10 @@ return [
                     'cancel-confirm-msg' => 'क्या आप वाकई इस आर्डर को रद्द करना चाहते हैं?',
                     'cancel-error'       => 'आपका आर्डर रद्द नहीं किया जा सकता है।',
                     'cancel-success'     => 'आपका आर्डर रद्द कर दिया गया है',
+                    'contact'            => 'संपर्क',
                     'page-title'         => 'आर्डर #:order_id',
                     'payment-method'     => 'भुगतान मेथड',
+                    'reorder-btn-title'  => 'पुनः क्रमबद्ध करें',
                     'shipping-address'   => 'शिपिंग पता',
                     'shipping-method'    => 'शिपिंग मेथड',
                     'title'              => 'देखें',
@@ -339,10 +376,19 @@ return [
                 'search-text'       => 'यहां प्रोडक्ट्स खोजें',
                 'sign-in'           => 'साइन इन करें',
                 'sign-up'           => 'साइन अप करें',
+                'submit'            => 'सबमिट करें',
                 'title'             => 'खाता',
                 'welcome'           => 'स्वागत है',
                 'welcome-guest'     => 'स्वागतम अतिथि',
                 'wishlist'          => 'विशलिस्ट',
+
+                'desktop' => [
+                    'top' => [
+                        'default-locale' => 'डिफ़ॉल्ट भाषा',
+                        'offer'          => 'अपने पहले ऑर्डर पर उपयोग करें 40% तक का छूट',
+                        'shop-now'       => 'अभी खरीदें',
+                    ],
+                ],
             ],
 
             'footer' => [
@@ -367,45 +413,37 @@ return [
 
         'datagrid' => [
             'toolbar' => [
-                'mass-actions' => [
-                    'select-action' => 'क्रिया चुनें',
-                    'select-option' => 'विकल्प चुनें',
-                    'submit'        => 'प्रस्तुत करें',
-                ],
+                'length-of' => ':length का',
+                'results'   => ':total परिणाम',
+                'selected'  => ':total चयनित',
 
-                'filter' => [
-                    'title' => 'फ़िल्टर',
+                'mass-actions' => [
+                    'must-select-a-mass-action'        => 'आपको एक समूह क्रिया का चयन करना होगा।',
+                    'must-select-a-mass-action-option' => 'आपको एक समूह क्रिया के विकल्प का चयन करना होगा।',
+                    'no-records-selected'              => 'कोई रिकॉर्ड चयनित नहीं किया गया है।',
+                    'select-action'                    => 'क्रिया का चयन करें',
                 ],
 
                 'search' => [
                     'title' => 'खोजें',
                 ],
-            ],
 
-            'filters' => [
-                'title' => 'फ़िल्टर लागू करें',
+                'filter' => [
+                    'apply-filter' => 'फ़िल्टर लागू करें',
+                    'title'        => 'फ़िल्टर',
 
-                'dropdown' => [
-                    'searchable' => [
-                        'atleast-two-chars' => 'कम से कम 2 अक्षर लिखें...',
-                        'no-results'        => 'कोई परिणाम नहीं मिला...',
+                    'dropdown' => [
+                        'select' => 'चुनें',
+
+                        'searchable' => [
+                            'at-least-two-chars' => 'कम से कम 2 अक्षर टाइप करें...',
+                            'no-results'         => 'कोई परिणाम नहीं मिला...',
+                        ],
                     ],
-                ],
 
-                'custom-filters' => [
-                    'clear-all' => 'सभी को हटाएँ',
-                    'title'     => 'कस्टम फ़िल्टर',
-                ],
-
-                'date-options' => [
-                    'last-month'        => 'पिछले महीने',
-                    'last-six-months'   => 'पिछले 6 महीने',
-                    'last-three-months' => 'पिछले 3 महीने',
-                    'this-month'        => 'इस महीने',
-                    'this-week'         => 'इस सप्ताह',
-                    'this-year'         => 'इस साल',
-                    'today'             => 'आज',
-                    'yesterday'         => 'कल',
+                    'custom-filters' => [
+                        'clear-all' => 'सभी साफ़ करें',
+                    ],
                 ],
             ],
 
@@ -413,9 +451,12 @@ return [
                 'actions'              => 'क्रियाएँ',
                 'next-page'            => 'अगला पृष्ठ',
                 'no-records-available' => 'कोई रिकॉर्ड उपलब्ध नहीं है।',
+                'of'                   => 'कुल :total प्रविष्टियों में से',
                 'page-navigation'      => 'पृष्ठ नेविगेशन',
                 'page-number'          => 'पृष्ठ संख्या',
                 'previous-page'        => 'पिछला पृष्ठ',
+                'showing'              => 'दिखा रहा है :firstItem',
+                'to'                   => 'से :lastItem',
             ],
         ],
 
@@ -480,7 +521,7 @@ return [
         ],
 
         'sort-by' => [
-            'title'   => 'क्रमबद्ध करें',
+            'title' => 'क्रमबद्ध करें',
         ],
 
         'view' => [
@@ -491,7 +532,8 @@ return [
                 ],
 
                 'bundle' => [
-                    'none' => 'कोई नहीं',
+                    'none'         => 'कोई नहीं',
+                    'total-amount' => 'कुल राशि',
                 ],
 
                 'downloadable' => [
@@ -582,7 +624,7 @@ return [
             ],
 
             'results' => [
-                'analysed-keywords' => 'विश्लेषित की गई कीवर्ड:',
+                'analyzed-keywords' => 'विश्लेषित की गई कीवर्ड:',
             ],
         ],
     ],
@@ -610,6 +652,7 @@ return [
         'cart' => [
             'continue-to-checkout'      => 'जारी रखने के लिए जारी रखें',
             'illegal'                   => 'मात्रा एक से कम नहीं हो सकती।',
+            'inactive-add'              => 'निष्क्रिय आइटम को कार्ट में जोड़ा नहीं जा सकता।',
             'inactive'                  => 'आइटम निष्क्रिय कर दिया गया है और इसके बाद से कार्ट से हटा दिया गया है।',
             'inventory-warning'         => 'अनुरोधित मात्रा उपलब्ध नहीं है, कृपया बाद में पुनः प्रयास करें।',
             'item-add-to-cart'          => 'आइटम सफलतापूर्वक कार्ट में जोड़ दिया गया',
@@ -652,22 +695,6 @@ return [
                 ],
             ],
 
-            'coupon' => [
-                'already-applied' => 'कूपन कोड पहले से ही लागू हो गया है।',
-                'applied'         => 'कूपन लागू हो गया',
-                'apply'           => 'कूपन लागू करें',
-                'apply-issue'     => 'कूपन कोड लागू नहीं किया जा सकता है।',
-                'button-title'    => 'लागू करें',
-                'code'            => 'कूपन कोड',
-                'discount'        => 'कूपन छूट',
-                'enter-your-code' => 'अपना कोड दर्ज करें',
-                'error'           => 'कुछ गलत हो गया है',
-                'invalid'         => 'कूपन कोड अवैध है।',
-                'remove'          => 'कूपन हटाएं',
-                'subtotal'        => 'उप-कुल',
-                'success-apply'   => 'कूपन कोड सफलतापूर्वक लागू हुआ।',
-            ],
-
             'mini-cart' => [
                 'continue-to-checkout' => 'जारी रखने के लिए जारी रखें',
                 'empty-cart'           => 'आपका कार्ट खाली है',
@@ -688,62 +715,44 @@ return [
                 'proceed-to-checkout' => 'चेकआउट करें',
                 'sub-total'           => 'उप-कुल',
                 'tax'                 => 'कर',
+
+                'estimate-shipping' => [
+                    'country'        => 'देश',
+                    'info'           => 'अपने गंतव्य को दर्ज करें और शिपिंग और कर का अनुमान प्राप्त करें।',
+                    'postcode'       => 'पिन कोड',
+                    'select-country' => 'देश चुनें',
+                    'select-state'   => 'राज्य चुनें',
+                    'state'          => 'राज्य',
+                    'title'          => 'शिपिंग और कर का अनुमान',
+                ],
             ],
         ],
 
         'onepage' => [
-            'addresses' => [
-                'billing' => [
-                    'add-new-address'                    => 'नई पता जोड़ें',
-                    'back'                               => 'पीछे जाएं',
-                    'billing-address'                    => 'बिलिंग पता',
-                    'city'                               => 'शहर',
-                    'company-name'                       => 'कंपनी का नाम',
-                    'confirm'                            => 'कन्फर्म करें',
-                    'country'                            => 'देश',
-                    'email'                              => 'ईमेल',
-                    'first-name'                         => 'पहला नाम',
-                    'last-name'                          => 'अंतिम नाम',
-                    'postcode'                           => 'ज़िप/पिन कोड',
-                    'proceed'                            => 'आगे बढ़ें',
-                    'save'                               => 'बचाना',
-                    'use-different-address-for-shipping' => 'पता मेरे बिलिंग पते का है',
-                    'save-address'                       => 'इस पते को सहेजें',
-                    'select-country'                     => 'देश चुनें',
-                    'select-state'                       => 'राज्य चुनें',
-                    'state'                              => 'राज्य',
-                    'street-address'                     => 'स्ट्रीट पता',
-                    'telephone'                          => 'टेलीफोन',
-                ],
-
-                'index' => [
-                    'bagisto' => 'बागिस्तो',
-                    'confirm' => 'कन्फर्म करें',
-                ],
-
-                'shipping' => [
-                    'add-new-address'  => 'नई पता जोड़ें',
-                    'back'             => 'पीछे जाएं',
-                    'city'             => 'शहर',
-                    'company-name'     => 'कंपनी का नाम',
-                    'confirm'          => 'कन्फर्म करें',
-                    'country'          => 'देश',
-                    'email'            => 'ईमेल',
-                    'first-name'       => 'पहला नाम',
-                    'last-name'        => 'अंतिम नाम',
-                    'postcode'         => 'ज़िप/पिन कोड',
-                    'proceed'          => 'आगे बढ़ें',
-                    'save'             => 'बचाना',
-                    'save-address'     => 'इस पते को सहेजें',
-                    'select-country'   => 'देश चुनें',
-                    'select-state'     => 'राज्य चुनें',
-                    'shipping-address' => 'शिपिंग पता',
-                    'state'            => 'राज्य',
-                    'street-address'   => 'सड़क पता',
-                    'telephone'        => 'टेलीफोन',
-                ],
-
-                'title' => 'पता',
+            'address' => [
+                'add-new-address'  => 'नया पता जोड़ें',
+                'add-new'          => 'नया पता जोड़ें',
+                'back'             => 'पीछे जाएं',
+                'billing-address'  => 'बिलिंग पता',
+                'city'             => 'शहर',
+                'company-name'     => 'कंपनी का नाम',
+                'confirm'          => 'पुष्टि करें',
+                'country'          => 'देश',
+                'email'            => 'ईमेल',
+                'first-name'       => 'पहला नाम',
+                'last-name'        => 'आख़िरी नाम',
+                'postcode'         => 'पिन कोड',
+                'proceed'          => 'आगे बढ़ें',
+                'same-as-billing'  => 'शिपिंग के लिए एक ही पता उपयोग करें?',
+                'save-address'     => 'इसे पता पुस्तिका में सहेजें',
+                'save'             => 'सहेजें',
+                'select-country'   => 'देश चुनें',
+                'select-state'     => 'राज्य चुनें',
+                'shipping-address' => 'शिपिंग पता',
+                'state'            => 'राज्य',
+                'street-address'   => 'स्ट्रीट पता',
+                'telephone'        => 'टेलीफोन',
+                'title'            => 'पता',
             ],
 
             'index' => [
@@ -771,13 +780,55 @@ return [
                 'tax'                 => 'कर',
             ],
         ],
+
+        'coupon' => [
+            'already-applied' => 'कूपन कोड पहले से ही लागू हो गया है।',
+            'applied'         => 'कूपन लागू हो गया',
+            'apply'           => 'कूपन लागू करें',
+            'apply-issue'     => 'कूपन कोड लागू नहीं किया जा सकता है।',
+            'button-title'    => 'लागू करें',
+            'code'            => 'कूपन कोड',
+            'discount'        => 'कूपन छूट',
+            'enter-your-code' => 'अपना कोड दर्ज करें',
+            'error'           => 'कुछ गलत हो गया है',
+            'invalid'         => 'कूपन कोड अवैध है।',
+            'remove'          => 'कूपन हटाएं',
+            'subtotal'        => 'उप-कुल',
+            'success-apply'   => 'कूपन कोड सफलतापूर्वक लागू हुआ।',
+        ],
+
+        'login' => [
+            'email'    => 'ईमेल',
+            'password' => 'पासवर्ड',
+            'title'    => 'साइन इन',
+        ],
     ],
 
     'home' => [
+        'contact' => [
+            'about'         => 'हमें एक नोट लिखें और हम आपके पास जितनी जल्दी हो सके वापस आएंगे',
+            'desc'          => 'आपके दिमाग में क्या है?',
+            'describe-here' => 'यहां विवरण दें',
+            'email'         => 'ईमेल',
+            'message'       => 'संदेश',
+            'name'          => 'नाम',
+            'phone-number'  => 'फ़ोन नंबर',
+            'submit'        => 'सबमिट करें',
+            'title'         => 'हमसे संपर्क करें',
+        ],
+
         'index' => [
             'offer'               => 'पहले आदेश पर अपटू 40% तक की छूट पाएं अभी खरीदें',
             'resend-verify-email' => 'सत्यापन ईमेल फिर से भेजें',
             'verify-email'        => 'अपने ईमेल खाता सत्यापित करें',
+        ],
+
+        'thanks-for-contact' => 'आपके टिप्पणियों और प्रश्नों के साथ हमसे संपर्क करने के लिए धन्यवाद। हम आपको बहुत जल्द ही जवाब देंगे।',
+    ],
+
+    'partials' => [
+        'pagination' => [
+            'pagination-showing' => 'कुल :total आइटमों में :firstItem से :lastItem तक दिखा रहा है',
         ],
     ],
 
@@ -872,6 +923,14 @@ return [
                 'subject'     => 'आपने हमारी समाचार पत्रिका में सदस्यता ली है!',
                 'unsubscribe' => 'सदस्यता रद्द करें',
             ],
+        ],
+
+        'contact-us' => [
+            'contact-from'    => 'वेबसाइट संपर्क फ़ॉर्म के माध्यम से',
+            'reply-to-mail'   => 'कृपया इस ईमेल का जवाब दें।',
+            'reach-via-phone' => 'वैकल्पिक रूप से, आप हमें फ़ोन पर संपर्क कर सकते हैं',
+            'inquiry-from'    => 'से पूछताछ',
+            'to'              => 'संपर्क करने के लिए',
         ],
 
         'orders' => [
