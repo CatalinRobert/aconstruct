@@ -9,6 +9,7 @@
     <meta name="description" content="{{ $channel->home_seo['meta_description'] ?? '' }}" />
 
     <meta name="keywords" content="{{ $channel->home_seo['meta_keywords'] ?? '' }}" />
+    <meta name="google-site-verification" content="x_3s2quXAl_o2Wa66VRchoHBq-oCHVg9-n5VboXVEbs"/>
 @endPush
 
 <x-shop::layouts>
